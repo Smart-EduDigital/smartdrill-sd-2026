@@ -148,6 +148,7 @@
     <!-- Script Application -->
     <script>
         let allQuestions = [];
+        let validTokens = [];
         let currentQuizQuestions = [];
         let currentIndex = 0;
         let userAnswers = {};
@@ -155,16 +156,16 @@
         let globalTimerInterval = null;
         let totalTimeLeft = 45 * 60; // 45 menit dalam detik
 
-        // Load questions.json on startup
-        fetch('questions.json')
-            .then(res => res.json())
-            .then(data => {
-                allQuestions = data;
-            })
-            .catch(err => {
-                console.error('Gagal memuat questions.json:', err);
-                alert('Gagal memuat bank soal questions.json. Pastikan file tersedia!');
-            });
+        // Load questions.json and tokens.json on startup
+        Promise.all([
+            fetch('questions.json').then(res => res.json()),
+            fetch('tokens.json').then(res => res.json()).catch(() => [])
+        ]).then(([qData, tData]) => {
+            allQuestions = qData;
+            validTokens = tData;
+        }).catch(err => {
+            console.error('Gagal memuat data:', err);
+        });
 
         function startApp() {
             const name = document.getElementById('input-name').value.trim();
@@ -173,6 +174,20 @@
                 alert('Silakan masukkan nama lengkap Anda.');
                 return;
             }
+            if (!token) {
+                alert('Silakan masukkan kode PIN / token akses.');
+                return;
+            }
+
+            // Validasi token jika tokens.json tersedia
+            if (validTokens.length > 0) {
+                const found = validTokens.find(t => t.token.toLowerCase() === token.toLowerCase() && t.status === 'active');
+                if (!found) {
+                    alert('Token akses tidak valid, salah ketik, atau sudah kadaluarsa. Silakan periksa kembali token Anda.');
+                    return;
+                }
+            }
+
             studentName = name;
             document.getElementById('user-badge').innerText = studentName;
             document.getElementById('user-badge').classList.remove('hidden');
