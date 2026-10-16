@@ -152,8 +152,8 @@
         let currentIndex = 0;
         let userAnswers = {};
         let studentName = '';
-        let timerInterval = null;
-        let timeLeft = 60;
+        let globalTimerInterval = null;
+        let totalTimeLeft = 45 * 60; // 45 menit dalam detik
 
         // Load questions.json on startup
         fetch('questions.json')
@@ -193,31 +193,38 @@
 
             currentIndex = 0;
             userAnswers = {};
+            totalTimeLeft = 45 * 60; // 45 menit
 
             document.getElementById('step-select').classList.add('hidden');
             document.getElementById('step-quiz').classList.remove('hidden');
             document.getElementById('quiz-info').innerText = `${subject} - ${paket}`;
 
+            startGlobalTimer();
             renderQuestion();
+        }
+
+        function startGlobalTimer() {
+            clearInterval(globalTimerInterval);
+            globalTimerInterval = setInterval(() => {
+                totalTimeLeft--;
+                
+                // Format MM:SS
+                const minutes = Math.floor(totalTimeLeft / 60);
+                const seconds = totalTimeLeft % 60;
+                document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (totalTimeLeft <= 0) {
+                    clearInterval(globalTimerInterval);
+                    alert('Waktu ujian telah habis!');
+                    finishQuiz();
+                }
+            }, 1000);
         }
 
         function renderQuestion() {
             const q = currentQuizQuestions[currentIndex];
             document.getElementById('question-number').innerText = `Soal ${currentIndex + 1} dari ${currentQuizQuestions.length}`;
             document.getElementById('question-text').innerText = q.question;
-
-            // Timer
-            clearInterval(timerInterval);
-            timeLeft = q.time || 60;
-            document.getElementById('timer').innerText = timeLeft;
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('timer').innerText = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    nextQuestion();
-                }
-            }, 1000);
 
             // Options
             const container = document.getElementById('options-container');
@@ -248,7 +255,6 @@
         }
 
         function nextQuestion() {
-            clearInterval(timerInterval);
             if (currentIndex < currentQuizQuestions.length - 1) {
                 currentIndex++;
                 renderQuestion();
@@ -258,7 +264,6 @@
         }
 
         function prevQuestion() {
-            clearInterval(timerInterval);
             if (currentIndex > 0) {
                 currentIndex--;
                 renderQuestion();
@@ -266,6 +271,7 @@
         }
 
         function finishQuiz() {
+            clearInterval(globalTimerInterval);
             document.getElementById('step-quiz').classList.add('hidden');
             document.getElementById('step-result').classList.remove('hidden');
 
