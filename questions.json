@@ -1,0 +1,1202 @@
+[
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah toko alat tulis memiliki persediaan 24 kotak pensil. Setiap kotak berisi 12 batang pensil. Toko tersebut mendapatkan kiriman tambahan sebanyak 75 batang pensil. Jika pada hari itu terjual 148 batang pensil, berapakah sisa pensil di toko tersebut sekarang?",
+    "type": "Multiple Choice",
+    "options": [
+      "215 batang",
+      "225 batang",
+      "235 batang",
+      "245 batang"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) Persediaan awal = 24 x 12 = 288 pensil.\n2) Mendapat kiriman tambahan = 288 + 75 = 363 pensil.\n3) Terjual 148 pensil, maka sisa pensil = 363 - 148 = 215 batang pensil."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah taman bunga berbentuk persegi memiliki luas 625 m². Di sekeliling taman tersebut akan dipasang pagar pembatas kawat. Panjang kawat minimal yang dibutuhkan untuk memagari taman tersebut satu putaran penuh adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "50 meter",
+      "75 meter",
+      "100 meter",
+      "125 meter"
+    ],
+    "correct": "3",
+    "time": 90,
+    "explanation": "1) Luas persegi = s² = 625 m², maka panjang sisi s = √625 = 25 meter.\n2) Keliling persegi = 4 x s = 4 x 25 meter = 100 meter kawat."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah kolam ikan memiliki volume air 1.800 liter. Kolam tersebut diisi air menggunakan pipa dengan debit 40 liter/menit. Berapakah waktu yang diperlukan agar kolam ikan tersebut terisi penuh dari keadaan kosong?",
+    "type": "Multiple Choice",
+    "options": [
+      "35 menit",
+      "45 menit",
+      "50 menit",
+      "1 jam 15 menit"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Waktu t = Volume / Debit = 1.800 liter / (40 liter/menit) = 45 menit."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Berikut adalah data hasil penjualan beras di Toko Makmur selama 5 hari berturut-turut:\n• Senin: 45 kg\n• Selasa: 60 kg\n• Rabu: 50 kg\n• Kamis: 75 kg\n• Jumat: 70 kg\nBerapakah rata-rata (mean) penjualan beras per hari di toko tersebut?",
+    "type": "Multiple Choice",
+    "options": [
+      "58 kg",
+      "60 kg",
+      "62 kg",
+      "65 kg"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Total penjualan = 45 + 60 + 50 + 75 + 70 = 300 kg.\n2) Banyak hari = 5 hari.\n3) Rata-rata = 300 / 5 = 60 kg/hari."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah kapal selam mula-mula berada pada kedalaman 120 meter di bawah permukaan laut. Kapal selam tersebut kemudian naik sejauh 45 meter untuk menghindari terumbu karang. Beberapa saat kemudian, kapal kembali menyelam sedalam 20 meter. Posisi kedalaman kapal selam sekarang berada pada....",
+    "type": "Multiple Choice",
+    "options": [
+      "95 meter di bawah permukaan laut",
+      "85 meter di bawah permukaan laut",
+      "75 meter di bawah permukaan laut",
+      "65 meter di bawah permukaan laut"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) Kedalaman awal = -120 meter.\n2) Naik sejauh 45 meter = -120 + 45 = -75 meter.\n3) Menyelam kembali 20 meter = -75 - 20 = -95 meter.\n4) Posisi kapal selam = 95 meter di bawah permukaan laut."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Lampu mercusuar merah berkedip setiap 15 detik, lampu hijau setiap 20 detik, dan lampu kuning setiap 30 detik. Jika ketiga lampu berkedip bersamaan pada pukul 19.45.00, pada pukul berapakah ketiga lampu akan berkedip bersama-sama untuk kedua kalinya?",
+    "type": "Multiple Choice",
+    "options": [
+      "19.45.45",
+      "19.46.00",
+      "19.46.30",
+      "19.47.00"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Mencari KPK dari 15, 20, dan 30 detik. 15 = 3 x 5, 20 = 2² x 5, 30 = 2 x 3 x 5. KPK = 2² x 3 x 5 = 60 detik = 1 menit.\n2) Waktu bersamaan kedua = 19.45.00 + 1 menit = 19.46.00."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Pak Darmo memiliki sebidang tanah berbentuk trapesium sama kaki. Panjang sisi-sisi sejajarnya adalah 18 meter dan 30 meter, dengan jarak tegak (tinggi trapesium) 12 meter. Tanah tersebut akan dijual dengan harga Rp500.000 per meter persegi. Berapakah total uang yang diterima Pak Darmo dari penjualan tanah tersebut?",
+    "type": "Multiple Choice",
+    "options": [
+      "Rp144.000.000",
+      "Rp156.000.000",
+      "Rp168.000.000",
+      "Rp180.000.000"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) Luas trapesium = 1/2 x (jumlah sisi sejajar) x tinggi = 1/2 x (18 + 30) x 12 = 1/2 x 48 x 12 = 288 m².\n2) Total harga jual = 288 m² x Rp500.000 = Rp144.000.000."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Nilai rata-rata ulangan matematika dari 20 orang siswa adalah 76. Jika 5 orang siswa mengikuti ulangan susulan dengan nilai rata-rata 86 dan nilainya digabungkan, berapakah nilai rata-rata baru seluruh siswa tersebut?",
+    "type": "Multiple Choice",
+    "options": [
+      "77",
+      "78",
+      "79",
+      "80"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Jumlah nilai 20 siswa = 20 x 76 = 1.520.\n2) Jumlah nilai 5 siswa susulan = 5 x 86 = 430.\n3) Total nilai seluruh siswa = 1.520 + 430 = 1.950.\n4) Total seluruh siswa = 20 + 5 = 25 siswa.\n5) Rata-rata gabungan = 1.950 / 25 = 78."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Ibu membuat sirup manis untuk acara arisan. Ibu mencampur 2,5 liter air matang, 1 1/4 liter sirup melon, dan 0,75 liter air kelapa muda. Seluruh minuman tersebut dituangkan ke dalam gelas-gelas kecil berukuran 1/4 liter hingga habis. Berapa banyak gelas yang terisi penuh oleh minuman sirup tersebut?",
+    "type": "Multiple Choice",
+    "options": [
+      "16 gelas",
+      "18 gelas",
+      "19 gelas",
+      "20 gelas"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Total cairan = 2,5 + 1,25 + 0,75 = 4,5 liter.\n2) Volume tiap gelas = 1/4 liter = 0,25 liter.\n3) Banyak gelas = 4,5 / 0,25 = 18 gelas."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Rudi mendapat jadwal ronda malam setiap 6 hari sekali, sedangkan Pak Joko setiap 9 hari sekali. Jika pada hari Rabu, 10 Agustus mereka ronda malam bersama-sama, pada hari dan tanggal berapakah mereka akan bertugas bersama lagi untuk waktu terdekat berikutnya?",
+    "type": "Multiple Choice",
+    "options": [
+      "Minggu, 28 Agustus",
+      "Senin, 29 Agustus",
+      "Minggu, 27 Agustus",
+      "Senin, 28 Agustus"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) KPK dari 6 dan 9 = 18 hari.\n2) 10 Agustus + 18 hari = 28 Agustus.\n3) 18 hari / 7 = 2 sisa 4 hari. Rabu + 4 hari = Minggu. Jadi Minggu, 28 Agustus."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah bangun datar gabungan tersusun dari sebuah persegi panjang berukuran panjang 20 cm dan lebar 10 cm, serta sebuah segitiga siku-siku dengan panjang alas 15 cm dan tinggi 10 cm yang menempel pada salah satu sisi lebarnya. Luas total bangun tersebut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "250 cm²",
+      "275 cm²",
+      "300 cm²",
+      "325 cm²"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Luas persegi panjang = 20 x 10 = 200 cm².\n2) Luas segitiga = 1/2 x 15 x 10 = 75 cm².\n3) Luas total = 200 + 75 = 275 cm²."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Perhatikan data perolehan medali SD Nusantara pada lomba antarsekolah:\n• Emas: 12 medali\n• Perak: 16 medali\n• Perunggu: 20 medali\nManakah pernyataan analisis berikut yang BENAR?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Total seluruh medali yang diraih adalah 48 medali.",
+      "Perbandingan banyak medali emas dan perak adalah 3 : 4.",
+      "Medali perunggu menyumbang lebih dari 50% dari total perolehan medali.",
+      "Selisih banyak medali perunggu dan emas adalah 8 medali."
+    ],
+    "correct": "1, 2, 4",
+    "time": 90,
+    "explanation": "• Total = 12 + 16 + 20 = 48 medali (A BENAR).\n• Rasio emas : perak = 12 : 16 = 3 : 4 (B BENAR).\n• Perunggu = 20/48 x 100% = 41,67% (kurang dari 50%, maka C SALAH).\n• Selisih perunggu & emas = 20 - 12 = 8 medali (D BENAR)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Tiga buah lonceng di menara dibunyikan secara berkala. Lonceng A berbunyi setiap 12 menit sekali, lonceng B setiap 15 menit sekali, dan lonceng C setiap 20 menit sekali. Ketiga lonceng berbunyi bersamaan pertama kali pukul 06.00 pagi.\nManakah pernyataan berikut yang BENAR?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Ketiga lonceng akan berbunyi bersamaan setiap 60 menit sekali.",
+      "Ketiga lonceng berbunyi bersamaan untuk kedua kalinya pada pukul 07.00.",
+      "Dalam rentang waktu pukul 06.00 hingga 09.30, ketiga lonceng berbunyi bersamaan sebanyak 4 kali.",
+      "Lonceng B telah berbunyi sebanyak 3 kali saat ketiga lonceng berbunyi bersama untuk kedua kalinya."
+    ],
+    "correct": "1, 2, 3",
+    "time": 90,
+    "explanation": "• KPK dari 12, 15, dan 20 adalah 60 menit = 1 jam (A BENAR).\n• Berbunyi bersamaan ke-2 = 06.00 + 1 jam = 07.00 (B BENAR).\n• Waktu berbunyi bersama: 06.00, 07.00, 08.00, 09.00 (Total 4 kali, C BENAR).\n• Lonceng B berbunyi setiap 15 menit, dalam 60 menit sudah berbunyi 60/15 = 4 kali (bukan 3, jadi D SALAH)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Pak Karto memiliki lahan perkebunan seluas 1,5 hektar. Sebanyak 45 are ditanami pohon kelapa, 6.000 m² ditanami pohon kopi, dan sisanya ditanami kakao. Luas lahan yang ditanami kakao adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "3.500 m²",
+      "4.000 m²",
+      "4.500 m²",
+      "5.000 m²"
+    ],
+    "correct": "3",
+    "time": 90,
+    "explanation": "1) 1,5 hektar = 1,5 x 10.000 m² = 15.000 m².\n2) 45 are = 45 x 100 m² = 4.500 m².\n3) Pohon kopi = 6.000 m².\n4) Luas kakao = 15.000 - (4.500 + 6.000) = 15.000 - 10.500 = 4.500 m²."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah tenda kemah berbentuk prisma segitiga memiliki penampang alas segitiga dengan panjang alas 1,6 meter dan tinggi segitiga 1,5 meter. Jika panjang tenda (tinggi prisma) adalah 3 meter, berapakah volume udara di dalam tenda tersebut?",
+    "type": "Multiple Choice",
+    "options": [
+      "3,2 m³",
+      "3,6 m³",
+      "4,2 m³",
+      "7,2 m³"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Luas alas segitiga = 1/2 x 1,6 m x 1,5 m = 1,2 m².\n2) Volume prisma = Luas alas x tinggi prisma = 1,2 m² x 3 m = 3,6 m³."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Catatan suhu tubuh seorang anak yang sakit demam pada pukul 06.00 adalah 38,5°C; pukul 09.00 naik menjadi 39,2°C; pukul 12.00 turun menjadi 38,0°C; dan pukul 15.00 turun menjadi 37,2°C. Penurunan suhu tubuh terbesar terjadi pada rentang waktu....",
+    "type": "Multiple Choice",
+    "options": [
+      "Pukul 06.00 - 09.00",
+      "Pukul 09.00 - 12.00",
+      "Pukul 12.00 - 15.00",
+      "Pukul 06.00 - 12.00"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "Penurunan suhu:\n• 09.00 - 12.00 = 39,2°C - 38,0°C = 1,2°C (Penurunan terbesar).\n• 12.00 - 15.00 = 38,0°C - 37,2°C = 0,8°C."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Kelompok tani Makmur memiliki 45 bibit cabai rawit, 60 bibit terung, dan 75 bibit tomat. Bibit-bibit ini akan dibagikan kepada sejumlah kelompok dasawisma dengan jumlah masing-masing bibit sama banyak tanpa sisa.\nManakah pernyataan berikut yang BENAR?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Jumlah kelompok dasawisma terbanyak yang dapat menerima bibit adalah 15 kelompok.",
+      "Setiap kelompok dasawisma menerima 3 bibit cabai rawit.",
+      "Setiap kelompok dasawisma menerima 4 bibit terung.",
+      "Setiap kelompok dasawisma menerima 6 bibit tomat."
+    ],
+    "correct": "1, 2, 3",
+    "time": 90,
+    "explanation": "• FPB dari 45, 60, dan 75 adalah 15 kelompok (A BENAR).\n• Cabai rawit = 45 / 15 = 3 bibit (B BENAR).\n• Terung = 60 / 15 = 4 bibit (C BENAR).\n• Tomat = 75 / 15 = 5 bibit (bukan 6, jadi D SALAH)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Sebuah penampungan air minum berisi 2,5 m³ air. Air tersebut dialirkan ke dalam jeriken sebanyak 450 liter dan dikemas ke dalam botol sebanyak 650 dm³. Berapakah sisa air di dalam penampungan tersebut dalam satuan liter?",
+    "type": "Multiple Choice",
+    "options": [
+      "1.400 liter",
+      "1.450 liter",
+      "1.500 liter",
+      "1.600 liter"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) 2,5 m³ = 2.500 dm³ = 2.500 liter.\n2) Dialirkan ke jeriken = 450 liter.\n3) Dikemas botol = 650 dm³ = 650 liter.\n4) Sisa air = 2.500 - (450 + 650) = 2.500 - 1.100 = 1.400 liter."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Tentukan kebenaran dari prinsip proyeksi dan visualisasi spasial berikut!\n(1) Sebuah bola sempurna jika dilihat dari arah depan, atas, maupun samping selalu tampak sebagai lingkaran yang kongruen.\n(2) Prisma segitiga tegak jika dilihat dari arah samping selalu tampak sebagai segitiga.\n(3) Visualisasi tampak atas suatu bangun sering disebut juga sebagai denah atau proyeksi bidang horizontal.\n\nUrutan nilai kebenaran (Benar/Salah) yang tepat berturut-turut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Benar - Salah - Benar",
+      "Salah - Benar - Salah",
+      "Benar - Benar - Benar",
+      "Benar - Salah - Salah"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "• Tampak bola dari segala sudut adalah lingkaran kongruen (BENAR).\n• Prisma segitiga tegak tampak samping berupa persegi/persegi panjang, bukan segitiga (SALAH).\n• Tampak atas lazim disebut denah atau bidang horizontal (BENAR)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 1",
+    "question": "Perhatikan barisan pola bilangan segitiga: 1, 3, 6, 10, 15, 21, ... Tentukan kebenaran dari pernyataan berikut!\n(1) Selisih antarsuku yang berurutan selalu bertambah 1 (+2, +3, +4, +5, ...).\n(2) Suku berikutnya (suku ke-7) dari barisan tersebut adalah 28.\n(3) Rumus suku ke-n bilangan segitiga adalah n x (n + 1).\n\nUrutan nilai kebenaran (Benar/Salah) yang tepat berturut-turut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Benar - Benar - Salah",
+      "Salah - Salah - Benar",
+      "Benar - Benar - Benar",
+      "Salah - Benar - Salah"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "• Selisih bertingkat bertambah 1: +2, +3, +4, +5, +6, +7 (BENAR).\n• Suku ke-7 = 21 + 7 = 28 (BENAR).\n• Rumus pola bilangan segitiga adalah 1/2 x n x (n + 1), bukan n x (n+1) tanpa dibagi 2 (SALAH)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Suhu di dalam ruang pendingin daging mula-mula adalah -8°C. Karena terjadi pemadaman listrik, suhu di dalam ruang pendingin naik 3°C setiap 15 menit. Berapakah suhu di dalam ruang pendingin tersebut setelah listrik padam selama 1 jam?",
+    "type": "Multiple Choice",
+    "options": [
+      "-4°C",
+      "4°C",
+      "-2°C",
+      "2°C"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Waktu padam = 1 jam = 60 menit.\n2) Kenaikan suhu terjadi sebanyak 60 / 15 = 4 kali kenaikan.\n3) Total kenaikan suhu = 4 x 3°C = 12°C.\n4) Suhu akhir = Suhu awal + kenaikan = -8°C + 12°C = 4°C."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Rian berlatih renang setiap 4 hari sekali, Danu setiap 6 hari sekali, dan Fandi setiap 8 hari sekali di kolam renang yang sama. Jika pada hari Sabtu, 2 Mei mereka berlatih bersama untuk pertama kalinya, pada hari dan tanggal berapakah mereka akan berlatih bersama untuk kedua kalinya?",
+    "type": "Multiple Choice",
+    "options": [
+      "Selasa, 26 Mei",
+      "Rabu, 27 Mei",
+      "Selasa, 24 Mei",
+      "Rabu, 26 Mei"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) Mencari KPK dari 4, 6, dan 8. Faktorisasi: 4 = 2², 6 = 2 x 3, 8 = 2³. KPK = 2³ x 3 = 24 hari.\n2) Tanggal awal = 2 Mei. Pertemuan berikutnya = 2 + 24 = 26 Mei.\n3) Penentuan hari: 24 hari / 7 = 3 sisa 3 hari. Sabtu + 3 hari = Selasa. Jadi Selasa, 26 Mei."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah lapangan olahraga berbentuk persegi panjang berukuran panjang 28 meter dan lebar 14 meter. Pada kedua sisi lebar lapangan tersebut dibuat taman berbentuk setengah lingkaran dengan diameter tepat sama dengan lebar lapangan. Berapakah luas seluruh lapangan beserta kedua taman setengah lingkaran tersebut? (Gunakan π = 22/7)",
+    "type": "Multiple Choice",
+    "options": [
+      "496 m²",
+      "546 m²",
+      "616 m²",
+      "700 m²"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Luas persegi panjang = p x l = 28 m x 14 m = 392 m².\n2) Dua taman setengah lingkaran sama dengan satu lingkaran penuh berdiameter 14 m (jari-jari r = 7 m).\n3) Luas lingkaran = π x r² = (22/7) x 7 x 7 = 154 m².\n4) Luas total gabungan = 392 + 154 = 546 m²."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Data nilai ulangan matematika dari 11 siswa kelas 6 adalah sebagai berikut:\n75, 80, 85, 70, 90, 80, 85, 80, 95, 75, 85.\nNilai median dan modus dari data nilai ulangan tersebut berturut-turut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Median = 80 dan Modus = 80",
+      "Median = 80 dan Modus = 80 dan 85",
+      "Median = 85 dan Modus = 80",
+      "Median = 85 dan Modus = 85"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Urutkan 11 data dari terkecil ke terbesar: 70, 75, 75, 80, 80, 80, 85, 85, 85, 90, 95.\n2) Median (data ke-6) = 80.\n3) Modus adalah nilai yang paling sering muncul: Nilai 80 muncul 3 kali, nilai 85 muncul 3 kali. Keduanya sama-sama muncul paling banyak (bimodal), yaitu 80 dan 85."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Pak Herman memiliki sebidang tanah seluas 1.200 m². Sebanyak 2/5 bagian dari tanah tersebut ditanami jagung, 25% ditanami cabai, dan sisanya dibuat kolam ikan lele. Berapakah luas tanah yang digunakan untuk kolam ikan lele?",
+    "type": "Multiple Choice",
+    "options": [
+      "380 m²",
+      "420 m²",
+      "450 m²",
+      "480 m²"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Jagung = 2/5 x 1.200 = 480 m².\n2) Cabai = 25% x 1.200 = 1/4 x 1.200 = 300 m².\n3) Total luas tanaman = 480 + 300 = 780 m².\n4) Luas kolam lele = 1.200 - 780 = 420 m²."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Bus Bintang berangkat dari terminal pada pukul 08.00 dengan kecepatan rata-rata 50 km/jam. Pada pukul 08.30, mobil Avanza menyusul melewati rute jalan yang sama dengan kecepatan rata-rata 75 km/jam. Pada pukul berapakah mobil Avanza berhasil menyusul bus Bintang?",
+    "type": "Multiple Choice",
+    "options": [
+      "09.00 WIB",
+      "09.30 WIB",
+      "10.00 WIB",
+      "10.30 WIB"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Selisih waktu berangkat = 30 menit = 0,5 jam.\n2) Selisih jarak awal bus = 50 km/jam x 0,5 jam = 25 km.\n3) Selisih kecepatan = 75 - 50 = 25 km/jam.\n4) Waktu menyusul t = Selisih jarak / Selisih kecepatan = 25 km / 25 km/jam = 1 jam.\n5) Waktu menyusul = 08.30 + 1 jam = 09.30 WIB."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah mainan anak tersusun dari balok berukuran panjang 12 cm, lebar 8 cm, tinggi 10 cm yang di atasnya tepat menempel sebuah kubus dengan panjang rusuk 8 cm. Berapakah volume gabungan seluruh mainan tersebut?",
+    "type": "Multiple Choice",
+    "options": [
+      "1.472 cm³",
+      "1.512 cm³",
+      "1.624 cm³",
+      "1.728 cm³"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "1) Volume balok = 12 x 8 x 10 = 960 cm³.\n2) Volume kubus = s³ = 8 x 8 x 8 = 512 cm³.\n3) Volume total = 960 + 512 = 1.472 cm³."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Data jumlah gol yang dicetak seorang pemain bola dalam 10 pertandingan adalah: 1, 2, 0, 3, 2, 1, 2, 4, 1, 2.\nManakah pernyataan analisis data berikut yang BENAR?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Nilai modus dari data gol tersebut adalah 2.",
+      "Nilai median dari data gol tersebut adalah 2.",
+      "Rata-rata gol per pertandingan adalah 1,8 gol.",
+      "Selisih gol terbanyak dan tersedikit (jangkauan) adalah 3 gol."
+    ],
+    "correct": "1, 2, 3",
+    "time": 90,
+    "explanation": "• Urutan data (10 data): 0, 1, 1, 1, 2, 2, 2, 2, 3, 4.\n• Angka 2 muncul 4 kali (paling banyak), maka Modus = 2 (A BENAR).\n• Median = rata-rata data ke-5 dan ke-6 = (2 + 2) / 2 = 2 (B BENAR).\n• Total gol = 0 + 3(1) + 4(2) + 3 + 4 = 18 gol. Rata-rata = 18 / 10 = 1,8 gol (C BENAR).\n• Jangkauan = Nilai terbesar - Nilai terkecil = 4 - 0 = 4 (bukan 3, maka D SALAH)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah bak penampungan air berbentuk kubus memiliki volume 1.728 liter. Panjang rusuk bagian dalam bak penampungan air tersebut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "100 cm",
+      "110 cm",
+      "120 cm",
+      "140 cm"
+    ],
+    "correct": "3",
+    "time": 90,
+    "explanation": "1) 1.728 liter = 1.728 dm³.\n2) Rusuk s = ∛1.728 dm = 12 dm.\n3) Ubah ke cm = 12 x 10 = 120 cm."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah loyang pizza dipotong menjadi 12 bagian sama besar. Budi memakan 3 potong, Siti memakan 4 potong, dan sisanya dimakan Anton. Tentukan nilai kebenaran dari pernyataan berikut!\n(1) Bagian pizza yang dimakan Budi setara dengan 1/4 bagian dari satu loyang.\n(2) Bagian pizza yang dimakan Siti setara dengan 1/3 bagian dari satu loyang.\n(3) Bagian pizza yang dimakan Anton adalah 1/2 bagian dari satu loyang.\n\nUrutan nilai kebenaran (Benar/Salah) yang tepat berturut-turut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Benar - Benar - Salah",
+      "Salah - Salah - Benar",
+      "Benar - Benar - Benar",
+      "Salah - Benar - Salah"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "• Budi = 3/12 = 1/4 (BENAR).\n• Siti = 4/12 = 1/3 (BENAR).\n• Sisa Anton = 12 - (3+4) = 5 potong = 5/12 bagian (bukan 1/2 = 6/12, maka SALAH)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah bak mandi bervolume 360 liter diisi air menggunakan kran selama 20 menit hingga penuh. Berapakah debit aliran air kran tersebut dalam satuan liter/menit?",
+    "type": "Multiple Choice",
+    "options": [
+      "16 liter/menit",
+      "18 liter/menit",
+      "20 liter/menit",
+      "22 liter/menit"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "Debit = Volume / Waktu = 360 liter / 20 menit = 18 liter/menit."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Nilai ulangan IPA Wulan pada lima kali penilaian adalah: 80, 85, 75, 90, dan 85. Jika Wulan menginginkan nilai rata-rata dari enam kali ulangan menjadi 84, berapakah nilai yang harus diraih Wulan pada ulangan keenam?",
+    "type": "Multiple Choice",
+    "options": [
+      "88",
+      "89",
+      "90",
+      "92"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Total nilai 5 ulangan = 80 + 85 + 75 + 90 + 85 = 415.\n2) Target total 6 ulangan = 6 x 84 = 504.\n3) Nilai ulangan keenam = 504 - 415 = 89."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Dalam suatu kompetisi cerdas cermat sains, berlaku aturan skor: setiap jawaban benar mendapat nilai 4, salah mendapat nilai -2, dan tidak dijawab mendapat nilai 0. Dari 25 soal yang diberikan, Farhan berhasil menjawab benar 18 soal dan tidak menjawab 3 soal. Berapakah nilai total yang diperoleh Farhan?",
+    "type": "Multiple Choice",
+    "options": [
+      "60",
+      "64",
+      "68",
+      "72"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Soal dijawab salah = Total - Benar - Tidak Jawab = 25 - 18 - 3 = 4 soal.\n2) Skor benar = 18 x 4 = 72.\n3) Skor salah = 4 x (-2) = -8.\n4) Skor tidak dijawab = 3 x 0 = 0.\n5) Total nilai = 72 + (-8) + 0 = 64."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Pak Sholeh pedagang buah membeli 50 kg apel Malang seharga Rp750.000. Seluruh apel tersebut dijual eceran seharga Rp18.000 per kg. Tentukan nilai kebenaran dari pernyataan berikut!\n(1) Total uang hasil penjualan seluruh apel adalah Rp900.000.\n(2) Pak Sholeh memperoleh keuntungan sebesar Rp150.000.\n(3) Persentase keuntungan yang diperoleh Pak Sholeh adalah sebesar 25%.\n\nUrutan nilai kebenaran (Benar/Salah) yang tepat berturut-turut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Benar - Benar - Salah",
+      "Salah - Salah - Benar",
+      "Benar - Benar - Benar",
+      "Salah - Benar - Salah"
+    ],
+    "correct": "1",
+    "time": 90,
+    "explanation": "• Penjualan = 50 kg x Rp18.000 = Rp900.000 (BENAR).\n• Keuntungan = Rp900.000 - Rp750.000 = Rp150.000 (BENAR).\n• Persentase laba = (150.000 / 750.000) x 100% = 20% (Bukan 25%, maka SALAH)."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah kolam ikan berbentuk lingkaran memiliki diameter 14 meter. Di sekeliling luar kolam tersebut dibangun jalan setapak melingkar selebar 3,5 meter. (Jari-jari lingkaran luar menjadi 7 + 3,5 = 10,5 meter). Berapakah luas jalan setapak melingkar tersebut? (Gunakan π = 22/7)",
+    "type": "Multiple Choice",
+    "options": [
+      "154 m²",
+      "192,5 m²",
+      "346,5 m²",
+      "400 m²"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Jari-jari kolam dalam r1 = 14 / 2 = 7 m. Luas dalam = (22/7) x 7 x 7 = 154 m².\n2) Jari-jari luar r2 = 7 + 3,5 = 10,5 m. Luas luar = (22/7) x 10,5 x 10,5 = 346,5 m².\n3) Luas jalan setapak = Luas luar - Luas dalam = 346,5 - 154 = 192,5 m²."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Data ekstrakurikuler pilihan 40 siswa kelas 6 adalah: Futsal 14 siswa, Tari 6 siswa, Pramuka 12 siswa, dan Lukis 8 siswa. Modus ekstrakurikuler pilihan siswa adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Tari",
+      "Lukis",
+      "Pramuka",
+      "Futsal"
+    ],
+    "correct": "4",
+    "time": 90,
+    "explanation": "Ekstrakurikuler Futsal dipilih oleh paling banyak siswa yaitu 14 siswa, maka modusnya adalah Futsal."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah botol berisi madu murni sebanyak 4/5 liter. Setiap hari adik meminum madu tersebut sebanyak 1/15 liter. Dalam berapa harikah madu murni di dalam botol tersebut akan habis?",
+    "type": "Multiple Choice",
+    "options": [
+      "10 hari",
+      "12 hari",
+      "14 hari",
+      "15 hari"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "Banyak hari = (4/5) : (1/15) = (4/5) x 15 = 4 x 3 = 12 hari."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Seorang pasien di rumah sakit harus meminum obat kapsul setiap 4 jam sekali dan obat sirup setiap 6 jam sekali. Jika pasien tersebut meminum kedua obat bersamaan pada pukul 08.00 pagi, pukul berapakah ia akan meminum kedua obat tersebut bersamaan lagi untuk waktu berikutnya?",
+    "type": "Multiple Choice",
+    "options": [
+      "16.00 WIB",
+      "18.00 WIB",
+      "20.00 WIB",
+      "22.00 WIB"
+    ],
+    "correct": "3",
+    "time": 90,
+    "explanation": "1) KPK dari 4 dan 6 adalah 12 jam.\n2) Waktu bersamaan berikutnya = 08.00 + 12 jam = 20.00 WIB."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Sebuah cetakan nasi tumpeng berbentuk kerucut memiliki jari-jari lingkaran alas 7 cm dan tinggi kerucut 24 cm. (Gunakan π = 22/7). Volume nasi tumpeng yang dapat dicetak adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "1.124 cm³",
+      "1.232 cm³",
+      "1.456 cm³",
+      "3.696 cm³"
+    ],
+    "correct": "2",
+    "time": 90,
+    "explanation": "1) Volume kerucut = 1/3 x π x r² x t = 1/3 x (22/7) x 7 x 7 x 24.\n2) 1/3 x 24 = 8.\n3) Volume = (22/7) x 49 x 8 = 154 x 8 = 1.232 cm³."
+  },
+  {
+    "subject": "Matematika",
+    "paket": "Paket 2",
+    "question": "Data panen sayuran hidroponik sekolah mencatat: Bayam (24 kg), Selada (18 kg), Kangkung (30 kg), dan Pakcoy (28 kg).\nManakah pernyataan analisis data berikut yang BENAR?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Total seluruh panen sayuran adalah 100 kg.",
+      "Kangkung merupakan sayuran dengan hasil panen paling banyak (modus).",
+      "Selisih panen kangkung dan selada adalah 12 kg.",
+      "Persentase panen bayam terhadap seluruh hasil panen adalah 25%."
+    ],
+    "correct": "1, 2, 3",
+    "time": 90,
+    "explanation": "• Total = 24 + 18 + 30 + 28 = 100 kg (A BENAR).\n• Kangkung tertinggi (30 kg) maka modus (B BENAR).\n• Selisih kangkung & selada = 30 - 18 = 12 kg (C BENAR).\n• Bayam = 24/100 x 100% = 24% (bukan 25%, maka D SALAH)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Teks: Hutan Mangrove: Benteng Alami Pesisir Pantai]\nHutan mangrove memiliki akar tunjang kokoh yang menahan hantaman ombak, mencegah abrasi pantai, serta merangkap endapan lumpur. Selain itu, celah akar mangrove menjadi tempat berkembang biak biota laut dan mampu menyerap karbon dioksida 5 kali lebih tinggi dari hutan hujan tropis.\n\nBerdasarkan paragraf pertama teks 'Hutan Mangrove: Benteng Alami Pesisir Pantai', fungsi utama akar tunjang pada tanaman mangrove adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Menghasilkan buah bakau yang dapat dikonsumsi biota laut",
+      "Menahan hantaman ombak, mencegah abrasi, dan merangkap endapan lumpur",
+      "Menyerap cadangan air tawar dari muara sungai secara maksimal",
+      "Mempercepat proses pasang surut air laut di muara pantai"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Pada paragraf pertama secara eksplisit disebutkan bahwa akar tunjang yang unik berfungsi sebagai penahan hantaman ombak besar, pencegah abrasi pantai, serta perangkap endapan lumpur."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Cerita: Kendi Kejujuran Keling]\nKeling memikul dua kendi: satu kendi utuh dan satu kendi retak yang airnya selalu merembes. Kendi retak merasa sedih dan berkecil hati. Namun, Keling tersenyum dan menunjukkan bahwa tetesan airnya justru menumbuhkan bunga-bunga liar indah di tepi jalan. 'Setiap kekurangan yang kita miliki tetap bisa membawa kebaikan jika disikapi dengan tulus.'\n\nBerdasarkan cerita 'Kendi Kejujuran Keling', bagaimana watak tokoh Keling dalam menyikapi kendinya yang retak?",
+    "type": "Multiple Choice",
+    "options": [
+      "Pemarah dan mudah putus asa",
+      "Bijaksana, sabar, dan penuh rasa syukur",
+      "Sombong dan membanding-bandingkan barang",
+      "Kikir dan tidak peduli terhadap orang lain"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Keling tidak marah atau membuang kendi retak, melainkan tersenyum lembut dan menunjukkan sisi positif bahwa tetesan airnya menumbuhkan bunga-bunga indah."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Penulisan huruf kapital yang tepat sesuai kaidah Ejaan Bahasa Indonesia (EBI) terdapat pada kalimat....",
+    "type": "Multiple Choice",
+    "options": [
+      "Pada hari Minggu, paman mengajak kami berlibur ke danau Toba di Sumatera Utara.",
+      "Pada hari Minggu, Paman mengajak kami berlibur ke Danau Toba di Sumatera Utara.",
+      "Pada hari minggu, paman mengajak kami berlibur ke Danau toba di sumatera utara.",
+      "Pada hari Minggu, paman mengajak kami berlibur ke Danau Toba di Sumatera Utara."
+    ],
+    "correct": "4",
+    "time": 60,
+    "explanation": "• 'Minggu' (nama hari), 'Danau Toba' (nama geografi diri), 'Sumatera Utara' (nama provinsi geografi) wajib kapital.\n• Kata 'paman' jika tidak diikuti nama diri atau bukan sapaan langsung ditulis huruf kecil."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Kalimat berikut yang seluruh kosakatanya menggunakan kata baku adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Ayah membeli obat penurun demam di apotek sesuai jadwal dokter.",
+      "Ayah membeli obat penurun demam di apotik sesuai jadual dokter.",
+      "Ayah membeli obat penurun demam di apotek sesuai jadual dokter.",
+      "Ayah membeli obat penurun demam di apotik sesuai jadwal dokter."
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Bentuk baku menurut KBBI adalah 'apotek' (bukan apotik) dan 'jadwal' (bukan jadual)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Teks: Energi Surya: Sumber Daya Tak Terbatas untuk Masa Depan]\nEnergi surya merupakan sumber energi terbarukan ramah lingkungan tanpa emisi karbon. Panel surya silikon mengubah foton matahari menjadi arus listrik DC. Terletak di khatulistiwa, Indonesia menerima sinar matahari 10-12 jam/hari, sangat potensial untuk PLTS di pulau terpencil.\n\nMengapa Indonesia memiliki potensi pemanfaatan energi surya yang sangat besar?",
+    "type": "Multiple Choice",
+    "options": [
+      "Karena Indonesia memiliki banyak cadangan bahan bakar fosil batu bara",
+      "Karena letak geografis Indonesia berada di garis khatulistiwa dengan sinar matahari sepanjang tahun",
+      "Karena biaya pemasangan panel surya di Indonesia gratis dari pemerintah",
+      "Karena pulau-pulau di Indonesia tidak memerlukan jaringan kabel listrik"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Paragraf kedua menyebutkan Indonesia terletak tepat di garis khatulistiwa sehingga menerima pancaran sinar matahari stabil selama 10–12 jam per hari sepanjang tahun."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Fabel: Persahabatan Elang dan Merpati]\nGagah si burung Elang sombong membanggakan kekuatannya. Suatu hari angin puyuh menghantam sayapnya hingga patah di semak berduri. Putih si burung Merpati yang rendah hati dengan telaten merawat luka Gagah hingga sembuh. Gagah pun sadar dan meminta maaf atas kesombongannya.\n\nMakna ungkapan 'rendah hati' yang dimiliki tokoh Putih dalam cerita adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Merasa dirinya serba kekurangan",
+      "Tidak sombong atau tidak angkuh",
+      "Berbadan kecil dan lemah",
+      "Mudah merasa sedih dan kecewa"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Ungkapan 'rendah hati' bermakna tidak sombong, tidak memamerkan kelebihan, dan bersahaja dalam bergaul."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Perhatikan kalimat rumpang berikut:\nPara relawan sedang [...] paket sembako untuk korban bencana banjir.\nKata berimbuhan yang paling tepat untuk melengkapi kalimat tersebut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "membagi-bagikan",
+      "dibagi-bagikan",
+      "kebagian",
+      "berbagikan"
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Subjek 'Para relawan' melakukan tindakan aktif berulang kepada banyak objek paket sembako, maka imbuhan yang tepat adalah 'me-kan' dengan pengulangan kata dasar: 'membagi-bagikan'."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Perhatikan kalimat tidak efektif berikut:\n\"Bagi para peserta lomba yang mana belum mendaftar ulang harap segera mendaftar.\"\nManakah perbaikan kalimat di atas agar menjadi KALIMAT EFEKTIF?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Peserta lomba yang belum mendaftar ulang harap segera mendaftar.",
+      "Para peserta lomba yang belum mendaftar ulang harap segera mendaftar.",
+      "Bagi para peserta-peserta yang mana belum mendaftar ulang harap daftar.",
+      "Semua peserta lomba yang mana belum mendaftar ulang diharapkan segera daftar."
+    ],
+    "correct": "1, 2",
+    "time": 60,
+    "explanation": "Kata 'Bagi' di awal kalimat membuat subjek hilang, dan frasa 'yang mana' rancu dalam bahasa Indonesia. Opsi A dan B menghilangkan pemborosan tersebut sehingga menjadi efektif."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Teks: Sistem Irigasi Subak: Kearifan Lokal Pertanian Bali]\nSubak adalah organisasi kemasyarakatan tradisional di Bali yang mengatur irigasi persawahan secara adil sejak abad ke-11. Berlandaskan filosofi 'Tri Hita Karana' (keharmonisan dengan Tuhan, manusia, dan alam), petani bergotong royong sehingga tidak saling berebut air di musim kemarau. Subak diakui UNESCO pada 2012.\n\nFilosofi 'Tri Hita Karana' yang melandasi sistem subak mengajarkan tentang....",
+    "type": "Multiple Choice",
+    "options": [
+      "Persaingan hasil panen antarpetani di pulau Bali",
+      "Tiga jenis tanaman wajib yang harus ditanam di sawah bertingkat",
+      "Keselarasan hubungan manusia dengan Tuhan, sesama manusia, dan alam lingkungan",
+      "Tata cara membangun bendungan air tanpa menggunakan semen"
+    ],
+    "correct": "3",
+    "time": 60,
+    "explanation": "Di paragraf kedua dijelaskan filosofi Tri Hita Karana mengajarkan tiga keharmonisan: dengan Tuhan, sesama manusia, dan alam sekitar."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Cerita: Semut Merah dan Sebutir Jagung Manis]\nSamin si semut muda berusaha mendorong biji jagung manis yang berat seorang diri hingga hampir putus asa. Tetua Dito menasihati: 'Beban berat tidak diciptakan untuk dipikul sepasang pundak saja. Panggillah kawan-kawanmu.' Puluhan semut pun datang bahu-membahu mengangkat biji jagung tersebut.\n\nMakna ungkapan 'bahu-membahu' pada paragraf terakhir cerita di atas adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Saling mengadu kekuatan fisik",
+      "Bekerja sama dan tolong-menolong menyelesaikan pekerjaan",
+      "Berjalan berbaris beriringan secara rapi",
+      "Bersandar pada pundak kawan karena kelelahan"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Ungkapan 'bahu-membahu' berarti bekerja sama dengan kompak saling membantu menyelesaikan suatu pekerjaan berat."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Penulisan huruf kapital yang tepat pada penulisan nama orang dan gelar kehormatan adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Seminar literasi anak tersebut dihadiri oleh dokter Raden Mas Danang, M.Pd.",
+      "Seminar literasi anak tersebut dihadiri oleh Dokter raden mas Danang, m.pd.",
+      "Seminar literasi anak tersebut dihadiri oleh dr. Raden Mas Danang, M.Pd.",
+      "Seminar literasi anak tersebut dihadiri oleh Dr. raden Mas Danang, M.pd."
+    ],
+    "correct": "3",
+    "time": 60,
+    "explanation": "• Gelar 'dr.' (dokter) diawali huruf kecil jika dokter medis, 'Dr.' untuk doktor akademik.\n• Gelar kebangsawanan 'Raden Mas' kapital.\n• Gelar akademik 'M.Pd.' kapital dengan titik di setiap unsurnya."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Perhatikan langkah-langkah membuat pupuk kompos sederhana berikut:\n(1) Siram tumpukan sampah organik dengan air secukupnya agar lembap.\n(2) Kumpulkan sisa sayuran dan daun kering ke dalam wadah pengomposan.\n(3) Diamkan dan aduk campuran kompos seminggu sekali selama 1 bulan.\n(4) Tutup wadah dengan rapat dan letakkan di tempat yang teduh.\nUrutan pembuatan kompos yang tepat adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "(2) - (1) - (4) - (3)",
+      "(2) - (4) - (1) - (3)",
+      "(1) - (2) - (3) - (4)",
+      "(2) - (3) - (1) - (4)"
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Urutan tepat: (2) Kumpulkan sampah organik -> (1) Siram air agar lembap -> (4) Tutup wadah rapat -> (3) Diamkan dan aduk seminggu sekali."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Teks: Komodo: Sang Naga Terakhir dari Nusa Tenggara]\nKomodo (Varanus komodoensis) adalah kadal terbesar di dunia (panjang hingga 3 m, berat 90 kg), endemik di Pulau Komodo, Rinca, Gili Motang, dan Flores. Memiliki penciuman tajam dari lidah kuning bercabang, gigitan tajam, serta kelenjar bisa yang mencegah pembekuan darah mangsa.\n\nMakna istilah 'satwa endemik' pada teks informasi di atas adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Satwa yang hidup di perairan air tawar dan air laut",
+      "Satwa yang hanya hidup secara alami di wilayah geografis tertentu dan tidak ditemukan di tempat lain",
+      "Satwa liar yang telah berhasil dijinakkan oleh manusia",
+      "Satwa pemakan tumbuhan dan biji-bijian di hutan tropis"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Kata 'endemik' menurut KBBI bermakna spesies makhluk hidup yang keberadaannya terbatas hanya di wilayah atau daerah asal tertentu."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Cerita: Lompatan Cici si Tupai Pohon]\nCici si tupai kecil trauma melompat karena pernah terpeleset jatuh. Kakek Tupai menasihati: 'Seekor tupai yang hebat bukanlah yang tidak pernah terpeleset, melainkan yang berani bangkit dan belajar dari kesalahannya.' Cici giat berlatih dari dahan rendah hingga berhasil menaklukkan rasa takutnya.\n\nAmanat moral yang dapat dipetik dari kisah perjuangan Cici si tupai adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Kegagalan adalah akhir dari segalanya sehingga kita tidak boleh mencoba lagi.",
+      "Jangan takut gagal, belajarlah dari kesalahan dan terus berlatih untuk mengalahkan rasa takut.",
+      "Pohon jambu lebih lezat buahnya daripada pohon kenari.",
+      "Lompatlah setinggi mungkin tanpa perlu memperhatikan keselamatan diri."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Pesan cerita mengajarkan bahwa kegagalan bukan akhir perjalanan; dengan tekad belajar dan latihan disiplin, rasa takut dapat dikalahkan."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Penulisan kata baku yang benar terdapat pada kalimat....",
+    "type": "Multiple Choice",
+    "options": [
+      "Siswa kelas 6 sedang melakukan praktek sains di laboratorium.",
+      "Siswa kelas 6 sedang melakukan praktik sains di laboratorium.",
+      "Siswa kelas 6 sedang melakukan praktek sains di laboratorim.",
+      "Siswa kelas 6 sedang melakukan praktik sains di laborat."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Bentuk baku menurut KBBI adalah 'praktik' (bukan praktek) dan 'laboratorium' (bukan laboratorim atau laborat)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Perhatikan kalimat-kalimat berikut:\n(1) Dika belajar giat agar ia lulus ujian dengan nilai memuaskan.\n(2) Ibu menyiram bunga dan ayah membaca koran di teras.\n(3) Kami tidak jadi berolahraga di lapangan karena hujan turun sangat lebat.\n(4) Adik makan roti atau minum susu hangat.\nManakah kalimat di atas yang termasuk KALIMAT MAJEMUK BERTINGKAT?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Kalimat (1)",
+      "Kalimat (2)",
+      "Kalimat (3)",
+      "Kalimat (4)"
+    ],
+    "correct": "1, 3",
+    "time": 60,
+    "explanation": "• Kalimat (1) bertingkat hubungan tujuan (konjungsi 'agar').\n• Kalimat (3) bertingkat hubungan sebab (konjungsi 'karena').\n• Kalimat (2) dan (4) adalah majemuk setara (konjungsi 'dan' serta 'atau')."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Teks: Pesona dan Pelestarian Taman Nasional Bunaken]\nTaman Nasional Bunaken di Teluk Manado memiliki 390 spesies karang dan 2.000 jenis ikan karang. Namun pemanasan global memicu pemutihan karang (coral bleaching) dan sampah plastik mengancam kelestariannya. Pemerintah bersama komunitas menerapkan rehabilitasi karang buatan dan zona larangan tangkap.\n\nApa penyebab terjadinya fenomena pemutihan karang (*coral bleaching*) di perairan laut Bunaken?",
+    "type": "Multiple Choice",
+    "options": [
+      "Terumbu karang dimangsa oleh kawanan lumba-lumba",
+      "Suhu air laut yang terlalu hangat akibat pemanasan global",
+      "Kurangnya kadar garam di perairan Teluk Manado",
+      "Banyaknya dinding karang vertikal yang runtuh ke dasar laut"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Paragraf kedua menerangkan pemutihan karang (coral bleaching) dipicu oleh suhu air laut yang terlalu hangat akibat dampak pemanasan global."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "[Kutipan Cerita: Cahaya Lilin Kecil]\nSaat listrik padam di Desa Sukatani, sebatang lilin kecil dinyalakan untuk menerangi Rian belajar matematika. Meski tubuhnya perlahan meleleh dan memendek, lilin kecil merasa bahagia dan bangga karena dapat memberikan manfaat nyata bagi seseorang yang sedang meraih cita-citanya.\n\nSifat dan keteladanan apa saja yang tercermin dari tokoh lilin kecil dalam cerita?\n(Pilihan Ganda Kompleks: Jawaban benar lebih dari satu)",
+    "type": "Checkbox",
+    "options": [
+      "Rela berkorban demi memberikan manfaat bagi orang lain.",
+      "Ikhlas dan tidak menyesali pengorbanan dirinya.",
+      "Menuntut imbalan mahal atas cahaya yang ia berikan.",
+      "Menolak dinyalakan karena takut tubuhnya habis meleleh."
+    ],
+    "correct": "1, 2",
+    "time": 60,
+    "explanation": "Lilin kecil mencerminkan sifat rela berkorban (A) dan ketulusan ikhlas tanpa penyesalan (B)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Kalimat ajakan (persuasif) yang paling tepat untuk mengampanyekan gerakan hemat listrik adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Listrik padam menyebabkan kamar menjadi gelap gulita.",
+      "Matikan lampu dan peralatan elektronik jika tidak digunakan untuk masa depan bumi kita!",
+      "Mengapa tagihan listrik bulan ini meningkat drastis?",
+      "Pembangkit listrik tenaga surya dibangun di atap rumah warga."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Kalimat persuasif bersifat mengajak atau menghimbau pembaca untuk melakukan aksi nyata, ditandai kata kerja ajakan dan tanda seru."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 1",
+    "question": "Penulisan kata baku yang tepat terdapat pada kalimat....",
+    "type": "Multiple Choice",
+    "options": [
+      "Para atlit nasional sedang berlatih keras demi menjaga stamina tubuh.",
+      "Para atlet nasional sedang berlatih keras demi menjaga stamina tubuh.",
+      "Para atlit nasional sedang berlatih keras demi menjaga setamina tubuh.",
+      "Para atlet nasional sedang berlatih keras demi menjaga setamina tubuh."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Bentuk baku menurut KBBI adalah 'atlet' (bukan atlit) dan 'stamina' (bukan setamina)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Teks: Hutan Mangrove: Benteng Alami Pesisir Pantai]\nHutan mangrove memiliki akar tunjang kokoh yang menahan hantaman ombak, mencegah abrasi pantai, serta merangkap endapan lumpur. Selain itu, celah akar mangrove menjadi tempat berkembang biak biota laut dan mampu menyerap karbon dioksida 5 kali lebih tinggi dari hutan hujan tropis.\n\nMakna istilah kata 'abrasi' pada paragraf pertama teks tersebut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Penurunan permukaan tanah akibat pemukiman warga pesisir",
+      "Proses pengikisan batuan atau daratan pantai akibat tenaga gelombang laut",
+      "Pencemaran air laut oleh tumpahan limbah industri pabrik",
+      "Penebangan pohon bakau secara liar oleh nelayan lokal"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Menurut KBBI, abrasi adalah pengikisan batuan atau tanah oleh air, es, atau angin; dalam konteks pantai adalah pengikisan daratan oleh gelombang air laut."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Cerita: Kendi Kejujuran Keling]\nKeling memikul dua kendi: satu kendi utuh dan satu kendi retak yang airnya selalu merembes. Kendi retak merasa sedih dan berkecil hati. Namun, Keling tersenyum dan menunjukkan bahwa tetesan airnya justru menumbuhkan bunga-bunga liar indah di tepi jalan. 'Setiap kekurangan yang kita miliki tetap bisa membawa kebaikan jika disikapi dengan tulus.'\n\nLatar tempat dan waktu terjadinya peristiwa dalam cerita fiksi di atas adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Di tengah hutan belantara pada malam hari",
+      "Di pasar tradisional pada siang hari",
+      "Di jalan setapak desa lereng bukit pada pagi hari",
+      "Di dermaga pelabuhan pada sore hari"
+    ],
+    "correct": "3",
+    "time": 60,
+    "explanation": "Paragraf 1 dan 3 menyebutkan latar tempat 'desa di lereng bukit' dan 'jalan setapak', serta latar waktu 'setiap pagi'."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Perhatikan kalimat percakapan berikut:\nIbu berkata antarkan kue ini ke rumah Bu Dewi sekarang\nPenggunaan tanda baca yang paling tepat untuk kalimat langsung di atas adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Ibu berkata; \"Antarkan kue ini ke rumah Bu Dewi sekarang?\"",
+      "Ibu berkata, \"Antarkan kue ini ke rumah Bu Dewi sekarang!\"",
+      "Ibu berkata: \"antarkan kue ini ke rumah bu Dewi sekarang.\"",
+      "Ibu berkata, \"Antarkan kue ini ke rumah Bu Dewi sekarang?\""
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Kalimat pengiring dipisahkan dengan tanda koma (,), kalimat petikan langsung diawali huruf kapital di dalam tanda petik dua (\"\"), dan karena bermakna perintah diakhiri tanda seru (!)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Perhatikan petunjuk mencuci tangan yang benar berikut:\n(1) Gosok punggung tangan, sela-sela jari, dan bawah kuku secara merata.\n(2) Basahi kedua telapak tangan dengan air bersih yang mengalir.\n(3) Bilas tangan dengan air bersih mengalir hingga tidak ada busa sabun yang tersisa.\n(4) Tuangkan sabun cair secukupnya pada telapak tangan.\n(5) Keringkan tangan menggunakan handuk bersih atau tisu kering.\nUrutan petunjuk mencuci tangan yang benar dan runtut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "(2) - (4) - (1) - (3) - (5)",
+      "(2) - (1) - (4) - (3) - (5)",
+      "(4) - (2) - (1) - (3) - (5)",
+      "(2) - (4) - (3) - (1) - (5)"
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Urutan logis: (2) Basahi tangan -> (4) Tuangkan sabun -> (1) Gosok punggung tangan & jari -> (3) Bilas air mengalir -> (5) Keringkan tangan."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Teks: Energi Surya: Sumber Daya Tak Terbatas untuk Masa Depan]\nEnergi surya merupakan sumber energi terbarukan ramah lingkungan tanpa emisi karbon. Panel surya silikon mengubah foton matahari menjadi arus listrik DC. Terletak di khatulistiwa, Indonesia menerima sinar matahari 10-12 jam/hari, sangat potensial untuk PLTS di pulau terpencil.\n\nMakna istilah 'energi terbarukan' pada paragraf pertama teks informasi di atas adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Energi yang berasal dari pengolahan minyak bumi dan gas alam",
+      "Energi yang dapat diproduksi kembali secara terus-menerus dan tidak akan pernah habis",
+      "Energi listrik bertegangan tinggi yang disalurkan melalui kabel udara",
+      "Energi yang hanya dapat diperbarui setiap sepuluh tahun sekali"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Energi terbarukan (renewable energy) adalah sumber energi yang berasal dari proses alam berkelanjutan seperti matahari, angin, dan air, yang tidak dapat habis dipakai."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Fabel: Persahabatan Elang dan Merpati]\nGagah si burung Elang sombong membanggakan kekuatannya. Suatu hari angin puyuh menghantam sayapnya hingga patah di semak berduri. Putih si burung Merpati yang rendah hati dengan telaten merawat luka Gagah hingga sembuh. Gagah pun sadar dan meminta maaf atas kesombongannya.\n\nPesan moral atau amanat yang dapat dipetik dari fabel tersebut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Kekuatan fisik adalah segalanya dalam menentukan persahabatan sejati.",
+      "Jangan pernah bersikap sombong karena setiap makhluk pasti membutuhkan pertolongan orang lain suatu saat.",
+      "Jangan terbang saat langit gelap karena berbahaya tersambar petir.",
+      "Tolonglah teman hanya jika teman tersebut memiliki kekuatan besar."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Cerita mengajarkan bahwa sehebat apa pun seseorang (Gagah si Elang), pada saat tertentu ia tetap bisa tertimpa kelemahan dan butuh bantuan orang lain."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Penulisan tanda baca yang tepat untuk perincian barang dalam kalimat berikut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Ibu membeli perlengkapan dapur: wajan panci, pisau dan sutil.",
+      "Ibu membeli perlengkapan dapur; wajan, panci, pisau, dan sutil.",
+      "Ibu membeli perlengkapan dapur: wajan, panci, pisau, dan sutil.",
+      "Ibu membeli perlengkapan dapur, wajan: panci: pisau: dan sutil."
+    ],
+    "correct": "3",
+    "time": 60,
+    "explanation": "Tanda titik dua (:) dipakai pada akhir pernyataan yang diikuti perincian, dan setiap unsur perincian dipisahkan dengan tanda koma (,)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Perhatikan kalimat-kalimat hasil pengamatan berikut:\n(1) Bunga mawar tersebut mulai mekar dan mengeluarkan aroma wangi.\n(2) Siswa kelas 6 mengamati pertumbuhan tanaman mawar di kebun sekolah.\n(3) Batang tanaman mawar dipenuhi duri tajam dan daun berwarna hijau segar.\n(4) Pengamatan dilakukan setiap pagi hari selama dua minggu berturut-turut.\nUrutan kalimat yang padu untuk membentuk teks laporan hasil pengamatan adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "(2) - (4) - (3) - (1)",
+      "(2) - (3) - (4) - (1)",
+      "(4) - (2) - (1) - (3)",
+      "(3) - (1) - (2) - (4)"
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Urutan padu: (2) Pernyataan umum pengamatan -> (4) Waktu pengamatan -> (3) Deskripsi bagian tanaman -> (1) Perkembangan bunga mawar mekar."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Teks: Sistem Irigasi Subak: Kearifan Lokal Pertanian Bali]\nSubak adalah organisasi kemasyarakatan tradisional di Bali yang mengatur irigasi persawahan secara adil sejak abad ke-11. Berlandaskan filosofi 'Tri Hita Karana' (keharmonisan dengan Tuhan, manusia, dan alam), petani bergotong royong sehingga tidak saling berebut air di musim kemarau. Subak diakui UNESCO pada 2012.\n\nBerdasarkan teks bacaan, apa fungsi utama dari organisasi tradisional Subak di Bali?",
+    "type": "Multiple Choice",
+    "options": [
+      "Menentukan harga jual gabah di pasar tradisional Bali",
+      "Mengatur sistem pengairan persawahan secara adil dan demokratis",
+      "Membuat pupuk organik dari tanaman kawah pegunungan",
+      "Membangun penginapan wisata di area perbukitan terasering"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Paragraf pertama secara tegas menyatakan bahwa Subak adalah organisasi tradisional di Bali yang mengatur irigasi secara adil dan demokratis."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Cerita: Semut Merah dan Sebutir Jagung Manis]\nSamin si semut muda berusaha mendorong biji jagung manis yang berat seorang diri hingga hampir putus asa. Tetua Dito menasihati: 'Beban berat tidak diciptakan untuk dipikul sepasang pundak saja. Panggillah kawan-kawanmu.' Puluhan semut pun datang bahu-membahu mengangkat biji jagung tersebut.\n\nAmanat utama yang ingin disampaikan oleh pengarang melalui cerita semut tersebut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Jangan pernah mencari makanan saat musim hujan tiba",
+      "Berat sama dipikul, ringan sama dijinjing melalui semangat gotong royong",
+      "Simpanlah makanan sebanyak-banyaknya untuk diri sendiri",
+      "Biji jagung adalah makanan terbaik bagi hewan kecil"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Pesan utama fabel adalah pentingnya kerja sama/gotong royong. Pekerjaan yang mustahil dikerjakan seorang diri akan menjadi mudah bila dikerjakan bersama."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Penggunaan tanda petik yang tepat terdapat pada kalimat....",
+    "type": "Multiple Choice",
+    "options": [
+      "Siswa kelas 6 sedang menyanyikan lagu \"Tanah Airku\" di aula sekolah.",
+      "Siswa kelas 6 sedang menyanyikan lagu 'Tanah Airku' di aula sekolah.",
+      "Siswa kelas 6 sedang menyanyikan lagu: \"Tanah Airku\" di aula sekolah.",
+      "Siswa kelas 6 sedang menyanyikan lagu (Tanah Airku) di aula sekolah."
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Tanda petik dua (\"\") dipakai untuk mengapit judul lagu, puisi, artikel, atau bab buku dalam kalimat."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Pilihlah deretan kata yang SEMUANYA merupakan kata baku menurut KBBI!",
+    "type": "Multiple Choice",
+    "options": [
+      "Antre, cabai, objek, risiko",
+      "Antri, cabe, obyek, resiko",
+      "Antre, cabe, objek, resiko",
+      "Antri, cabai, obyek, risiko"
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "Bentuk baku KBBI: antre (bukan antri), cabai (bukan cabe), objek (bukan obyek), risiko (bukan resiko)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Teks: Komodo: Sang Naga Terakhir dari Nusa Tenggara]\nKomodo (Varanus komodoensis) adalah kadal terbesar di dunia (panjang hingga 3 m, berat 90 kg), endemik di Pulau Komodo, Rinca, Gili Motang, dan Flores. Memiliki penciuman tajam dari lidah kuning bercabang, gigitan tajam, serta kelenjar bisa yang mencegah pembekuan darah mangsa.\n\nBagaimana cara komodo melumpuhkan hewan mangsa buruannya?",
+    "type": "Multiple Choice",
+    "options": [
+      "Melilit tubuh mangsa hingga remuk seperti ular piton",
+      "Menyemprotkan cairan asam dari dalam lambungnya",
+      "Menggigit mangsa dengan gigi tajam dan menyuntikkan bisa yang mencegah pembekuan darah",
+      "Menjatuhkan mangsa menggunakan hantaman ekornya yang panjang"
+    ],
+    "correct": "3",
+    "time": 60,
+    "explanation": "Di paragraf kedua dijelaskan komodo melumpuhkan mangsa dengan gigitan tajam dan kelenjar racun (bisa) yang mencegah darah membeku sehingga mangsa lemas kehabisan darah."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Cerita: Lompatan Cici si Tupai Pohon]\nCici si tupai kecil trauma melompat karena pernah terpeleset jatuh. Kakek Tupai menasihati: 'Seekor tupai yang hebat bukanlah yang tidak pernah terpeleset, melainkan yang berani bangkit dan belajar dari kesalahannya.' Cici giat berlatih dari dahan rendah hingga berhasil menaklukkan rasa takutnya.\n\nApa penyebab tokoh Cici merasa takut dan tidak berani memanjat dahan pohon yang tinggi?",
+    "type": "Multiple Choice",
+    "options": [
+      "Cici dimarahi oleh kakeknya karena merusak dahan pohon",
+      "Cici trauma karena sebelumnya pernah terpeleset dan jatuh saat mencoba melompat",
+      "Ada burung elang pemangsa yang mengintai di dahan pohon jambu",
+      "Pohon jambu di seberang sungai telah ditebang oleh pemilik kebun"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Paragraf pertama menyebutkan rasa takut Cici berakar dari kejadian kemarin saat ia terpeleset dan jatuh ke tumpukan jerami."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Penulisan kata ulang yang tepat sesuai kaidah EBI terdapat pada kalimat....",
+    "type": "Multiple Choice",
+    "options": [
+      "Kupu-kupu beterbangan di antara bunga bunga taman yang sedang mekar.",
+      "Kupu kupu beterbangan di antara bunga-bunga taman yang sedang mekar.",
+      "Kupu-kupu beterbangan di antara bunga-bunga taman yang sedang mekar.",
+      "Kupu-kupu beterbangan di antara bunga_bunga taman yang sedang mekar."
+    ],
+    "correct": "3",
+    "time": 60,
+    "explanation": "Menurut kaidah EBI, semua bentuk kata ulang (kata dasar diulang maupun perulangan berubah bunyi) wajib dihubungkan dengan tanda hubung (-)."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Kalimat berikut yang tepat dalam penulisan nama geografi sesuai EBI adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Kami menyeberangi selat Sunda menuju ke pelabuhan Bakauheni di pulau Sumatera.",
+      "Kami menyeberangi Selat Sunda menuju ke Pelabuhan Bakauheni di Pulau Sumatera.",
+      "Kami menyeberangi Selat sunda menuju ke pelabuhan bakauheni di pulau sumatera.",
+      "Kami menyeberangi selat sunda menuju ke Pelabuhan Bakauheni di Pulau Sumatera."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Istilah unsur geografi yang diikuti oleh nama diri geografi ditulis kapital: 'Selat Sunda', 'Pelabuhan Bakauheni', 'Pulau Sumatera'."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Teks: Pesona dan Pelestarian Taman Nasional Bunaken]\nTaman Nasional Bunaken di Teluk Manado memiliki 390 spesies karang dan 2.000 jenis ikan karang. Namun pemanasan global memicu pemutihan karang (coral bleaching) dan sampah plastik mengancam kelestariannya. Pemerintah bersama komunitas menerapkan rehabilitasi karang buatan dan zona larangan tangkap.\n\nBerdasarkan teks bacaan, di manakah letak geografis Taman Nasional Bunaken?",
+    "type": "Multiple Choice",
+    "options": [
+      "Di Teluk Tomini, Gorontalo",
+      "Di Teluk Manado, Sulawesi Utara",
+      "Di Kepulauan Derawan, Kalimantan Timur",
+      "Di Teluk Cenderawasih, Papua Barat"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Paragraf pertama menyatakan secara jelas letak Taman Nasional Bunaken berada di Teluk Manado, Sulawesi Utara."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "[Kutipan Cerita: Cahaya Lilin Kecil]\nSaat listrik padam di Desa Sukatani, sebatang lilin kecil dinyalakan untuk menerangi Rian belajar matematika. Meski tubuhnya perlahan meleleh dan memendek, lilin kecil merasa bahagia dan bangga karena dapat memberikan manfaat nyata bagi seseorang yang sedang meraih cita-citanya.\n\nMengapa lilin kecil merasa bahagia meskipun tubuhnya harus meleleh dan memendek?",
+    "type": "Multiple Choice",
+    "options": [
+      "Karena api di sumbunya mengeluarkan panas yang membakar laci meja",
+      "Karena ia bangga pancaran cahayanya dapat menerangi Rian yang sedang belajar menggapai cita-cita",
+      "Karena ia tidak perlu disimpan lagi di dalam laci kamar yang berdebu",
+      "Karena ia berhasil mengalahkan terang lampu listrik modern"
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Lilin merasa bahagia melihat cahayanya berguna membantu Rian belajar matematika demi menggapai cita-cita."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Penggunaan kata berimbuhan yang tepat terdapat pada kalimat....",
+    "type": "Multiple Choice",
+    "options": [
+      "Kakak sedang menugaskan tugas matematika di meja belajar.",
+      "Kakak sedang mengerjakan tugas matematika di meja belajar.",
+      "Kakak sedang kerjakan tugas matematika di meja belajar.",
+      "Kakak sedang diterjakan tugas matematika di meja belajar."
+    ],
+    "correct": "2",
+    "time": 60,
+    "explanation": "Bentuk kata kerja aktif transitif yang tepat untuk kata dasar 'kerja' dengan objek tugas adalah 'mengerjakan'."
+  },
+  {
+    "subject": "Bahasa Indonesia",
+    "paket": "Paket 2",
+    "question": "Tentukan kebenaran penggunaan tanda koma (,) pada kalimat majemuk berikut!\n(1) Karena hujan turun sangat lebat, pertandingan sepak bola antarkelas ditunda.\n(2) Pertandingan sepak bola antarkelas ditunda, karena hujan turun sangat lebat.\n(3) Meskipun tubuhnya lelah, para relawan tetap bersemangat menyalurkan bantuan.\n\nUrutan nilai kebenaran (Benar/Salah) yang tepat berturut-turut adalah....",
+    "type": "Multiple Choice",
+    "options": [
+      "Benar - Salah - Benar",
+      "Salah - Benar - Salah",
+      "Benar - Benar - Benar",
+      "Benar - Salah - Salah"
+    ],
+    "correct": "1",
+    "time": 60,
+    "explanation": "• Jika anak kalimat mendahului induk kalimat (diawali 'karena' atau 'meskipun'), wajib menggunakan tanda koma (Pernyataan 1 & 3 BENAR).\n• Jika induk kalimat mendahului anak kalimat, tanda koma TIDAK digunakan sebelum kata 'karena' (Pernyataan 2 SALAH)."
+  }
+]
