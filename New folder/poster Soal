@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F5FBFF"/><stop offset="1" stop-color="#FFF7E8"/></linearGradient>
+    <linearGradient id="tablet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#244D87"/><stop offset="1" stop-color="#142D56"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#183B68" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <circle cx="1000" cy="160" r="170" fill="#FFE4A9" opacity=".45"/>
+  <circle cx="77" cy="760" r="120" fill="#DFF4F0" opacity=".8"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="72" y="56" width="268" height="48" rx="24" fill="#E0F2F0"/>
+    <text x="206" y="88" text-anchor="middle" font-size="20" font-weight="700" letter-spacing="1" fill="#178579">PERSIAPAN TKA SD</text>
+    <text x="72" y="180" font-size="51" font-weight="700" fill="#19365F">Bingung mulai</text>
+    <text x="72" y="239" font-size="51" font-weight="700" fill="#19365F">belajar dari mana?</text>
+    <text x="74" y="288" font-size="24" fill="#58708B">Bantu anak berlatih dengan lebih terarah.</text>
+
+    <!-- Worksheet tablet -->
+    <g filter="url(#shadow)" transform="rotate(3 762 440)">
+      <rect x="575" y="145" width="388" height="548" rx="36" fill="url(#tablet)"/>
+      <rect x="595" y="166" width="348" height="506" rx="22" fill="#FFFFFF"/>
+      <circle cx="955" cy="421" r="5" fill="#A9C0D6"/>
+      <rect x="619" y="192" width="300" height="104" rx="17" fill="#EAF7F5"/>
+      <text x="642" y="226" font-size="15" font-weight="700" fill="#178579" letter-spacing="1">LEMBAR LATIHAN</text>
+      <text x="642" y="265" font-size="25" font-weight="700" fill="#19365F">Pelatihan TKA SD</text>
+      <text x="619" y="334" font-size="18" font-weight="700" fill="#19365F">Ayo, kerjakan dengan teliti!</text>
+      <text x="620" y="370" font-size="16" fill="#58708B">1. Pilih jawaban yang tepat.</text>
+      <rect x="620" y="390" width="296" height="43" rx="10" fill="#F5F8FC"/>
+      <circle cx="644" cy="411" r="10" fill="#D9EBE8"/><text x="644" y="416" text-anchor="middle" font-size="13" font-weight="700" fill="#178579">A</text>
+      <line x1="665" y1="411" x2="878" y2="411" stroke="#D5DFEA" stroke-width="4" stroke-linecap="round"/>
+      <rect x="620" y="443" width="296" height="43" rx="10" fill="#F5F8FC"/>
+      <circle cx="644" cy="464" r="10" fill="#D9EBE8"/><text x="644" y="469" text-anchor="middle" font-size="13" font-weight="700" fill="#178579">B</text>
+      <line x1="665" y1="464" x2="846" y2="464" stroke="#D5DFEA" stroke-width="4" stroke-linecap="round"/>
+      <rect x="620" y="496" width="296" height="43" rx="10" fill="#F5F8FC"/>
+      <circle cx="644" cy="517" r="10" fill="#D9EBE8"/><text x="644" y="522" text-anchor="middle" font-size="13" font-weight="700" fill="#178579">C</text>
+      <line x1="665" y1="517" x2="868" y2="517" stroke="#D5DFEA" stroke-width="4" stroke-linecap="round"/>
+      <rect x="620" y="566" width="296" height="68" rx="15" fill="#FFF3D6"/>
+      <text x="768" y="594" text-anchor="middle" font-size="15" font-weight="700" fill="#9A6A10">LANGKAH DEMI LANGKAH</text>
+      <text x="768" y="617" text-anchor="middle" font-size="14" fill="#9A6A10">Belajar jadi lebih percaya diri</text>
+    </g>
+    <!-- Sparkles -->
+    <path d="M978 210 l9 21 21 9-21 9-9 21-9-21-21-9 21-9z" fill="#F5B943"/>
+    <path d="M527 387 l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#47B8A8"/>
+    <text x="791" y="735" text-anchor="middle" font-size="18" font-weight="700" fill="#58708B">Latihan fleksibel di tablet atau laptop</text>
+
+    <!-- Benefit card -->
+    <rect x="72" y="790" width="936" height="292" rx="32" fill="#FFFFFF" filter="url(#shadow)"/>
+    <text x="112" y="851" font-size="30" font-weight="700" fill="#19365F">Kenalkan, worksheet untuk belajar lebih terarah</text>
+    <text x="112" y="892" font-size="21" fill="#58708B">Worksheet Pelatihan TKA SD membantu anak:</text>
+    <g font-size="22" fill="#314B6C">
+      <circle cx="132" cy="950" r="15" fill="#DDF3EF"/><path d="M125 950l5 5 10-11" fill="none" stroke="#178579" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="162" y="958">Berlatih soal dengan terarah</text>
+      <circle cx="132" cy="1008" r="15" fill="#DDF3EF"/><path d="M125 1008l5 5 10-11" fill="none" stroke="#178579" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="162" y="1016">Mengenal materi sesuai jenjang SD</text>
+      <circle cx="585" cy="950" r="15" fill="#DDF3EF"/><path d="M578 950l5 5 10-11" fill="none" stroke="#178579" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="615" y="958">Belajar kapan saja</text>
+      <circle cx="585" cy="1008" r="15" fill="#DDF3EF"/><path d="M578 1008l5 5 10-11" fill="none" stroke="#178579" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="615" y="1016">Mengukur kemampuan anak</text>
+    </g>
+
+    <!-- CTA -->
+    <text x="540" y="1150" text-anchor="middle" font-size="35" font-weight="700" fill="#19365F">Siapkan latihan terbaik untuk anak</text>
+    <text x="540" y="1194" text-anchor="middle" font-size="25" fill="#58708B">Mulai hari ini, tumbuhkan percaya dirinya!</text>
+    <rect x="295" y="1230" width="490" height="76" rx="38" fill="#178579"/>
+    <text x="540" y="1279" text-anchor="middle" font-size="25" font-weight="700" fill="#FFFFFF">DAPATKAN WORKSHEET SEKARANG</text>
+    <text x="540" y="1332" text-anchor="middle" font-size="15" fill="#7A8EA5">Worksheet Pelatihan TKA SD • Belajar bertahap, lebih percaya diri</text>
+  </g>
+</svg>
