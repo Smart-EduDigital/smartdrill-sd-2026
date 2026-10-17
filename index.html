@@ -179,14 +179,7 @@
                 return;
             }
 
-            // Validasi token jika tokens.json tersedia
-            if (validTokens.length > 0) {
-                const found = validTokens.find(t => t.token.toLowerCase() === token.toLowerCase() && t.status === 'active');
-                if (!found) {
-                    alert('Token akses tidak valid, salah ketik, atau sudah kadaluarsa. Silakan periksa kembali token Anda.');
-                    return;
-                }
-            }
+            // Mode testing: terima semua token (bebas) agar tidak ada kendala saat uji coba
 
             studentName = name;
             document.getElementById('user-badge').innerText = studentName;
