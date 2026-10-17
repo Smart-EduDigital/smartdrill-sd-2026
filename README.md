@@ -1,19 +1,6 @@
-# 🚀 SmartDrill SD 2026 - Platform Try Out Digital & Bank Soal Interaktif
+# SmartDrill SD 2026 - Web Try Out Interaktif
 
-**SmartDrill SD 2026** adalah produk digital pendidikan berkualitas tinggi yang dirancang untuk persiapan Tes Kemampuan Akademik (TKA) Sekolah Dasar berdasarkan Kurikulum Merdeka dan K-13.
-
----
-
-## 🌟 Fitur Utama
-- **200 Butir Soal Berkualitas:** Terbagi dalam 5 Paket Matematika dan 5 Paket Bahasa Indonesia (masing-masing 20 soal per paket).
-- **Format Standar Quizizz (.xlsx):** Siap diimpor langsung ke Quizizz untuk pengelolaan kelas dan ujian berbasis online.
-- **Web Try Out Mandiri (`index.html`):** Aplikasi web interaktif lengkap dengan:
-  - Validasi Nama & PIN/Token Akses Siswa.
-  - Pilihan Mata Pelajaran dan Paket Soal.
-  - *Quiz Runner* dengan **Timer Mundur (Countdown Timer)** per soal.
-  - Penilaian otomatis (*skor instan*).
-  - Menu **Pembahasan & Analisis Jawaban** lengkap untuk evaluasi belajar siswa.
-- **100% Gratis & Tanpa Hosting Berbayar:** Dijalankan menggunakan **GitHub Pages**.
+Aplikasi web try out digital mandiri untuk produk digital **SmartDrill SD 2026**.
 
 ## Struktur File di Folder Ini:
 - `index.html` : Tampilan antarmuka web interaktif (Login siswa, pilih paket, runner soal, timer, penilaian otomatis, dan pembahasan lengkap).

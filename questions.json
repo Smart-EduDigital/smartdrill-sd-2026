@@ -434,7 +434,7 @@
     "subject": "Matematika",
     "paket": "Paket 1",
     "number": 5,
-    "question": "Pak Ahmad memanen 48 buah mangga dan 72 buah jeruk. Buah-buah tersebut akan dimasukkan ke dalam beberapa keranjang dengan jumlah mangga dan jeruk sama banyak pada setiap keranjang tanpa ada buah yang tersisa.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nBesar potongan harga untuk Buku A adalah Rp10.000. | [   ] | [   ]\nHarga yang harus dibayar untuk Buku B setelah diskon adalah Rp30.000. | [   ] | [   ]\nPersentase diskon yang diberikan untuk Buku C adalah sebesar 30%. | [   ] | [   ]\n",
+    "question": "Pak Ahmad memanen 48 buah mangga dan 72 buah jeruk. Buah-buah tersebut akan dimasukkan ke dalam beberapa keranjang dengan jumlah mangga dan jeruk sama banyak pada setiap keranjang tanpa ada buah yang tersisa.",
     "type": "Checkbox",
     "options": [
       "Jumlah keranjang terbanyak yang dapat disiapkan Pak Ahmad adalah 24 buah.",
@@ -562,7 +562,7 @@
     "subject": "Matematika",
     "paket": "Paket 1",
     "number": 12,
-    "question": "Sebuah bangun datar segi empat memiliki ciri-ciri sebagai berikut:\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nJaring-jaring kubus selalu terdiri atas 6 buah persegi yang kongruen. | [   ] | [   ]\nJaring-jaring tabung tanpa tutup terdiri dari 2 buah lingkaran dan 1 buah persegi panjang. | [   ] | [   ]\nLimas segi empat memiliki bidang alas berupa segi empat dan 4 bidang sisi tegak berbentuk segitiga. | [   ] | [   ]\n",
+    "question": "Sebuah bangun datar segi empat memiliki ciri-ciri sebagai berikut:",
     "type": "Checkbox",
     "options": [
       "Bangun datar tersebut adalah jajar genjang.",
@@ -672,7 +672,7 @@
     "subject": "Matematika",
     "paket": "Paket 1",
     "number": 18,
-    "question": "Perpustakaan SD Ceria menyajikan data pengunjung mingguan menggunakan diagram gambar (piktogram). Keterangan piktogram:\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nPola pembentukan Barisan A adalah menambahkan 5 pada suku sebelumnya. | [   ] | [   ]\nSuku ke-8 dari Barisan A adalah 39. | [   ] | [   ]\nPola pembentukan Barisan B adalah mengalikan 2 pada suku sebelumnya. | [   ] | [   ]\n",
+    "question": "Perpustakaan SD Ceria menyajikan data pengunjung mingguan menggunakan diagram gambar (piktogram). Keterangan piktogram:",
     "type": "Checkbox",
     "options": [
       "Banyak pengunjung pada hari Senin adalah 70 orang.",
@@ -1141,7 +1141,7 @@
     "subject": "Matematika",
     "paket": "Paket 2",
     "number": 4,
-    "question": "Bu guru memiliki 36 pulpen biru, 54 buku tulis, dan 72 lembar kertas origami. Seluruh barang tersebut akan dibagikan kepada beberapa siswa berprestasi sebagai hadiah dengan jumlah tiap barang sama banyak tanpa sisa.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nTotal persediaan minyak goreng Bibi setelah membeli lagi adalah 3 liter. | [   ] | [   ]\nMinyak goreng yang digunakan untuk menggoreng kerupuk setara dengan 2,25 liter. | [   ] | [   ]\nSisa minyak goreng Bibi saat ini adalah 0,5 liter. | [   ] | [   ]\n",
+    "question": "Bu guru memiliki 36 pulpen biru, 54 buku tulis, dan 72 lembar kertas origami. Seluruh barang tersebut akan dibagikan kepada beberapa siswa berprestasi sebagai hadiah dengan jumlah tiap barang sama banyak tanpa sisa.",
     "type": "Checkbox",
     "options": [
       "Banyak siswa terbanyak yang menerima hadiah adalah 18 anak.",
@@ -1269,7 +1269,7 @@
     "subject": "Matematika",
     "paket": "Paket 2",
     "number": 11,
-    "question": "Sebuah roda sepeda anak memiliki panjang jari-jari 21 cm. Roda tersebut berputar menggelinding sebanyak 100 kali putaran di lintasan lurus. (Gunakan π = 22/7).\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nTampak atas sebuah tabung yang berdiri tegak adalah bangun datar lingkaran. | [   ] | [   ]\nTampak depan dan samping dari sebuah kerucut tegak selalu berbentuk segitiga sama kaki. | [   ] | [   ]\nSebuah balok dilihat dari arah depan dan atas selalu menghasilkan bentuk persegi yang sama persis. | [   ] | [   ]\n",
+    "question": "Sebuah roda sepeda anak memiliki panjang jari-jari 21 cm. Roda tersebut berputar menggelinding sebanyak 100 kali putaran di lintasan lurus. (Gunakan π = 22/7).",
     "type": "Checkbox",
     "options": [
       "Keliling roda sepeda tersebut adalah 132 cm.",
@@ -1397,7 +1397,7 @@
     "subject": "Matematika",
     "paket": "Paket 2",
     "number": 18,
-    "question": "Data jumlah gol yang dicetak seorang pemain bola dalam 10 pertandingan adalah: 1, 2, 0, 3, 2, 1, 2, 4, 1, 2.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nBanyaknya batang korek api pada pola ke-5 adalah 11 batang. | [   ] | [   ]\nRumus suku ke-n pola batang korek api tersebut adalah 2n + 1. | [   ] | [   ]\nUntuk membuat susunan pola ke-10 dibutuhkan sebanyak 23 batang korek api. | [   ] | [   ]\n",
+    "question": "Data jumlah gol yang dicetak seorang pemain bola dalam 10 pertandingan adalah: 1, 2, 0, 3, 2, 1, 2, 4, 1, 2.",
     "type": "Checkbox",
     "options": [
       "Nilai modus dari data gol tersebut adalah 2.",
@@ -1507,7 +1507,7 @@
     "subject": "Bahasa Indonesia",
     "paket": "Paket 3",
     "number": 4,
-    "question": "Manakah pernyataan berikut yang SESUAI dengan isi teks mengenai sistem Subak? (Pilihlah lebih dari satu jawaban benar!)  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nSistem subak hanya menitikberatkan pada teknologi mekanis pengatur debit air modern. | [   ] | [   ]\nSemangat gotong royong mencegah terjadinya perebutan air antarpetani pada musim kemarau. | [   ] | [   ]\nAir irigasi subak bersumber dari danau kawah pegunungan. | [   ] | [   ]\n",
+    "question": "Manakah pernyataan berikut yang SESUAI dengan isi teks mengenai sistem Subak? (Pilihlah lebih dari satu jawaban benar!)  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]",
     "type": "Checkbox",
     "options": [
       "Sistem subak telah diterapkan oleh petani Bali sejak abad ke-11.",
@@ -1885,7 +1885,7 @@
     "subject": "Matematika",
     "paket": "Paket 3",
     "number": 5,
-    "question": "Dina menyiapkan paket bingkisan ulang tahun yang terdiri atas 40 gantungan kunci, 60 stiker kartun, dan 80 permen susu. Setiap kantong bingkisan diisi ketiga jenis barang tersebut dengan jumlah yang sama rata.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nBagian pizza yang dimakan Budi setara dengan 1/4 bagian dari satu loyang. | [   ] | [   ]\nBagian pizza yang dimakan Siti setara dengan 1/3 bagian dari satu loyang. | [   ] | [   ]\nBagian pizza yang dimakan Anton adalah 1/2 bagian dari satu loyang. | [   ] | [   ]\n",
+    "question": "Dina menyiapkan paket bingkisan ulang tahun yang terdiri atas 40 gantungan kunci, 60 stiker kartun, dan 80 permen susu. Setiap kantong bingkisan diisi ketiga jenis barang tersebut dengan jumlah yang sama rata.",
     "type": "Checkbox",
     "options": [
       "Jumlah paket bingkisan paling banyak yang bisa dibuat Dina adalah 20 paket.",
@@ -2013,7 +2013,7 @@
     "subject": "Matematika",
     "paket": "Paket 3",
     "number": 12,
-    "question": "Perhatikan bangun datar segi empat belah ketupat. Manakah di antara sifat-sifat berikut yang BENAR mengenai belah ketupat?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nPrisma segitiga memiliki 5 buah bidang sisi, 9 rusuk, dan 6 titik sudut. | [   ] | [   ]\nSebuah balok memiliki 12 rusuk yang semuanya berukuran sama panjang. | [   ] | [   ]\nJaring-jaring prisma segitiga terdiri atas 2 segitiga kongruen dan 3 persegi panjang. | [   ] | [   ]\n",
+    "question": "Perhatikan bangun datar segi empat belah ketupat. Manakah di antara sifat-sifat berikut yang BENAR mengenai belah ketupat?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]",
     "type": "Checkbox",
     "options": [
       "Keempat sisinya memiliki panjang yang sama.",
@@ -2123,7 +2123,7 @@
     "subject": "Matematika",
     "paket": "Paket 3",
     "number": 18,
-    "question": "Perhatikan data perolehan medali SD Nusantara pada lomba antarsekolah:\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nPenambahan jumlah kursi pada setiap baris di belakangnya adalah 4 kursi. | [   ] | [   ]\nJumlah kursi pada baris ke-6 adalah 30 kursi. | [   ] | [   ]\nBanyaknya kursi pada baris ke-10 adalah 44 kursi. | [   ] | [   ]\n",
+    "question": "Perhatikan data perolehan medali SD Nusantara pada lomba antarsekolah:",
     "type": "Checkbox",
     "options": [
       "Total seluruh medali yang diraih adalah 48 medali.",
@@ -2233,7 +2233,7 @@
     "subject": "Bahasa Indonesia",
     "paket": "Paket 4",
     "number": 4,
-    "question": "Manakah pernyataan berikut yang BENAR mengenai ciri fisik dan kemampuan komodo sesuai teks bacaan?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nKomodo merupakan kadal terbesar dan terberat di dunia yang masih hidup. | [   ] | [   ]\nMangsa komodo dapat melemah akibat bisa di rahangnya yang mencegah pembekuan darah. | [   ] | [   ]\nPopulasi komodo di alam bebas saat ini sama sekali tidak terancam kepunahan. | [   ] | [   ]\n",
+    "question": "Manakah pernyataan berikut yang BENAR mengenai ciri fisik dan kemampuan komodo sesuai teks bacaan?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]",
     "type": "Checkbox",
     "options": [
       "Komodo mendeteksi bau mangsanya menggunakan lidah yang bercabang kuning.",
@@ -2593,7 +2593,7 @@
     "subject": "Matematika",
     "paket": "Paket 4",
     "number": 4,
-    "question": "Tiga buah lonceng di menara dibunyikan secara berkala. Lonceng A berbunyi setiap 12 menit sekali, lonceng B setiap 15 menit sekali, dan lonceng C setiap 20 menit sekali. Ketiga lonceng berbunyi bersamaan pertama kali pukul 06.00 pagi.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nTotal uang hasil penjualan seluruh apel adalah Rp900.000. | [   ] | [   ]\nPak Sholeh memperoleh keuntungan sebesar Rp150.000. | [   ] | [   ]\nPersentase keuntungan yang diperoleh Pak Sholeh adalah sebesar 25%. | [   ] | [   ]\n",
+    "question": "Tiga buah lonceng di menara dibunyikan secara berkala. Lonceng A berbunyi setiap 12 menit sekali, lonceng B setiap 15 menit sekali, dan lonceng C setiap 20 menit sekali. Ketiga lonceng berbunyi bersamaan pertama kali pukul 06.00 pagi.",
     "type": "Checkbox",
     "options": [
       "Ketiga lonceng akan berbunyi bersamaan setiap 60 menit sekali.",
@@ -2721,7 +2721,7 @@
     "subject": "Matematika",
     "paket": "Paket 4",
     "number": 11,
-    "question": "Sebuah segitiga siku-siku memiliki panjang sisi siku-siku 12 cm dan 16 cm, serta panjang sisi miringnya 20 cm.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nLimas segi empat memiliki 5 titik sudut dan 8 rusuk. | [   ] | [   ]\nKerucut memiliki 2 bidang sisi, yaitu sisi alas berbentuk lingkaran dan selimut kerucut. | [   ] | [   ]\nKerucut memiliki 1 titik puncak dan 2 rusuk lengkung. | [   ] | [   ]\n",
+    "question": "Sebuah segitiga siku-siku memiliki panjang sisi siku-siku 12 cm dan 16 cm, serta panjang sisi miringnya 20 cm.",
     "type": "Checkbox",
     "options": [
       "Keliling segitiga siku-siku tersebut adalah 48 cm.",
@@ -2849,7 +2849,7 @@
     "subject": "Matematika",
     "paket": "Paket 4",
     "number": 18,
-    "question": "Diagram batang mencatat hasil panen jagung Desa Sukamaju selama 4 tahun berturut-turut: Tahun 2021 (40 ton), 2022 (55 ton), 2023 (50 ton), 2024 (65 ton).\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nSelisih banyaknya ubin pada tiap baris berikutnya adalah 3 ubin. | [   ] | [   ]\nBanyaknya ubin putih pada baris ke-7 adalah 23 ubin. | [   ] | [   ]\nRumus mencari banyak ubin baris ke-n adalah 3n + 2. | [   ] | [   ]\n",
+    "question": "Diagram batang mencatat hasil panen jagung Desa Sukamaju selama 4 tahun berturut-turut: Tahun 2021 (40 ton), 2022 (55 ton), 2023 (50 ton), 2024 (65 ton).",
     "type": "Checkbox",
     "options": [
       "Kenaikan hasil panen tertinggi terjadi antara tahun 2023 ke 2024.",
@@ -2959,7 +2959,7 @@
     "subject": "Bahasa Indonesia",
     "paket": "Paket 5",
     "number": 4,
-    "question": "Langkah nyata apa saja yang dilakukan pemerintah bersama komunitas penyelam lokal untuk menyelamatkan terumbu karang Bunaken?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nTaman Nasional Bunaken terletak di kawasan Segitiga Terumbu Karang Dunia. | [   ] | [   ]\nFenomena pemutihan karang terjadi saat terumbu karang kehilangan alga simbiotiknya. | [   ] | [   ]\nSampah plastik dari daratan sama sekali tidak berpengaruh pada kelestarian terumbu karang. | [   ] | [   ]\n",
+    "question": "Langkah nyata apa saja yang dilakukan pemerintah bersama komunitas penyelam lokal untuk menyelamatkan terumbu karang Bunaken?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]",
     "type": "Checkbox",
     "options": [
       "Menerapkan teknik rehabilitasi karang buatan.",
@@ -3337,7 +3337,7 @@
     "subject": "Matematika",
     "paket": "Paket 5",
     "number": 5,
-    "question": "Kelompok tani Makmur memiliki 45 bibit cabai rawit, 60 bibit terung, dan 75 bibit tomat. Bibit-bibit ini akan dibagikan kepada sejumlah kelompok dasawisma dengan jumlah masing-masing bibit sama banyak tanpa sisa.\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nPecahan 3/8 senilai dengan 0,375 dan 37,5%. | [   ] | [   ]\nHasil dari 1/2 + 3/4 setara dengan 1 1/4 atau 1,25. | [   ] | [   ]\nHasil perkalian 0,4 x 0,5 menghasilkan nilai 0,20 yang senilai dengan 1/4. | [   ] | [   ]\n",
+    "question": "Kelompok tani Makmur memiliki 45 bibit cabai rawit, 60 bibit terung, dan 75 bibit tomat. Bibit-bibit ini akan dibagikan kepada sejumlah kelompok dasawisma dengan jumlah masing-masing bibit sama banyak tanpa sisa.",
     "type": "Checkbox",
     "options": [
       "Jumlah kelompok dasawisma terbanyak yang dapat menerima bibit adalah 15 kelompok.",
@@ -3465,7 +3465,7 @@
     "subject": "Matematika",
     "paket": "Paket 5",
     "number": 12,
-    "question": "Perhatikan bangun ruang kubus dan balok. Manakah pernyataan berikut yang bernilai BENAR untuk KEDUA bangun ruang tersebut?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nSebuah bola sempurna jika dilihat dari arah depan, atas, maupun samping selalu tampak sebagai lingkaran yang kongruen. | [   ] | [   ]\nPrisma segitiga tegak jika dilihat dari arah samping selalu tampak sebagai segitiga. | [   ] | [   ]\nVisualisasi tampak atas suatu bangun sering disebut juga sebagai denah atau proyeksi bidang horizontal. | [   ] | [   ]\n",
+    "question": "Perhatikan bangun ruang kubus dan balok. Manakah pernyataan berikut yang bernilai BENAR untuk KEDUA bangun ruang tersebut?  [Pilihan Ganda Kompleks: Jawaban benar lebih dari satu]",
     "type": "Checkbox",
     "options": [
       "Keduanya memiliki 6 bidang sisi dan 8 titik sudut.",
@@ -3575,7 +3575,7 @@
     "subject": "Matematika",
     "paket": "Paket 5",
     "number": 18,
-    "question": "Data panen sayuran hidroponik sekolah mencatat: Bayam (24 kg), Selada (18 kg), Kangkung (30 kg), dan Pakcoy (28 kg).\n\n[Tabel Data / Pernyataan untuk dianalisis:]\nPernyataan | Benar | Salah\nSelisih antarsuku yang berurutan selalu bertambah 1 (+2, +3, +4, +5, ...). | [   ] | [   ]\nSuku berikutnya (suku ke-7) dari barisan tersebut adalah 28. | [   ] | [   ]\nRumus suku ke-n bilangan segitiga adalah n x (n + 1). | [   ] | [   ]\n",
+    "question": "Data panen sayuran hidroponik sekolah mencatat: Bayam (24 kg), Selada (18 kg), Kangkung (30 kg), dan Pakcoy (28 kg).",
     "type": "Checkbox",
     "options": [
       "Total seluruh panen sayuran adalah 100 kg.",
