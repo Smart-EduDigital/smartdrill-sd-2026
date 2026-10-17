@@ -86,7 +86,7 @@
             </div>
 
             <div class="mb-6">
-                <p id="question-text" class="text-slate-900 font-medium text-lg leading-relaxed"></p>
+                <p id="question-text" class="text-slate-900 font-medium text-base sm:text-lg leading-relaxed whitespace-pre-line"></p>
             </div>
 
             <div id="options-container" class="space-y-3 mb-8">
@@ -335,11 +335,12 @@
                             ${isCorrect ? 'Benar ✓' : 'Salah ✕'}
                         </span>
                     </div>
-                    <p class="font-semibold text-slate-800 mb-3">${q.question}</p>
+                    <p class="font-semibold text-slate-800 mb-3 whitespace-pre-line">${q.question}</p>
                     <p class="text-sm text-slate-600 mb-1">Jawaban Anda: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userAns}</strong></p>
                     <p class="text-sm text-slate-600 mb-3">Kunci Jawaban: <strong class="text-indigo-600">${correctLetter}</strong></p>
                     <div class="bg-white/80 p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
-                        <strong>Pembahasan:</strong> ${q.explanation}
+                        <strong>Pembahasan:</strong>
+                        <div class="whitespace-pre-line mt-1 text-slate-700">${q.explanation}</div>
                     </div>
                 `;
                 container.appendChild(div);
