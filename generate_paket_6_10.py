@@ -396,13 +396,10 @@ def build_pdf(paket_data, subject, paket_num, filename):
     
     # Header
     header_data = [[
-        f"TRY OUT TES KEMAMPUAN AKADEMIK (TKA) SD
-"
-        f"MATA PELAJARAN: {subject.upper()} — PAKET {paket_num}
-"
-        f"Standar Kurikulum Merdeka & K-13 (Kerangka Resmi Pusmendik Kemendikdasmen RI)
-"
-        f"Jumlah Soal: 20 Butir | Alokasi Waktu: 45 Menit | Fokus: Numerasi, Aljabar & Geometri Dasar"
+        f"TRY OUT TES KEMAMPUAN AKADEMIK (TKA) SD\n"
+        f"MATA PELAJARAN: {subject.upper()} — PAKET {paket_num}\n"
+        f"Standar Kurikulum Merdeka & K-13 (Kerangka Resmi Pusmendik Kemendikdasmen RI)\n"
+        f"Jumlah Soal: 20 Butir | Alokasi Waktu: 45 Menit | Fokus: Literasi & Numerasi Dasar"
     ]]
     header_table = Table(header_data, colWidths=[490])
     header_table.setStyle(TableStyle([

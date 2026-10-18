@@ -15,8 +15,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Total persediaan awal = 35 pak × 10 buku = 350 buku.\n2. Tambahan kiriman = 15 pak × 10 buku = 150 buku.\n3. Jumlah seluruh buku = 350 + 150 = 500 buku.\n4. Buku dibagikan ke dalam 25 kardus sama banyak:\n   Banyak buku per kardus = 500 : 25 = 20 buku.\nJadi, jawaban yang benar adalah B (20 buku).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Total persediaan awal = 35 pak × 10 buku = 350 buku.\n2. Tambahan kiriman = 15 pak × 10 buku = 150 buku.\n3. Jumlah seluruh buku = 350 + 150 = 500 buku.\n4. Buku dibagikan ke dalam 25 kardus sama banyak:\n   Banyak buku per kardus = 500 : 25 = 20 buku.\nJadi, jawaban yang benar adalah B (20 buku)."
   },
   {
     "subject": "Matematika",
@@ -34,8 +33,7 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Lama pemadaman listrik = 40 menit.\n2. Frekuensi kenaikan suhu = 40 menit : 8 menit = 5 kali.\n3. Besar total kenaikan suhu = 5 × 3°C = 15°C.\n4. Suhu akhir daging = -12°C + 15°C = 3°C.\nJadi, suhu daging beku sekarang adalah 3°C (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Lama pemadaman listrik = 40 menit.\n2. Frekuensi kenaikan suhu = 40 menit : 8 menit = 5 kali.\n3. Besar total kenaikan suhu = 5 × 3°C = 15°C.\n4. Suhu akhir daging = -12°C + 15°C = 3°C.\nJadi, suhu daging beku sekarang adalah 3°C (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -53,8 +51,7 @@
     ],
     "correct": "A",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\nSisa tepung = 4 1/2 - 2 1/4 - 1 1/8\nSamakan penyebutnya menjadi per delapan (8):\n= 4 4/8 - 2 2/8 - 1 1/8\n= (4 - 2 - 1) + (4/8 - 2/8 - 1/8)\n= 1 + 1/8 = 1 1/8 kg.\nAtau dalam pecahan biasa: 36/8 - 18/8 - 9/8 = 9/8 = 1 1/8 kg.\nJadi, pilihan yang tepat adalah A (1 1/8 kg).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\nSisa tepung = 4 1/2 - 2 1/4 - 1 1/8\nSamakan penyebutnya menjadi per delapan (8):\n= 4 4/8 - 2 2/8 - 1 1/8\n= (4 - 2 - 1) + (4/8 - 2/8 - 1/8)\n= 1 + 1/8 = 1 1/8 kg.\nAtau dalam pecahan biasa: 36/8 - 18/8 - 9/8 = 9/8 = 1 1/8 kg.\nJadi, pilihan yang tepat adalah A (1 1/8 kg)."
   },
   {
     "subject": "Matematika",
@@ -72,31 +69,25 @@
     ],
     "correct": "A",
     "time": 60,
-    "explanation": "Langkah penyelesaian (ubah semua ke bentuk desimal):\n- 60% = 60/100 = 0,60\n- 0,65 = 0,65\n- 7/10 = 0,70\n- 3/4 = 0,75\nUrutan dari terkecil ke terbesar:\n0,60 (60%) < 0,65 < 0,70 (7/10) < 0,75 (3/4).\nJadi, urutannya adalah 60% ; 0,65 ; 7/10 ; 3/4 (Pilihan A).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian (ubah semua ke bentuk desimal):\n- 60% = 60/100 = 0,60\n- 0,65 = 0,65\n- 7/10 = 0,70\n- 3/4 = 0,75\nUrutan dari terkecil ke terbesar:\n0,60 (60%) < 0,65 < 0,70 (7/10) < 0,75 (3/4).\nJadi, urutannya adalah 60% ; 0,65 ; 7/10 ; 3/4 (Pilihan A)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 1",
     "title": "Quiz Web Matematika Paket 1",
     "number": 5,
-    "materi": "FPB dalam Konteks Pembagian Rata (Pilihan Ganda Kompleks)",
-    "question": "Pak Budi memanen 48 buah mangga dan 72 buah jeruk. Buah-buah tersebut akan dimasukkan ke dalam keranjang dengan jumlah mangga dan jeruk yang sama di setiap keranjang tanpa ada sisa. Tentukan pernyataan berikut yang BENAR! (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Kelipatan Persekutuan Terkecil (KPK)",
+    "question": "Adit berlatih renang setiap 4 hari sekali, Bayu setiap 6 hari sekali, dan Citra setiap 8 hari sekali. Pada hari Senin, 2 Maret 2026, mereka bertiga berlatih renang bersama untuk pertama kalinya. Pada hari dan tanggal berapakah mereka akan berlatih renang bersama untuk kedua kalinya?",
+    "type": "Multiple Choice",
     "options": [
-      "FPB dari 48 dan 72 adalah 24, sehingga jumlah keranjang maksimal adalah 24.",
-      "Setiap keranjang berisi 2 buah mangga.",
-      "Setiap keranjang berisi 4 buah jeruk.",
-      "Total buah di setiap keranjang adalah 6 buah."
+      "Rabu, 25 Maret 2026",
+      "Kamis, 26 Maret 2026",
+      "Jumat, 27 Maret 2026",
+      "Sabtu, 28 Maret 2026"
     ],
-    "correct": [
-      "A",
-      "B",
-      "D"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "FPB(48, 72) = 24. A: Benar, 24 keranjang. B: 48/24 = 2 mangga/keranjang, Benar. C: 72/24 = 3 jeruk/keranjang (bukan 4), SALAH. D: 2 + 3 = 5 buah total per keranjang (bukan 6), SALAH. Jawaban benar: A, B.",
-    "tipe": "MCMA"
+    "explanation": "Langkah penyelesaian:\n1. Cari KPK dari 4, 6, dan 8:\n   4 = 2²\n   6 = 2 × 3\n   8 = 2³\n   KPK = 2³ × 3 = 8 × 3 = 24 hari.\n2. Mereka akan bersama 24 hari setelah 2 Maret 2026:\n   Tanggal = 2 + 24 = 26 Maret 2026.\n3. Menentukan hari: 24 : 7 = 3 sisa 3 hari.\n   3 hari setelah Senin adalah Kamis (Senin -> Selasa -> Rabu -> Kamis).\nJadi, mereka berlatih bersama lagi pada hari Kamis, 26 Maret 2026 (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -114,31 +105,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\nJumlah paket terbanyak diperoleh dengan mencari FPB dari 72, 48, dan 36:\n- 72 = 2³ × 3²\n- 48 = 2⁴ × 3\n- 36 = 2² × 3²\nFPB = 2² × 3 = 4 × 3 = 12.\nSetiap paket berisi: Beras (72:12 = 6 kg), Minyak (48:12 = 4 bks), Susu (36:12 = 3 kotak).\nJadi, paket bantuan terbanyak yang dapat dibuat adalah 12 paket (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\nJumlah paket terbanyak diperoleh dengan mencari FPB dari 72, 48, dan 36:\n- 72 = 2³ × 3²\n- 48 = 2⁴ × 3\n- 36 = 2² × 3²\nFPB = 2² × 3 = 4 × 3 = 12.\nSetiap paket berisi: Beras (72:12 = 6 kg), Minyak (48:12 = 4 bks), Susu (36:12 = 3 kotak).\nJadi, paket bantuan terbanyak yang dapat dibuat adalah 12 paket (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 1",
     "title": "Quiz Web Matematika Paket 1",
     "number": 7,
-    "materi": "Persentase & Diskon (Tabel Kategori Benar/Salah)",
-    "question": "Toko 'Buku Pintar' memberikan promosi: Buku A Rp50.000 diskon 20%, Buku B Rp40.000 diskon 1/4, Buku C Rp60.000 menjadi Rp45.000. Tentukan kebenaran pernyataan!",
-    "type": "Kategori",
+    "materi": "Pangkat Dua dan Akar Pangkat Dua (Geometri)",
+    "question": "Sebidang tanah aula pertemuan berbentuk persegi memiliki luas 576 m². Di sekeliling tanah aula tersebut akan dipasang kawat pagar pembatas sebanyak satu putaran penuh. Berapakah panjang kawat yang diperlukan untuk mengelilingi tanah tersebut?",
+    "type": "Multiple Choice",
     "options": [
-      "Potongan harga Buku A sebesar Rp10.000.",
-      "Harga yang dibayar untuk Buku B adalah Rp30.000.",
-      "Persentase diskon Buku C adalah 30%."
+      "48 meter",
+      "72 meter",
+      "96 meter",
+      "120 meter"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": "C",
     "time": 60,
-    "explanation": "A: 20% × 50.000 = 10.000 (BENAR). B: 1/4 × 40.000 = 10.000 potongan, bayar = 30.000 (BENAR). C: Potongan = 15.000, persen = 15.000/60.000 × 100% = 25% (SALAH, bukan 30%).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Salah\"}"
+    "explanation": "Langkah penyelesaian:\n1. Luas persegi = sisi × sisi = s²\n   s² = 576 m² -> s = √576 = 24 meter.\n2. Keliling persegi = 4 × sisi\n   Keliling = 4 × 24 m = 96 meter.\nJadi, kawat yang diperlukan adalah 96 meter (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -156,8 +141,7 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Volume kubus = s³\n   216.000 dm³ = s³\n   s = ∛216.000 dm³ = 60 dm.\n2. Konversi dari desimeter (dm) ke meter (m):\n   60 dm = 60 : 10 = 6 meter.\nJadi, kedalaman bak penampungan air tersebut adalah 6 meter (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Volume kubus = s³\n   216.000 dm³ = s³\n   s = ∛216.000 dm³ = 60 dm.\n2. Konversi dari desimeter (dm) ke meter (m):\n   60 dm = 60 : 10 = 6 meter.\nJadi, kedalaman bak penampungan air tersebut adalah 6 meter (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -175,8 +159,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Rasio laki-laki : perempuan = 4 : 5.\n2. Selisih perbandingan = 5 - 4 = 1 bagian.\n3. Diketahui selisih nyata = 4 orang, maka nilai 1 bagian = 4 orang.\n4. Jumlah perbandingan seluruh siswa = 4 + 5 = 9 bagian.\n5. Total seluruh siswa = 9 × 4 orang = 36 orang.\n(Laki-laki = 4 × 4 = 16 orang, Perempuan = 5 × 4 = 20 orang. Selisih = 20 - 16 = 4 orang).\nJadi, jumlah seluruh siswa adalah 36 orang (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Rasio laki-laki : perempuan = 4 : 5.\n2. Selisih perbandingan = 5 - 4 = 1 bagian.\n3. Diketahui selisih nyata = 4 orang, maka nilai 1 bagian = 4 orang.\n4. Jumlah perbandingan seluruh siswa = 4 + 5 = 9 bagian.\n5. Total seluruh siswa = 9 × 4 orang = 36 orang.\n(Laki-laki = 4 × 4 = 16 orang, Perempuan = 5 × 4 = 20 orang. Selisih = 20 - 16 = 4 orang).\nJadi, jumlah seluruh siswa adalah 36 orang (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -194,8 +177,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Jarak Sebenarnya = Jarak pada peta : Skala\n   Jarak Sebenarnya = 6 cm × 400.000 = 2.400.000 cm.\n2. Konversi satuan dari cm ke km (dibagi 100.000):\n   2.400.000 cm = 2.400.000 : 100.000 = 24 km.\nJadi, jarak sebenarnya adalah 24 km (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Jarak Sebenarnya = Jarak pada peta : Skala\n   Jarak Sebenarnya = 6 cm × 400.000 = 2.400.000 cm.\n2. Konversi satuan dari cm ke km (dibagi 100.000):\n   2.400.000 cm = 2.400.000 : 100.000 = 24 km.\nJadi, jarak sebenarnya adalah 24 km (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -213,30 +195,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Keliling lingkaran = 2 × π × r\n   Keliling = 2 × (22/7) × 14 m\n   Keliling = 2 × 22 × 2 m = 88 meter.\n2. Banyak pohon palem = Keliling taman : jarak antar-pohon\n   Banyak pohon = 88 m : 4 m = 22 pohon.\nJadi, banyak pohon palem yang dibutuhkan adalah 22 pohon (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Keliling lingkaran = 2 × π × r\n   Keliling = 2 × (22/7) × 14 m\n   Keliling = 2 × 22 × 2 m = 88 meter.\n2. Banyak pohon palem = Keliling taman : jarak antar-pohon\n   Banyak pohon = 88 m : 4 m = 22 pohon.\nJadi, banyak pohon palem yang dibutuhkan adalah 22 pohon (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 1",
     "title": "Quiz Web Matematika Paket 1",
     "number": 12,
-    "materi": "Sifat-Sifat Bangun Datar (Pilihan Ganda Kompleks)",
-    "question": "Sebuah bangun datar memiliki ciri-ciri: (1) Memiliki 2 pasang sisi sejajar dan sama panjang, (2) Semua sudutnya sudut siku-siku, (3) Diagonalnya sama panjang dan saling membagi dua sama panjang. Pernyataan manakah yang BENAR mengenai bangun datar ini? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Luas Gabungan Bangun Datar",
+    "question": "Sebuah bidang hiasan dinding berbentuk gabungan persegi panjang dan segitiga sama kaki. Persegi panjang memiliki panjang 18 cm dan lebar 10 cm. Di atas salah satu sisi panjangnya menempel alas segitiga sama kaki yang berukuran alas 18 cm dan tinggi 8 cm. Berapakah luas total bangun gabungan tersebut?",
+    "type": "Multiple Choice",
     "options": [
-      "Bangun tersebut adalah persegi panjang.",
-      "Bangun tersebut adalah persegi.",
-      "Luas bangun datar = panjang × lebar.",
-      "Keliling bangun datar = 4 × sisi."
+      "216 cm²",
+      "252 cm²",
+      "288 cm²",
+      "324 cm²"
     ],
-    "correct": [
-      "A",
-      "C"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "Ciri-ciri cocok dengan persegi panjang (bukan persegi karena tidak disebut sisi semua sama). A: Benar. B: SALAH, bisa persegi panjang biasa. C: Benar (luas persegi panjang). D: SALAH (keliling persegi, bukan persegi panjang). Jawaban benar: A, C.",
-    "tipe": "MCMA"
+    "explanation": "Langkah penyelesaian:\n1. Luas Persegi Panjang = panjang × lebar = 18 cm × 10 cm = 180 cm².\n2. Luas Segitiga = 1/2 × alas × tinggi = 1/2 × 18 cm × 8 cm = 9 × 8 = 72 cm².\n3. Luas Gabungan = Luas persegi panjang + Luas segitiga\n   Luas Total = 180 cm² + 72 cm² = 252 cm².\nJadi, luas gabungan tersebut adalah 252 cm² (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -254,8 +231,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Volume total balok = p × l × t\n   V = 120 cm × 80 cm × 100 cm = 960.000 cm³.\n2. Konversi ke liter (dm³):\n   960.000 cm³ = 960.000 : 1.000 = 960 liter.\n3. Karena telah terisi 3/4 bagian, maka bagian yang kosong = 1 - 3/4 = 1/4 bagian.\n4. Air yang harus ditambahkan = 1/4 × 960 liter = 240 liter.\nJadi, air yang harus ditambahkan adalah 240 liter (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Volume total balok = p × l × t\n   V = 120 cm × 80 cm × 100 cm = 960.000 cm³.\n2. Konversi ke liter (dm³):\n   960.000 cm³ = 960.000 : 1.000 = 960 liter.\n3. Karena telah terisi 3/4 bagian, maka bagian yang kosong = 1 - 3/4 = 1/4 bagian.\n4. Air yang harus ditambahkan = 1/4 × 960 liter = 240 liter.\nJadi, air yang harus ditambahkan adalah 240 liter (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -273,31 +249,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Analisis sifat bangun ruang:\n- Prisma segitiga memiliki 5 sisi, 9 rusuk, 6 titik sudut.\n- Limas segitiga memiliki 4 sisi, 6 rusuk, 4 titik sudut.\n- Limas segi empat memiliki 1 alas segi empat + 4 sisi tegak segitiga = 5 sisi, 8 rusuk, dan 5 titik sudut (termasuk 1 titik puncak).\nJadi, bangun ruang yang dimaksud adalah Limas segi empat (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Analisis sifat bangun ruang:\n- Prisma segitiga memiliki 5 sisi, 9 rusuk, 6 titik sudut.\n- Limas segitiga memiliki 4 sisi, 6 rusuk, 4 titik sudut.\n- Limas segi empat memiliki 1 alas segi empat + 4 sisi tegak segitiga = 5 sisi, 8 rusuk, dan 5 titik sudut (termasuk 1 titik puncak).\nJadi, bangun ruang yang dimaksud adalah Limas segi empat (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 1",
     "title": "Quiz Web Matematika Paket 1",
     "number": 15,
-    "materi": "Jaring-Jaring Bangun Ruang (Tabel Kategori Benar/Salah)",
-    "question": "Perhatikan jaring-jaring bangun ruang berikut! Tentukan kebenaran setiap pernyataan.",
-    "type": "Kategori",
+    "materi": "Pengukuran Waktu, Kecepatan, dan Jarak",
+    "question": "Pak Rahmat berangkat dari Bandung menuju Jakarta mengendarai mobil dengan kecepatan rata-rata 75 km/jam. Jarak yang ditempuh adalah 150 km. Jika Pak Rahmat berangkat dari Bandung pada pukul 06.30 WIB dan sempat beristirahat di rest area selama 30 menit di tengah perjalanan, pada pukul berapakah Pak Rahmat tiba di Jakarta?",
+    "type": "Multiple Choice",
     "options": [
-      "Jaring-jaring kubus terdiri dari 6 buah persegi yang kongruen.",
-      "Jaring-jaring tabung tanpa tutup terdiri dari 2 lingkaran dan 1 persegi panjang.",
-      "Jaring-jaring limas segiempat terdiri dari 1 persegi dan 4 segitiga."
+      "08.30 WIB",
+      "09.00 WIB",
+      "09.15 WIB",
+      "09.30 WIB"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": "B",
     "time": 60,
-    "explanation": "A: BENAR (kubus = 6 persegi kongruen). B: SALAH (tabung tanpa tutup = 1 lingkaran + 1 persegi panjang, BUKAN 2 lingkaran). C: BENAR (limas segiempat = 1 persegi alas + 4 segitiga sisi tegak).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Salah\", \"C\": \"Benar\"}"
+    "explanation": "Langkah penyelesaian:\n1. Waktu tempuh murni = Jarak : Kecepatan\n   Waktu = 150 km : 75 km/jam = 2 jam.\n2. Waktu istirahat = 30 menit (0,5 jam).\n3. Total durasi perjalanan = 2 jam + 30 menit = 2 jam 30 menit.\n4. Waktu kedatangan = Waktu berangkat + Total durasi\n   = 06.30 WIB + 02.30 = 09.00 WIB.\nJadi, Pak Rahmat tiba di Jakarta pada pukul 09.00 WIB (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -315,8 +285,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Volume air = 3.600 liter.\n2. Waktu pengurasan = 30 menit = 30 × 60 detik = 1.800 detik.\n3. Debit = Volume : Waktu\n   Debit = 3.600 liter : 1.800 detik = 2 liter/detik.\nJadi, debit aliran air adalah 2 liter/detik (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Volume air = 3.600 liter.\n2. Waktu pengurasan = 30 menit = 30 × 60 detik = 1.800 detik.\n3. Debit = Volume : Waktu\n   Debit = 3.600 liter : 1.800 detik = 2 liter/detik.\nJadi, debit aliran air adalah 2 liter/detik (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -334,31 +303,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Hasil panen tertinggi terjadi pada tahun 2025 = 75 ton.\n2. Hasil panen terendah terjadi pada tahun 2021 = 45 ton.\n3. Selisih = 75 ton - 45 ton = 30 ton.\nJadi, selisih hasil panen tertinggi dan terendah adalah 30 ton (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Hasil panen tertinggi terjadi pada tahun 2025 = 75 ton.\n2. Hasil panen terendah terjadi pada tahun 2021 = 45 ton.\n3. Selisih = 75 ton - 45 ton = 30 ton.\nJadi, selisih hasil panen tertinggi dan terendah adalah 30 ton (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 1",
     "title": "Quiz Web Matematika Paket 1",
     "number": 18,
-    "materi": "Membaca Piktogram / Diagram Gambar (Pilihan Ganda Kompleks)",
-    "question": "Perpustakaan SD menyajikan data pengunjung menggunakan piktogram: 1 simbol buku besar = 20 pengunjung, 1 simbol buku kecil = 10 pengunjung. Data: Senin (3 besar + 1 kecil), Selasa (4 besar), Rabu (2 besar + 1 kecil). Pernyataan manakah yang BENAR? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Membaca Data Diagram Batang (Rata-rata Penjualan)",
+    "question": "Data penjualan buku ensiklopedia anak di sebuah toko buku selama enam hari berturut-turut tercatat sebagai berikut: Senin 35 buku, Selasa 45 buku, Rabu 40 buku, Kamis 55 buku, Jumat 50 buku, dan Sabtu 75 buku. Berapakah rata-rata penjualan buku per hari selama enam hari tersebut?",
+    "type": "Multiple Choice",
     "options": [
-      "Pengunjung hari Senin = 70 orang.",
-      "Pengunjung hari Selasa = 80 orang.",
-      "Total pengunjung 3 hari = 210 orang.",
-      "Hari Rabu memiliki pengunjung paling sedikit."
+      "45 buku",
+      "48 buku",
+      "50 buku",
+      "52 buku"
     ],
-    "correct": [
-      "A",
-      "B",
-      "D"
-    ],
+    "correct": "C",
     "time": 60,
-    "explanation": "Senin: 3×20 + 1×10 = 70 orang (A Benar). Selasa: 4×20 = 80 orang (B Benar). Rabu: 2×20 + 1×10 = 50 orang. Total 3 hari = 70+80+50 = 200 orang (C SALAH, bukan 210). Hari Rabu paling sedikit = 50 orang (D Benar). Jawaban benar: A, B, D.",
-    "tipe": "MCMA"
+    "explanation": "Langkah penyelesaian:\n1. Jumlah seluruh buku terjual = 35 + 45 + 40 + 55 + 50 + 75 = 300 buku.\n2. Banyaknya hari penjualan = 6 hari.\n3. Rata-rata per hari = 300 : 6 = 50 buku.\nJadi, rata-rata penjualan buku per hari adalah 50 buku (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -376,31 +339,25 @@
     ],
     "correct": "D",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Jumlah nilai 8 siswa = 75 + 80 + 85 + 70 + 90 + 85 + 75 + 80 = 640.\n2. Nilai rata-rata 9 siswa = 81.\n   Total nilai 9 siswa = 9 × 81 = 729.\n3. Nilai siswa ke-9 = Total 9 siswa - Total 8 siswa\n   Nilai siswa ke-9 = 729 - 640 = 89.\nJadi, nilai ulangan siswa ke-9 adalah 89 (Pilihan D).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Jumlah nilai 8 siswa = 75 + 80 + 85 + 70 + 90 + 85 + 75 + 80 = 640.\n2. Nilai rata-rata 9 siswa = 81.\n   Total nilai 9 siswa = 9 × 81 = 729.\n3. Nilai siswa ke-9 = Total 9 siswa - Total 8 siswa\n   Nilai siswa ke-9 = 729 - 640 = 89.\nJadi, nilai ulangan siswa ke-9 adalah 89 (Pilihan D)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 1",
     "title": "Quiz Web Matematika Paket 1",
     "number": 20,
-    "materi": "Pola Bilangan (Tabel Kategori Benar/Salah)",
-    "question": "Perhatikan dua barisan bilangan! Barisan X: 3, 6, 12, 24, 48... Barisan Y: 5, 9, 13, 17, 21... Tentukan kebenaran pernyataan!",
-    "type": "Kategori",
+    "materi": "Statistika Dasar (Modus dan Median)",
+    "question": "Data berat badan (dalam kg) dari 15 siswa kelas VI SD disajikan sebagai berikut:\n32, 34, 32, 36, 35, 34, 32, 38, 35, 36, 32, 32, 35, 37, 34.\nModus dan median dari data berat badan siswa tersebut berturut-turut adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Barisan X adalah barisan geometri dengan rasio 2.",
-      "Barisan Y adalah barisan aritmatika dengan beda 4.",
-      "Suku ke-6 Barisan X adalah 96."
+      "Modus = 32 kg dan Median = 34 kg",
+      "Modus = 34 kg dan Median = 35 kg",
+      "Modus = 32 kg dan Median = 35 kg",
+      "Modus = 35 kg dan Median = 34 kg"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Benar"
-    },
+    "correct": "A",
     "time": 60,
-    "explanation": "A: 6/3=2, 12/6=2, 24/12=2 → Geometri rasio 2 (BENAR). B: 9-5=4, 13-9=4, 17-13=4 → Aritmatika beda 4 (BENAR). C: Suku ke-6 X = 48 × 2 = 96 (BENAR). Semua BENAR.",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Benar\"}"
+    "explanation": "Langkah penyelesaian:\n1. Menentukan Modus (data paling sering muncul):\n   - 32 muncul sebanyak 5 kali\n   - 34 muncul sebanyak 3 kali\n   - 35 muncul sebanyak 3 kali\n   - 36 muncul sebanyak 2 kali\n   - 37 muncul sebanyak 1 kali\n   - 38 muncul sebanyak 1 kali\n   Modus = 32 kg.\n2. Menentukan Median (urutkan data dari terkecil):\n   32, 32, 32, 32, 32, 34, 34, [34], 35, 35, 35, 36, 36, 37, 38.\n   Data ke-8 (nilai tengah) adalah 34 kg.\n   Median = 34 kg.\nJadi, modus = 32 kg dan median = 34 kg (Pilihan A)."
   },
   {
     "subject": "Matematika",
@@ -418,8 +375,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Total panen apel = 18 keranjang × 45 kg = 810 kg.\n2. Sisa setelah dibagikan = 810 kg - 110 kg = 700 kg.\n3. Dibagikan ke 10 pedagang sama banyak = 700 : 10 = 70 kg.\nJadi, setiap pedagang menerima 70 kg apel (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Total panen apel = 18 keranjang × 45 kg = 810 kg.\n2. Sisa setelah dibagikan = 810 kg - 110 kg = 700 kg.\n3. Dibagikan ke 10 pedagang sama banyak = 700 : 10 = 70 kg.\nJadi, setiap pedagang menerima 70 kg apel (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -437,8 +393,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Suhu awal = -4°C.\n2. Siang hari naik 19°C -> -4°C + 19°C = 15°C.\n3. Malam hari turun 6°C -> 15°C - 6°C = 9°C.\nPersamaan utuh: -4 + 19 - 6 = 9°C.\nJadi, suhu udara pada malam hari adalah 9°C (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Suhu awal = -4°C.\n2. Siang hari naik 19°C -> -4°C + 19°C = 15°C.\n3. Malam hari turun 6°C -> 15°C - 6°C = 9°C.\nPersamaan utuh: -4 + 19 - 6 = 9°C.\nJadi, suhu udara pada malam hari adalah 9°C (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -456,8 +411,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\nVolume minyak = 5 1/4 - 2 1/2 + 1 3/4\nSamakan penyebut ke per empat (4):\n= 5 1/4 - 2 2/4 + 1 3/4\nUbah ke pecahan biasa:\n= 21/4 - 10/4 + 7/4\n= (21 - 10 + 7) / 4 = 18/4 = 4 2/4 = 4 1/2 liter (atau 4,5 liter).\nJadi, volume minyak sekarang adalah 4 1/2 liter (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\nVolume minyak = 5 1/4 - 2 1/2 + 1 3/4\nSamakan penyebut ke per empat (4):\n= 5 1/4 - 2 2/4 + 1 3/4\nUbah ke pecahan biasa:\n= 21/4 - 10/4 + 7/4\n= (21 - 10 + 7) / 4 = 18/4 = 4 2/4 = 4 1/2 liter (atau 4,5 liter).\nJadi, volume minyak sekarang adalah 4 1/2 liter (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -475,31 +429,25 @@
     ],
     "correct": "A",
     "time": 60,
-    "explanation": "Langkah penyelesaian (konversi ke desimal):\n- Botol P: 45% = 0,45\n- Botol Q: 0,55\n- Botol R: 3/5 = 6/10 = 0,60\n- Botol S: 0,4 = 0,40\nUrutan dari tertinggi ke terendah:\n0,60 (R) > 0,55 (Q) > 0,45 (P) > 0,40 (S).\nJadi, urutannya adalah Botol R, Botol Q, Botol P, Botol S (Pilihan A).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian (konversi ke desimal):\n- Botol P: 45% = 0,45\n- Botol Q: 0,55\n- Botol R: 3/5 = 6/10 = 0,60\n- Botol S: 0,4 = 0,40\nUrutan dari tertinggi ke terendah:\n0,60 (R) > 0,55 (Q) > 0,45 (P) > 0,40 (S).\nJadi, urutannya adalah Botol R, Botol Q, Botol P, Botol S (Pilihan A)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 2",
     "title": "Quiz Web Matematika Paket 2",
     "number": 5,
-    "materi": "FPB dalam Konteks Pembagian Rata (Pilihan Ganda Kompleks)",
-    "question": "Ibu Siti memiliki 60 buku cerita dan 84 buku pengetahuan. Buku-buku tersebut akan disusun ke dalam rak dengan jumlah buku cerita dan pengetahuan yang sama di setiap rak tanpa sisa. Pernyataan manakah yang BENAR? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Kelipatan Persekutuan Terkecil (KPK Tiga Bilangan)",
+    "question": "Tiga buah bel alarm penanda pergantian kegiatan di asrama sekolah berbunyi secara berkala. Bel A berbunyi setiap 15 menit, bel B setiap 20 menit, dan bel C setiap 30 menit. Jika ketiga bel berbunyi bersamaan pada pukul 07.15 WIB, pada pukul berapakah ketiga bel tersebut akan berbunyi bersamaan lagi untuk kedua kalinya?",
+    "type": "Multiple Choice",
     "options": [
-      "FPB dari 60 dan 84 adalah 12, sehingga maksimal 12 rak.",
-      "Setiap rak berisi 5 buku cerita.",
-      "Setiap rak berisi 7 buku pengetahuan.",
-      "Total buku di setiap rak adalah 12 buah."
+      "07.45 WIB",
+      "08.00 WIB",
+      "08.15 WIB",
+      "08.30 WIB"
     ],
-    "correct": [
-      "A",
-      "B",
-      "C"
-    ],
+    "correct": "C",
     "time": 60,
-    "explanation": "FPB(60, 84) = 12. A: Benar, 12 rak. B: 60/12 = 5 buku cerita/rak, Benar. C: 84/12 = 7 buku pengetahuan/rak, Benar. D: Total = 5+7 = 12 (Benar juga!). Semua A, B, C, D benar. Tapi MCMA biasanya 2-3 jawaban. Let me adjust D to be wrong: Total buku per rak = 12 buku, ini benar. Let me make D wrong: 'Total buku di setiap rak adalah 10 buah' -> SALAH.",
-    "tipe": "MCMA"
+    "explanation": "Langkah penyelesaian:\n1. Cari KPK dari 15, 20, dan 30:\n   15 = 3 × 5\n   20 = 2² × 5\n   30 = 2 × 3 × 5\n   KPK = 2² × 3 × 5 = 4 × 15 = 60 menit (1 jam).\n2. Waktu berbunyi bersama berikutnya = 07.15 WIB + 1 jam = 08.15 WIB.\nJadi, ketiga bel berbunyi bersamaan lagi pada pukul 08.15 WIB (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -517,31 +465,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\nCari FPB dari 60, 75, dan 90:\n- 60 = 2² × 3 × 5\n- 75 = 3 × 5²\n- 90 = 2 × 3² × 5\nFPB = 3 × 5 = 15.\nMasing-masing kelompok menerima:\nCabai = 60:15 = 4 bibit, Tomat = 75:15 = 5 bibit, Terung = 90:15 = 6 bibit.\nJadi, paling banyak ada 15 kelompok warga yang dapat menerima (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\nCari FPB dari 60, 75, dan 90:\n- 60 = 2² × 3 × 5\n- 75 = 3 × 5²\n- 90 = 2 × 3² × 5\nFPB = 3 × 5 = 15.\nMasing-masing kelompok menerima:\nCabai = 60:15 = 4 bibit, Tomat = 75:15 = 5 bibit, Terung = 90:15 = 6 bibit.\nJadi, paling banyak ada 15 kelompok warga yang dapat menerima (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 2",
     "title": "Quiz Web Matematika Paket 2",
     "number": 7,
-    "materi": "Luas & Keliling Persegi (Tabel Kategori Benar/Salah)",
-    "question": "Sebidang tanah persegi luasnya 784 m². Di sekelilingnya dipasang pagar tiang setiap 2 meter. Tentukan kebenaran!",
-    "type": "Kategori",
+    "materi": "Akar Pangkat Dua dalam Keliling Kebun Persegi",
+    "question": "Pak Santo memiliki kebun sayur berbentuk persegi dengan luas 784 m². Di sekeliling kebun tersebut akan dipasang tiang pancang bambu penahan pagar dengan jarak antar-tiang sejauh 2 meter. Berapakah banyak tiang pancang bambu yang dibutuhkan Pak Santo?",
+    "type": "Multiple Choice",
     "options": [
-      "Panjang sisi tanah adalah 28 meter.",
-      "Keliling tanah adalah 112 meter.",
-      "Jumlah tiang pagar yang dibutuhkan adalah 56 buah."
+      "48 buah",
+      "52 buah",
+      "56 buah",
+      "64 buah"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Benar"
-    },
+    "correct": "C",
     "time": 60,
-    "explanation": "A: s = √784 = 28 m (BENAR). B: K = 4 × 28 = 112 m (BENAR). C: 112 m / 2 m = 56 tiang (BENAR). Semua BENAR.",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Benar\"}"
+    "explanation": "Langkah penyelesaian:\n1. Sisi persegi = √Luas = √784 m² = 28 meter.\n2. Keliling kebun persegi = 4 × sisi = 4 × 28 m = 112 meter.\n3. Banyak tiang bambu = Keliling : jarak antar-tiang\n   Banyak tiang = 112 m : 2 m = 56 buah.\nJadi, tiang bambu yang dibutuhkan adalah 56 buah (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -559,8 +501,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Karena 1/2 volume = 62,5 liter, maka:\n   Volume penuh kubus = 62,5 × 2 = 125 liter (dm³).\n2. Panjang rusuk kubus = ∛Volume = ∛125 dm³ = 5 dm.\n3. Konversi dari dm ke cm (dikalikan 10):\n   5 dm = 5 × 10 = 50 cm.\nJadi, panjang rusuk akuarium tersebut adalah 50 cm (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Karena 1/2 volume = 62,5 liter, maka:\n   Volume penuh kubus = 62,5 × 2 = 125 liter (dm³).\n2. Panjang rusuk kubus = ∛Volume = ∛125 dm³ = 5 dm.\n3. Konversi dari dm ke cm (dikalikan 10):\n   5 dm = 5 × 10 = 50 cm.\nJadi, panjang rusuk akuarium tersebut adalah 50 cm (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -578,8 +519,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Rasio Dimas : Kakak = 3 : 7.\n2. Umur Kakak = 28 tahun (7 bagian).\n   Nilai 1 bagian = 28 : 7 = 4 tahun.\n3. Umur Dimas = 3 bagian × 4 tahun = 12 tahun.\n4. Jumlah umur = 12 tahun + 28 tahun = 40 tahun.\n(Atau: (3 + 7) × 4 = 10 × 4 = 40 tahun).\nJadi, jumlah umur mereka adalah 40 tahun (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Rasio Dimas : Kakak = 3 : 7.\n2. Umur Kakak = 28 tahun (7 bagian).\n   Nilai 1 bagian = 28 : 7 = 4 tahun.\n3. Umur Dimas = 3 bagian × 4 tahun = 12 tahun.\n4. Jumlah umur = 12 tahun + 28 tahun = 40 tahun.\n(Atau: (3 + 7) × 4 = 10 × 4 = 40 tahun).\nJadi, jumlah umur mereka adalah 40 tahun (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -597,8 +537,7 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Panjang sebenarnya = 15 cm × 200 = 3.000 cm = 30 meter.\n2. Lebar sebenarnya = 10 cm × 200 = 2.000 cm = 20 meter.\n3. Luas sebenarnya = Panjang sebenarnya × Lebar sebenarnya\n   Luas = 30 m × 20 m = 600 m².\nJadi, luas lantai sebenarnya adalah 600 m² (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Panjang sebenarnya = 15 cm × 200 = 3.000 cm = 30 meter.\n2. Lebar sebenarnya = 10 cm × 200 = 2.000 cm = 20 meter.\n3. Luas sebenarnya = Panjang sebenarnya × Lebar sebenarnya\n   Luas = 30 m × 20 m = 600 m².\nJadi, luas lantai sebenarnya adalah 600 m² (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -616,31 +555,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Diameter (d) = 28 meter, maka jari-jari (r) = 28 : 2 = 14 meter.\n2. Luas lingkaran = π × r²\n   Luas = (22/7) × 14 m × 14 m\n   Luas = 22 × 2 × 14 = 44 × 14 = 616 m².\nJadi, luas tanah yang ditanami rumput adalah 616 m² (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Diameter (d) = 28 meter, maka jari-jari (r) = 28 : 2 = 14 meter.\n2. Luas lingkaran = π × r²\n   Luas = (22/7) × 14 m × 14 m\n   Luas = 22 × 2 × 14 = 44 × 14 = 616 m².\nJadi, luas tanah yang ditanami rumput adalah 616 m² (Pilihan B)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 2",
     "title": "Quiz Web Matematika Paket 2",
     "number": 12,
-    "materi": "Sifat Bangun Datar & Jaring-jaring (Pilihan Ganda Kompleks)",
-    "question": "Doni memiliki jaring-jaring bangun ruang berikut: (1) 2 segitiga kongruen dan 3 persegi panjang, (2) 1 persegi dan 4 segitiga, (3) 2 lingkaran dan 1 persegi panjang. Pernyataan manakah yang BENAR? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Luas Trapesium Siku-siku",
+    "question": "Sebidang tanah pekarangan rumah berbentuk trapesium siku-siku memiliki panjang dua sisi sejajar masing-masing 16 meter dan 24 meter. Jarak tegak lurus antara kedua sisi sejajar tersebut (tinggi trapesium) adalah 12 meter. Berapakah luas pekarangan tersebut?",
+    "type": "Multiple Choice",
     "options": [
-      "Jaring-jaring (1) adalah prisma segitiga.",
-      "Jaring-jaring (2) adalah limas segiempat.",
-      "Jaring-jaring (3) adalah tabung tanpa tutup.",
-      "Semua jaring-jaring di atas merupakan jaring-jaring bangun ruang datar."
+      "200 m²",
+      "240 m²",
+      "280 m²",
+      "320 m²"
     ],
-    "correct": [
-      "A",
-      "B",
-      "C"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "(1) 2 segitiga + 3 persegi panjang = prisma segitiga (A Benar). (2) 1 persegi + 4 segitiga = limas segiempat (B Benar). (3) 2 lingkaran + 1 persegi panjang = tabung (dengan tutup), bukan tabung tanpa tutup (hanya 1 lingkaran). Jadi (3) TIDAK SESUAI untuk tabung tanpa tutup -> C SALAH. Wait, let me fix: (3) seharusnya 'tabung dengan tutup'. Let me make C: 'Jaring-jaring (3) adalah tabung' -> Benar. D: 'Semua jaring-jaring di atas merupakan jaring-jaring bangun ruang' -> Benar (tidak harus datar). Let me simplify.",
-    "tipe": "MCMA"
+    "explanation": "Langkah penyelesaian:\nLuas trapesium = 1/2 × (jumlah sisi sejajar) × tinggi\nLuas = 1/2 × (16 m + 24 m) × 12 m\nLuas = 1/2 × 40 m × 12 m = 20 × 12 = 240 m².\nJadi, luas pekarangan rumah tersebut adalah 240 m² (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -658,8 +591,7 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Jari-jari (r) = 70 cm, tinggi (t) = 150 cm.\n2. Volume tabung = π × r² × t\n   V = (22/7) × 70 × 70 × 150 cm³\n   V = 22 × 10 × 70 × 150 = 220 × 10.500 = 2.310.000 cm³.\n3. Konversi ke liter (dm³):\n   2.310.000 cm³ : 1.000 = 2.310 liter.\nJadi, volume air adalah 2.310 liter (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Jari-jari (r) = 70 cm, tinggi (t) = 150 cm.\n2. Volume tabung = π × r² × t\n   V = (22/7) × 70 × 70 × 150 cm³\n   V = 22 × 10 × 70 × 150 = 220 × 10.500 = 2.310.000 cm³.\n3. Konversi ke liter (dm³):\n   2.310.000 cm³ : 1.000 = 2.310 liter.\nJadi, volume air adalah 2.310 liter (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -677,31 +609,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Analisis sifat:\n- Kerucut: memiliki 1 titik puncak, 1 sisi lengkung, 1 alas lingkaran.\n- Bola: hanya memiliki 1 sisi lengkung tanpa rusuk.\n- Tabung: memiliki 3 sisi (2 lingkaran sejajar kongruen + 1 selimut lengkung), 2 rusuk lengkung, dan 0 titik sudut.\nJadi, bangun ruang yang dimaksud adalah Tabung (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Analisis sifat:\n- Kerucut: memiliki 1 titik puncak, 1 sisi lengkung, 1 alas lingkaran.\n- Bola: hanya memiliki 1 sisi lengkung tanpa rusuk.\n- Tabung: memiliki 3 sisi (2 lingkaran sejajar kongruen + 1 selimut lengkung), 2 rusuk lengkung, dan 0 titik sudut.\nJadi, bangun ruang yang dimaksud adalah Tabung (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 2",
     "title": "Quiz Web Matematika Paket 2",
     "number": 15,
-    "materi": "Kecepatan & Waktu Tempuh (Tabel Kategori Benar/Salah)",
-    "question": "Kereta berangkat pukul 08.30, jarak 240 km, kecepatan 80 km/jam, istirahat 15 menit di tengah perjalanan. Tentukan kebenaran!",
-    "type": "Kategori",
+    "materi": "Kecepatan Rata-rata dan Waktu Kedatangan",
+    "question": "Kereta Api Logawa melaju dari Stasiun Purwokerto menuju Stasiun Surabaya dengan kecepatan rata-rata 80 km/jam. Jarak rute rel yang ditempuh adalah 240 km. Jika kereta api berangkat pada pukul 08.20 WIB dan sempat berhenti transit di stasiun antara selama 25 menit, pada pukul berapakah kereta tiba di Stasiun Surabaya?",
+    "type": "Multiple Choice",
     "options": [
-      "Waktu tempuh murni adalah 3 jam.",
-      "Waktu tiba tanpa istirahat pukul 11.30 WIB.",
-      "Waktu tiba dengan istirahat pukul 11.45 WIB."
+      "11.20 WIB",
+      "11.35 WIB",
+      "11.45 WIB",
+      "12.00 WIB"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Benar"
-    },
+    "correct": "C",
     "time": 60,
-    "explanation": "A: 240/80 = 3 jam (BENAR). B: 08.30 + 3 jam = 11.30 (BENAR). C: 11.30 + 0.15 = 11.45 (BENAR). Semua BENAR.",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Benar\"}"
+    "explanation": "Langkah penyelesaian:\n1. Waktu berjalan murni = Jarak : Kecepatan\n   Waktu = 240 km : 80 km/jam = 3 jam.\n2. Waktu transit = 25 menit.\n3. Total waktu perjalanan = 3 jam + 25 menit = 3 jam 25 menit.\n4. Jam tiba = 08.20 WIB + 03.25 = 11.45 WIB.\nJadi, kereta tiba di Surabaya pada pukul 11.45 WIB (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -719,8 +645,7 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\nWaktu = Volume : Debit\nWaktu = 1.500 liter : 25 liter/menit = 60 menit (setara 1 jam).\nJadi, waktu yang dibutuhkan adalah 60 menit (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\nWaktu = Volume : Debit\nWaktu = 1.500 liter : 25 liter/menit = 60 menit (setara 1 jam).\nJadi, waktu yang dibutuhkan adalah 60 menit (Pilihan C)."
   },
   {
     "subject": "Matematika",
@@ -738,31 +663,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\nTotal kunjungan = 60 + 75 + 90 + 65 + 110 = 400 orang.\nJadi, jumlah total kunjungan adalah 400 orang (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\nTotal kunjungan = 60 + 75 + 90 + 65 + 110 = 400 orang.\nJadi, jumlah total kunjungan adalah 400 orang (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 2",
     "title": "Quiz Web Matematika Paket 2",
     "number": 18,
-    "materi": "Menafsirkan Data Statistik (Pilihan Ganda Kompleks)",
-    "question": "Data nilai ujian 10 siswa: 70, 75, 75, 80, 80, 80, 85, 85, 90, 95. Pernyataan manakah yang BENAR? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Menafsirkan Diagram Lingkaran Persentase",
+    "question": "Sebuah survei kegiatan ekstrakurikuler diikuti oleh 120 siswa kelas VI dengan rincian persentase: Sepak Bola 35%, Bulu Tangkis 25%, Renang 20%, dan Seni Musik sisanya. Berapakah selisih banyak siswa yang memilih ekstrakurikuler Sepak Bola dengan Bulu Tangkis?",
+    "type": "Multiple Choice",
     "options": [
-      "Modus dari data tersebut adalah 80.",
-      "Median dari data tersebut adalah 80.",
-      "Rata-rata (mean) dari data tersebut adalah 81,5.",
-      "Jangkauan (range) data tersebut adalah 20."
+      "10 orang",
+      "12 orang",
+      "15 orang",
+      "18 orang"
     ],
-    "correct": [
-      "A",
-      "B",
-      "C"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "Modus = 80 (muncul 3 kali, A Benar). Median = (80+80)/2 = 80 (B Benar). Mean = (70+75+75+80+80+80+85+85+90+95)/10 = 815/10 = 81,5 (C Benar). Range = 95-70 = 25 (D SALAH). Jawaban benar: A, B, C.",
-    "tipe": "MCMA"
+    "explanation": "Langkah penyelesaian:\n1. Siswa Sepak Bola = 35% × 120 = (35/100) × 120 = 42 orang.\n2. Siswa Bulu Tangkis = 25% × 120 = (25/100) × 120 = 30 orang.\n3. Selisih = 42 orang - 30 orang = 12 orang.\n(Atau: (35% - 25%) × 120 = 10% × 120 = 12 orang).\nJadi, selisihnya adalah 12 orang (Pilihan B)."
   },
   {
     "subject": "Matematika",
@@ -780,31 +699,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Jumlah nilai 9 siswa = 9 × 78 = 702.\n2. Jumlah nilai setelah Bayu bergabung (10 siswa) = 10 × 80 = 800.\n3. Nilai Bayu = Total 10 siswa - Total 9 siswa\n   Nilai Bayu = 800 - 702 = 98.\nJadi, nilai ulangan Bayu adalah 98 (Pilihan C).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Langkah penyelesaian:\n1. Jumlah nilai 9 siswa = 9 × 78 = 702.\n2. Jumlah nilai setelah Bayu bergabung (10 siswa) = 10 × 80 = 800.\n3. Nilai Bayu = Total 10 siswa - Total 9 siswa\n   Nilai Bayu = 800 - 702 = 98.\nJadi, nilai ulangan Bayu adalah 98 (Pilihan C)."
   },
   {
     "subject": "Matematika",
     "paket": "Paket 2",
     "title": "Quiz Web Matematika Paket 2",
     "number": 20,
-    "materi": "Statistika Modus & Median (Tabel Kategori Benar/Salah)",
-    "question": "Data nilai: 70, 80, 75, 90, 85, 80, 75, 80, 85, 95, 80, 70. Tentukan kebenaran!",
-    "type": "Kategori",
+    "materi": "Statistika Dasar (Modus dan Median Genap)",
+    "question": "Nilai ulangan matematika dari 12 orang siswa adalah sebagai berikut:\n70, 80, 75, 90, 85, 80, 75, 80, 85, 95, 80, 70.\nModus dan median dari data nilai ulangan tersebut adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Modus data adalah 80.",
-      "Median data adalah 80.",
-      "Rata-rata data adalah 82."
+      "Modus = 80 dan Median = 80",
+      "Modus = 75 dan Median = 80",
+      "Modus = 80 dan Median = 77,5",
+      "Modus = 85 dan Median = 80"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": "A",
     "time": 60,
-    "explanation": "A: Modus = 80 (muncul 4 kali, BENAR). B: Data urut: 70,70,75,75,80,80,80,80,85,85,90,95. Median = (80+80)/2 = 80 (BENAR). C: Mean = 960/12 = 80 (SALAH, bukan 82).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Salah\"}"
+    "explanation": "Langkah penyelesaian:\n1. Menentukan Modus (nilai paling sering muncul):\n   - Nilai 70 muncul 2 kali\n   - Nilai 75 muncul 2 kali\n   - Nilai 80 muncul 4 kali\n   - Nilai 85 muncul 2 kali\n   - Nilai 90 muncul 1 kali\n   - Nilai 95 muncul 1 kali\n   Modus = 80.\n2. Menentukan Median (urutkan 12 data dari terkecil):\n   70, 70, 75, 75, 80, [80, 80], 80, 85, 85, 90, 95.\n   Nilai tengah berada di antara data ke-6 (80) dan data ke-7 (80).\n   Median = (80 + 80) : 2 = 80.\nJadi, modus = 80 dan median = 80 (Pilihan A)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -822,8 +735,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pada paragraf pertama secara tersurat dinyatakan: 'Makanan utama penyu sisik adalah spons laut (hewan porifera) yang hidup menempel pada karang. Dengan memakan spons laut tersebut, penyu sisik mengontrol populasinya agar tidak tumbuh berlebihan dan menutupi karang.' Jadi jawaban yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pada paragraf pertama secara tersurat dinyatakan: 'Makanan utama penyu sisik adalah spons laut (hewan porifera) yang hidup menempel pada karang. Dengan memakan spons laut tersebut, penyu sisik mengontrol populasinya agar tidak tumbuh berlebihan dan menutupi karang.' Jadi jawaban yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -841,8 +753,7 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Paragraf kedua membahas faktor-faktor yang mengancam kelangsungan hidup penyu sisik (perburuan cangkang, pencurian telur, dan sampah plastik di laut). Kalimat utamanya terletak di awal paragraf: 'Namun, keberadaan penyu sisik saat ini berada dalam bayang-bayang ancaman kepunahan yang nyata.' Jadi ide pokoknya adalah C.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Paragraf kedua membahas faktor-faktor yang mengancam kelangsungan hidup penyu sisik (perburuan cangkang, pencurian telur, dan sampah plastik di laut). Kalimat utamanya terletak di awal paragraf: 'Namun, keberadaan penyu sisik saat ini berada dalam bayang-bayang ancaman kepunahan yang nyata.' Jadi ide pokoknya adalah C."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -860,8 +771,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Dalam KBBI dan konteks pelestarian lingkungan, 'konservasi' bermakna upaya perlindungan, pelestarian, dan pengelolaan sumber daya alam hayati secara bijaksana untuk mencegah kepunahan. Jadi pilihan yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Dalam KBBI dan konteks pelestarian lingkungan, 'konservasi' bermakna upaya perlindungan, pelestarian, dan pengelolaan sumber daya alam hayati secara bijaksana untuk mencegah kepunahan. Jadi pilihan yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -879,30 +789,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pada paragraf kedua dijelaskan: 'Penyu kerap mengira kantong plastik transparan yang terapung di perairan sebagai ubur-ubur santapan mereka. Akibatnya, plastik menyumbat saluran pencernaan...' Jadi penyebab utamanya adalah kemiripan visual dengan ubur-ubur (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pada paragraf kedua dijelaskan: 'Penyu kerap mengira kantong plastik transparan yang terapung di perairan sebagai ubur-ubur santapan mereka. Akibatnya, plastik menyumbat saluran pencernaan...' Jadi penyebab utamanya adalah kemiripan visual dengan ubur-ubur (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 1",
     "title": "Quiz Web Bahasa Indonesia Paket 1",
     "number": 5,
-    "materi": "Membedakan Fakta dan Opini dalam Teks (Pilihan Ganda Kompleks)",
-    "question": "Bacalah teks berikut! 'Penyu sisik tergolong hewan reptil yang dilindungi. Cangkangnya bernilai tinggi di pasar hitam, menyebabkan perburuan liar. Tukik (anak penyu) harus dilepas malam hari agar menghindari predator. Konservasi di Derawan dan Sukamade berupaya melindungi populasi ini.' Manakah pernyataan berikut yang merupakan FAKTA? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Menilai Kesesuaian Pernyataan Berdasarkan Teks",
+    "question": "Pernyataan berikut yang TIDAK SESUAI dengan isi teks 'Penyu Sisik: Sang Penjaga Terumbu Karang Nusantara' adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Penyu sisik dilindungi karena populasi menurun akibat perburuan cangkang.",
-      "Tukik dilepas siang hari agar cepat kuat berenang.",
-      "Kepulauan Derawan dan Sukamade merupakan lokasi konservasi penyu.",
-      "Cangkang penyu sisik tidak memiliki nilai ekonomis sama sekali."
+      "Penyu sisik memiliki bentuk paruh runcing menyerupai paruh burung elang.",
+      "Tukik dilepasliarkan pada siang hari terik agar tubuhnya cepat kuat berenang.",
+      "Kepulauan Derawan dan Sukamade merupakan contoh lokasi konservasi penyu.",
+      "Populasi penyu sisik berkurang salah satunya karena perburuan cangkang sisiknya."
     ],
-    "correct": [
-      "A",
-      "C"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "A: Fakta (teks menyebut perburuan liar karena cangkang bernilai tinggi). B: SALAH, teks menyebut 'malam hari'. C: Fakta (teks menyebut Derawan dan Sukamade). D: SALAH, teks menyebut cangkang 'bernilai tinggi'. Jawaban benar: A, C.",
-    "tipe": "MCMA"
+    "explanation": "Pada paragraf ketiga dinyatakan: 'Setelah menetas, anak penyu (tukik) dirawat secara intensif selama beberapa hari sebelum akhirnya dilepasliarkan kembali ke laut lepas pada malam atau dini hari guna menghindari serangan burung pemangsa.' Oleh karena itu, pernyataan B (dilepasliarkan pada siang hari terik) tidak sesuai/salah."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -920,31 +825,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Arga membantu ibunya menjual sayur (berbakti), dan meskipun tergoda untuk membeli sepatu baru yang rusak, ia tetap mengembalikan kantong berisi uang kepada Kakek Suro (jujur dan berbudi pekerti luhur). Jadi watak dominan Arga adalah pilihan B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Arga membantu ibunya menjual sayur (berbakti), dan meskipun tergoda untuk membeli sepatu baru yang rusak, ia tetap mengembalikan kantong berisi uang kepada Kakek Suro (jujur dan berbudi pekerti luhur). Jadi watak dominan Arga adalah pilihan B."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 1",
     "title": "Quiz Web Bahasa Indonesia Paket 1",
     "number": 7,
-    "materi": "Latar Tempat & Suasana Cerita (Tabel Kategori Benar/Salah)",
-    "question": "Berdasarkan cerita 'Kantong Belacu Cokelat', tentukan kebenaran pernyataan berikut!",
-    "type": "Kategori",
+    "materi": "Mengidentifikasi Latar Tempat dan Suasana Cerita",
+    "question": "Latar tempat terjadinya peristiwa penemuan kantong belacu cokelat oleh Arga adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Peristiwa penemuan kantong belacu terjadi di tepi semak rumput gajah dekat jembatan kayu.",
-      "Arga menemukan kantong belacu di dalam pasar desa yang ramai.",
-      "Suasana saat Arga menemukan kantong adalah sunyi dan menegangkan."
+      "Di tengah pasar desa yang ramai",
+      "Di tepi semak rumput gajah dekat tikungan jembatan kayu perbatasan desa",
+      "Di pekarangan rumah gubuk milik Kakek Suro",
+      "Di ruang tunggu puskesmas desa"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Salah"
-    },
+    "correct": "B",
     "time": 60,
-    "explanation": "A: BENAR (teks: 'melewati tikungan jembatan kayu di perbatasan desa... semak rumput gajah'). B: SALAH (bukan di pasar). C: SALAH (suasana tidak sunyi menegangkan, tapi penemuan tak terduga).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Salah\", \"C\": \"Salah\"}"
+    "explanation": "Pada paragraf pertama tertulis jelas: 'Ketika melewati tikungan jembatan kayu di perbatasan desa, roda depan sepedanya menabrak sesuatu... Di tepi semak-semak rumput gajah, tergeletak sebuah kantong kain belacu berwarna cokelat kusam.' Jadi latar tempatnya adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -962,8 +861,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pada paragraf ketiga dijelaskan adanya pertentangan batin: 'Di dalam hati Arga, sempat terlintas bisikan godaan. Sepatu sekolahnya sudah jebol di bagian tumit... Namun, seketika petuah bijak sang ibu bergaung kuat... Kejujuran adalah kehormatan hidup kita.' Ini mencerminkan konflik batin pada pilihan B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pada paragraf ketiga dijelaskan adanya pertentangan batin: 'Di dalam hati Arga, sempat terlintas bisikan godaan. Sepatu sekolahnya sudah jebol di bagian tumit... Namun, seketika petuah bijak sang ibu bergaung kuat... Kejujuran adalah kehormatan hidup kita.' Ini mencerminkan konflik batin pada pilihan B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -981,8 +879,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Amanat cerita berpusat pada nilai integritas: jangan mengambil barang yang bukan hak kita dan tetaplah jujur dalam keadaan apa pun karena kejujuran membawa ketenteraman batin dan keberkahan. Pilihan yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Amanat cerita berpusat pada nilai integritas: jangan mengambil barang yang bukan hak kita dan tetaplah jujur dalam keadaan apa pun karena kejujuran membawa ketenteraman batin dan keberkahan. Pilihan yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1000,8 +897,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Tindakan Arga yang paling bernilai keteladanan luhur adalah kesediaannya mengantarkan dan mengembalikan dompet/kantong uang temuan kepada pemiliknya tanpa pamrih (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Tindakan Arga yang paling bernilai keteladanan luhur adalah kesediaannya mengantarkan dan mengembalikan dompet/kantong uang temuan kepada pemiliknya tanpa pamrih (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1019,30 +915,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Seluruh percakapan membahas latar belakang, mekanisme kerja, dan dampak positif program 'Bank Sampah Berseri' di sekolah. Jadi topik utamanya adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Seluruh percakapan membahas latar belakang, mekanisme kerja, dan dampak positif program 'Bank Sampah Berseri' di sekolah. Jadi topik utamanya adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 1",
     "title": "Quiz Web Bahasa Indonesia Paket 1",
     "number": 12,
-    "materi": "Memahami Informasi Rinci dalam Dialog (Pilihan Ganda Kompleks)",
-    "question": "Berdasarkan dialog Bank Sampah di atas, manakah keuntungan yang diperoleh siswa? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Menemukan Informasi Rinci dalam Dialog",
+    "question": "Berdasarkan dialog di atas, keuntungan langsung yang diperoleh siswa ketika menyetorkan sampah anorganik bersih ke Bank Sampah adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Mendapatkan saldo tabungan yang bisa ditukar alat tulis atau bibit tanaman.",
-      "Belajar menghitung dan mencatat transaksi keuangan sederhana.",
-      "Dibebaskan dari tugas piket membersihkan ruang kelas selamanya.",
-      "Mendapatkan hadiah uang tunai langsung dari Kepala Sekolah."
+      "Mendapatkan nilai rapor tertinggi pada mata pelajaran IPA",
+      "Memperoleh saldo tabungan yang kelak dapat ditukar dengan alat tulis atau bibit tanaman",
+      "Dibebaskan dari tugas piket membersihkan ruang kelas selama satu semester",
+      "Diberikan hadiah uang tunai langsung oleh kepala sekolah"
     ],
-    "correct": [
-      "A",
-      "B"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "A: Benar (teks: 'saldo tabungan yang kelak dapat ditukar dengan alat tulis atau bibit tanaman'). B: Benar (implisit dari mengelola tabungan). C: SALAH (tidak disebutkan). D: SALAH (tidak disebutkan). Jawaban benar: A, B.",
-    "tipe": "MCMA"
+    "explanation": "Ibu Ratna menjelaskan: 'Pengurus cilik bank sampah akan menimbang... mengonversikannya menjadi saldo tabungan di buku rekening siswa. Saldo tabungan ini pada akhir semester dapat ditukarkan dengan buku tulis, pensil warna, atau bibit tanaman hias.' Pilihan yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1060,8 +951,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Secara eksplisit Ibu Ratna menyatakan: 'Alhamdulillah, volume timbulan sampah sekolah yang dibuang ke TPA berkurang drastis hingga 60%.' Jadi jawabannya adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Secara eksplisit Ibu Ratna menyatakan: 'Alhamdulillah, volume timbulan sampah sekolah yang dibuang ke TPA berkurang drastis hingga 60%.' Jadi jawabannya adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1079,31 +969,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Simpulan yang merangkum keseluruhan isi dialog adalah bahwa keberadaan Bank Sampah sekolah sukses membentuk kebiasaan peduli lingkungan pada siswa sekaligus membuat sekolah lebih asri dan ramah lingkungan (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Simpulan yang merangkum keseluruhan isi dialog adalah bahwa keberadaan Bank Sampah sekolah sukses membentuk kebiasaan peduli lingkungan pada siswa sekaligus membuat sekolah lebih asri dan ramah lingkungan (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 1",
     "title": "Quiz Web Bahasa Indonesia Paket 1",
     "number": 15,
-    "materi": "Teks Prosedur Menanam Hidroponik (Tabel Kategori Benar/Salah)",
-    "question": "Berdasarkan prosedur menanam sawi hidroponik, tentukan kebenaran!",
-    "type": "Kategori",
+    "materi": "Melengkapi Teks Prosedur Rumpang",
+    "question": "Bacalah petunjuk prosedur berikut untuk menjawab soal nomor 15 dan 16!\n\nPetunjuk Praktis Menanam Sayuran Hidroponik Sistem Sumbu (Wick System)\n(1) Siapkan botol plastik bekas air mineral ukuran 1,5 liter, lalu potong secara horizontal menjadi dua bagian menggunakan gunting atau *cutter*.\n(2) Buatlah lubang kecil pada tutup botol menggunakan solder atau paku panas, lalu selipkan sehelai kain flanel sepanjang 15 cm sebagai sumbu kapiler.\n(3) Pasang bagian atas botol yang sudah bersumbu ke dalam potongan bagian bawah botol secara terbalik (leher botol menghadap ke dasar).\n(4) [...]\n(5) Masukkan bibit tanaman sawi atau selada yang telah disemai (berdaun 3 sampai 4 helai) dengan hati-hati ke dalam media tanam tersebut.\n(6) Tuangkan larutan nutrisi hidroponik (larutan AB Mix) ke dalam wadah bagian bawah hingga menyentuh separuh sumbu flanel, lalu letakkan di area yang terkena sinar matahari cukup.\n\nKalimat yang paling tepat dan runtut untuk melengkapi langkah nomor (4) pada petunjuk hidroponik tersebut adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Botol plastik bagian bawah digunakan sebagai wadah nutrisi.",
-      "Biji benih sawi direndam air hangat selama 2 hari sebelum ditanam.",
-      "Media tanam yang digunakan adalah arang sekam atau rockwool."
+      "Gunakan cat minyak untuk mewarnai bagian luar botol plastik agar kedap cahaya.",
+      "Isilah bagian atas botol tersebut dengan media tanam berupa arang sekam atau rockwool secukupnya.",
+      "Rendamlah biji benih sawi di dalam air hangat selama dua hari penuh.",
+      "Buanglah sisa potongan botol bagian bawah ke tempat penampungan sampah."
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": "B",
     "time": 60,
-    "explanation": "A: BENAR (botol bawah jadi wadah nutrisi). B: SALAH (benih direndam air biasa, bukan hangat 2 hari). C: BENAR (teks: 'arang sekam atau rockwool').",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Salah\", \"C\": \"Benar\"}"
+    "explanation": "Setelah memasang bagian botol secara terbalik dengan sumbu (langkah 3) dan sebelum menempatkan bibit bertunas (langkah 5), wadah harus diisi media tanam (seperti arang sekam, cocopeat, atau rockwool). Kalimat B adalah langkah yang logis dan tepat."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1121,8 +1005,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Kain flanel bekerja dengan gaya kapilaritas untuk menyerap air nutrisi dari tandon bagian bawah ke atas sehingga membasahi media tanam dan diserap oleh akar bibit sawi (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Kain flanel bekerja dengan gaya kapilaritas untuk menyerap air nutrisi dari tandon bagian bawah ke atas sehingga membasahi media tanam dan diserap oleh akar bibit sawi (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1140,31 +1023,25 @@
     ],
     "correct": "A",
     "time": 60,
-    "explanation": "Majas personifikasi 'embun menari di ujung dedaunan' menggambarkan suasana pagi hari yang indah, di mana tetesan embun berkilau terkena sinar mentari dan tampak bergoyang lembut tertiup angin sepoi-sepoi (Pilihan A).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Majas personifikasi 'embun menari di ujung dedaunan' menggambarkan suasana pagi hari yang indah, di mana tetesan embun berkilau terkena sinar mentari dan tampak bergoyang lembut tertiup angin sepoi-sepoi (Pilihan A)."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 1",
     "title": "Quiz Web Bahasa Indonesia Paket 1",
     "number": 18,
-    "materi": "Menyusun Kalimat Menjadi Paragraf (Pilihan Ganda Kompleks)",
-    "question": "Perhatikan kalimat acak berikut! (1) Tuang adonan ke cetakan. (2) Campur tepung, gula, telur, dan santan. (3) Kukus selama 20 menit. (4) Aduk hingga rata. Urutan yang tepat adalah.... (Pilih lebih dari satu yang benar)",
-    "type": "MCMA",
+    "materi": "Menyusun Urutan Kalimat Menjadi Paragraf Padu",
+    "question": "Perhatikan kalimat-kalimat petunjuk pembuatan puding berikut!\n(1) Setelah uap panasnya berkurang, masukkan puding ke dalam lemari es hingga mengeras.\n(2) Campurkan bubuk agar-agar, gula pasir, dan air kelapa muda ke dalam panci secara merata.\n(3) Rebus adonan di atas api sedang sambil terus diaduk perlahan hingga mendidih sempurna.\n(4) Tuangkan cairan puding yang telah mendidih ke dalam cetakan yang telah disiapkan.\n\nUrutan petunjuk yang tepat dan logis agar menjadi teks prosedur yang padu adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Urutan logis dimulai dari mencampur bahan (2).",
-      "Pengadukan (4) dilakukan setelah mencampur (2).",
-      "Mengukus (3) dilakukan sebelum menuang ke cetakan (1).",
-      "Urutan lengkapnya adalah (2) - (4) - (1) - (3)."
+      "(2) - (3) - (4) - (1)",
+      "(2) - (4) - (3) - (1)",
+      "(3) - (2) - (4) - (1)",
+      "(3) - (4) - (2) - (1)"
     ],
-    "correct": [
-      "A",
-      "B",
-      "D"
-    ],
+    "correct": "A",
     "time": 60,
-    "explanation": "Urutan: (2) Campur -> (4) Aduk -> (1) Tuang cetakan -> (3) Kukus. A: Benar. B: Benar. C: SALAH (mengukus SETELAH tuang cetakan). D: Benar (urutan lengkap benar). Jawaban benar: A, B, D.",
-    "tipe": "MCMA"
+    "explanation": "Urutan memasak puding yang logis:\n- (2) Campurkan bahan ke panci.\n- (3) Rebus di atas api sambil diaduk hingga mendidih.\n- (4) Tuangkan ke cetakan.\n- (1) Masukkan ke lemari es hingga mengeras.\nUrutan yang tepat adalah (2) - (3) - (4) - (1) (Pilihan A)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1182,31 +1059,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Analisis kata baku:\n- Pilihan A: salah, yang baku adalah 'antre' (bukan antri) dan 'apotek' (bukan apotik).\n- Pilihan B: BENAR, 'jadwal', 'praktik', 'aktif', 'klinik' semuanya baku.\n- Pilihan C: salah, yang baku adalah 'izin' (bukan ijin).\n- Pilihan D: salah, yang baku adalah 'kualitas' (bukan kwalitas) dan 'mancanegara' (ditulis serangkai).\nJadi, kalimat yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Analisis kata baku:\n- Pilihan A: salah, yang baku adalah 'antre' (bukan antri) dan 'apotek' (bukan apotik).\n- Pilihan B: BENAR, 'jadwal', 'praktik', 'aktif', 'klinik' semuanya baku.\n- Pilihan C: salah, yang baku adalah 'izin' (bukan ijin).\n- Pilihan D: salah, yang baku adalah 'kualitas' (bukan kwalitas) dan 'mancanegara' (ditulis serangkai).\nJadi, kalimat yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 1",
     "title": "Quiz Web Bahasa Indonesia Paket 1",
     "number": 20,
-    "materi": "Tanda Baca & Huruf Kapital Kalimat Langsung (Tabel Kategori Benar/Salah)",
-    "question": "Perhatikan kalimat langsung berikut! Tentukan kebenaran penulisan tanda baca & huruf kapital.",
-    "type": "Kategori",
+    "materi": "Penggunaan Tanda Baca dan Huruf Kapital pada Kalimat Langsung",
+    "question": "Penulisan kalimat langsung berikut yang menggunakan tanda baca dan huruf kapital secara tepat adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Kalimat: Ibu berpesan, \"Tolong rapikan buku pelajaran di mejamu, Farhan!\" → Penulisan BENAR.",
-      "Kalimat: Ibu berpesan: \"tolong rapikan buku pelajaran di mejamu, Farhan!\" → Penulisan BENAR.",
-      "Kalimat: Ibu berpesan, \"Tolong rapikan buku pelajaran di mejamu Farhan\"! → Penulisan BENAR."
+      "Ibu berpesan, \"Tolong rapikan buku pelajaran di mejamu, Farhan!\"",
+      "Ibu berpesan: \"tolong rapikan buku pelajaran di mejamu, Farhan!\"",
+      "Ibu berpesan, \"Tolong rapikan buku pelajaran di mejamu Farhan\"!",
+      "\"Ibu berpesan, tolong rapikan buku pelajaran di mejamu, Farhan.\""
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Salah"
-    },
+    "correct": "A",
     "time": 60,
-    "explanation": "A: BENAR (komi pengiring, kapital awal petik, tanda baca di dalam petik). B: SALAH (huruf 't' dalam petik harus kapital). C: SALAH (tanda seru harus di dalam petik, 'Farhan' kurang koma).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Salah\", \"C\": \"Salah\"}"
+    "explanation": "Aturan penulisan kalimat langsung:\n1. Pengiring diikuti tanda koma (,).\n2. Kalimat petikan diawali huruf kapital di dalam tanda petik (\").\n3. Tanda seru (!) atau tanda titik diletakkan SEBELUM tanda petik penutup (\").\nJadi penulisan yang benar adalah: Ibu berpesan, \"Tolong rapikan buku pelajaran di mejamu, Farhan!\" (Pilihan A)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1224,8 +1095,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Paragraf pertama memaparkan keberadaan PLTS Terapung Cirata sebagai tonggak baru transisi energi hijau di Indonesia, dengan kapasitas 192 MWp dan menjadi terbesar di Asia Tenggara. Gagasan utamanya adalah pilihan B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Paragraf pertama memaparkan keberadaan PLTS Terapung Cirata sebagai tonggak baru transisi energi hijau di Indonesia, dengan kapasitas 192 MWp dan menjadi terbesar di Asia Tenggara. Gagasan utamanya adalah pilihan B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1243,8 +1113,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pada paragraf kedua dinyatakan: 'Kedua, suhu permukaan air di bawah panel surya memberikan efek pendinginan alami (cooling effect) yang menjaga kestabilan temperatur modul, sehingga efisiensi penyerapan sinar matahari meningkat...' Jadi jawabannya adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pada paragraf kedua dinyatakan: 'Kedua, suhu permukaan air di bawah panel surya memberikan efek pendinginan alami (cooling effect) yang menjaga kestabilan temperatur modul, sehingga efisiensi penyerapan sinar matahari meningkat...' Jadi jawabannya adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1262,8 +1131,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Energi terbarukan (renewable energy) adalah sumber energi yang dapat diperbarui secara alami dan berkelanjutan (seperti matahari, angin, air, dan panas bumi) serta ramah lingkungan. Pilihan yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Energi terbarukan (renewable energy) adalah sumber energi yang dapat diperbarui secara alami dan berkelanjutan (seperti matahari, angin, air, dan panas bumi) serta ramah lingkungan. Pilihan yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1281,30 +1149,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pada paragraf kedua tertulis: 'Ketiga, naungan deretan panel surya di atas permukaan waduk mampu mengurangi laju penguapan air (evaporasi) saat musim kemarau...' Pilihan yang benar adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pada paragraf kedua tertulis: 'Ketiga, naungan deretan panel surya di atas permukaan waduk mampu mengurangi laju penguapan air (evaporasi) saat musim kemarau...' Pilihan yang benar adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 2",
     "title": "Quiz Web Bahasa Indonesia Paket 2",
     "number": 5,
-    "materi": "Membedakan Fakta dan Opini (Pilihan Ganda Kompleks)",
-    "question": "Berdasarkan teks 'PLTS Terapung Cirata', manakah pernyataan yang merupakan FAKTA? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Membedakan Kalimat Fakta dan Opini",
+    "question": "Pernyataan berikut yang merupakan FAKTA yang dapat diverifikasi dari teks 'PLTS Terapung Cirata' adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "PLTS Terapung Cirata dibangun di atas Waduk Cirata dengan kapasitas 192 MWp.",
-      "Semua PLTU batu bara di Indonesia harus ditutup segera.",
-      "Energi surya adalah energi terbarukan yang ramah lingkungan.",
-      "PLTS Cirata adalah yang paling indah di dunia."
+      "PLTS Terapung Cirata dibangun di atas permukaan waduk dengan kapasitas daya mencapai 192 MWp.",
+      "Semua pembangkit listrik tenaga batu bara di Indonesia sebaiknya ditutup tahun depan.",
+      "Energi matahari adalah satu-satunya sumber energi yang disukai masyarakat Jawa Barat.",
+      "Pemandangan panel surya di Waduk Cirata terlihat paling indah di seluruh dunia."
     ],
-    "correct": [
-      "A",
-      "C"
-    ],
+    "correct": "A",
     "time": 60,
-    "explanation": "A: Fakta (angka terukur 192 MWp, lokasi Waduk Cirata). B: Opini (harus ditutup = pendapat). C: Fakta (energi surya terbarukan & ramah lingkungan). D: Opini (paling indah = subjektif). Jawaban benar: A, C.",
-    "tipe": "MCMA"
+    "explanation": "Pilihan A menyajikan data faktual angka terukur: berkapasitas 192 MWp di Waduk Cirata. Pilihan B, C, dan D merupakan opini, saran subjektif, atau klaim berlebihan. Jawaban yang tepat adalah A."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1322,31 +1185,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Ketika baling-balingnya patah dan disuruh menyerah oleh teman-temannya, Rian justru menyatakan bahwa kegagalan adalah pelajaran berharga dan ia memperbaiki baling-baling serta menyegel wadah baterai dengan silikon (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Ketika baling-balingnya patah dan disuruh menyerah oleh teman-temannya, Rian justru menyatakan bahwa kegagalan adalah pelajaran berharga dan ia memperbaiki baling-baling serta menyegel wadah baterai dengan silikon (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 2",
     "title": "Quiz Web Bahasa Indonesia Paket 2",
     "number": 7,
-    "materi": "Latar Suasana Cerita (Tabel Kategori Benar/Salah)",
-    "question": "Berdasarkan cerita robot Rian, tentukan kebenaran pernyataan berikut!",
-    "type": "Kategori",
+    "materi": "Mengidentifikasi Latar Suasana Cerita",
+    "question": "Suasana yang tercipta pada bagian akhir cerita saat robot buatan Rian berhasil bekerja adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Suasana awal cerita cemas karena hujan badai.",
-      "Suasana akhir cerita riah, bangga, dan penuh decak kagum warga.",
-      "Robot Rian gagal berfungsi dan membuat warga kecewa."
+      "Tegang dan penuh kekhawatiran warga kampung",
+      "Riuh, bangga, dan penuh decak kagum warga atas keberhasilan Rian",
+      "Sunyi senyap karena hujan badai yang sangat lebat",
+      "Kecewa karena perahu robot tersangkut ranting pohon"
     ],
-    "correct": {
-      "A": "Salah",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": "B",
     "time": 60,
-    "explanation": "A: SALAH (awal cerita Rian membuat robot, bukan hujan badai). B: BENAR (teks: 'warga bertepuk tangan riuh, bangga, decak kagum'). C: SALAH (robot BERHASIL bekerja).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Salah\", \"B\": \"Benar\", \"C\": \"Salah\"}"
+    "explanation": "Di akhir cerita digambarkan: 'Warga kampung yang berkumpul di pinggir jalan bertepuk tangan riuh, kagum atas keuletan dan kecerdasan anak muda yang peduli pada lingkungannya tersebut.' Suasana yang tercipta adalah bangga dan kagum (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1364,8 +1221,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pada paragraf kedua disebutkan secara jelas: 'Baling-baling perahunya patah menghantam batu padas, dan wadah baterainya kemasukan air kotor hingga mengeluarkan kepulan asap.' Jadi penyebabnya adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pada paragraf kedua disebutkan secara jelas: 'Baling-baling perahunya patah menghantam batu padas, dan wadah baterainya kemasukan air kotor hingga mengeluarkan kepulan asap.' Jadi penyebabnya adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1383,8 +1239,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Cerita ini menanamkan pesan bahwa kepekaan terhadap lingkungan, dipadukan dengan kreativitas dan ketekunan yang pantang menyerah, akan menghasilkan karya bermanfaat bagi masyarakat (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Cerita ini menanamkan pesan bahwa kepekaan terhadap lingkungan, dipadukan dengan kreativitas dan ketekunan yang pantang menyerah, akan menghasilkan karya bermanfaat bagi masyarakat (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1402,8 +1257,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Peribahasa 'Di mana ada kemauan, di situ ada jalan' bermakna jika seseorang bersungguh-sungguh dan memiliki tekad kuat, ia pasti akan menemukan cara untuk mengatasi rintangan dan meraih tujuan (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Peribahasa 'Di mana ada kemauan, di situ ada jalan' bermakna jika seseorang bersungguh-sungguh dan memiliki tekad kuat, ia pasti akan menemukan cara untuk mengatasi rintangan dan meraih tujuan (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1421,30 +1275,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Teks menjelaskan secara rinci: transaksi Marosok berlangsung hening tanpa suara lisan, pembeli dan penjual berjabat tangan di bawah kain sarung/penutup dan bernegosiasi menggunakan gerakan dan sentuhan jari-jemari tangan (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Teks menjelaskan secara rinci: transaksi Marosok berlangsung hening tanpa suara lisan, pembeli dan penjual berjabat tangan di bawah kain sarung/penutup dan bernegosiasi menggunakan gerakan dan sentuhan jari-jemari tangan (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 2",
     "title": "Quiz Web Bahasa Indonesia Paket 2",
     "number": 12,
-    "materi": "Nilai Filosofis Tradisi Marosok (Pilihan Ganda Kompleks)",
-    "question": "Berdasarkan teks tradisi Marosok, tujuan penggunaan kain penutup saat tawar-menawar adalah.... (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Menemukan Nilai Filosofis Tradisi Budaya",
+    "question": "Berdasarkan teks di atas, salah satu tujuan mulia dari penggunaan kain penutup saat tawar-menawar Marosok adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Menjaga kerahasiaan harga agar tidak memicu persaingan tidak sehat.",
-      "Menghindarkan rasa malu pembeli jika harganya tidak terjangkau.",
-      "Menghangatkan tangan saat berunding di cuaca dingin.",
-      "Menunjukkan kekayaan pembeli melalui kain yang dipakai."
+      "Menghangatkan tangan pembeli dan penjual dari cuaca dingin pegunungan",
+      "Menjaga kerahasiaan harga agar tidak memicu persaingan tidak sehat dan menghindarkan rasa malu pembeli",
+      "Menunjukkan status sosial dan kekayaan keluarga pembeli ternak",
+      "Menghitung jumlah uang kertas yang dibawa oleh calon pembeli"
     ],
-    "correct": [
-      "A",
-      "B"
-    ],
+    "correct": "B",
     "time": 60,
-    "explanation": "A & B: Benar (teks: 'menjaga kerahasiaan harga agar tidak memicu persaingan tidak sehat dan menghindarkan rasa malu pembeli'). C: SALAH (bukan tujuan utama). D: SALAH (bukan untuk menunjukkan kekayaan). Jawaban benar: A, B.",
-    "tipe": "MCMA"
+    "explanation": "Paragraf ketiga memaparkan filosofinya: menjaga privasi harga agar pembeli lain tidak tahu sehingga persaingan tidak sehat dapat dicegah, serta menjaga martabat/menghindarkan rasa malu pembeli jika tawarannya belum cocok (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1462,8 +1311,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Privasi berarti kerahasiaan atau ranah pribadi yang dijaga agar tidak diketahui atau diintervensi oleh orang lain. Pilihan yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Privasi berarti kerahasiaan atau ranah pribadi yang dijaga agar tidak diketahui atau diintervensi oleh orang lain. Pilihan yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1481,31 +1329,25 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Ringkasan B merangkum unsur esensial teks: tradisi Marosok, cara kerja isyarat jari di balik penutup, dan nilai filosofis menjaga etika serta privasi harga. Pilihan yang tepat adalah B.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Ringkasan B merangkum unsur esensial teks: tradisi Marosok, cara kerja isyarat jari di balik penutup, dan nilai filosofis menjaga etika serta privasi harga. Pilihan yang tepat adalah B."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 2",
     "title": "Quiz Web Bahasa Indonesia Paket 2",
     "number": 15,
-    "materi": "Membaca Poster Edukasi Gizi Seimbang (Tabel Kategori Benar/Salah)",
-    "question": "Berdasarkan poster 'Gizi Seimbang Generasi Hebat', tentukan kebenaran!",
-    "type": "Kategori",
+    "materi": "Membaca Informasi Poster Edukasi",
+    "question": "Bacalah poster edukasi kesehatan berikut untuk menjawab soal nomor 15 dan 16!\n\nPanduan Gizi Seimbang Generasi Hebat: Gerakan 'Isi Piringku'\nKementerian Kesehatan RI mengajak keluarga Indonesia menerapkan pedoman gizi seimbang sekali makan:\n- 2/3 dari setengah piring diisi MAKANAN POKOK (nasi, jagung, singkong, ubi) sebagai sumber energi utama.\n- 1/3 dari setengah piring diisi LAUK-PAUK (ikan, ayam, telur, tempe, tahu) kaya protein dan mineral.\n- 2/3 dari setengah piring lainnya diisi SAYUR-MAYUR segar aneka warna sumber serat dan vitamin.\n- 1/3 dari setengah piring lainnya diisi BUAH-BUAHAN lokal manis kaya antioksidan.\n\nLengkapi piring sehatmu dengan 4 Pilar Gaya Hidup Sehat:\n(1) Cuci tangan pakai sabun dengan air mengalir sebelum dan sesudah makan.\n(2) Minum air putih minimal 8 gelas per hari untuk menjaga hidrasi tubuh.\n(3) Lakukan aktivitas fisik atau olahraga ringan minimal 30 menit setiap hari.\n(4) Pantau berat badan secara rutin setiap bulan.\n\nBerdasarkan panduan 'Isi Piringku' dalam poster edukasi di atas, kelompok makanan yang memiliki porsi seimbang sebesar 2/3 dari setengah piring adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Makanan pokok mengisi 2/3 dari setengah piring.",
-      "Sayur-mayur mengisi 1/3 dari setengah piring.",
-      "Lauk-pauk dan buah-buahan masing-masing mengisi 1/4 piring penuh."
+      "Makanan pokok dan sayur-mayur",
+      "Lauk-pauk dan buah-buahan",
+      "Makanan pokok dan lauk-pauk",
+      "Sayur-mayur dan buah-buahan"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": "A",
     "time": 60,
-    "explanation": "A: BENAR (poster: nasi 2/3 dari ½ piring). B: BENAR (sayur 1/3 dari ½ piring). C: SALAH (lauk 1/3 dari ½ piring, buah 1/3 dari ½ piring, BUKAN 1/4 piring penuh).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Salah\"}"
+    "explanation": "Dalam poster tertulis: Makanan pokok mengambil 2/3 dari setengah piring, dan sayur-mayur juga mengambil 2/3 dari setengah piring lainnya. Keduanya berimbang besar (Pilihan A)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1523,8 +1365,7 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Pilar (2) dan (3) menyebutkan: Minum air putih minimal 8 gelas per hari dan aktivitas fisik/olahraga ringan minimal 30 menit sehari (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Pilar (2) dan (3) menyebutkan: Minum air putih minimal 8 gelas per hari dan aktivitas fisik/olahraga ringan minimal 30 menit sehari (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1542,32 +1383,25 @@
     ],
     "correct": "C",
     "time": 60,
-    "explanation": "Kalimat tersebut menunjukkan hubungan perlawanan/pertentangan antara situasi hujan lebat dengan semangat peserta upacara yang tidak surut. Konjungsi pertentangan yang tepat adalah 'namun' (atau 'tetapi'). Pilihan yang benar adalah C.",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Kalimat tersebut menunjukkan hubungan perlawanan/pertentangan antara situasi hujan lebat dengan semangat peserta upacara yang tidak surut. Konjungsi pertentangan yang tepat adalah 'namun' (atau 'tetapi'). Pilihan yang benar adalah C."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 2",
     "title": "Quiz Web Bahasa Indonesia Paket 2",
     "number": 18,
-    "materi": "Imbuhan Memper- / Memper-kan (Pilihan Ganda Kompleks)",
-    "question": "Perhatikan pasangan kata berikut! (1) luas → memperluas, (2) panjang → memanjangkan, (3) dalam → memperdalam, (4) tinggi → memertinggikan. Manakah pasangan yang TEPAT? (Pilih lebih dari satu)",
-    "type": "MCMA",
+    "materi": "Penggunaan Imbuhan Memper-kan / Memper-",
+    "question": "Perhatikan kalimat berikut!\n\nPemerintah kota terus berupaya (luas) jalur hijau di sepanjang trotoar demi menyerap emisi kendaraan bermotor.\n\nBentuk kata berimbuhan yang tepat untuk kata dalam tanda kurung agar membentuk kalimat yang efektif adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "luas → memperluas (tepat).",
-      "panjang → memanjangkan (tepat).",
-      "dalam → memperdalam (tepat).",
-      "tinggi → memertinggikan (tepat)."
+      "memperluas",
+      "meluaskan",
+      "diperluas",
+      "memperluaskan"
     ],
-    "correct": [
-      "A",
-      "B",
-      "C",
-      "D"
-    ],
+    "correct": "A",
     "time": 60,
-    "explanation": "Semua pasangan tepat: luas-memperluas, panjang-memanjangkan, dalam-memperdalam, tinggi-memertinggikan (imbuhan memper- + kan pada kata sifat). Jawaban benar: A, B, C, D.",
-    "tipe": "MCMA"
+    "explanation": "Kata dasar 'luas' merupakan kata sifat. Imbuhan pembentuk kata kerja yang menyatakan 'menjadikan lebih luas' adalah 'memper-' (memperluas). Bentuk 'memperluaskan' salah karena pleonasme (tumpang tindih afiks memper-...-kan pada kata sifat). Jadi kata yang baku dan tepat adalah 'memperluas' (Pilihan A)."
   },
   {
     "subject": "Bahasa Indonesia",
@@ -1585,30 +1419,24 @@
     ],
     "correct": "B",
     "time": 60,
-    "explanation": "Tanda titik dua (:) digunakan pada akhir suatu pernyataan lengkap yang diikuti pemerincian atau penjelasan (buku gambar, jangka, busur derajat, pensil warna). Jadi fungsinya adalah mengawali pemerincian lengkap (Pilihan B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Tanda titik dua (:) digunakan pada akhir suatu pernyataan lengkap yang diikuti pemerincian atau penjelasan (buku gambar, jangka, busur derajat, pensil warna). Jadi fungsinya adalah mengawali pemerincian lengkap (Pilihan B)."
   },
   {
     "subject": "Bahasa Indonesia",
     "paket": "Paket 2",
     "title": "Quiz Web Bahasa Indonesia Paket 2",
     "number": 20,
-    "materi": "Huruf Kapital EYD (Tabel Kategori Benar/Salah)",
-    "question": "Tentukan kebenaran penulisan huruf kapital berikut!",
-    "type": "Kategori",
+    "materi": "Penggunaan Huruf Kapital Sesuai Ejaan Bahasa Indonesia",
+    "question": "Penulisan huruf kapital berikut yang tepat dan sesuai dengan kaidah EYD adalah....",
+    "type": "Multiple Choice",
     "options": [
-      "Selat Bali, hari Minggu → Penulisan BENAR.",
-      "Danau Toba, Gunung Merapi → Penulisan BENAR.",
-      "Pisang Ambon, Pasar Tradisional → Penulisan BENAR."
+      "Rombongan wisatawan itu berlayar menyeberangi Selat Bali pada hari Minggu.",
+      "Danau toba merupakan Danau vulkanik terbesar di Asia Tenggara.",
+      "Ibu membeli buah Pisang ambon di pasar Tradisional.",
+      "Setiap hari selasa, siswa kelas Enam memakai seragam pramuka."
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": "A",
     "time": 60,
-    "explanation": "A: BENAR (Selat Bali = nama geografi, Minggu = hari). B: BENAR (Danau Toba, Gunung Merapi = nama geografi). C: SALAH (pisang ambon = jenis buah, bukan nama diri → huruf kecil; pasar tradisional = umum, bukan nama diri).",
-    "tipe": "Kategori",
-    "kunci": "{\"A\": \"Benar\", \"B\": \"Benar\", \"C\": \"Salah\"}"
+    "explanation": "Analisis ejaan:\n- Pilihan A: BENAR. Nama diri geografi (Selat Bali) huruf kapital, nama hari (Minggu) huruf kapital.\n- Pilihan B: salah, harusnya Danau Toba (T kapital), 'danau' pada danau vulkanik huruf kecil.\n- Pilihan C: salah, pisang ambon adalah nama jenis (bukan nama diri), jadi p dan a huruf kecil.\n- Pilihan D: salah, selasa harus kapital (Selasa), enam huruf kecil.\nJadi kalimat yang benar adalah A."
   }
 ]
