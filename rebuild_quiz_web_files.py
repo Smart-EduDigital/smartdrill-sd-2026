@@ -158,8 +158,13 @@ def buat_docx(paket_data, subject_name, paket_name, filename):
         p_line.add_run("―" * 45).font.color.rgb = RGBColor(0xE5, 0xE7, 0xEB)
         
     out_path = os.path.join(TARGET_DIR, filename)
-    doc.save(out_path)
-    print(f"[OK] Word Document: {out_path}")
+    try:
+        doc.save(out_path)
+        print(f"[OK] Word Document: {out_path}")
+    except PermissionError:
+        alt_path = os.path.join(TARGET_DIR, filename.replace('.docx', '_terbaru.docx'))
+        doc.save(alt_path)
+        print(f"[WARNING] {filename} sedang dibuka. Tersimpan sebagai: {alt_path}")
     return out_path
 
 def buat_quizizz_excel(paket_data, filename):
