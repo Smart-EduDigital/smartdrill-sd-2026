@@ -7,7 +7,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
@@ -39,7 +39,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Kode PIN / Token Akses</label>
-                    <input type="text" id="input-token" placeholder="Contoh: SMART2026 (bebas untuk demo)" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    <input type="text" id="input-token" placeholder="Contoh: SMART2026" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
                 </div>
                 <button onclick="startApp()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-indigo-100">
                     Mulai Try Out Sekarang
@@ -79,9 +79,10 @@
                 <div>
                     <span id="quiz-info" class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full"></span>
                     <h3 id="question-number" class="text-lg font-bold text-slate-800 mt-2">Soal 1 dari 20</h3>
+                    <div id="badge-tipe" class="inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800"></div>
                 </div>
                 <div class="flex items-center space-x-2 bg-amber-50 text-amber-700 px-3 py-1 rounded-xl font-semibold text-sm">
-                    ⏱️ <span id="timer">60</span>s
+                    ⏱️ <span id="timer">45:00</span>
                 </div>
             </div>
 
@@ -154,9 +155,8 @@
         let userAnswers = {};
         let studentName = '';
         let globalTimerInterval = null;
-        let totalTimeLeft = 45 * 60; // 45 menit dalam detik
+        let totalTimeLeft = 45 * 60; // 45 menit
 
-        // Load questions.json and tokens.json on startup
         Promise.all([
             fetch('questions.json').then(res => res.json()),
             fetch('tokens.json').then(res => res.json()).catch(() => [])
@@ -179,8 +179,6 @@
                 return;
             }
 
-            // Mode testing: terima semua token (bebas) agar tidak ada kendala saat uji coba
-
             studentName = name;
             document.getElementById('user-badge').innerText = studentName;
             document.getElementById('user-badge').classList.remove('hidden');
@@ -201,7 +199,7 @@
 
             currentIndex = 0;
             userAnswers = {};
-            totalTimeLeft = 45 * 60; // 45 menit
+            totalTimeLeft = 45 * 60;
 
             document.getElementById('step-select').classList.add('hidden');
             document.getElementById('step-quiz').classList.remove('hidden');
@@ -216,7 +214,6 @@
             globalTimerInterval = setInterval(() => {
                 totalTimeLeft--;
                 
-                // Format MM:SS
                 const minutes = Math.floor(totalTimeLeft / 60);
                 const seconds = totalTimeLeft % 60;
                 document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
@@ -234,30 +231,119 @@
             document.getElementById('question-number').innerText = `Soal ${currentIndex + 1} dari ${currentQuizQuestions.length}`;
             document.getElementById('question-text').innerText = q.question;
 
-            // Options
+            const badgeTipe = document.getElementById('badge-tipe');
             const container = document.getElementById('options-container');
             container.innerHTML = '';
 
-            q.options.forEach((opt, idx) => {
-                const optLetter = String.fromCharCode(65 + idx); // A, B, C, D, E
-                const isSelected = userAnswers[currentIndex] === optLetter;
+            const tipe = q.tipe || 'Pilihan Ganda';
 
-                const btn = document.createElement('button');
-                btn.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium ${
-                    isSelected 
-                        ? 'border-indigo-600 bg-indigo-50 text-indigo-900 shadow-sm' 
-                        : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700'
-                }`;
-                btn.innerHTML = `<span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span><span>${opt}</span>`;
-                
-                btn.onclick = () => {
-                    userAnswers[currentIndex] = optLetter;
-                    renderQuestion();
-                };
-                container.appendChild(btn);
-            });
+            if (tipe === 'MCMA' || tipe.includes('Kompleks')) {
+                badgeTipe.innerText = 'Pilihan Ganda Kompleks (Pilih Lebih Dari Satu)';
+                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2.5 py-1 rounded bg-blue-100 text-blue-800';
 
-            // Buttons state
+                const currentSelected = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
+
+                q.options.forEach((opt, idx) => {
+                    const optLetter = String.fromCharCode(65 + idx);
+                    const isChecked = currentSelected.includes(optLetter);
+
+                    const div = document.createElement('label');
+                    div.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium cursor-pointer ${
+                        isChecked 
+                            ? 'border-indigo-600 bg-indigo-50 text-indigo-900 shadow-sm' 
+                            : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700'
+                    }`;
+                    div.innerHTML = `
+                        <input type="checkbox" value="${optLetter}" ${isChecked ? 'checked' : ''} class="w-5 h-5 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500">
+                        <span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isChecked ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span>
+                        <span>${opt}</span>
+                    `;
+                    div.querySelector('input').onchange = (e) => {
+                        let arr = Array.isArray(userAnswers[currentIndex]) ? [...userAnswers[currentIndex]] : [];
+                        if (e.target.checked) {
+                            if (!arr.includes(optLetter)) arr.push(optLetter);
+                        } else {
+                            arr = arr.filter(x => x !== optLetter);
+                        }
+                        userAnswers[currentIndex] = arr;
+                        renderQuestion();
+                    };
+                    container.appendChild(div);
+                });
+
+            } else if (tipe === 'Kategori' || tipe.includes('Tabel')) {
+                badgeTipe.innerText = 'Kategori (Tentukan Benar atau Salah)';
+                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2.5 py-1 rounded bg-purple-100 text-purple-800';
+
+                const currentObj = typeof userAnswers[currentIndex] === 'object' && !Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : {};
+
+                const table = document.createElement('table');
+                table.className = 'w-full text-left border-collapse bg-white rounded-xl overflow-hidden border border-slate-200';
+                table.innerHTML = `
+                    <thead>
+                        <tr class="bg-slate-100 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
+                            <th class="p-3">Pernyataan</th>
+                            <th class="p-3 text-center w-24">Benar</th>
+                            <th class="p-3 text-center w-24">Salah</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-sm"></tbody>
+                `;
+                const tbody = table.querySelector('tbody');
+
+                q.options.forEach((opt, idx) => {
+                    const optLetter = String.fromCharCode(65 + idx);
+                    const val = currentObj[optLetter] || '';
+
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-slate-50 transition';
+                    tr.innerHTML = `
+                        <td class="p-3 font-medium text-slate-800">
+                            <span class="font-bold text-indigo-600 mr-1">${optLetter}.</span> ${opt}
+                        </td>
+                        <td class="p-3 text-center bg-emerald-50/30">
+                            <input type="radio" name="cat_${currentIndex}_${optLetter}" value="Benar" ${val === 'Benar' ? 'checked' : ''} class="w-4 h-4 text-emerald-600 focus:ring-emerald-500 cursor-pointer">
+                        </td>
+                        <td class="p-3 text-center bg-rose-50/30">
+                            <input type="radio" name="cat_${currentIndex}_${optLetter}" value="Salah" ${val === 'Salah' ? 'checked' : ''} class="w-4 h-4 text-rose-600 focus:ring-rose-500 cursor-pointer">
+                        </td>
+                    `;
+                    tr.querySelectorAll('input').forEach(inp => {
+                        inp.onchange = (e) => {
+                            if (typeof userAnswers[currentIndex] !== 'object' || Array.isArray(userAnswers[currentIndex])) {
+                                userAnswers[currentIndex] = {};
+                            }
+                            userAnswers[currentIndex][optLetter] = e.target.value;
+                        };
+                    });
+                    tbody.appendChild(tr);
+                });
+                container.appendChild(table);
+
+            } else {
+                badgeTipe.innerText = 'Pilihan Ganda (Pilih Satu)';
+                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800';
+
+                q.options.forEach((opt, idx) => {
+                    const optLetter = String.fromCharCode(65 + idx);
+                    const isSelected = userAnswers[currentIndex] === optLetter;
+
+                    const btn = document.createElement('button');
+                    btn.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium ${
+                        isSelected 
+                            ? 'border-indigo-600 bg-indigo-50 text-indigo-900 shadow-sm' 
+                            : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700'
+                    }`;
+                    btn.innerHTML = `<span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span><span>${opt}</span>`;
+                    
+                    btn.onclick = () => {
+                        userAnswers[currentIndex] = optLetter;
+                        renderQuestion();
+                    };
+                    container.appendChild(btn);
+                });
+            }
+
             document.getElementById('btn-prev').style.display = currentIndex === 0 ? 'none' : 'block';
             document.getElementById('btn-next').innerText = currentIndex === currentQuizQuestions.length - 1 ? 'Selesai & Kumpulkan' : 'Selanjutnya';
         }
@@ -286,19 +372,44 @@
             let correctCount = 0;
             currentQuizQuestions.forEach((q, idx) => {
                 const userAns = userAnswers[idx];
-                // q.correct can be string '1' or '2' or 'A' etc. Convert index to correct answer letter
-                let correctLetter = '';
-                if (typeof q.correct === 'number') {
-                    correctLetter = String.fromCharCode(64 + q.correct);
-                } else if (!isNaN(q.correct)) {
-                    correctLetter = String.fromCharCode(64 + parseInt(q.correct));
+                const tipe = q.tipe || 'Pilihan Ganda';
+                let isCorrect = false;
+
+                if (tipe === 'MCMA' || tipe.includes('Kompleks')) {
+                    const arrUser = Array.isArray(userAns) ? [...userAns].sort().join(',') : '';
+                    let kStr = '';
+                    if (Array.isArray(q.correct)) {
+                        kStr = q.correct.sort().join(',');
+                    } else {
+                        kStr = String(q.correct).replace(/[^A-D]/g, '').split('').sort().join(',');
+                    }
+                    isCorrect = arrUser === kStr && arrUser !== '';
+                } else if (tipe === 'Kategori' || tipe.includes('Tabel')) {
+                    try {
+                        let kObj = typeof q.kunci === 'string' ? JSON.parse(q.kunci) : (q.kunci || {});
+                        let jObj = typeof userAns === 'object' && !Array.isArray(userAns) ? userAns : {};
+                        let match = true;
+                        q.options.forEach((_, optIdx) => {
+                            const o = String.fromCharCode(65 + optIdx);
+                            if (jObj[o] !== kObj[o]) match = false;
+                        });
+                        isCorrect = match && Object.keys(jObj).length > 0;
+                    } catch(e) {
+                        isCorrect = false;
+                    }
                 } else {
-                    correctLetter = String(q.correct).trim().toUpperCase();
+                    let correctLetter = '';
+                    if (typeof q.correct === 'number') {
+                        correctLetter = String.fromCharCode(64 + q.correct);
+                    } else if (!isNaN(q.correct)) {
+                        correctLetter = String.fromCharCode(64 + parseInt(q.correct));
+                    } else {
+                        correctLetter = String(q.correct).trim().toUpperCase();
+                    }
+                    isCorrect = userAns === correctLetter;
                 }
 
-                if (userAns === correctLetter) {
-                    correctCount++;
-                }
+                if (isCorrect) correctCount++;
             });
 
             const score = Math.round((correctCount / currentQuizQuestions.length) * 100);
@@ -314,33 +425,60 @@
             container.innerHTML = '';
 
             currentQuizQuestions.forEach((q, idx) => {
-                const userAns = userAnswers[idx] || 'Tidak dijawab';
-                let correctLetter = '';
-                if (typeof q.correct === 'number') {
-                    correctLetter = String.fromCharCode(64 + q.correct);
-                } else if (!isNaN(q.correct)) {
-                    correctLetter = String.fromCharCode(64 + parseInt(q.correct));
-                } else {
-                    correctLetter = String(q.correct).trim().toUpperCase();
-                }
+                const userAns = userAnswers[idx];
+                const tipe = q.tipe || 'Pilihan Ganda';
+                let isCorrect = false;
+                let userDisplay = 'Tidak dijawab';
+                let correctDisplay = '';
 
-                const isCorrect = userAns === correctLetter;
+                if (tipe === 'MCMA' || tipe.includes('Kompleks')) {
+                    const arrUser = Array.isArray(userAns) ? [...userAns].sort() : [];
+                    userDisplay = arrUser.length ? arrUser.join(', ') : 'Tidak dijawab';
+                    let kArr = [];
+                    if (Array.isArray(q.correct)) kArr = q.correct.sort();
+                    else kArr = String(q.correct).replace(/[^A-D]/g, '').split('').sort();
+                    correctDisplay = kArr.join(', ');
+                    isCorrect = arrUser.join(',') === kArr.join(',') && arrUser.length > 0;
+
+                } else if (tipe === 'Kategori' || tipe.includes('Tabel')) {
+                    let kObj = {};
+                    try { kObj = typeof q.kunci === 'string' ? JSON.parse(q.kunci) : (q.kunci || {}); } catch(e){}
+                    let jObj = typeof userAns === 'object' && !Array.isArray(userAns) ? userAns : {};
+                    userDisplay = Object.keys(jObj).length ? Object.entries(jObj).map(([k, v]) => `${k}: ${v}`).join(' | ') : 'Tidak dijawab';
+                    correctDisplay = Object.entries(kObj).map(([k, v]) => `${k}: ${v}`).join(' | ');
+                    let match = true;
+                    q.options.forEach((_, optIdx) => {
+                        const o = String.fromCharCode(65 + optIdx);
+                        if (jObj[o] !== kObj[o]) match = false;
+                    });
+                    isCorrect = match && Object.keys(jObj).length > 0;
+
+                } else {
+                    let correctLetter = '';
+                    if (typeof q.correct === 'number') correctLetter = String.fromCharCode(64 + q.correct);
+                    else if (!isNaN(q.correct)) correctLetter = String.fromCharCode(64 + parseInt(q.correct));
+                    else correctLetter = String(q.correct).trim().toUpperCase();
+
+                    userDisplay = userAns || 'Tidak dijawab';
+                    correctDisplay = correctLetter;
+                    isCorrect = userAns === correctLetter;
+                }
 
                 const div = document.createElement('div');
                 div.className = `p-5 rounded-2xl border ${isCorrect ? 'border-emerald-200 bg-emerald-50/50' : 'border-rose-200 bg-rose-50/50'}`;
                 div.innerHTML = `
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Soal ${idx + 1}</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Soal ${idx + 1} (${tipe})</span>
                         <span class="text-xs font-bold px-2.5 py-1 rounded-full ${isCorrect ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
                             ${isCorrect ? 'Benar ✓' : 'Salah ✕'}
                         </span>
                     </div>
                     <p class="font-semibold text-slate-800 mb-3 whitespace-pre-line">${q.question}</p>
-                    <p class="text-sm text-slate-600 mb-1">Jawaban Anda: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userAns}</strong></p>
-                    <p class="text-sm text-slate-600 mb-3">Kunci Jawaban: <strong class="text-indigo-600">${correctLetter}</strong></p>
+                    <p class="text-sm text-slate-600 mb-1">Jawaban Anda: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userDisplay}</strong></p>
+                    <p class="text-sm text-slate-600 mb-3">Kunci Jawaban: <strong class="text-indigo-600">${correctDisplay}</strong></p>
                     <div class="bg-white/80 p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
                         <strong>Pembahasan:</strong>
-                        <div class="whitespace-pre-line mt-1 text-slate-700">${q.explanation}</div>
+                        <div class="whitespace-pre-line mt-1 text-slate-700">${q.explanation || '-'}</div>
                     </div>
                 `;
                 container.appendChild(div);
