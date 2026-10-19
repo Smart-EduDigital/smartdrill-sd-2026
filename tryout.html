@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDrill SD 2026 - Try Out Digital Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl sm:text-2xl font-bold">🚀 SmartDrill SD 2026</span>
+                <span class="hidden sm:inline-block text-xs bg-indigo-500 text-indigo-100 px-2.5 py-0.5 rounded-full font-semibold">CBT Online VIP</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-xl transition">
+                    ← Kembali ke Beranda
+                </a>
+                <span id="user-badge" class="hidden bg-indigo-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-grow">
+        <!-- STEP 1: LOGIN / TOKEN -->
+        <div id="step-login" class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-md mx-auto mt-10">
+            <h2 class="text-2xl font-bold text-slate-900 mb-2 text-center">Masuk Ujian Try Out</h2>
+            <p class="text-slate-500 text-sm mb-6 text-center">Masukkan nama lengkap dan kode PIN akses Anda.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap Siswa</label>
+                    <input type="text" id="input-name" placeholder="Contoh: Budi Pratama" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Kode PIN / Token Akses</label>
+                    <input type="text" id="input-token" placeholder="Contoh: SMART2026" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                </div>
+                <button onclick="startApp()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-indigo-100">
+                    Mulai Try Out Sekarang
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 2: SELECT SUBJECT & PACKET -->
+        <div id="step-select" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-xl mx-auto mt-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-2">Pilih Paket Soal</h2>
+            <p class="text-slate-500 text-sm mb-6">Pilih mata pelajaran dan paket latihan yang ingin dikerjakan.</p>
+            
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Mata Pelajaran</label>
+                    <select id="select-subject" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <option value="Matematika">Matematika (30 Soal)</option>
+                        <option value="Bahasa Indonesia">Bahasa Indonesia (30 Soal)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Paket Latihan</label>
+                    <select id="select-paket" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <option value="Tryout 1">Tryout 1</option>
+                        <option value="Tryout 2">Tryout 2</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="loadQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-indigo-100">
+                Mulai Kerjakan Soal
+            </button>
+        </div>
+
+        <!-- STEP 3: CBT RUNNER -->
+        <div id="step-quiz" class="hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <div class="lg:col-span-8 bg-white rounded-2xl shadow-lg p-5 sm:p-8 flex flex-col justify-between min-h-[500px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-5 border-b pb-4">
+                            <div>
+                                <span id="quiz-info" class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full"></span>
+                                <h3 id="question-number" class="text-lg font-bold text-slate-800 mt-2">Soal 1 dari 30</h3>
+                                <div id="badge-tipe" class="inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded"></div>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-xl font-bold text-sm shadow-sm">
+                                <span>⏱️</span> <span id="timer">45:00</span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <p id="question-text" class="text-slate-900 font-medium text-base sm:text-lg leading-relaxed whitespace-pre-line"></p>
+                        </div>
+                        <div id="options-container" class="space-y-3 mb-6"></div>
+                    </div>
+                    <div class="pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                        <button id="btn-prev" onclick="prevQuestion()" class="px-4 sm:px-5 py-2.5 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50 transition flex items-center space-x-1 text-sm sm:text-base">
+                            <span>←</span> <span>Sebelumnya</span>
+                        </button>
+                        <label class="flex items-center space-x-2 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-3.5 py-2 rounded-xl cursor-pointer transition select-none">
+                            <input type="checkbox" id="chk-ragu" onchange="toggleRagu()" class="w-4 h-4 text-amber-500 rounded border-amber-400 focus:ring-amber-400 cursor-pointer">
+                            <span class="text-xs sm:text-sm font-bold text-amber-800">Ragu-ragu</span>
+                        </label>
+                        <button id="btn-next" onclick="nextQuestion()" class="px-5 sm:px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition shadow-md flex items-center space-x-1 text-sm sm:text-base">
+                            <span id="btn-next-text">Selanjutnya</span> <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 bg-white rounded-2xl shadow-lg p-5 sm:p-6 sticky top-20">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                        <h4 class="font-bold text-slate-800 text-sm sm:text-base flex items-center space-x-2">
+                            <span>📋</span> <span>Navigasi Soal</span>
+                        </h4>
+                        <span id="nav-counter" class="text-xs font-semibold text-slate-500">0/30 Terisi</span>
+                    </div>
+                    <div id="cbt-grid-nav" class="grid grid-cols-5 gap-2 max-h-[300px] overflow-y-auto custom-scroll pr-1 mb-5"></div>
+                    <div class="grid grid-cols-3 gap-1.5 text-[11px] font-medium text-slate-600 bg-slate-50 p-2.5 rounded-xl mb-5 border border-slate-100">
+                        <div class="flex items-center space-x-1.5"><span class="w-3.5 h-3.5 rounded bg-indigo-600"></span><span>Dijawab</span></div>
+                        <div class="flex items-center space-x-1.5"><span class="w-3.5 h-3.5 rounded bg-amber-400"></span><span>Ragu</span></div>
+                        <div class="flex items-center space-x-1.5"><span class="w-3.5 h-3.5 rounded bg-white border border-slate-300"></span><span>Kosong</span></div>
+                    </div>
+                    <button onclick="confirmFinishQuiz()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-md shadow-emerald-100 flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <span>✓</span> <span>KUMPULKAN UJIAN</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4: RESULT -->
+        <div id="step-result" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-2xl mx-auto text-center">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">🎉</div>
+            <h2 class="text-2xl font-bold text-slate-900 mb-1">Try Out Selesai!</h2>
+            <p class="text-slate-500 text-sm mb-6">Berikut adalah hasil rekap pengerjaan Anda.</p>
+            <div class="bg-slate-50 rounded-2xl p-6 mb-6 inline-block w-full max-w-xs mx-auto border border-slate-100">
+                <p class="text-xs text-slate-500 uppercase font-semibold">Skor Akhir</p>
+                <p id="score-display" class="text-5xl font-extrabold text-indigo-600 my-2">0</p>
+                <p id="score-detail" class="text-sm text-slate-600 font-medium">Benar 0 dari 30 soal</p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-3">
+                <button onclick="reviewAnswers()" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition">Lihat Pembahasan</button>
+                <button onclick="location.reload()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition shadow-md">Kerjakan Paket Lain</button>
+            </div>
+        </div>
+
+        <!-- STEP 5: REVIEW -->
+        <div id="step-review" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Pembahasan Soal</h2>
+            <div id="review-container" class="space-y-6 mb-8 text-left"></div>
+            <button onclick="location.reload()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-md">Kembali ke Menu Utama</button>
+        </div>
+    </main>
+
+    <footer class="text-center py-6 text-xs text-slate-400">
+        SmartDrill SD 2026 &bull; Didukung oleh Hermes Agent &amp; GitHub Pages
+    </footer>
+
+    <script>
+        let allQuestions = [];
+        let validTokens = [];
+        let currentQuizQuestions = [];
+        let currentIndex = 0;
+        let userAnswers = {};
+        let userRagu = {};
+        let studentName = '';
+        let globalTimerInterval = null;
+        let totalTimeLeft = 45 * 60;
+
+        Promise.all([
+            fetch('questions.json').then(res => res.json()),
+            fetch('tokens.json').then(res => res.json()).catch(() => [])
+        ]).then(([qData, tData]) => {
+            allQuestions = qData;
+            validTokens = tData;
+        }).catch(err => {
+            console.error('Gagal memuat data:', err);
+        });
+
+        function startApp() {
+            const name = document.getElementById('input-name').value.trim();
+            const token = document.getElementById('input-token').value.trim();
+            if (!name) { alert('Silakan masukkan nama lengkap Anda.'); return; }
+            if (!token) { alert('Silakan masukkan kode PIN / token akses.'); return; }
+
+            studentName = name;
+            document.getElementById('user-badge').innerText = studentName;
+            document.getElementById('user-badge').classList.remove('hidden');
+
+            document.getElementById('step-login').classList.add('hidden');
+            document.getElementById('step-select').classList.remove('hidden');
+        }
+
+        function loadQuiz() {
+            const subject = document.getElementById('select-subject').value;
+            const paket = document.getElementById('select-paket').value;
+
+            currentQuizQuestions = allQuestions.filter(q => q.subject === subject && q.paket === paket);
+            if (currentQuizQuestions.length === 0) {
+                alert('Soal untuk kategori ini belum tersedia.');
+                return;
+            }
+
+            currentIndex = 0;
+            userAnswers = {};
+            userRagu = {};
+            totalTimeLeft = 45 * 60;
+
+            document.getElementById('step-select').classList.add('hidden');
+            document.getElementById('step-quiz').classList.remove('hidden');
+            document.getElementById('quiz-info').innerText = `${subject} - ${paket}`;
+
+            startGlobalTimer();
+            renderQuestion();
+        }
+
+        function startGlobalTimer() {
+            clearInterval(globalTimerInterval);
+            globalTimerInterval = setInterval(() => {
+                totalTimeLeft--;
+                const minutes = Math.floor(totalTimeLeft / 60);
+                const seconds = totalTimeLeft % 60;
+                document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                if (totalTimeLeft <= 0) {
+                    clearInterval(globalTimerInterval);
+                    alert('Waktu ujian telah habis!');
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        function hasAnswered(idx) {
+            const ans = userAnswers[idx];
+            if (ans === undefined || ans === null) return false;
+            if (typeof ans === 'string') return ans.trim() !== '';
+            if (Array.isArray(ans)) return ans.length > 0;
+            if (typeof ans === 'object') return Object.keys(ans).length > 0;
+            return false;
+        }
+
+        function renderNavGrid() {
+            const gridContainer = document.getElementById('cbt-grid-nav');
+            gridContainer.innerHTML = '';
+            let filledCount = 0;
+
+            currentQuizQuestions.forEach((_, idx) => {
+                const isAnswered = hasAnswered(idx);
+                const isRagu = userRagu[idx] === true;
+                const isCurrent = idx === currentIndex;
+                if (isAnswered) filledCount++;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = idx + 1;
+                let btnClass = 'h-11 w-full rounded-xl font-bold text-sm transition flex items-center justify-center ';
+                if (isRagu) btnClass += 'bg-amber-400 text-amber-950 ';
+                else if (isAnswered) btnClass += 'bg-indigo-600 text-white ';
+                else btnClass += 'bg-white text-slate-700 border border-slate-300 ';
+                if (isCurrent) btnClass += 'ring-2 ring-offset-2 ring-slate-900 scale-105 ';
+                btn.className = btnClass;
+                btn.onclick = () => { currentIndex = idx; renderQuestion(); };
+                gridContainer.appendChild(btn);
+            });
+            document.getElementById('nav-counter').innerText = `${filledCount}/${currentQuizQuestions.length} Terisi`;
+        }
+
+        function toggleRagu() {
+            userRagu[currentIndex] = document.getElementById('chk-ragu').checked;
+            renderNavGrid();
+        }
+
+        function renderQuestion() {
+            const q = currentQuizQuestions[currentIndex];
+            document.getElementById('question-number').innerText = `Soal ${currentIndex + 1} dari ${currentQuizQuestions.length}`;
+            document.getElementById('question-text').innerText = q.question;
+            document.getElementById('chk-ragu').checked = userRagu[currentIndex] === true;
+
+            const badgeTipe = document.getElementById('badge-tipe');
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const tipe = q.tipe || q.type || 'Pilihan Ganda';
+            if (tipe === 'MCMA' || tipe.includes('Kompleks')) {
+                badgeTipe.innerText = 'Pilihan Ganda Kompleks (Bisa Pilih > 1)';
+                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800';
+                const currentSelected = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
+
+                q.options.forEach((opt, idx) => {
+                    const optLetter = String.fromCharCode(65 + idx);
+                    const isChecked = currentSelected.includes(optLetter);
+                    const div = document.createElement('label');
+                    div.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium cursor-pointer ${isChecked ? 'border-indigo-600 bg-indigo-50 text-indigo-900' : 'border-slate-200 hover:bg-slate-50 text-slate-700'}`;
+                    div.innerHTML = `<input type="checkbox" value="${optLetter}" ${isChecked ? 'checked' : ''} class="w-5 h-5 text-indigo-600 rounded border-slate-300"><span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isChecked ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span><span class="text-sm sm:text-base">${opt}</span>`;
+                    div.querySelector('input').onchange = (e) => {
+                        let arr = Array.isArray(userAnswers[currentIndex]) ? [...userAnswers[currentIndex]] : [];
+                        if (e.target.checked) { if (!arr.includes(optLetter)) arr.push(optLetter); }
+                        else { arr = arr.filter(x => x !== optLetter); }
+                        userAnswers[currentIndex] = arr;
+                        renderQuestion();
+                    };
+                    container.appendChild(div);
+                });
+            } else {
+                badgeTipe.innerText = 'Pilihan Ganda (Pilih Satu)';
+                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+                q.options.forEach((opt, idx) => {
+                    const optLetter = String.fromCharCode(65 + idx);
+                    const isSelected = userAnswers[currentIndex] === optLetter;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium ${isSelected ? 'border-indigo-600 bg-indigo-50 text-indigo-900' : 'border-slate-200 hover:bg-slate-50 text-slate-700'}`;
+                    btn.innerHTML = `<span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span><span class="text-sm sm:text-base">${opt}</span>`;
+                    btn.onclick = () => { userAnswers[currentIndex] = optLetter; renderQuestion(); };
+                    container.appendChild(btn);
+                });
+            }
+
+            const isLast = currentIndex === currentQuizQuestions.length - 1;
+            document.getElementById('btn-prev').style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+            document.getElementById('btn-next-text').innerText = isLast ? 'Selesai' : 'Selanjutnya';
+            renderNavGrid();
+        }
+
+        function nextQuestion() {
+            if (currentIndex < currentQuizQuestions.length - 1) { currentIndex++; renderQuestion(); }
+            else { confirmFinishQuiz(); }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) { currentIndex--; renderQuestion(); }
+        }
+
+        function confirmFinishQuiz() {
+            if (confirm("Apakah Anda yakin ingin mengumpulkan ujian?")) finishQuiz();
+        }
+
+        function finishQuiz() {
+            clearInterval(globalTimerInterval);
+            document.getElementById('step-quiz').classList.add('hidden');
+            document.getElementById('step-result').classList.remove('hidden');
+
+            let correctCount = 0;
+            currentQuizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const correctLetter = String(q.correct).trim().toUpperCase();
+                if (userAns === correctLetter) correctCount++;
+            });
+
+            const score = Math.round((correctCount / currentQuizQuestions.length) * 100);
+            document.getElementById('score-display').innerText = score;
+            document.getElementById('score-detail').innerText = `Benar ${correctCount} dari ${currentQuizQuestions.length} soal (${score} Poin)`;
+        }
+
+        function reviewAnswers() {
+            document.getElementById('step-result').classList.add('hidden');
+            document.getElementById('step-review').classList.remove('hidden');
+            const container = document.getElementById('review-container');
+            container.innerHTML = '';
+
+            currentQuizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx] || 'Tidak dijawab';
+                const correctLetter = String(q.correct).trim().toUpperCase();
+                const isCorrect = userAns === correctLetter;
+
+                const div = document.createElement('div');
+                div.className = `p-5 rounded-2xl border ${isCorrect ? 'border-emerald-200 bg-emerald-50/50' : 'border-rose-200 bg-rose-50/50'}`;
+                div.innerHTML = `
+                    <p class="font-semibold text-slate-800 mb-2">Soal ${idx + 1}: ${q.question}</p>
+                    <p class="text-sm text-slate-600">Jawaban Anda: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userAns}</strong> | Kunci: <strong class="text-indigo-600">${correctLetter}</strong></p>
+                    <p class="text-xs text-slate-700 mt-2"><strong>Pembahasan:</strong> ${q.explanation || '-'}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
