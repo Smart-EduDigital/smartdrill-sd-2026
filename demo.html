@@ -15,36 +15,76 @@
     <script>
         // Load demo questions (generated earlier)
         fetch('demo_questions.json')
-            .then(r=>r.json())
-            .then(data=>runDemo(data))
-            .catch(e=>alert('Gagal memuat demo: '+e));
+            .then(r => r.json())
+            .then(data => runDemo(data))
+            .catch(e => alert('Gagal memuat demo: '+e));
 
         function runDemo(questions){
             let idx=0;
             const container=document.createElement('div');
-            container.className='w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6';
+            container.className='w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 mb-6';
             document.body.appendChild(container);
             renderQuestion();
+
             function renderQuestion(){
                 const q=questions[idx];
-                container.innerHTML=`<h2 class='text-lg font-semibold mb-2'>Soal ${q.number} / ${questions.length}</h2>
-                    <p class='mb-4'>${q.question}</p>`;
-                const optsDiv=document.createElement('div');
-                optsDiv.className='space-y-2';
+                container.innerHTML=`
+                    <h2 class='text-lg font-semibold mb-2'>Soal ${q.number} / ${questions.length}</h2>
+                    <p class='mb-4'>${q.question}</p>
+                    <div id='options' class='space-y-2 mb-4'></div>
+                    <div id='feedback' class='hidden'></div>`;
+                const optsDiv=document.getElementById('options');
                 q.options.forEach((opt,i)=>{
                     const btn=document.createElement('button');
                     btn.type='button';
                     btn.className='w-full px-4 py-2 bg-indigo-100 hover:bg-indigo-200 rounded';
                     btn.textContent=opt;
-                    btn.onclick=()=>{alert('Jawaban terpilih: '+opt); advance();};
+                    btn.onclick=()=>handleAnswer(opt);
                     optsDiv.appendChild(btn);
                 });
-                container.appendChild(optsDiv);
             }
-            function advance(){
-                idx++;
-                if(idx<questions.length) renderQuestion();
-                else alert('Demo selesai!');
+
+            function handleAnswer(selected){
+                const q=questions[idx];
+                const feedback=document.getElementById('feedback');
+                // Determine correctness
+                let isCorrect=false;
+                if(typeof q.correct==='object' && !Array.isArray(q.correct)){
+                    // multiple correct (A,B,C) with true/false values
+                    const letters=['A','B','C','D','E'];
+                    const chosenIndex=q.options.findIndex(o=>o===selected);
+                    const key=letters[chosenIndex];
+                    isCorrect = q.correct[key]==="Benar";
+                } else if(Array.isArray(q.correct)){
+                    // MCMA list of letters
+                    const letters=['A','B','C','D','E'];
+                    const chosenIndex=q.options.findIndex(o=>o===selected);
+                    const key=letters[chosenIndex];
+                    isCorrect = q.correct.includes(key);
+                } else {
+                    // single correct letter
+                    const letters=['A','B','C','D','E'];
+                    const chosenIndex=q.options.findIndex(o=>o===selected);
+                    const key=letters[chosenIndex];
+                    isCorrect = q.correct===key;
+                }
+                const resultText=isCorrect?'<span class="text-green-600 font-bold">Jawaban Anda BENAR</span>':'<span class="text-red-600 font-bold">Jawaban Anda SALAH</span>';
+                feedback.innerHTML=`
+                    <div class='mb-2'>${resultText}</div>
+                    <div class='mb-2'><strong>Pembahasan:</strong> ${q.explanation}</div>
+                    <button id='nextBtn' class='px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded'>Lanjut ke Soal Berikutnya</button>
+                `;
+                feedback.classList.remove('hidden');
+                document.getElementById('options').classList.add('hidden');
+                document.getElementById('nextBtn').onclick=()=>{
+                    idx++;
+                    if(idx<questions.length){
+                        renderQuestion();
+                    } else {
+                        alert('Demo selesai!');
+                        container.innerHTML='<h2 class="text-2xl font-bold text-center">Terima kasih telah mencoba demo.</h2>';
+                    }
+                };
             }
         }
     </script>
