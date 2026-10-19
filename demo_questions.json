@@ -1,202 +1,200 @@
 [
-  {
-    "subject": "Matematika",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
-    "number": 1,
-    "materi": "Peluang Sederhana dan Peluang Empiris",
-    "question": "Dalam sebuah kotak undian perayaan HUT Kemerdekaan RI di sekolah, terdapat 50 kupon bernomor 1 sampai dengan 50. Seorang siswa mengambil satu lembar kupon secara acak. Tentukan kebenaran dari pernyataan-pernyataan peluang berikut!",
-    "type": "Multiple Choice",
-    "options": [
-      "Peluang terambilnya kupon bernomor bilangan kelipatan 10 adalah 1/10",
-      "Peluang terambilnya kupon bernomor bilangan genap adalah 1/2",
-      "Jumlah kupon yang bernomor bilangan prima antara 1 sampai 50 adalah 20 lembar"
-    ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
+    {
+        "subject": "Matematika",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
+        "number": 1,
+        "materi": "Peluang Sederhana dan Peluang Empiris",
+        "question": "Dalam sebuah kotak undian perayaan HUT Kemerdekaan RI di sekolah, terdapat 50 kupon bernomor 1 sampai dengan 50. Seorang siswa mengambil satu lembar kupon secara acak. Tentukan kebenaran dari pernyataan-pernyataan peluang berikut!",
+        "type": "true_false_multiple",
+        "options": [
+            "Peluang terambilnya kupon bernomor bilangan kelipatan 10 adalah 1/10",
+            "Peluang terambilnya kupon bernomor bilangan genap adalah 1/2",
+            "Jumlah kupon yang bernomor bilangan prima antara 1 sampai 50 adalah 20 lembar"
+        ],
+        "correct": [
+            "A",
+            "C"
+        ],
+        "time": 60,
+        "explanation": "Analisis pernyataan:\n1. Bilangan kelipatan 10 dari 1 sampai 50: {10, 20, 30, 40, 50} ada 5 buah. Peluang = 5/50 = 1/10. (Pernyataan A: BENAR).\n2. Bilangan genap dari 1 sampai 50 ada 25 buah. Peluang = 25/50 = 1/2. (Pernyataan B: BENAR).\n3. Bilangan prima dari 1 sampai 50 adalah {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47} berjumlah tepat 15 buah, bukan 20 buah. (Pernyataan C: SALAH).",
+        "tipe": "Kategori"
     },
-    "time": 60,
-    "explanation": "Analisis pernyataan:\n1. Bilangan kelipatan 10 dari 1 sampai 50: {10, 20, 30, 40, 50} ada 5 buah. Peluang = 5/50 = 1/10. (Pernyataan A: BENAR).\n2. Bilangan genap dari 1 sampai 50 ada 25 buah. Peluang = 25/50 = 1/2. (Pernyataan B: BENAR).\n3. Bilangan prima dari 1 sampai 50 adalah {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47} berjumlah tepat 15 buah, bukan 20 buah. (Pernyataan C: SALAH).",
-    "tipe": "Kategori"
-  },
-  {
-    "subject": "Matematika",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
-    "number": 2,
-    "materi": "Perbandingan dan Skala",
-    "question": "Pada sebuah denah perumahan, sebidang tanah lapangan fasilitas umum digambar dengan skala 1 : 400. Lapangan tersebut berbentuk persegi panjang dengan ukuran panjang 15 cm dan lebar 10 cm pada denah. Berapakah luas sebenarnya dari lapangan perumahan tersebut?",
-    "type": "Multiple Choice",
-    "options": [
-      "1.200 m²",
-      "1.800 m²",
-      "2.400 m²",
-      "3.600 m²"
-    ],
-    "correct": "C",
-    "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Panjang sebenarnya = 15 cm × 400 = 6.000 cm = 60 meter.\n2. Lebar sebenarnya = 10 cm × 400 = 4.000 cm = 40 meter.\n3. Luas sebenarnya = 60 m × 40 m = 2.400 m².\nJadi, luas sebenarnya adalah 2.400 m² (C).",
-    "tipe": "Pilihan Ganda"
-  },
-  {
-    "subject": "Matematika",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
-    "number": 3,
-    "materi": "Volume Bangun Ruang Tabung",
-    "question": "Sebuah tangki penampungan minyak berbentuk tabung memiliki jari-jari alas 70 cm dan tinggi 1,5 meter (150 cm). Tangki tersebut saat ini terisi minyak sebanyak separuh (1/2) dari kapasitas tampung totalnya. (Gunakan nilai π = 22/7). Tentukan kebenaran dari pernyataan-pernyataan berikut!",
-    "type": "Multiple Choice",
-    "options": [
-      "Luas bidang alas tangki minyak tersebut adalah 15.400 cm²",
-      "Kapasitas volume total tabung jika terisi penuh adalah 2.310 liter",
-      "Volume minyak yang ada di dalam tangki saat ini adalah 1.255 liter"
-    ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
+    {
+        "subject": "Matematika",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
+        "number": 2,
+        "materi": "Perbandingan dan Skala",
+        "question": "Pada sebuah denah perumahan, sebidang tanah lapangan fasilitas umum digambar dengan skala 1 : 400. Lapangan tersebut berbentuk persegi panjang dengan ukuran panjang 15 cm dan lebar 10 cm pada denah. Berapakah luas sebenarnya dari lapangan perumahan tersebut?",
+        "type": "Multiple Choice",
+        "options": [
+            "1.200 m²",
+            "1.800 m²",
+            "2.400 m²",
+            "3.600 m²"
+        ],
+        "correct": "C",
+        "time": 60,
+        "explanation": "Langkah penyelesaian:\n1. Panjang sebenarnya = 15 cm × 400 = 6.000 cm = 60 meter.\n2. Lebar sebenarnya = 10 cm × 400 = 4.000 cm = 40 meter.\n3. Luas sebenarnya = 60 m × 40 m = 2.400 m².\nJadi, luas sebenarnya adalah 2.400 m² (C).",
+        "tipe": "Pilihan Ganda"
     },
-    "time": 60,
-    "explanation": "Analisis pernyataan:\n1. Luas alas tabung = π × r² = 22/7 × 70 × 70 = 22 × 10 × 70 = 15.400 cm². (Pernyataan A: BENAR).\n2. Volume total tabung = Luas alas × t = 15.400 cm² × 150 cm = 2.310.000 cm³ = 2.310 liter (karena 1 liter = 1.000 cm³). (Pernyataan B: BENAR).\n3. Volume minyak separuh = 1/2 × 2.310 liter = 1.155 liter. (Pernyataan C: SALAH, karena tertulis 1.255 liter).",
-    "tipe": "Kategori"
-  },
-  {
-    "subject": "Matematika",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
-    "number": 4,
-    "materi": "Faktor Persekutuan Terbesar (FPB)",
-    "question": "Sebuah sanggar seni menerima donasi 48 set kuas lukis, 72 buku sketsa, dan 96 tabung cat akrilik. Seluruh barang donasi tersebut akan dikemas ke dalam beberapa tas paket seni dengan komposisi isi yang sama banyak tanpa ada barang tersisa. Manakah pernyataan berikut yang BENAR? (Jawaban benar lebih dari satu)",
-    "type": "Multiple Choice",
-    "options": [
-      "Jumlah paket seni terbanyak yang dapat dibentuk adalah 24 tas paket",
-      "Setiap tas paket seni berisi 2 set kuas lukis dan 3 buku sketsa",
-      "Setiap tas paket seni berisi 5 tabung cat akrilik",
-      "Total seluruh perlengkapan seni di dalam setiap tas paket berjumlah 9 barang"
-    ],
-    "correct": [
-      "A",
-      "B",
-      "D"
-    ],
-    "time": 60,
-    "explanation": "Langkah analisis:\n1. Menghitung FPB dari 48, 72, dan 96:\n   48 = 2⁴ × 3; 72 = 2³ × 3²; 96 = 2⁵ × 3.\n   FPB = 2³ × 3 = 8 × 3 = 24. Jadi jumlah tas paket terbanyak adalah 24 tas (Pernyataan A BENAR).\n2. Isi per paket tas:\n   - Kuas = 48 : 24 = 2 set.\n   - Buku sketsa = 72 : 24 = 3 buku. (Pernyataan B BENAR).\n   - Cat akrilik = 96 : 24 = 4 tabung. (Pernyataan C SALAH karena menyatakan 5 tabung).\n3. Total barang per tas = 2 + 3 + 4 = 9 barang. (Pernyataan D BENAR).\nJadi, pilihan jawaban yang benar adalah A, B, dan D.",
-    "tipe": "MCMA"
-  },
-  {
-    "subject": "Matematika",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
-    "number": 5,
-    "materi": "Satuan Berat dan Kuantitas",
-    "question": "Sebuah truk pengangkut memuat 2,5 ton jagung pipil, 18 kuintal kedelai, dan 750 kg kacang tanah. Setelah dibongkar di gudang pabrik pakan ternak sebanyak 3.850 kg, berapa kilogram sisa muatan yang masih berada di atas bak truk?",
-    "type": "Multiple Choice",
-    "options": [
-      "1.150 kg",
-      "1.200 kg",
-      "1.350 kg",
-      "1.400 kg"
-    ],
-    "correct": "B",
-    "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Konversi ke kilogram:\n   • 2,5 ton = 2,5 × 1.000 kg = 2.500 kg.\n   • 18 kuintal = 18 × 100 kg = 1.800 kg.\n   • Kacang tanah = 750 kg.\n2. Total muatan awal = 2.500 + 1.800 + 750 = 5.050 kg.\n3. Sisa muatan setelah dibongkar = 5.050 kg - 3.850 kg = 1.200 kg.\nJadi, sisa muatan adalah 1.200 kg (B).",
-    "tipe": "Pilihan Ganda"
-  },
-  {
-    "subject": "Bahasa Indonesia",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
-    "number": 6,
-    "materi": "Menentukan Ide Pokok / Pikiran Utama",
-    "question": "Bacalah teks berikut!\n'Sampah plastik merupakan salah satu permasalahan lingkungan yang sangat serius di era modern saat ini. Sifatnya yang sangat sulit terurai secara alami menyebabkan sampah plastik menumpuk di tanah dan mencemari ekosistem laut. Jika tidak segera ditangani dengan bijak melalui daur ulang dan pembatasan penggunaan, sampah plastik akan mengancam kelangsungan hidup satwa bumi.'\nIde pokok paragraf tersebut adalah...",
-    "type": "Multiple Choice",
-    "options": [
-      "Pentingnya melakukan daur ulang sampah plastik di kota besar",
-      "Dampak buruk dan ancaman serius dari permasalahan sampah plastik",
-      "Cara mudah menguraikan sampah plastik di dalam tanah",
-      "Kehidupan satwa di darat dan laut yang terganggu oleh limbah industri"
-    ],
-    "correct": "B",
-    "time": 60,
-    "explanation": "Langkah penyelesaian:\nIde pokok paragraf terletak pada kalimat utama di awal paragraf yang diperkuat oleh kalimat-kalimat penjelas berikutnya, yaitu mengenai permasalahan serius dan dampak buruk sampah plastik bagi lingkungan. Jadi jawaban yang benar adalah B.",
-    "tipe": "Pilihan Ganda"
-  },
-  {
-    "subject": "Bahasa Indonesia",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
-    "number": 7,
-    "materi": "Surat Pribadi",
-    "question": "Ciri khas dari surat pribadi dibandingkan surat resmi adalah...",
-    "type": "Multiple Choice",
-    "options": [
-      "menggunakan bahasa santai dan tidak berformat kaku",
-      "menggunakan kop surat instansi resmi",
-      "ditandatangani kepala dinas",
-      "nomor surat dan lampiran wajib ada"
-    ],
-    "correct": "A",
-    "time": 60,
-    "explanation": "Surat pribadi menggunakan bahasa komunikatif, santai, dan tidak berkop surat. Jawaban A.",
-    "tipe": "Pilihan Ganda"
-  },
-  {
-    "subject": "Bahasa Indonesia",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
-    "number": 8,
-    "materi": "Menentukan Tokoh Watak dan Latar Cerita",
-    "question": "Bacalah kutipan fabel berikut!\n'Di tepi sebuah sungai yang jernih, Kancil sedang menikmati rerimbunan rumput muda. Tiba-tiba, Kancil mendengar suara rintihan kesakitan dari arah semak belukar. Tanpa pikir panjang, Kancil segera melompat mendekati sumber suara untuk memberikan pertolongan.'\nSifat tokoh Kancil dalam kutipan fabel tersebut adalah...",
-    "type": "Multiple Choice",
-    "options": [
-      "sombong dan cerdik",
-      "suka menolong dan peduli",
-      "pemarah dan penakut",
-      "pemalu dan pendiam"
-    ],
-    "correct": "B",
-    "time": 60,
-    "explanation": "Langkah penyelesaian:\nTindakan Kancil segera mendekati sumber suara untuk memberikan pertolongan menunjukkan sifat suka menolong dan peduli terhadap sesama. Jadi jawaban yang benar adalah B.",
-    "tipe": "Pilihan Ganda"
-  },
-  {
-    "subject": "Bahasa Indonesia",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
-    "number": 9,
-    "materi": "Menemukan Informasi Tersurat",
-    "question": "Bacalah teks berikut!\n'Kebun Raya Bogor didirikan pada tahun 1817 atas gagasan Prof. C.G.C. Reinwardt. Di dalam kebun botani seluas puluhan hektare ini terdapat ribuan koleksi jenis pohon dan tanaman langka dari berbagai belahan dunia.'\nPernyataan manakah yang sesuai dengan teks tersebut?",
-    "type": "Multiple Choice",
-    "options": [
-      "Kebun Raya Bogor didirikan di pulau Bali pada tahun 1900",
-      "Prof. C.G.C. Reinwardt adalah tokoh pencetus gagasan pendirian Kebun Raya Bogor",
-      "Di dalam Kebun Raya Bogor hanya terdapat tanaman kelapa sawit",
-      "Kebun Raya Bogor dikelola langsung oleh pemerintah luar negeri"
-    ],
-    "correct": "B",
-    "time": 60,
-    "explanation": "Teks menyatakan Kebun Raya Bogor didirikan tahun 1817 atas gagasan Prof. C.G.C. Reinwardt. Jadi jawaban yang benar adalah B.",
-    "tipe": "Pilihan Ganda"
-  },
-  {
-    "subject": "Bahasa Indonesia",
-    "paket": "Demo 10 Soal",
-    "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
-    "number": 10,
-    "materi": "Melengkapi Formulir Pendaftaran",
-    "question": "Perhatikan data isian formulir pendaftaran anggota perpustakaan berikut:\n1. Nama Lengkap: Salsabila Putri\n2. Tempat, Tanggal Lahir: Bandung, 14 Mei 2015\n3. Alamat: Jalan Melati Nomor 12, Cimahi\n4. Sekolah: SD Tunas Bangsa\nJika Salsabila ingin meminjam buku paket perpustakaan, bagian data manakah yang menunjukkan identitas sekolahnya...",
-    "type": "Multiple Choice",
-    "options": [
-      "Nomor 1",
-      "Nomor 2",
-      "Nomor 3",
-      "Nomor 4"
-    ],
-    "correct": "D",
-    "time": 60,
-    "explanation": "Langkah penyelesaian:\nIdentitas sekolah tercantum pada nomor 4, yaitu 'Sekolah: SD Tunas Bangsa'. Jadi jawaban yang benar adalah D.",
-    "tipe": "Pilihan Ganda"
-  }
+    {
+        "subject": "Matematika",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
+        "number": 3,
+        "materi": "Volume Bangun Ruang Tabung",
+        "question": "Sebuah tangki penampungan minyak berbentuk tabung memiliki jari-jari alas 70 cm dan tinggi 1,5 meter (150 cm). Tangki tersebut saat ini terisi minyak sebanyak separuh (1/2) dari kapasitas tampung totalnya. (Gunakan nilai π = 22/7). Tentukan kebenaran dari pernyataan-pernyataan berikut!",
+        "type": "true_false_multiple",
+        "options": [
+            "Luas bidang alas tangki minyak tersebut adalah 15.400 cm²",
+            "Kapasitas volume total tabung jika terisi penuh adalah 2.310 liter",
+            "Volume minyak yang ada di dalam tangki saat ini adalah 1.255 liter"
+        ],
+        "correct": [
+            "B",
+            "D"
+        ],
+        "time": 60,
+        "explanation": "Analisis pernyataan:\n1. Luas alas tabung = π × r² = 22/7 × 70 × 70 = 22 × 10 × 70 = 15.400 cm². (Pernyataan A: BENAR).\n2. Volume total tabung = Luas alas × t = 15.400 cm² × 150 cm = 2.310.000 cm³ = 2.310 liter (karena 1 liter = 1.000 cm³). (Pernyataan B: BENAR).\n3. Volume minyak separuh = 1/2 × 2.310 liter = 1.155 liter. (Pernyataan C: SALAH, karena tertulis 1.255 liter).",
+        "tipe": "Kategori"
+    },
+    {
+        "subject": "Matematika",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
+        "number": 4,
+        "materi": "Faktor Persekutuan Terbesar (FPB)",
+        "question": "Sebuah sanggar seni menerima donasi 48 set kuas lukis, 72 buku sketsa, dan 96 tabung cat akrilik. Seluruh barang donasi tersebut akan dikemas ke dalam beberapa tas paket seni dengan komposisi isi yang sama banyak tanpa ada barang tersisa. Manakah pernyataan berikut yang BENAR? (Jawaban benar lebih dari satu)",
+        "type": "Multiple Choice",
+        "options": [
+            "Jumlah paket seni terbanyak yang dapat dibentuk adalah 24 tas paket",
+            "Setiap tas paket seni berisi 2 set kuas lukis dan 3 buku sketsa",
+            "Setiap tas paket seni berisi 5 tabung cat akrilik",
+            "Total seluruh perlengkapan seni di dalam setiap tas paket berjumlah 9 barang"
+        ],
+        "correct": [
+            "A",
+            "B",
+            "D"
+        ],
+        "time": 60,
+        "explanation": "Langkah analisis:\n1. Menghitung FPB dari 48, 72, dan 96:\n   48 = 2⁴ × 3; 72 = 2³ × 3²; 96 = 2⁵ × 3.\n   FPB = 2³ × 3 = 8 × 3 = 24. Jadi jumlah tas paket terbanyak adalah 24 tas (Pernyataan A BENAR).\n2. Isi per paket tas:\n   - Kuas = 48 : 24 = 2 set.\n   - Buku sketsa = 72 : 24 = 3 buku. (Pernyataan B BENAR).\n   - Cat akrilik = 96 : 24 = 4 tabung. (Pernyataan C SALAH karena menyatakan 5 tabung).\n3. Total barang per tas = 2 + 3 + 4 = 9 barang. (Pernyataan D BENAR).\nJadi, pilihan jawaban yang benar adalah A, B, dan D.",
+        "tipe": "MCMA"
+    },
+    {
+        "subject": "Matematika",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Matematika)",
+        "number": 5,
+        "materi": "Satuan Berat dan Kuantitas",
+        "question": "Sebuah truk pengangkut memuat 2,5 ton jagung pipil, 18 kuintal kedelai, dan 750 kg kacang tanah. Setelah dibongkar di gudang pabrik pakan ternak sebanyak 3.850 kg, berapa kilogram sisa muatan yang masih berada di atas bak truk?",
+        "type": "Multiple Choice",
+        "options": [
+            "1.150 kg",
+            "1.200 kg",
+            "1.350 kg",
+            "1.400 kg"
+        ],
+        "correct": "B",
+        "time": 60,
+        "explanation": "Langkah penyelesaian:\n1. Konversi ke kilogram:\n   • 2,5 ton = 2,5 × 1.000 kg = 2.500 kg.\n   • 18 kuintal = 18 × 100 kg = 1.800 kg.\n   • Kacang tanah = 750 kg.\n2. Total muatan awal = 2.500 + 1.800 + 750 = 5.050 kg.\n3. Sisa muatan setelah dibongkar = 5.050 kg - 3.850 kg = 1.200 kg.\nJadi, sisa muatan adalah 1.200 kg (B).",
+        "tipe": "Pilihan Ganda"
+    },
+    {
+        "subject": "Bahasa Indonesia",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
+        "number": 6,
+        "materi": "Menentukan Ide Pokok / Pikiran Utama",
+        "question": "Bacalah teks berikut!\n'Sampah plastik merupakan salah satu permasalahan lingkungan yang sangat serius di era modern saat ini. Sifatnya yang sangat sulit terurai secara alami menyebabkan sampah plastik menumpuk di tanah dan mencemari ekosistem laut. Jika tidak segera ditangani dengan bijak melalui daur ulang dan pembatasan penggunaan, sampah plastik akan mengancam kelangsungan hidup satwa bumi.'\nIde pokok paragraf tersebut adalah...",
+        "type": "Multiple Choice",
+        "options": [
+            "Pentingnya melakukan daur ulang sampah plastik di kota besar",
+            "Dampak buruk dan ancaman serius dari permasalahan sampah plastik",
+            "Cara mudah menguraikan sampah plastik di dalam tanah",
+            "Kehidupan satwa di darat dan laut yang terganggu oleh limbah industri"
+        ],
+        "correct": "B",
+        "time": 60,
+        "explanation": "Langkah penyelesaian:\nIde pokok paragraf terletak pada kalimat utama di awal paragraf yang diperkuat oleh kalimat-kalimat penjelas berikutnya, yaitu mengenai permasalahan serius dan dampak buruk sampah plastik bagi lingkungan. Jadi jawaban yang benar adalah B.",
+        "tipe": "Pilihan Ganda"
+    },
+    {
+        "subject": "Bahasa Indonesia",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
+        "number": 7,
+        "materi": "Surat Pribadi",
+        "question": "Ciri khas dari surat pribadi dibandingkan surat resmi adalah...",
+        "type": "Multiple Choice",
+        "options": [
+            "menggunakan bahasa santai dan tidak berformat kaku",
+            "menggunakan kop surat instansi resmi",
+            "ditandatangani kepala dinas",
+            "nomor surat dan lampiran wajib ada"
+        ],
+        "correct": "A",
+        "time": 60,
+        "explanation": "Surat pribadi menggunakan bahasa komunikatif, santai, dan tidak berkop surat. Jawaban A.",
+        "tipe": "Pilihan Ganda"
+    },
+    {
+        "subject": "Bahasa Indonesia",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
+        "number": 8,
+        "materi": "Menentukan Tokoh Watak dan Latar Cerita",
+        "question": "Bacalah kutipan fabel berikut!\n'Di tepi sebuah sungai yang jernih, Kancil sedang menikmati rerimbunan rumput muda. Tiba-tiba, Kancil mendengar suara rintihan kesakitan dari arah semak belukar. Tanpa pikir panjang, Kancil segera melompat mendekati sumber suara untuk memberikan pertolongan.'\nSifat tokoh Kancil dalam kutipan fabel tersebut adalah...",
+        "type": "Multiple Choice",
+        "options": [
+            "sombong dan cerdik",
+            "suka menolong dan peduli",
+            "pemarah dan penakut",
+            "pemalu dan pendiam"
+        ],
+        "correct": "B",
+        "time": 60,
+        "explanation": "Langkah penyelesaian:\nTindakan Kancil segera mendekati sumber suara untuk memberikan pertolongan menunjukkan sifat suka menolong dan peduli terhadap sesama. Jadi jawaban yang benar adalah B.",
+        "tipe": "Pilihan Ganda"
+    },
+    {
+        "subject": "Bahasa Indonesia",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
+        "number": 9,
+        "materi": "Menemukan Informasi Tersurat",
+        "question": "Bacalah teks berikut!\n'Kebun Raya Bogor didirikan pada tahun 1817 atas gagasan Prof. C.G.C. Reinwardt. Di dalam kebun botani seluas puluhan hektare ini terdapat ribuan koleksi jenis pohon dan tanaman langka dari berbagai belahan dunia.'\nPernyataan manakah yang sesuai dengan teks tersebut?",
+        "type": "Multiple Choice",
+        "options": [
+            "Kebun Raya Bogor didirikan di pulau Bali pada tahun 1900",
+            "Prof. C.G.C. Reinwardt adalah tokoh pencetus gagasan pendirian Kebun Raya Bogor",
+            "Di dalam Kebun Raya Bogor hanya terdapat tanaman kelapa sawit",
+            "Kebun Raya Bogor dikelola langsung oleh pemerintah luar negeri"
+        ],
+        "correct": "B",
+        "time": 60,
+        "explanation": "Teks menyatakan Kebun Raya Bogor didirikan tahun 1817 atas gagasan Prof. C.G.C. Reinwardt. Jadi jawaban yang benar adalah B.",
+        "tipe": "Pilihan Ganda"
+    },
+    {
+        "subject": "Bahasa Indonesia",
+        "paket": "Demo 10 Soal",
+        "title": "Demo CBT SmartDrill SD 2026 (Bahasa Indonesia)",
+        "number": 10,
+        "materi": "Melengkapi Formulir Pendaftaran",
+        "question": "Perhatikan data isian formulir pendaftaran anggota perpustakaan berikut:\n1. Nama Lengkap: Salsabila Putri\n2. Tempat, Tanggal Lahir: Bandung, 14 Mei 2015\n3. Alamat: Jalan Melati Nomor 12, Cimahi\n4. Sekolah: SD Tunas Bangsa\nJika Salsabila ingin meminjam buku paket perpustakaan, bagian data manakah yang menunjukkan identitas sekolahnya...",
+        "type": "Multiple Choice",
+        "options": [
+            "Nomor 1",
+            "Nomor 2",
+            "Nomor 3",
+            "Nomor 4"
+        ],
+        "correct": "D",
+        "time": 60,
+        "explanation": "Langkah penyelesaian:\nIdentitas sekolah tercantum pada nomor 4, yaitu 'Sekolah: SD Tunas Bangsa'. Jadi jawaban yang benar adalah D.",
+        "tipe": "Pilihan Ganda"
+    }
 ]
