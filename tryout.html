@@ -89,7 +89,7 @@
                                 <div id="badge-tipe" class="inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded"></div>
                             </div>
                             <div class="flex items-center space-x-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-xl font-bold text-sm shadow-sm">
-                                <span>⏱️</span> <span id="timer">45:00</span>
+                                <span>⏱️</span> <span id="timer">60:00</span>
                             </div>
                         </div>
                         <div class="mb-6">
@@ -168,7 +168,7 @@
         let userRagu = {};
         let studentName = '';
         let globalTimerInterval = null;
-        let totalTimeLeft = 45 * 60;
+        let totalTimeLeft = 60 * 60;
 
         Promise.all([
             fetch('questions.json').then(res => res.json()),
@@ -207,7 +207,7 @@
             currentIndex = 0;
             userAnswers = {};
             userRagu = {};
-            totalTimeLeft = 45 * 60;
+            totalTimeLeft = 60 * 60;
 
             document.getElementById('step-select').classList.add('hidden');
             document.getElementById('step-quiz').classList.remove('hidden');
