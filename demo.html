@@ -1,17 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo SmartDrill SD 2026 – 10 Soal Interaktif (evaluasi akhir)</title>
+    <title>Demo SmartDrill SD 2026 – 10 Soal Interaktif (Evaluasi Akhir)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {font-family: 'Plus Jakarta Sans', sans-serif;}
-    </style>
+    <style>body {font-family: 'Plus Jakarta Sans', sans-serif;}</style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
-    <!-- Header -->
     <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
         <div class="max-w-4xl mx-auto px-4 py-3.5 flex justify-between items-center">
             <span class="text-xl font-bold">🚀 SmartDrill SD 2026 - DEMO</span>
@@ -30,9 +28,7 @@
                 <span id="quiz-info" class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full"></span>
                 <span id="quiz-counter" class="text-sm font-bold text-slate-500"></span>
             </div>
-            <div class="mb-6">
-                <p id="quiz-question" class="text-slate-900 font-medium text-base sm:text-lg leading-relaxed whitespace-pre-line"></p>
-            </div>
+            <div class="mb-6"><p id="quiz-question" class="text-slate-900 font-medium text-base sm:text-lg leading-relaxed whitespace-pre-line"></p></div>
             <div id="quiz-options" class="space-y-3 mb-6"></div>
             <div class="flex justify-between pt-4 border-t border-slate-100">
                 <button id="btn-prev" onclick="prevQuestion()" class="px-4 py-2 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50 transition text-sm" style="display:none;">Sebelumnya</button>
@@ -40,7 +36,6 @@
             </div>
         </div>
 
-        <!-- Result Section (hidden initially) -->
         <div id="result-section" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8">
             <div class="text-center mb-6">
                 <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3">🎉</div>
@@ -55,9 +50,7 @@
         </div>
     </main>
 
-    <footer class="text-center py-6 text-xs text-slate-400">
-        SmartDrill SD 2026 • Demo Ujian Interaktif
-    </footer>
+    <footer class="text-center py-6 text-xs text-slate-400">SmartDrill SD 2026 • Demo Ujian Interaktif</footer>
 
     <script>
         let questions = [];
@@ -76,31 +69,34 @@
             document.getElementById('quiz-question').innerText = q.question;
             const optDiv = document.getElementById('quiz-options');
             optDiv.innerHTML = '';
-            const letters = ['A','B','C','D','E'];
             const multi = Array.isArray(q.correct);
-            q.options.forEach((opt, i)=>{
-                const letter = letters[i];
+            const letters = ['A','B','C','D','E'];
+            q.options.forEach((opt, i) => {
                 const wrapper = document.createElement('label');
                 wrapper.className = 'flex items-start space-x-2 cursor-pointer';
                 const input = document.createElement('input');
                 input.type = multi ? 'checkbox' : 'radio';
                 input.name = 'answer';
-                input.value = letter;
+                input.value = multi ? letters[i] : letters[i];
                 input.className = 'mt-1';
-                // pre‑select if already answered
+                // pre‑select
                 if(userAnswers[currentIdx]){
-                    if(multi && userAnswers[currentIdx].includes(letter)) input.checked = true;
-                    if(!multi && userAnswers[currentIdx]===letter) input.checked = true;
+                    if(multi && userAnswers[currentIdx].includes(letters[i])) input.checked = true;
+                    if(!multi && userAnswers[currentIdx]===letters[i]) input.checked = true;
                 }
                 const txt = document.createElement('span');
-                txt.innerHTML = `<strong>${letter}.</strong> ${opt}`;
+                // For true/false multiple statements (question 1 & 3), hide the letter prefix
+                if(q.type === 'true_false_multiple'){
+                    txt.innerHTML = opt; // option already contains full statement
+                } else {
+                    txt.innerHTML = `<strong>${letters[i]}.</strong> ${opt}`;
+                }
                 wrapper.appendChild(input);
                 wrapper.appendChild(txt);
                 optDiv.appendChild(wrapper);
             });
-            // button visibility
-            document.getElementById('btn-prev').style.display = currentIdx===0? 'none':'inline-block';
-            document.getElementById('btn-next').innerText = (currentIdx===questions.length-1)?'Selesaikan Demo':'Selanjutnya';
+            document.getElementById('btn-prev').style.display = currentIdx===0 ? 'none' : 'inline-block';
+            document.getElementById('btn-next').innerText = (currentIdx===questions.length-1) ? 'Selesaikan Demo' : 'Selanjutnya';
         }
 
         function saveCurrentAnswer(){
@@ -110,7 +106,7 @@
                 const selected = [];
                 inputs.forEach(inp=>{if(inp.checked) selected.push(inp.value)});
                 userAnswers[currentIdx] = selected;
-            }else{
+            } else {
                 let selected = null;
                 inputs.forEach(inp=>{if(inp.checked) selected = inp.value});
                 userAnswers[currentIdx] = selected;
@@ -131,17 +127,14 @@
                 currentIdx++;
                 renderQuestion();
             } else {
-                // evaluate all
                 showResult();
             }
         }
 
         function showResult(){
-            // hide quiz container, show result section
             document.getElementById('quiz-container').classList.add('hidden');
             const resultSec = document.getElementById('result-section');
             resultSec.classList.remove('hidden');
-            // compute score
             let correctCount = 0;
             const detailDiv = document.getElementById('detail-list');
             detailDiv.innerHTML = '';
@@ -149,24 +142,23 @@
                 const userAns = userAnswers[idx];
                 let isCorrect = false;
                 if(Array.isArray(q.correct)){
-                    // compare sets (order not important)
                     const correctSet = new Set(q.correct);
                     const userSet = new Set(userAns||[]);
                     isCorrect = correctSet.size===userSet.size && [...correctSet].every(v=>userSet.has(v));
-                }else{
+                } else {
                     isCorrect = q.correct===userAns;
                 }
                 if(isCorrect) correctCount++;
-                // build detail html
+                // detail item
                 const letters = ['A','B','C','D','E'];
-                const userDisplay = Array.isArray(userAns) ? userAns.join(', ') : (userAns||'---');
-                const correctDisplay = Array.isArray(q.correct) ? q.correct.join(', ') : q.correct;
+                const userDisp = Array.isArray(userAns) ? userAns.join(', ') : (userAns||'---');
+                const correctDisp = Array.isArray(q.correct) ? q.correct.join(', ') : q.correct;
                 const item = document.createElement('div');
                 item.className = 'border border-slate-200 rounded-lg p-4';
                 item.innerHTML = `
                     <p class="font-semibold mb-1">${idx+1}. ${q.question}</p>
-                    <p class="text-sm mb-1"><span class="font-medium">Jawaban Anda:</span> ${userDisplay}</p>
-                    <p class="text-sm mb-1"><span class="font-medium">Benar:</span> ${correctDisplay}</p>
+                    <p class="text-sm mb-1"><span class="font-medium">Jawaban Anda:</span> ${userDisp}</p>
+                    <p class="text-sm mb-1"><span class="font-medium">Benar:</span> ${correctDisp}</p>
                     <p class="text-sm ${isCorrect? 'text-emerald-700' : 'text-rose-700'}"><strong>${isCorrect? '✅ Benar' : '❌ Salah'}</strong></p>
                     <p class="mt-2 text-sm whitespace-pre-line"><strong>Pembahasan:</strong> ${q.explanation}</p>
                 `;
