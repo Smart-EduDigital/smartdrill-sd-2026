@@ -321,7 +321,7 @@
           const letter = String.fromCharCode(65 + i);
           const checked = currentArr.includes(letter) ? 'checked' : '';
           html += '<label class="cbt-opsi-wrapper flex items-start p-4 mb-3">' +
-            '<input type="checkbox" value="' + letter + '" ' + checked + ' onchange="handleMCMA(''+letter+'')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3">' +
+            '<input type="checkbox" value="' + letter + '" ' + checked + ' onchange="handleMCMA('" + letter + "')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3">' +
             '<span class="font-bold text-indigo-900 mr-2">' + letter + '.</span>' +
             '<span class="text-slate-800">' + opt + '</span>' +
           '</label>';
@@ -335,8 +335,8 @@
           const val = currentObj[letter] || '';
           html += '<tr>' +
             '<td class="p-3 border text-slate-800">' + opt + '</td>' +
-            '<td class="p-3 border text-center bg-emerald-50"><input type="radio" name="kat_' + letter + '" value="Benar" ' + (val==='Benar'?'checked':'') + ' onchange="handleKategori('' + letter + '', 'Benar')" class="w-4 h-4 text-emerald-600"></td>' +
-            '<td class="p-3 border text-center bg-rose-50"><input type="radio" name="kat_' + letter + '" value="Salah" ' + (val==='Salah'?'checked':'') + ' onchange="handleKategori('' + letter + '', 'Salah')" class="w-4 h-4 text-rose-600"></td>' +
+            '<td class="p-3 border text-center bg-emerald-50"><input type="radio" name="kat_' + letter + '" value="Benar" ' + (val==='Benar'?'checked':'') + ' onchange="handleKategori('" + letter + "', 'Benar')" class="w-4 h-4 text-emerald-600"></td>' +
+            '<td class="p-3 border text-center bg-rose-50"><input type="radio" name="kat_' + letter + '" value="Salah" ' + (val==='Salah'?'checked':'') + ' onchange="handleKategori('" + letter + "', 'Salah')" class="w-4 h-4 text-rose-600"></td>' +
           '</tr>';
         });
         html += '</table></div>';
@@ -346,7 +346,7 @@
           const letter = String.fromCharCode(65 + i);
           const checked = userAnswers[currentIndex] === letter ? 'checked' : '';
           html += '<label class="cbt-opsi-wrapper flex items-center p-4 mb-3">' +
-            '<input type="radio" name="pg_ans" value="' + letter + '" ' + checked + ' onchange="handlePG('' + letter + '')" class="w-5 h-5 text-indigo-600 mr-3">' +
+            '<input type="radio" name="pg_ans" value="' + letter + '" ' + checked + ' onchange="handlePG('" + letter + "')" class="w-5 h-5 text-indigo-600 mr-3">' +
             '<span class="font-bold text-indigo-900 mr-2">' + letter + '.</span>' +
             '<span class="text-slate-800">' + opt + '</span>' +
           '</label>';
