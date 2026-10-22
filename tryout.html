@@ -1,380 +1,486 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartDrill SD 2026 - Try Out Digital Interaktif</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .custom-scroll::-webkit-scrollbar { width: 6px; }
-        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartDrill SD 2026 - Try Out Digital Interaktif</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .gradient-bg { background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #a18cd1, #fbc2eb); background-size: 400% 400%; animation: gradientBG 15s ease infinite; }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 10px 40px rgba(118, 75, 162, 0.2); }
+    .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); transition: all 0.3s ease; }
+    .btn-primary:hover { background: linear-gradient(135deg, #5a6fd6 0%, #603a8a 100%); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4); }
+    .cbt-opsi-wrapper { border: 2px solid #e2e8f0; transition: 0.2s; background: white; border-radius: 12px; cursor: pointer; }
+    .cbt-opsi-wrapper:hover { border-color: #a18cd1; }
+    .cbt-opsi-wrapper:has(input:checked) { background-color: rgba(118, 75, 162, 0.08) !important; border-color: #764ba2 !important; box-shadow: 0 4px 12px rgba(118, 75, 162, 0.15) !important; }
+    .wacana-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 20px; font-size: 0.95rem; line-height: 1.7; }
+    .wacana-title { font-weight: 700; color: #764ba2; margin-bottom: 8px; }
+    .nav-btn { width: 42px; height: 42px; border-radius: 10px; font-weight: 700; transition: all 0.2s; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
-
-    <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-xl sm:text-2xl font-bold">🚀 SmartDrill SD 2026</span>
-                <span class="hidden sm:inline-block text-xs bg-indigo-500 text-indigo-100 px-2.5 py-0.5 rounded-full font-semibold">CBT Online VIP</span>
-            </div>
-            <div class="flex items-center space-x-3">
-                <a href="index.html" class="bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-xl transition">
-                    ← Kembali ke Beranda
-                </a>
-                <span id="user-badge" class="hidden bg-indigo-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium"></span>
-            </div>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-4xl">
+    
+    <!-- STEP 1: LOGIN (NAMA & TOKEN) -->
+    <div id="step-login" class="glass p-8 sm:p-12 max-w-md mx-auto">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mb-4 shadow-lg shadow-purple-500/30">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
         </div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-grow">
-        <!-- STEP 1: LOGIN / TOKEN -->
-        <div id="step-login" class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-md mx-auto mt-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-2 text-center">Masuk Ujian Try Out</h2>
-            <p class="text-slate-500 text-sm mb-6 text-center">Masukkan nama lengkap dan kode PIN akses Anda.</p>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap Siswa</label>
-                    <input type="text" id="input-name" placeholder="Contoh: Budi Pratama" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Kode PIN / Token Akses</label>
-                    <input type="text" id="input-token" placeholder="Contoh: SMART2026" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                </div>
-                <button onclick="startApp()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-indigo-100">
-                    Mulai Try Out Sekarang
-                </button>
-            </div>
+        <h1 class="text-3xl font-extrabold text-slate-900">SmartDrill 2026</h1>
+        <p class="text-slate-500 mt-2 font-medium">Try Out Digital Interaktif TKA SD</p>
+      </div>
+      <form onsubmit="event.preventDefault(); submitLogin();" class="space-y-5">
+        <div>
+          <label class="block text-sm font-bold text-slate-700 mb-2">Token / PIN Akses (Disamarkan)</label>
+          <input type="password" id="input-token" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition font-medium" placeholder="Masukkan token">
+          <p class="text-xs text-slate-400 mt-1.5">Gunakan token: <code class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded font-bold">SMART2026</code> atau <code class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded font-bold">TKA2026</code></p>
         </div>
+        <button type="submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl shadow-lg mt-4 text-base">Lanjutkan ke Pemilihan Ujian</button>
+      </form>
+    </div>
 
-        <!-- STEP 2: SELECT SUBJECT & PACKET -->
-        <div id="step-select" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-xl mx-auto mt-6">
-            <h2 class="text-2xl font-bold text-slate-900 mb-2">Pilih Paket Soal</h2>
-            <p class="text-slate-500 text-sm mb-6">Pilih mata pelajaran dan paket latihan yang ingin dikerjakan.</p>
-            
-            <div class="space-y-4 mb-6">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Mata Pelajaran</label>
-                    <select id="select-subject" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                        <option value="Matematika">Matematika (30 Soal)</option>
-                        <option value="Bahasa Indonesia">Bahasa Indonesia (30 Soal)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Paket Latihan</label>
-                    <select id="select-paket" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                        <option value="Tryout 1">Tryout 1</option>
-                        <option value="Tryout 2">Tryout 2</option>
-                    </select>
-                </div>
-            </div>
-            <button onclick="loadQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-indigo-100">
-                Mulai Kerjakan Soal
-            </button>
+    <!-- STEP 2: PILIH MAPEL & SERI / PAKET -->
+    <div id="step-select" class="glass p-8 sm:p-12 max-w-lg mx-auto hidden">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-extrabold text-slate-900">Pilih Mata Pelajaran & Paket</h2>
+        <p class="text-slate-500 mt-1 font-medium">Silakan pilih ujian yang ingin dikerjakan</p>
+        <div class="mt-4 inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-sm font-bold shadow-sm">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          <span id="display-student-name">Siswa</span>
         </div>
+      </div>
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-bold text-slate-700 mb-2">Mata Pelajaran</label>
+          <select id="select-subject" onchange="updatePaketList()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition font-medium bg-white">
+            <option value="">-- Pilih Mata Pelajaran --</option>
+            <option value="Matematika">Matematika</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-slate-700 mb-2">Seri / Paket Try Out</label>
+          <select id="select-paket" onchange="checkSelection()" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition font-medium bg-white" disabled>
+            <option value="">-- Pilih Mapel Terlebih Dahulu --</option>
+          </select>
+        </div>
+        <button id="btn-start" onclick="startQuiz()" disabled class="w-full btn-primary text-white font-bold py-4 rounded-xl shadow-lg mt-4 text-base opacity-50 cursor-not-allowed">Mulai Mengerjakan Ujian</button>
+        <button onclick="backToLogin()" class="w-full text-slate-600 hover:text-slate-800 font-semibold py-2 text-sm">Ganti Nama / Token</button>
+      </div>
+    </div>
 
-        <!-- STEP 3: CBT RUNNER -->
-        <div id="step-quiz" class="hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                <div class="lg:col-span-8 bg-white rounded-2xl shadow-lg p-5 sm:p-8 flex flex-col justify-between min-h-[500px]">
-                    <div>
-                        <div class="flex justify-between items-center mb-5 border-b pb-4">
-                            <div>
-                                <span id="quiz-info" class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full"></span>
-                                <h3 id="question-number" class="text-lg font-bold text-slate-800 mt-2">Soal 1 dari 30</h3>
-                                <div id="badge-tipe" class="inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded"></div>
-                            </div>
-                            <div class="flex items-center space-x-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-xl font-bold text-sm shadow-sm">
-                                <span>⏱️</span> <span id="timer">60:00</span>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <p id="question-text" class="text-slate-900 font-medium text-base sm:text-lg leading-relaxed whitespace-pre-line"></p>
-                        </div>
-                        <div id="options-container" class="space-y-3 mb-6"></div>
-                    </div>
-                    <div class="pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
-                        <button id="btn-prev" onclick="prevQuestion()" class="px-4 sm:px-5 py-2.5 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50 transition flex items-center space-x-1 text-sm sm:text-base">
-                            <span>←</span> <span>Sebelumnya</span>
-                        </button>
-                        <label class="flex items-center space-x-2 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-3.5 py-2 rounded-xl cursor-pointer transition select-none">
-                            <input type="checkbox" id="chk-ragu" onchange="toggleRagu()" class="w-4 h-4 text-amber-500 rounded border-amber-400 focus:ring-amber-400 cursor-pointer">
-                            <span class="text-xs sm:text-sm font-bold text-amber-800">Ragu-ragu</span>
-                        </label>
-                        <button id="btn-next" onclick="nextQuestion()" class="px-5 sm:px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition shadow-md flex items-center space-x-1 text-sm sm:text-base">
-                            <span id="btn-next-text">Selanjutnya</span> <span>→</span>
-                        </button>
-                    </div>
-                </div>
+    <!-- STEP 3: CBT QUIZ INTERFACE -->
+    <div id="step-quiz" class="glass p-6 sm:p-8 hidden">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-slate-200 gap-4">
+        <div>
+          <h3 id="quiz-title" class="text-xl font-extrabold text-slate-900">Ujian TKA SD</h3>
+          <p id="quiz-student" class="text-sm font-semibold text-indigo-600 mt-0.5">Siswa: -</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="bg-red-50 border border-red-200 text-red-600 px-4 py-2 rounded-xl font-bold flex items-center gap-2 shadow-sm">
+            <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span id="timer" class="text-lg tabular-nums">60:00</span>
+          </div>
+          <button onclick="confirmFinish()" class="btn-primary text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow">Kumpulkan</button>
+        </div>
+      </div>
 
-                <div class="lg:col-span-4 bg-white rounded-2xl shadow-lg p-5 sm:p-6 sticky top-20">
-                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                        <h4 class="font-bold text-slate-800 text-sm sm:text-base flex items-center space-x-2">
-                            <span>📋</span> <span>Navigasi Soal</span>
-                        </h4>
-                        <span id="nav-counter" class="text-xs font-semibold text-slate-500">0/30 Terisi</span>
-                    </div>
-                    <div id="cbt-grid-nav" class="grid grid-cols-5 gap-2 max-h-[300px] overflow-y-auto custom-scroll pr-1 mb-5"></div>
-                    <div class="grid grid-cols-3 gap-1.5 text-[11px] font-medium text-slate-600 bg-slate-50 p-2.5 rounded-xl mb-5 border border-slate-100">
-                        <div class="flex items-center space-x-1.5"><span class="w-3.5 h-3.5 rounded bg-indigo-600"></span><span>Dijawab</span></div>
-                        <div class="flex items-center space-x-1.5"><span class="w-3.5 h-3.5 rounded bg-amber-400"></span><span>Ragu</span></div>
-                        <div class="flex items-center space-x-1.5"><span class="w-3.5 h-3.5 rounded bg-white border border-slate-300"></span><span>Kosong</span></div>
-                    </div>
-                    <button onclick="confirmFinishQuiz()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-md shadow-emerald-100 flex items-center justify-center space-x-2 text-sm sm:text-base">
-                        <span>✓</span> <span>KUMPULKAN UJIAN</span>
-                    </button>
-                </div>
-            </div>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-6">
+        <!-- Area Soal (3 Span) -->
+        <div class="lg:col-span-3 space-y-6">
+          <div class="flex justify-between items-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <span id="question-number" class="font-extrabold text-slate-700 text-base">Soal No. 1 dari 30</span>
+            <label class="flex items-center gap-2 cursor-pointer font-bold text-sm text-amber-600 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-200">
+              <input type="checkbox" id="chk-ragu" onchange="toggleRagu()" class="w-4 h-4 text-amber-600 rounded"> Ragu-ragu
+            </label>
+          </div>
+
+          <div id="question-container" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm min-h-[300px]">
+            <!-- Dynamic Question Content -->
+          </div>
+
+          <div class="flex justify-between items-center pt-4">
+            <button id="btn-prev" onclick="prevQuestion()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3 rounded-xl transition">Sebelumnya</button>
+            <button id="btn-next" onclick="nextQuestion()" class="btn-primary text-white font-bold px-8 py-3 rounded-xl shadow">Selanjutnya</button>
+          </div>
         </div>
 
-        <!-- STEP 4: RESULT -->
-        <div id="step-result" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-2xl mx-auto text-center">
-            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">🎉</div>
-            <h2 class="text-2xl font-bold text-slate-900 mb-1">Try Out Selesai!</h2>
-            <p class="text-slate-500 text-sm mb-6">Berikut adalah hasil rekap pengerjaan Anda.</p>
-            <div class="bg-slate-50 rounded-2xl p-6 mb-6 inline-block w-full max-w-xs mx-auto border border-slate-100">
-                <p class="text-xs text-slate-500 uppercase font-semibold">Skor Akhir</p>
-                <p id="score-display" class="text-5xl font-extrabold text-indigo-600 my-2">0</p>
-                <p id="score-detail" class="text-sm text-slate-600 font-medium">Benar 0 dari 30 soal</p>
-            </div>
-            <div class="flex flex-col sm:flex-row justify-center gap-3">
-                <button onclick="reviewAnswers()" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition">Lihat Pembahasan</button>
-                <button onclick="location.reload()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition shadow-md">Kerjakan Paket Lain</button>
-            </div>
+        <!-- Navigasi Soal Sidebar (1 Span) -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col h-fit">
+          <h4 class="font-extrabold text-slate-800 mb-3 text-sm flex justify-between items-center">
+            <span>Navigasi Soal</span>
+            <span id="nav-counter" class="text-xs text-indigo-600 font-bold">0/30 Terisi</span>
+          </h4>
+          <div id="nav-grid" class="grid grid-cols-5 gap-2 max-h-[350px] overflow-y-auto scrollbar-hide p-1">
+            <!-- Nav buttons -->
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-200 text-xs space-y-1.5 text-slate-500 font-semibold">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-indigo-600 inline-block"></span> Terjawab</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-amber-400 inline-block"></span> Ragu-ragu</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-white border inline-block"></span> Belum</div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <!-- STEP 5: REVIEW -->
-        <div id="step-review" class="hidden bg-white rounded-2xl shadow-lg p-6 sm:p-8 max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">Pembahasan Soal</h2>
-            <div id="review-container" class="space-y-6 mb-8 text-left"></div>
-            <button onclick="location.reload()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition shadow-md">Kembali ke Menu Utama</button>
-        </div>
-    </main>
+    <!-- STEP 4: RESULT SCREEN -->
+    <div id="step-result" class="glass p-8 sm:p-12 max-w-lg mx-auto hidden text-center">
+      <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-lg shadow-teal-500/30 text-white text-4xl font-extrabold" id="score-circle">
+        100
+      </div>
+      <h2 class="text-3xl font-extrabold text-slate-900">Ujian Selesai!</h2>
+      <p id="result-text" class="text-slate-600 mt-2 font-medium">Terima kasih telah mengerjakan try out.</p>
+      <div class="mt-8 space-y-3">
+        <button onclick="reviewAnswers()" class="w-full btn-primary text-white font-bold py-4 rounded-xl shadow-lg">Lihat Pembahasan Soal</button>
+        <button onclick="location.reload()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3.5 rounded-xl transition">Keluar / Ujian Baru</button>
+      </div>
+    </div>
 
-    <footer class="text-center py-6 text-xs text-slate-400">
-        SmartDrill SD 2026 &bull; Didukung oleh Hermes Agent &amp; GitHub Pages
-    </footer>
+    <!-- STEP 5: REVIEW SCREEN -->
+    <div id="step-review" class="glass p-6 sm:p-8 max-w-3xl mx-auto hidden">
+      <div class="flex justify-between items-center mb-6 pb-4 border-b">
+        <h2 class="text-2xl font-extrabold text-slate-900">Pembahasan Soal Try Out</h2>
+        <button onclick="location.reload()" class="btn-primary text-white px-4 py-2 rounded-xl font-bold text-sm shadow">Selesai</button>
+      </div>
+      <div id="review-container" class="space-y-6"></div>
+    </div>
 
-    <script>
-        let allQuestions = [];
-        let validTokens = [];
-        let currentQuizQuestions = [];
-        let currentIndex = 0;
-        let userAnswers = {};
-        let userRagu = {};
-        let studentName = '';
-        let globalTimerInterval = null;
-        let totalTimeLeft = 60 * 60;
+  </div>
 
-        Promise.all([
-            fetch('questions.json').then(res => res.json()),
-            fetch('tokens.json').then(res => res.json()).catch(() => [])
-        ]).then(([qData, tData]) => {
-            allQuestions = qData;
-            validTokens = tData;
-        }).catch(err => {
-            console.error('Gagal memuat data:', err);
+  <script>
+    const allQuestions = [{"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 1, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Siti memiliki 4.250 kelereng. Ia memberikan 1.150 kelereng kepada adiknya, lalu membeli lagi 850 kelereng. Jumlah kelereng Siti sekarang adalah...", "type": "Multiple Choice", "options": ["3.100 butir", "4.100 butir", "3.750 butir"], "correct": "3.950 butir", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 2, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Hasil dari 325 + 45 × 12 - 150 adalah...", "type": "Multiple Choice", "options": ["815", "685", "745"], "correct": "715", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 3, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Manakah pasangan bilangan di bawah ini yang KPK-nya sama dengan 60? (Pilih >1)", "type": "Multiple Choice", "options": ["12 dan 15", "10 dan 30", "20 dan 30", "15 dan 20"], "correct": "['A, C, D']", "time": 60, "explanation": "KPK dari (12,15)=60, (20,30)=60, (15,20)=60. KPK (10,30)=30.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 4, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) FPB dan KPK dari bilangan 48 dan 72 berturut-turut adalah...", "type": "Multiple Choice", "options": ["12 dan 144", "24 dan 96", "12 dan 96"], "correct": "24 dan 144", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 5, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Ibu membeli 3 1/2 kg tepung terigu. Digunakan untuk membuat kue 1 3/4 kg, kemudian ibu membeli lagi 0,5 kg. Total tepung terigu ibu sekarang adalah...", "type": "Multiple Choice", "options": ["2 1/2 kg", "1 3/4 kg", "2 3/4 kg"], "correct": "2 1/4 kg", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 6, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Tentukan Benar (B) atau Salah (S) untuk operasi hitung pecahan berikut:", "type": "Multiple Choice", "options": ["2/3 + 1/4 = 11/12", "3/5 × 5/6 = 1/2", "1 1/2 : 0,5 = 2"], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) 8/12 + 3/12 = 11/12 (B). (2) 15/30 = 1/2 (B). (3) 1.5 : 0.5 = 3 (S).", "tipe": "Kategori", "pernyataan": ["2/3 + 1/4 = 11/12", "3/5 × 5/6 = 1/2", "1 1/2 : 0,5 = 2"]}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 7, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Hasil dari operasi hitung (-24) + 72 : (-8) - (-15) adalah...", "type": "Multiple Choice", "options": ["-33", "6", "-48"], "correct": "-18", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 8, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Sebuah bus memuat 45 penumpang. Di halte A turun 12 penumpang dan naik 8 penumpang. Di halte B turun 15 penumpang dan naik 20 penumpang. Jumlah penumpang bus sekarang adalah...", "type": "Multiple Choice", "options": ["44 penumpang", "48 penumpang", "42 penumpang"], "correct": "46 penumpang", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 9, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Manakah pecahan yang nilainya lebih besar dari 0,6? (Pilih >1)", "type": "Multiple Choice", "options": ["3/4", "1/2", "65%", "0,8"], "correct": "['A, C, D']", "time": 60, "explanation": "3/4=0.75, 65%=0.65, 0.8 lebih besar dari 0.6.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 10, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Urutan pecahan berikut dari yang terbesar ke terkecil: 0,78 ; 4/5 ; 75% ; 0,82 adalah...", "type": "Multiple Choice", "options": ["4/5 ; 0,82 ; 0,78 ; 75%", "0,82 ; 0,78 ; 4/5 ; 75%", "75% ; 0,78 ; 4/5 ; 0,82"], "correct": "0,82 ; 4/5 ; 0,78 ; 75%", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 11, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Sebuah kebun berbentuk persegi panjang dengan panjang 36 m dan lebar 24 m. Di sekeliling kebun dipasang pagar kawat 3 putaran. Panjang kawat minimal yang dibutuhkan adalah...\n[GAMBAR: persegi_panjang.png]", "type": "Multiple Choice", "options": ["240 meter", "480 meter", "180 meter"], "correct": "360 meter", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 12, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Manakah bangun datar yang memiliki 4 sisi sama panjang? (Pilih >1)", "type": "Multiple Choice", "options": [], "correct": "['A, C']", "time": 60, "explanation": "Persegi dan belah ketupat memiliki 4 sisi sama panjang.", "tipe": "Kategori", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 13, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Sebuah akuarium berbentuk balok memiliki ukuran panjang 80 cm, lebar 50 cm, dan tinggi 60 cm. Volume air jika terisi 3/4 bagian adalah...\n[GAMBAR: balok.png]", "type": "Multiple Choice", "options": ["240 liter", "120 liter", "200 liter"], "correct": "180 liter", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 14, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Keliling sebuah lingkaran adalah 132 cm. Jika π = 22/7, jari-jari lingkaran tersebut adalah...", "type": "Multiple Choice", "options": ["14 cm", "28 cm", "42 cm"], "correct": "21 cm", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 15, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Tentukan Benar (B) atau Salah (S) mengenai sifat bangun ruang:", "type": "Multiple Choice", "options": [], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) Kubus 6 sisi persegi (B). (2) Balok 12 rusuk (B). (3) Tabung tidak punya titik sudut (S).", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 16, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Sebuah lapangan berbentuk lingkaran berdiameter 28 meter. Ditanami pohon di sekelilingnya dengan jarak antar pohon 4 meter. Banyak pohon yang dibutuhkan adalah...", "type": "Multiple Choice", "options": ["14 pohon", "44 pohon", "28 pohon"], "correct": "22 pohon", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 17, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Sebuah tabung memiliki jari-jari 14 cm dan tinggi 25 cm (π = 22/7). Luas selimut tabung tersebut adalah...", "type": "Multiple Choice", "options": ["1.232 cm²", "4.400 cm²", "1.100 cm²"], "correct": "2.200 cm²", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 18, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Manakah satuan volume di bawah ini yang setara dengan 1 liter? (Pilih >1)", "type": "Multiple Choice", "options": [], "correct": "['A, B']", "time": 60, "explanation": "1 liter = 1 dm³ = 1.000 ml.", "tipe": "Kategori", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 19, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Jarak kota A ke kota B adalah 180 km. Mobil berangkat pukul 07.00 dengan kecepatan rata-rata 60 km/jam. Tiba di kota B pada pukul...", "type": "Multiple Choice", "options": ["09.30", "10.30", "11.00"], "correct": "10.00", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 20, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Debit air dari sebuah selang adalah 15 liter/detik. Volume air yang mengalir selama 20 menit adalah...", "type": "Multiple Choice", "options": ["9.000 liter", "36.000 liter", "3.000 liter"], "correct": "18.000 liter", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 21, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Perhatikan diagram batang berikut!\n[GAMBAR: diagram_batang.png]\nJika total siswa 40 orang dan nilai 80 ada 12 orang, persentase siswa bernilai 80 adalah...", "type": "Multiple Choice", "options": ["20%", "25%", "35%"], "correct": "30%", "time": 60, "explanation": "", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 22, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Nilai rata-rata 25 siswa adalah 76. Masuk 5 siswa susulan, rata-rata jadi 77. Rata-rata 5 siswa susulan adalah...", "type": "Multiple Choice", "options": ["78", "80", "84"], "correct": "82", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 23, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Data berat badan 10 anak: 34, 38, 35, 40, 36, 38, 42, 38, 35, 39. Modus data tersebut adalah...", "type": "Multiple Choice", "options": ["35 kg", "40 kg", "36 kg"], "correct": "38 kg", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 24, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Manakah ukuran pemusatan data yang umum dipelajari di SD? (Pilih >1)", "type": "Multiple Choice", "options": [], "correct": "['A, B, C']", "time": 60, "explanation": "Mean, median, dan modus adalah ukuran pemusatan data.", "tipe": "Kategori", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 25, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Data nilai ulangan: 65, 70, 75, 80, 85, 90, 95. Median dari data tersebut adalah...", "type": "Multiple Choice", "options": ["75", "85", "77,5"], "correct": "80", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 26, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Diagram lingkaran total 300 siswa hobi: Pramuka 30%, Olahraga 40%, Seni 20%, sisanya Musik. Banyak siswa hobi Musik adalah...", "type": "Multiple Choice", "options": ["45 siswa", "60 siswa", "15 siswa"], "correct": "30 siswa", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 27, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Tentukan Benar (B) atau Salah (S) mengenai data statistik:", "type": "Multiple Choice", "options": [], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) Median nilai tengah (B). (2) Modus sering muncul (B). (3) Mean sangat peka pencilan (S).", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 28, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Selisih nilai tertinggi dan terendah dari data: 45, 60, 75, 50, 90, 85, 65 adalah...", "type": "Multiple Choice", "options": ["40", "50", "35"], "correct": "45", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 29, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Penjualan buku 5 hari: Senin 20, Selasa 35, Rabu 25, Kamis 40, Jumat 30. Rata-rata penjualan per hari adalah...", "type": "Multiple Choice", "options": ["28 buku", "32 buku", "35 buku"], "correct": "30 buku", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Matematika Tryout 1", "number": 30, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Dari data nilai: 70, 80, 80, 90, 60. Pernyataan yang tepat adalah nilai rata-rata data tersebut mendekati...", "type": "Multiple Choice", "options": [], "correct": "76", "time": 60, "explanation": "", "tipe": "Kategori", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 1, "materi": "Literasi Membaca", "wacana": "WACANA 1: Daur Ulang Sampah Plastik\n\nSampah plastik menjadi salah satu masalah lingkungan terbesar di Indonesia karena sulit terurai secara alami. Setiap tahun masyarakat Indonesia menghasilkan puluhan juta ton sampah plastik yang sebagian besar berakhir di TPA atau laut. Daur ulang plastik merupakan upaya mengelola sampah dengan mengubah plastik bekas menjadi produk baru yang bernilai. Proses daur ulang meliputi pengumpulan, penyortiran, pencucian, pemotongan, dan peleburan menjadi butiran plastik. Butiran plastik hasil daur ulang dapat dibuat menjadi botol baru, tas, pakaian, hingga bahan bangunan. Selain mengurangi sampah, daur ulang plastik juga menghemat energi hingga 80% dibanding memproduksi plastik baru dari minyak bumi. Partisipasi masyarakat memisahkan sampah organik dan anorganik sejak rumah tangga sangat menentukan keberhasilan daur ulang.", "question": " Apa masalah utama sampah plastik menurut wacana?", "type": "Multiple Choice", "options": ["Harga mahal", "Sulit terurai secara alami", "Tidak bernilai ekonomis", "Sulit didaur ulang"], "correct": "B", "time": 60, "explanation": "Kalimat pertama wacana menyatakan \"Sampah plastik menjadi salah satu masalah lingkungan terbesar di Indonesia karena sulit terurai secara alami.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 2, "materi": "Literasi Membaca", "wacana": "WACANA 1: Daur Ulang Sampah Plastik\n\nSampah plastik menjadi salah satu masalah lingkungan terbesar di Indonesia karena sulit terurai secara alami. Setiap tahun masyarakat Indonesia menghasilkan puluhan juta ton sampah plastik yang sebagian besar berakhir di TPA atau laut. Daur ulang plastik merupakan upaya mengelola sampah dengan mengubah plastik bekas menjadi produk baru yang bernilai. Proses daur ulang meliputi pengumpulan, penyortiran, pencucian, pemotongan, dan peleburan menjadi butiran plastik. Butiran plastik hasil daur ulang dapat dibuat menjadi botol baru, tas, pakaian, hingga bahan bangunan. Selain mengurangi sampah, daur ulang plastik juga menghemat energi hingga 80% dibanding memproduksi plastik baru dari minyak bumi. Partisipasi masyarakat memisahkan sampah organik dan anorganik sejak rumah tangga sangat menentukan keberhasilan daur ulang.", "question": " Manakah yang termasuk proses daur ulang plastik? (Pilih >1)", "type": "Multiple Choice", "options": ["Pengumpulan", "Penyortiran", "Pembakaran", "Pencucian"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-4 menyebut \"Proses daur ulang meliputi pengumpulan, penyortiran, pencucian, pemotongan, dan peleburan.\" Pembakaran bukan proses daur ulang.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 3, "materi": "Literasi Membaca", "wacana": "WACANA 1: Daur Ulang Sampah Plastik\n\nSampah plastik menjadi salah satu masalah lingkungan terbesar di Indonesia karena sulit terurai secara alami. Setiap tahun masyarakat Indonesia menghasilkan puluhan juta ton sampah plastik yang sebagian besar berakhir di TPA atau laut. Daur ulang plastik merupakan upaya mengelola sampah dengan mengubah plastik bekas menjadi produk baru yang bernilai. Proses daur ulang meliputi pengumpulan, penyortiran, pencucian, pemotongan, dan peleburan menjadi butiran plastik. Butiran plastik hasil daur ulang dapat dibuat menjadi botol baru, tas, pakaian, hingga bahan bangunan. Selain mengurangi sampah, daur ulang plastik juga menghemat energi hingga 80% dibanding memproduksi plastik baru dari minyak bumi. Partisipasi masyarakat memisahkan sampah organik dan anorganik sejak rumah tangga sangat menentukan keberhasilan daur ulang.", "question": " Tentukan Benar (B) atau Salah (S):", "type": "Multiple Choice", "options": ["Daur ulang plastik menghemat energi hingga 80% dibanding produksi baru.", "Semua sampah plastik di Indonesia sudah terdaur ulang 100%.", "Memisahkan sampah organik dan anorganik di rumah menunjang daur ulang."], "correct": "1-B, 2-S, 3-B", "time": 60, "explanation": "(1) Sesuai kalimat ke-6. (2) Wacana menyebut \"hanya sekitar 10-15% sampah yang berhasil terdaur ulang.\" (3) Sesuai kalimat terakhir.", "tipe": "Kategori", "pernyataan": ["Daur ulang plastik menghemat energi hingga 80% dibanding produksi baru.", "Semua sampah plastik di Indonesia sudah terdaur ulang 100%.", "Memisahkan sampah organik dan anorganik di rumah menunjang daur ulang."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 4, "materi": "Literasi Membaca", "wacana": "WACANA 2: Kompos dari Sampah Organik", "question": " Apa hasil akhir dari proses pengkomposan?", "type": "Multiple Choice", "options": ["Bahan bakar", "Energi listrik", "Gas metana", "Pupuk alami (kompos)"], "correct": "D", "time": 60, "explanation": "Kalimat ke-3: \"Hasil kompos berupa pupuk alami yang kaya nutrisi...\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 5, "materi": "Literasi Membaca", "wacana": "WACANA 2: Kompos dari Sampah Organik", "question": " Mikroorganisme dalam pengkomposan berfungsi sebagai…", "type": "Multiple Choice", "options": ["Pengurai bahan organik", "Penghancar plastik", "Pencemar tanah", "Penghasil gas metana"], "correct": "A", "time": 60, "explanation": "Kalimat ke-2: \"pengolahan sampah organik secara biologis dengan bantuan mikroorganisme pengurai.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 6, "materi": "Literasi Membaca", "wacana": "WACANA 2: Kompos dari Sampah Organik", "question": " Manfaat pengkomposan bagi lingkungan meliputi… (Pilih >1)", "type": "Multiple Choice", "options": ["Mengurangi volume sampah ke TPA", "Menghasilkan pupuk kimia", "Mengurangi emisi gas metana", "Menciptakan pupuk alami"], "correct": "A, C, D", "time": 60, "explanation": "Kalimat ke-4 dan 5 menyebut mengurangi volume sampah ke TPA, mengurangi emisi metana, dan menciptakan pupuk alami.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 7, "materi": "Literasi Membaca", "wacana": "WACANA 2: Kompos dari Sampah Organik", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Pengkomposan hanya bisa dilakukan di skala industri besar.", "Ember atau biopori bisa digunakan untuk kompos di rumah.", "Gas metana dari pengkomposan berbahaya bagi ozone."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Wacana menyebut \"masyarakat dapat membuat kompos sederhana di halaman rumah.\" (2) Sesuai kalimat ke-5. (3) Kalimat ke-4 menyebut \"mengurangi emisi gas metana berbahaya.\"", "tipe": "Kategori", "pernyataan": ["Pengkomposan hanya bisa dilakukan di skala industri besar.", "Ember atau biopori bisa digunakan untuk kompos di rumah.", "Gas metana dari pengkomposan berbahaya bagi ozone."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 8, "materi": "Literasi Membaca", "wacana": "WACANA 3: Bank Sampah Berbasis Komunitas", "question": " Apa yang disetor nasabah ke bank sampah?", "type": "Multiple Choice", "options": ["Sampah anorganik bernilai ekonomis", "Sampah berbahaya (B3)", "Sampah organik", "Sampah medis"], "correct": "A", "time": 60, "explanation": "Kalimat ke-2: \"Nasabah bank sampah menyetor sampah terpisah seperti plastik, kertas, logam, dan kaca…\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 9, "materi": "Literasi Membaca", "wacana": "WACANA 3: Bank Sampah Berbasis Komunitas", "question": " Peraturan apa yang mendukung bank sampah di Indonesia?", "type": "Multiple Choice", "options": ["Permen LHK No. 14 Tahun 2021", "PP No. 81 Tahun 2012", "Perpres No. 97 Tahun 2017", "UU No. 18 Tahun 2008"], "correct": "A", "time": 60, "explanation": "Kalimat ke-5 menyebut \"didukung kebijakan pemerintah melalui Permen LHK No. 14 Tahun 2021.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 10, "materi": "Literasi Membaca", "wacana": "WACANA 3: Bank Sampah Berbasis Komunitas", "question": " Manfaat bank sampah bagi masyarakat: (Pilih >1)", "type": "Multiple Choice", "options": ["Menghasilkan tabungan uang dari sampah", "Menciptakan lapangan kerja", "Menambah volume sampah di TPA", "Meningkatkan kesadaran 3R"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-4, 6, 7 menyebut tabungan, lapangan kerja, dan edukasi 3R.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 11, "materi": "Literasi Membaca", "wacana": "WACANA 3: Bank Sampah Berbasis Komunitas", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Bank sampah hanya menerima sampah plastik.", "Kemitraan dengan sekolah memperluas edukasi 3R.", "Sampah disetor dalam kondisi tercampur (tidak dipisah)."], "correct": "1-S, 2-B, 3-S", "time": 60, "explanation": "(1) Kalimat ke-2 menyebut plastik, kertas, logam, kaca. (2) Kalimat terakhir. (3) Kalimat ke-2 \"sampah terpisah.\"", "tipe": "Kategori", "pernyataan": ["Bank sampah hanya menerima sampah plastik.", "Kemitraan dengan sekolah memperluas edukasi 3R.", "Sampah disetor dalam kondisi tercampur (tidak dipisah)."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 12, "materi": "Literasi Membaca", "wacana": "WACANA 4: Gerakan 5R (Reduce, Reuse, Recycle, Replace, Repair)", "question": " Manakah yang termasuk tindakan Reduce?", "type": "Multiple Choice", "options": ["Mencetak kertas dua sisi", "Membuat kerajinan dari botol bekas", "Memperbaiki sepeda rusak", "Menggunakan tas kain belanja"], "correct": "A", "time": 60, "explanation": "Kalimat ke-3: \"Reduce berarti mengurangi pembuatan sampah sejak sumber dengan konsumsi bijak… kurangi penggunaan kertas di kantor dengan melakukan print preview sebelum mencetak.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 13, "materi": "Literasi Membaca", "wacana": "WACANA 4: Gerakan 5R (Reduce, Reuse, Recycle, Replace, Repair)", "question": " Perbedaan Reuse dan Recycle terletak pada…", "type": "Multiple Choice", "options": ["Keduanya sama mengubah bentuk", "Reuse tidak mengubah bentuk, Recycle mengubah bentuk", "Reuse mengubah bentuk, Recycle tidak", "Keduanya tidak mengubah bentuk"], "correct": "B", "time": 60, "explanation": "Kalimat ke-4 \"Reuse adalah menggunakan kembali barang yang masih layak pakai tanpa mengubah bentuknya.\" Kalimat ke-5 \"Recycle melibatkan proses daur ulang sampah menjadi bahan baku atau produk baru.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 14, "materi": "Literasi Membaca", "wacana": "WACANA 4: Gerakan 5R (Reduce, Reuse, Recycle, Replace, Repair)", "question": " Contoh tindakan Replace: (Pilih >1)", "type": "Multiple Choice", "options": ["Menggunakan botol minum stainless steel", "Membawa tas kain sendiri belanja", "Mencetak dokumen hanya saat diperlukan", "Menggunakan sedotan bambu menggantikan plastik"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-6: \"Replace mendorong penggantian barang sekali pakai dengan alternatif tahan lama seperti tas kain.\" C adalah Reduce.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 15, "materi": "Literasi Membaca", "wacana": "WACANA 4: Gerakan 5R (Reduce, Reuse, Recycle, Replace, Repair)", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Repair berarti membeli barang baru menggantikan yang rusak.", "5R lebih komprehensif dari 3R.", "Penerapan 5R kolektif mengurangi jejak karbon."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Kalimat ke-7: \"Repair berarti memperbaiki barang rusak agar tetap berfungsi.\" (2) Kalimat ke-2. (3) Kalimat terakhir.", "tipe": "Kategori", "pernyataan": ["Repair berarti membeli barang baru menggantikan yang rusak.", "5R lebih komprehensif dari 3R.", "Penerapan 5R kolektif mengurangi jejak karbon."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 16, "materi": "Literasi Membaca", "wacana": "WACANA 5: Daur Ulang Logam (Aluminium & Besi)", "question": " Berapa persen penghematan energi daur ulang aluminium vs ekstraksi baru?", "type": "Multiple Choice", "options": ["85%", "100%", "75%", "95%"], "correct": "D", "time": 60, "explanation": "Kalimat ke-2: \"Daur ulang aluminium menghemat 95% energi dibanding ekstraksi dari bijih bauksit.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 17, "materi": "Literasi Membaca", "wacana": "WACANA 5: Daur Ulang Logam (Aluminium & Besi)", "question": " Mengapa besi mudah dipisahkan dari sampah campuran?", "type": "Multiple Choice", "options": ["Ringan", "Tidak berkarat", "Bersifat magnetik", "Harga murah"], "correct": "C", "time": 60, "explanation": "Kalimat ke-3: \"pemilahan magnetik\" — besi bersifat ferromagnetik.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 18, "materi": "Literasi Membaca", "wacana": "WACANA 5: Daur Ulang Logam (Aluminium & Besi)", "question": " Produk dari logam daur ulang: (Pilih >1)", "type": "Multiple Choice", "options": ["Konstruksi bangunan", "Otomotif (bodi mobil, komponen mesin)", "Peralatan berat", "Botol minuman sekali pakai"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-5: \"Besi dan baja daur ulang banyak digunakan untuk konstruksi, otomotif, dan peralatan berat.\"", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 19, "materi": "Literasi Membaca", "wacana": "WACANA 5: Daur Ulang Logam (Aluminium & Besi)", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Logam hanya bisa didaur ulang sekali sebelum kualitas turun.", "Kaleng aluminium daur ulang kembali ke rak toko dalam 60 hari.", "Daur ulang logam mengurangi aktivitas penambangan baru."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Kalimat ke-1: \"dapat didaur ulang tanpa batas tanpa mengurangi kualitas.\" (2) Kalimat ke-4. (3) Kalimat terakhir.", "tipe": "Kategori", "pernyataan": ["Logam hanya bisa didaur ulang sekali sebelum kualitas turun.", "Kaleng aluminium daur ulang kembali ke rak toko dalam 60 hari.", "Daur ulang logam mengurangi aktivitas penambangan baru."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 20, "materi": "Literasi Membaca", "wacana": "WACANA 6: Sampah Elektronik (E-Waste) & Daur Ulang", "question": " Bahan berbahaya yang terkandung dalam e-waste:", "type": "Multiple Choice", "options": ["Tembaga dan aluminium", "Silikon dan plastik", "Emas dan perak", "Merkuri, timbal, kadmium"], "correct": "D", "time": 60, "explanation": "Kalimat ke-2: \"bahan berbahaya (merkuri, timbal, kadmium, brominated flame retardants).\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 21, "materi": "Literasi Membaca", "wacana": "WACANA 6: Sampah Elektronik (E-Waste) & Daur Ulang", "question": " Dampak pembuangan e-waste sembarangan:", "type": "Multiple Choice", "options": ["Menghasilkan energi listrik", "Mencemar tanah, air, udara, bahayakan kesehatan", "Membantu daur ulang otomatis", "Meningkatkan kesuburan tanah"], "correct": "B", "time": 60, "explanation": "Kalimat ke-4.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 22, "materi": "Literasi Membaca", "wacana": "WACANA 6: Sampah Elektronik (E-Waste) & Daur Ulang", "question": " Komponen berharga yang bisa diekstrak dari e-waste: (Pilih >1)", "type": "Multiple Choice", "options": ["Emas", "Perak", "Merkuri", "Tembaga"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-2: \"logam berharga (emas, perak, tembaga, paladium)\". Merkuri adalah bahan berbahaya.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 23, "materi": "Literasi Membaca", "wacana": "WACANA 6: Sampah Elektronik (E-Waste) & Daur Ulang", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Semua e-waste bisa dibuang ke sampah biasa aman saja.", "Program take-back produsen membantu pengelolaan e-waste resmi.", "Indonesia sudah memiliki peraturan khusus e-waste."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Kalimat ke-4: membahayakan. (2) Kalimat ke-6. (3) Kalimat ke-5: Permen LHK No. 6 Tahun 2021.", "tipe": "Kategori", "pernyataan": ["Semua e-waste bisa dibuang ke sampah biasa aman saja.", "Program take-back produsen membantu pengelolaan e-waste resmi.", "Indonesia sudah memiliki peraturan khusus e-waste."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 24, "materi": "Literasi Membaca", "wacana": "WACANA 7: Pelestarian Hutan Mangrove", "question": " Fungsi utama akar mangrove yang menonjol ke atas (pneumatofor):", "type": "Multiple Choice", "options": ["Menyimpan cadangan makanan", "Menangkap ikan", "Bernapas (pertukaran gas)", "Menyerap air"], "correct": "C", "time": 60, "explanation": "Pengetahuan umum ilmiah: akar napas (pneumatofor) berfungsi pertukaran gas di lingkungan anaerobik. (Wacana implisit \"sistem akar khas\").", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 25, "materi": "Literasi Membaca", "wacana": "WACANA 7: Pelestarian Hutan Mangrove", "question": " Kemampuan penyerapan karbon mangrove dibanding hutan darat:", "type": "Multiple Choice", "options": ["Sama saja", "3x lebih efektif", "2x lebih efektif", "4x lebih efektif"], "correct": "D", "time": 60, "explanation": "Kalimat ke-2: \"penyerap karbon 4x lebih efektif dari hutan darat.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 26, "materi": "Literasi Membaca", "wacana": "WACANA 7: Pelestarian Hutan Mangrove", "question": " Penyebab kerusakan mangrove: (Pilih >1)", "type": "Multiple Choice", "options": ["Konversi lahan jadi tambak", "Pembangunan pesisir (pelabuhan, jalan)", "Penanaman bibit massal", "Tebangan liar"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-3. C justru adalah solusi restorasi.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 27, "materi": "Literasi Membaca", "wacana": "WACANA 7: Pelestarian Hutan Mangrove", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Mangrove hanya tumbuh di air tawar.", "Restorasi mangrove melibatkan komunitas nelayan.", "UU No. 27/2007 mengatur pelestarian mangrove."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Mangrove tumbuh di air payau/pesisir (zona pasang surut). (2) Kalimat ke-5. (3) Kalimat ke-6.", "tipe": "Kategori", "pernyataan": ["Mangrove hanya tumbuh di air tawar.", "Restorasi mangrove melibatkan komunitas nelayan.", "UU No. 27/2007 mengatur pelestarian mangrove."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 28, "materi": "Literasi Membaca", "wacana": "WACANA 8: Energi Terbarukan Surya untuk Pedesaan", "question": " Prinsip kerja panel surya mengubah sinar matahari jadi listrik:", "type": "Multiple Choice", "options": ["Efek magnetik", "Efek kimia", "Efek fotovoltaik", "Efek termal"], "correct": "C", "time": 60, "explanation": "Kalimat ke-2: \"melalui efek fotovoltaik\".", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 29, "materi": "Literasi Membaca", "wacana": "WACANA 8: Energi Terbarukan Surya untuk Pedesaan", "question": " Keuntungan PLTS off-grid bagi pedesaan 3T: (Pilih >1)", "type": "Multiple Choice", "options": ["Listrik 24 jam dengan baterai", "Bebas biaya bulanan listrik PLN", "Mengurangi genset diesel", "Membutuhkan jaringan PLN terlebih dahulu"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-3, 5, 6. D salah karena off-grid artinya tanpa jaringan PLN.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 1", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 1", "number": 30, "materi": "Literasi Membaca", "wacana": "WACANA 8: Energi Terbarukan Surya untuk Pedesaan", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["PLTS menghasilkan emisi karbon saat mengoperasikan.", "Program Indonesia Terang sasaran rumah tangga miskin 3T.", "PLTS mendukung SDG 7 dan SDG 13."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Kalimat ke-2: \"tanpa emisi karbon saat operasi.\" (2) Kalimat ke-4. (3) Kalimat terakhir.", "tipe": "Kategori", "pernyataan": ["PLTS menghasilkan emisi karbon saat mengoperasikan.", "Program Indonesia Terang sasaran rumah tangga miskin 3T.", "PLTS mendukung SDG 7 dan SDG 13."]}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 1, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Gudang beras memiliki persediaan 6,8 ton. Terjual 2 3/4 ton pada hari senin dan 1,5 ton pada hari selasa. Sisa beras di gudang adalah...", "type": "Multiple Choice", "options": ["2,75 ton", "2,25 ton", "3,05 ton"], "correct": "2,55 ton", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 2, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Hasil dari 1.250 - 25 × 16 + 320 adalah...", "type": "Multiple Choice", "options": ["1.050", "1.220", "1.120"], "correct": "1.170", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 3, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Manakah pernyataan bilangan berikut yang bernilai benar? (Pilih >1)", "type": "Multiple Choice", "options": ["-12 > -15", "0,625 = 5/8", "-7 + (-8) = 15", "25% dari 400 adalah 100"], "correct": "['A, B, D']", "time": 60, "explanation": "-12 lebih besar dari -15 benar, 5/8=0.625 benar, 25%*400=100 benar.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 4, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Lampu A menyala setiap 6 menit sekali, lampu B setiap 8 menit sekali, dan lampu C setiap 12 menit sekali. Ketiga lampu menyala bersamaan pukul 08.00. Mereka akan menyala bersamaan kembali pada pukul...", "type": "Multiple Choice", "options": ["08.12", "08.36", "08.48"], "correct": "08.24", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 5, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Hasil dari 75% : 0,25 × 1 1/5 adalah...", "type": "Multiple Choice", "options": ["3 1/2", "2 4/5", "4 1/5"], "correct": "3 3/5", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 6, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Tentukan Benar (B) atau Salah (S) untuk pernyataan berikut:", "type": "Multiple Choice", "options": ["Hasil perpangkatan dari 15² adalah 225.", "Akar kuadrat dari 576 adalah 24.", "Pangkat 3 dari 8 adalah 64."], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) 15*15=225 (B). (2) 24*24=576 (B). (3) 8^3 = 512, bukan 64 (S).", "tipe": "Kategori", "pernyataan": ["Hasil perpangkatan dari 15² adalah 225.", "Akar kuadrat dari 576 adalah 24.", "Pangkat 3 dari 8 adalah 64."]}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 7, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Suhu daging di dalam freezer mula-mula -14°C. Karena listrik padam, suhunya naik 3°C setiap 4 menit. Berapa suhu daging setelah 20 menit?", "type": "Multiple Choice", "options": ["-1°C", "4°C", "2°C"], "correct": "1°C", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 8, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Pak Ahmad membagikan 72 buah buku dan 96 buah pensil kepada anak yatim dengan jumlah dan jenis yang sama banyak. Jumlah anak terbanyak yang menerima adalah...", "type": "Multiple Choice", "options": ["12 anak", "16 anak", "18 anak"], "correct": "24 anak", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 9, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Manakah pecahan yang senilai dengan 0,75? (Pilih >1)", "type": "Multiple Choice", "options": ["3/4", "75/100", "5/8", "6/8"], "correct": "['A, B, D']", "time": 60, "explanation": "3/4, 75/100, dan 6/8 senilai dengan 0.75.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 10, "materi": "Numerasi", "wacana": "", "question": "(Bilangan) Bentuk desimal dari 3/8 adalah...", "type": "Multiple Choice", "options": ["0,325", "0,425", "0,625"], "correct": "0,375", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 11, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Sebuah taman berbentuk lingkaran dengan jari-jari 20 meter. Di dalamnya dibuat kolam persegi dengan sisi 14 meter. Luas taman di luar kolam adalah... (π = 3,14)\n[GAMBAR: lingkaran.png]", "type": "Multiple Choice", "options": ["1.120 m²", "980 m²", "1.156 m²"], "correct": "1.060 m²", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 12, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Manakah bangun ruang yang memiliki bidang alas berbentuk lingkaran? (Pilih >1)", "type": "Multiple Choice", "options": [], "correct": "['A, C']", "time": 60, "explanation": "Kerucut dan tabung memiliki alas berbentuk lingkaran.", "tipe": "Kategori", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 13, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Sebuah prisma segitiga memiliki luas alas 45 cm² dan tinggi prisma 16 cm. Volume prisma tersebut adalah...\n[GAMBAR: prisma_segitiga.png]", "type": "Multiple Choice", "options": ["360 cm³", "840 cm³", "540 cm³"], "correct": "720 cm³", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 14, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Roda sepeda memiliki jari-jari 35 cm berputar sebanyak 200 kali. Jarak yang ditempuh adalah... (π = 22/7)", "type": "Multiple Choice", "options": ["220 meter", "880 meter", "1.100 meter"], "correct": "440 meter", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 15, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Tentukan Benar (B) atau Salah (S):", "type": "Multiple Choice", "options": [], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) Rusuk prisma segitiga = 9 (B). (2) Sisi limas segiempat = 5 (B). (3) Bola tidak punya rusuk (S).", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 16, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Kerucut memiliki jari-jari 7 cm dan garis pelukis 25 cm (π = 22/7). Luas selimut kerucut adalah...", "type": "Multiple Choice", "options": ["616 cm²", "385 cm²", "770 cm²"], "correct": "550 cm²", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 17, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Volume bola dengan jari-jari 21 cm adalah... (π = 22/7)", "type": "Multiple Choice", "options": ["19.404 cm³", "29.106 cm³", "58.212 cm³"], "correct": "38.808 cm³", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 18, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Alat ukur baku untuk mengukur waktu adalah: (Pilih >1)", "type": "Multiple Choice", "options": [], "correct": "['A, C, D']", "time": 60, "explanation": "Jam dinding, stopwatch, dan arloji mengukur waktu. Termometer mengukur suhu.", "tipe": "Kategori", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 19, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Pesawat terbang menempuh 2.400 km dalam waktu 3 jam 20 menit. Kecepatan rata-rata pesawat adalah...", "type": "Multiple Choice", "options": ["600 km/jam", "800 km/jam", "640 km/jam"], "correct": "720 km/jam", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 20, "materi": "Numerasi", "wacana": "", "question": "(Geometri & Pengukuran) Kolam renang diisi air dengan debit 25 liter/detik. Jika volume kolam 180 m³, waktu untuk mengisi penuh kolam adalah...", "type": "Multiple Choice", "options": ["1,5 jam", "2,5 jam", "3 jam"], "correct": "2 jam", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 21, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Perhatikan diagram garis berikut!\n[GAMBAR: diagram_garis.png]\nGrafik menunjukkan tren kenaikan produksi padi selama 4 tahun berturut-turut.", "type": "Multiple Choice", "options": ["Pengukuran volume", "Perhitungan keliling", "Penghitungan debit"], "correct": "Analisis tren data", "time": 60, "explanation": "", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 22, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Rata-rata 18 siswa adalah 80. Digabung beberapa siswa susulan, rata-rata jadi 78 (total 20 siswa). Rata-rata siswa susulan adalah...", "type": "Multiple Choice", "options": ["65", "70", "55"], "correct": "60", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 23, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Data nilai sains: 70, 75, 80, 85, 70, 90, 75, 70, 95, 85. Modus data tersebut adalah...", "type": "Multiple Choice", "options": ["75", "85", "80"], "correct": "70", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 24, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Manakah penyajian data yang umum digunakan di sekolah? (Pilih >1)", "type": "Multiple Choice", "options": [], "correct": "['A, B, D']", "time": 60, "explanation": "Diagram batang, tabel frekuensi, dan diagram garis umum di sekolah.", "tipe": "Kategori", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 25, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Data tinggi badan 9 anak (cm): 135, 140, 138, 142, 145, 139, 141, 144, 137. Median tinggi badan adalah...", "type": "Multiple Choice", "options": ["139 cm", "141 cm", "142 cm"], "correct": "140 cm", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 26, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Diagram lingkaran 500 siswa hobi: Musik 30%, Olahraga 35%, Seni 25%, sisanya Membaca. Siswa hobi Membaca adalah...", "type": "Multiple Choice", "options": ["40 siswa", "60 siswa", "75 siswa"], "correct": "50 siswa", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 27, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Tentukan Benar (B) atau Salah (S):", "type": "Multiple Choice", "options": [], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) Batang untuk kategori (B). (2) Garis untuk tren (B). (3) Lingkaran menggunakan sudut/persen, bukan berat (S).", "tipe": "MCMA", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 28, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Jangkauan data berat badan: 42, 50, 38, 65, 48, 55, 60 adalah...", "type": "Multiple Choice", "options": ["23", "25", "28"], "correct": "27", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 29, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Rata-rata 4 anak adalah 45 kg. Masuk 1 anak baru, rata-rata jadi 46 kg. Berat anak baru adalah...", "type": "Multiple Choice", "options": ["48 kg", "52 kg", "47 kg"], "correct": "50 kg", "time": 60, "explanation": "", "tipe": "PG", "pernyataan": []}, {"subject": "Matematika", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Matematika Tryout 2", "number": 30, "materi": "Numerasi", "wacana": "", "question": "(Data & Statistika) Jika jumlah seluruh frekuensi pada tabel data adalah 40 dan banyak kelompok data ada 5, rata-rata frekuensi tiap kelompok adalah...", "type": "Multiple Choice", "options": [], "correct": "8", "time": 60, "explanation": "", "tipe": "Kategori", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 1, "materi": "Literasi Membaca", "wacana": "WACANA 1: Gerakan Literasi Digital Anti Hoaks\n\nHoaks atau berita palsu menyebar cepat melalui media sosial dan aplikasi pesan instan, merusak kohesi sosial dan memicu kekerasan. Literasi digital adalah kemampuan menemukan, mengevaluasi, dan menggunakan informasi secara kritis dan etis di ruang digital. Ciri hoaks meliputi judul sensasional (clickbait), tidak ada sumber kredibel, emosi tinggi (marah/takut), dan URL mencurigakan. Cara verifikasi: cek domain situs resmi, gunakan fact-checking site (CekFakta, TurnBackHoax), cari liputan media utama, periksa tanggal dan konteks foto/video. Undang-Undang ITE (UU No. 11/2008 jo UU No. 19/2016) mengancam pidana penyebar hoaks hingga 6 tahun penjara dan denda 1 miliar. Gerakan #SabarSebelumShare dan pendidikan literasi digital di sekolah vital menurunkan viralitas hoaks. Setiap warga digital bertanggung jawab memverifikasi sebelum membagikan informasi.", "question": " Ciri utama hoaks menurut wacana:", "type": "Multiple Choice", "options": ["Judul netral dan objektif", "Judul sensasional (clickbait)", "URL standar gouvernement", "Sumber dari media resmi"], "correct": "B", "time": 60, "explanation": "Kalimat ke-3: \"Ciri hoaks meliputi judul sensasional (clickbait)…\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 2, "materi": "Literasi Membaca", "wacana": "WACANA 1: Gerakan Literasi Digital Anti Hoaks\n\nHoaks atau berita palsu menyebar cepat melalui media sosial dan aplikasi pesan instan, merusak kohesi sosial dan memicu kekerasan. Literasi digital adalah kemampuan menemukan, mengevaluasi, dan menggunakan informasi secara kritis dan etis di ruang digital. Ciri hoaks meliputi judul sensasional (clickbait), tidak ada sumber kredibel, emosi tinggi (marah/takut), dan URL mencurigakan. Cara verifikasi: cek domain situs resmi, gunakan fact-checking site (CekFakta, TurnBackHoax), cari liputan media utama, periksa tanggal dan konteks foto/video. Undang-Undang ITE (UU No. 11/2008 jo UU No. 19/2016) mengancam pidana penyebar hoaks hingga 6 tahun penjara dan denda 1 miliar. Gerakan #SabarSebelumShare dan pendidikan literasi digital di sekolah vital menurunkan viralitas hoaks. Setiap warga digital bertanggung jawab memverifikasi sebelum membagikan informasi.", "question": " Situs fact-checking resmi di Indonesia:", "type": "Multiple Choice", "options": ["Kominfo.go.id saja", "HoaxBuster.id", "Detik.com / Kompas.com", "CekFakta.com / TurnBackHoax.id"], "correct": "D", "time": 60, "explanation": "Kalimat ke-4: \"gunakan fact-checking site (CekFakta, TurnBackHoax)\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 3, "materi": "Literasi Membaca", "wacana": "WACANA 1: Gerakan Literasi Digital Anti Hoaks\n\nHoaks atau berita palsu menyebar cepat melalui media sosial dan aplikasi pesan instan, merusak kohesi sosial dan memicu kekerasan. Literasi digital adalah kemampuan menemukan, mengevaluasi, dan menggunakan informasi secara kritis dan etis di ruang digital. Ciri hoaks meliputi judul sensasional (clickbait), tidak ada sumber kredibel, emosi tinggi (marah/takut), dan URL mencurigakan. Cara verifikasi: cek domain situs resmi, gunakan fact-checking site (CekFakta, TurnBackHoax), cari liputan media utama, periksa tanggal dan konteks foto/video. Undang-Undang ITE (UU No. 11/2008 jo UU No. 19/2016) mengancam pidana penyebar hoaks hingga 6 tahun penjara dan denda 1 miliar. Gerakan #SabarSebelumShare dan pendidikan literasi digital di sekolah vital menurunkan viralitas hoaks. Setiap warga digital bertanggung jawab memverifikasi sebelum membagikan informasi.", "question": " Langkah verifikasi berita sebelum share: (Pilih >1)", "type": "Multiple Choice", "options": ["Cek domain situs resmi", "Cek tanggal & konteks foto/video", "Langsung share jika judul menarik", "Bandingkan dengan liputan media utama"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-4 menjelaskan langkah verifikasi. C berlawanan.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 4, "materi": "Literasi Membaca", "wacana": "WACANA 1: Gerakan Literasi Digital Anti Hoaks\n\nHoaks atau berita palsu menyebar cepat melalui media sosial dan aplikasi pesan instan, merusak kohesi sosial dan memicu kekerasan. Literasi digital adalah kemampuan menemukan, mengevaluasi, dan menggunakan informasi secara kritis dan etis di ruang digital. Ciri hoaks meliputi judul sensasional (clickbait), tidak ada sumber kredibel, emosi tinggi (marah/takut), dan URL mencurigakan. Cara verifikasi: cek domain situs resmi, gunakan fact-checking site (CekFakta, TurnBackHoax), cari liputan media utama, periksa tanggal dan konteks foto/video. Undang-Undang ITE (UU No. 11/2008 jo UU No. 19/2016) mengancam pidana penyebar hoaks hingga 6 tahun penjara dan denda 1 miliar. Gerakan #SabarSebelumShare dan pendidikan literasi digital di sekolah vital menurunkan viralitas hoaks. Setiap warga digital bertanggung jawab memverifikasi sebelum membagikan informasi.", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["UU ITE tidak mengatur pidana penyebar hoaks.", "Gerakan #SabarSebelumShare mendorong verifikasi dulu.", "Literasi digital hanya dibutuhkan pelajar, bukan dewasa."], "correct": "1-S, 2-B, 3-S", "time": 60, "explanation": "(1) Kalimat ke-5: UU ITE mengancam pidana. (2) Kalimat ke-6. (3) Kalimat ke-7: \"Setiap warga digital bertanggung jawab...\"", "tipe": "Kategori", "pernyataan": ["UU ITE tidak mengatur pidana penyebar hoaks.", "Gerakan #SabarSebelumShare mendorong verifikasi dulu.", "Literasi digital hanya dibutuhkan pelajar, bukan dewasa."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 5, "materi": "Literasi Membaca", "wacana": "WACANA 2: Ketahanan Pangan & Pertanian Berkelanjutan", "question": " Definisi ketahanan pangan mencakup aspek:", "type": "Multiple Choice", "options": ["Hanya cukup dan murah", "Impor bebas pajak", "Hanya produksi beras nasional", "Cukup, aman, bergizi, merata, terjangkau"], "correct": "D", "time": 60, "explanation": "Kalimat ke-1.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 6, "materi": "Literasi Membaca", "wacana": "WACANA 2: Ketahanan Pangan & Pertanian Berkelanjutan", "question": " Dampak negatif pupuk kimia berlebihan: (Pilih satu yang TIDAK termasuk)", "type": "Multiple Choice", "options": ["Mencemar air tanah", "Merusak mikroba pengurai", "Mengasamkan tanah", "Meningkatkan mikroba tanah"], "correct": "D", "time": 60, "explanation": "Kalimat ke-3: \"merusak mikroba tanah pengurai\" — berarti menurunkan, bukan meningkatkan.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 7, "materi": "Literasi Membaca", "wacana": "WACANA 2: Ketahanan Pangan & Pertanian Berkelanjutan", "question": " Komponen pertanian berkelanjutan: (Pilih >1)", "type": "Multiple Choice", "options": ["Pola tanam rotasi", "Pupuk organik", "Pengendalian hama terpadu (PHT)", "Monokultura terus-menerus"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-2. D berlawanan dengan berkelanjutan.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 8, "materi": "Literasi Membaca", "wacana": "WACANA 2: Ketahanan Pangan & Pertanian Berkelanjutan", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Varietas unggul toleran kekeringan membantu adaptasi iklim.", "Food Estate hanya fokus komoditas kelapa sawit.", "Precision farming menggunakan sensor IoT dan drone."], "correct": "1-B, 2-S, 3-B", "time": 60, "explanation": "(1) Kalimat ke-4. (2) Kalimat ke-5: \"meningkatkan produksi beras nasional.\" (3) Kalimat terakhir.", "tipe": "Kategori", "pernyataan": ["Varietas unggul toleran kekeringan membantu adaptasi iklim.", "Food Estate hanya fokus komoditas kelapa sawit.", "Precision farming menggunakan sensor IoT dan drone."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 9, "materi": "Literasi Membaca", "wacana": "WACANA 3: Ekonomi Kreatif & UMKM Digital", "question": " Manfaat e-commerce bagi UMKM:", "type": "Multiple Choice", "options": ["Membatasi pasar lokal saja", "Membutuhkan banyak perantara", "Menambah biaya sewa toko fisik", "Memperluas jangkauan pasar hingga ekspor"], "correct": "D", "time": 60, "explanation": "Kalimat ke-2: \"memperluas jangkauan pasar hingga ekspor tanpa perantara.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 10, "materi": "Literasi Membaca", "wacana": "WACANA 3: Ekonomi Kreatif & UMKM Digital", "question": " Program pemerintah bunga rendah untuk UMKM:", "type": "Multiple Choice", "options": ["KUR (Kredit Usaha Rakyat)", "KPR Subsidi", "BLT Dana Desa", "Bantuan Pangan Non Tunai"], "correct": "A", "time": 60, "explanation": "Kalimat ke-5: \"Kredit Usaha Rakyat (KUR) bunga rendah.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 11, "materi": "Literasi Membaca", "wacana": "WACANA 3: Ekonomi Kreatif & UMKM Digital", "question": " Jenis HKI relevan bagi pelaku ekonomi kreatif: (Pilih >1)", "type": "Multiple Choice", "options": ["Merek (brand)", "Hak cipta (karya seni, desain)", "Desain industri", "Paten tanaman"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-6: \"HKI seperti merek, hak cipta, dan desain industri.\"", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 12, "materi": "Literasi Membaca", "wacana": "WACANA 3: Ekonomi Kreatif & UMKM Digital", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["UMKM digital tidak memerlukan branding karena jual online saja.", "Digital marketing dan fotografi produk naikkan daya saing.", "Kolaborasi dengan influencer menciptakan storytelling autentik."], "correct": "1-S, 2-B, 3-B", "time": 60, "explanation": "(1) Kalimat ke-4 menyebut pelatihan branding meningkatkan daya saing. (2) & (3) Kalimat ke-4 dan 7.", "tipe": "Kategori", "pernyataan": ["UMKM digital tidak memerlukan branding karena jual online saja.", "Digital marketing dan fotografi produk naikkan daya saing.", "Kolaborasi dengan influencer menciptakan storytelling autentik."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 13, "materi": "Literasi Membaca", "wacana": "WACANA 4: Kesehatan Mental Remaja di Era Digital", "question": " FOMO kepanjangan dari:", "type": "Multiple Choice", "options": ["Fear of Missing Out", "Focus on Mobile Only", "Find Other Media Online", "Feel of Missing Opportunity"], "correct": "A", "time": 60, "explanation": "Kalimat ke-1: \"fear of missing out (FOMO)\".", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 14, "materi": "Literasi Membaca", "wacana": "WACANA 4: Kesehatan Mental Remaja di Era Digital", "question": " Program sekolah yang terbukti menurunkan risiko depresi remaja:", "type": "Multiple Choice", "options": ["Peer counseling & social-emotional learning (SEL)", "Program full day school tanpa istirahat", "Ujian nasional berbasis komputer", "Ekstrakulikuler pramuka wajib"], "correct": "A", "time": 60, "explanation": "Kalimat ke-3.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 15, "materi": "Literasi Membaca", "wacana": "WACANA 4: Kesehatan Mental Remaja di Era Digital", "question": " Peran orang tua dalam digital parenting: (Pilih >1)", "type": "Multiple Choice", "options": ["Menetapkan batas waktu layar", "Komunikasi terbuka soal dunia digital", "Memberi gadget tanpa aturan agar bebas", "Menjadi teladan perilaku sehat gadget"], "correct": "A, B, D", "time": 60, "explanation": "Kalimat ke-4. C berlawanan.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 16, "materi": "Literasi Membaca", "wacana": "WACANA 4: Kesehatan Mental Remaja di Era Digital", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Hotline kesehatan mental Kemenkes: 119 ext 8.", "Stigma \"sakit jiwa = lemah\" mendorong remaja cari bantuan.", "Cyberbullying tidak memengaruhi kesehatan mental."], "correct": "1-B, 2-S, 3-S", "time": 60, "explanation": "(1) Kalimat ke-5. (2) Stigma menghambat, bukan mendorong. (3) Kalimat ke-1: cyberbullying ancam kesehatan mental.", "tipe": "Kategori", "pernyataan": ["Hotline kesehatan mental Kemenkes: 119 ext 8.", "Stigma \"sakit jiwa = lemah\" mendorong remaja cari bantuan.", "Cyberbullying tidak memengaruhi kesehatan mental."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 17, "materi": "Literasi Membaca", "wacana": "WACANA 5: Mitigasi Bencana Gempa & Tsunami", "question": " Tanda alami tsunami yang akan datang:", "type": "Multiple Choice", "options": ["Gempa kuat >30 detik, air laut surut drastis, suara gemuruh", "Ikan banyak meloncat di permukaan", "Cuaca cerah dan angin sepoi", "Gempa lemah <10 detik"], "correct": "A", "time": 60, "explanation": "Kalimat ke-3.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 18, "materi": "Literasi Membaca", "wacana": "WACANA 5: Mitigasi Bencana Gempa & Tsunami", "question": " Waktu emas evakuasi tsunami untuk masyarakat pesisir:", "type": "Multiple Choice", "options": ["30-45 menit", "1 jam", "5-10 menit", "15-20 menit"], "correct": "D", "time": 60, "explanation": "Kalimat ke-4: \"dalam 15-20 menit.\"", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 19, "materi": "Literasi Membaca", "wacana": "WACANA 5: Mitigasi Bencana Gempa & Tsunami", "question": " Isi Disaster Preparedness Kit (tas siaga): (Pilih >1)", "type": "Multiple Choice", "options": ["Air minum & makanan kering", "Obat-obatan pribadi", "Radio HT & lampu senter", "Perlengkapan mandi lengkap"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-5. D tidak prioritas.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 20, "materi": "Literasi Membaca", "wacana": "WACANA 5: Mitigasi Bencana Gempa & Tsunami", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Indonesia berada di Pacific Ring of Fire rawan gempa & tsunami.", "Bangunan tahan gempa diatur SNI 1726-2019.", "Evakuasi tsunami ke tempat rendah (dekat pantai) lebih aman."], "correct": "1-B, 2-B, 3-S", "time": 60, "explanation": "(1) & (2) Kalimat ke-1 & 2. (3) Kalimat ke-4: \"tempat tinggi (>10 meter).\"", "tipe": "Kategori", "pernyataan": ["Indonesia berada di Pacific Ring of Fire rawan gempa & tsunami.", "Bangunan tahan gempa diatur SNI 1726-2019.", "Evakuasi tsunami ke tempat rendah (dekat pantai) lebih aman."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 21, "materi": "Literasi Membaca", "wacana": "WACANA 6: Pelestarian Bahasa Daerah & Budaya", "question": " Kriteria bahasa terancam punah menurut wacana:", "type": "Multiple Choice", "options": ["Tidak memiliki kamus", "Penutur >1 juta", "Penutur <10.000 & tidak diturunkan", "Hanya digunakan upacara adat"], "correct": "C", "time": 60, "explanation": "Kalimat ke-2.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 22, "materi": "Literasi Membaca", "wacana": "WACANA 6: Pelestarian Bahasa Daerah & Budaya", "question": " Peran Badan Bahasa dalam pelestarian:", "type": "Multiple Choice", "options": ["Inventarisasi, dokumentasi, revitalisasi (kamus, tata bahasa, buku bacaan)", "Hanya mengarsipkan tanpa aksi", "Melarang penggunaan bahasa daerah", "Mengganti bahasa daerah dengan Bahasa Indonesia"], "correct": "A", "time": 60, "explanation": "Kalimat ke-3.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 23, "materi": "Literasi Membaca", "wacana": "WACANA 6: Pelestarian Bahasa Daerah & Budaya", "question": " Sarana promosi bahasa daerah untuk generasi Z: (Pilih >1)", "type": "Multiple Choice", "options": ["Festival budaya", "Podcast bahasa daerah", "Media sosial (TikTok, Instagram, YouTube)", "Larangan bicara bahasa daerah di sekolah"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-5. D berlawanan.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 24, "materi": "Literasi Membaca", "wacana": "WACANA 6: Pelestarian Bahasa Daerah & Budaya", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Indonesia memiliki 718 bahasa daerah.", "Pendidikan Muatan Lokal menghapus bahasa daerah dari kurikulum.", "UU No. 28/2014 melindungi hak pengetahuan tradisional."], "correct": "1-B, 2-S, 3-B", "time": 60, "explanation": "(1) Kalimat ke-1. (2) Kalimat ke-4: \"menanamkan bahasa daerah.\" (3) Kalimat ke-6.", "tipe": "Kategori", "pernyataan": ["Indonesia memiliki 718 bahasa daerah.", "Pendidikan Muatan Lokal menghapus bahasa daerah dari kurikulum.", "UU No. 28/2014 melindungi hak pengetahuan tradisional."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 25, "materi": "Literasi Membaca", "wacana": "WACANA 7: Transportasi Ramah Lingkungan di Kota", "question": " Contoh transportasi massal ramah lingkungan di Jakarta:", "type": "Multiple Choice", "options": ["Sepeda motor bebensin", "Mobil pribadi carpool", "MRT, LRT, KRL, BRT (Transjakarta)", "Ojol (ojek online bensin)"], "correct": "C", "time": 60, "explanation": "Kalimat ke-2.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 26, "materi": "Literasi Membaca", "wacana": "WACANA 7: Transportasi Ramah Lingkungan di Kota", "question": " Konsep Transit-Oriented Development (TOD):", "type": "Multiple Choice", "options": ["Mengintegrasikan hunian, kantor, fasilitas publik di sekitar stasiun", "Menghentikan operasional angkutan umum", "Membangun jalan tol lingkar kota", "Memperlebar jalan untuk mobil pribadi"], "correct": "A", "time": 60, "explanation": "Kalimat ke-4.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 27, "materi": "Literasi Membaca", "wacana": "WACANA 7: Transportasi Ramah Lingkungan di Kota", "question": " Keuntungan shift mode ke transportasi publik: (Pilih >1)", "type": "Multiple Choice", "options": ["Mengurangi emisi CO2", "Mengurangi biaya kemacetan nasional", "Meningkatkan kesehatan (jika kombinasikan sepeda/jalan kaki)", "Menambah kemacetan di jam sibuk"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-5, 6, 7. D berlawanan.", "tipe": "MCMA", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 28, "materi": "Literasi Membaca", "wacana": "WACANA 7: Transportasi Ramah Lingkungan di Kota", "question": " Benar/Salah:", "type": "Multiple Choice", "options": ["Kendaraan listrik (EV) dipromosikan dengan insentif pajak & charging station.", "Biaya kemacetan nasional hanya Rp 10 triliun/tahun.", "Jalur pejalan kaki aman termasuk transportasi ramah lingkungan."], "correct": "1-B, 2-S, 3-B", "time": 60, "explanation": "(1) Kalimat ke-3. (2) Kalimat ke-6: \"Rp 100 triliun/tahun.\" (3) Kalimat ke-2.", "tipe": "Kategori", "pernyataan": ["Kendaraan listrik (EV) dipromosikan dengan insentif pajak & charging station.", "Biaya kemacetan nasional hanya Rp 10 triliun/tahun.", "Jalur pejalan kaki aman termasuk transportasi ramah lingkungan."]}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 29, "materi": "Literasi Membaca", "wacana": "WACANA 8: Wisata Berkelanjutan & Ekonomi Kreatif Desa", "question": " Prinsip utama wisata berkelanjutan:", "type": "Multiple Choice", "options": ["Batasi akses warga lokal ke destinasi", "Pelestarian lingkungan, pemberdayaan lokal, keberlanjutan ekonomi", "Maksimalkan keuntungan investor asing", "Bangun hotel bintang 5 di hutan lindung"], "correct": "B", "time": 60, "explanation": "Kalimat ke-1.", "tipe": "PG", "pernyataan": []}, {"subject": "Bahasa Indonesia", "paket": "Tryout 2", "title": "SmartDrill SD 2026 - Bahasa Indonesia Tryout 2", "number": 30, "materi": "Literasi Membaca", "wacana": "WACANA 8: Wisata Berkelanjutan & Ekonomi Kreatif Desa", "question": " Aktivitas wisatawan di Desa Wisata berbasis komunitas: (Pilih >1)", "type": "Multiple Choice", "options": ["Belajar pertanian tradisional", "Mengikuti upacara adat", "Membuat batik/tenun bersama pengrajin", "Berlibur mewah di resort tanpa kontak lokal"], "correct": "A, B, C", "time": 60, "explanation": "Kalimat ke-3. D berlawanan konsep Community-Based Tourism.", "tipe": "MCMA", "pernyataan": []}];
+    let studentName = "";
+    let currentSubject = "";
+    let currentPaket = "";
+    let activeQuestions = [];
+    let currentIndex = 0;
+    let userAnswers = {};
+    let userRagu = {};
+    let timerInterval = null;
+    let timeLeft = 60 * 60; // 60 menit
+
+    const validTokens = ["SMART2026", "TKA2026", "TRYOUT1", "TRYOUT2"];
+
+    function submitLogin() {
+      const token = document.getElementById('input-token').value.trim().toUpperCase();
+
+      if (!validTokens.includes(token)) {
+        alert("Token / PIN akses salah! Gunakan: SMART2026 atau TKA2026");
+        return;
+      }
+
+      studentName = "Peserta Token (" + token + ")";
+      document.getElementById('display-student-name').innerText = studentName;
+      document.getElementById('step-login').classList.add('hidden');
+      document.getElementById('step-select').classList.remove('hidden');
+    }
+
+    function backToLogin() {
+      document.getElementById('step-select').classList.add('hidden');
+      document.getElementById('step-login').classList.remove('hidden');
+    }
+
+    function updatePaketList() {
+      const subject = document.getElementById('select-subject').value;
+      const paketSelect = document.getElementById('select-paket');
+      paketSelect.innerHTML = '<option value="">-- Pilih Seri / Paket --</option>';
+
+      if (subject) {
+        const pakets = [...new Set(allQuestions.filter(q => q.subject === subject).map(q => q.paket))];
+        pakets.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p;
+          opt.textContent = p;
+          paketSelect.appendChild(opt);
         });
+        paketSelect.disabled = false;
+      } else {
+        paketSelect.disabled = true;
+      }
+      checkSelection();
+    }
 
-        function startApp() {
-            const name = document.getElementById('input-name').value.trim();
-            const token = document.getElementById('input-token').value.trim();
-            if (!name) { alert('Silakan masukkan nama lengkap Anda.'); return; }
-            if (!token) { alert('Silakan masukkan kode PIN / token akses.'); return; }
+    function checkSelection() {
+      const subject = document.getElementById('select-subject').value;
+      const paket = document.getElementById('select-paket').value;
+      const btn = document.getElementById('btn-start');
 
-            studentName = name;
-            document.getElementById('user-badge').innerText = studentName;
-            document.getElementById('user-badge').classList.remove('hidden');
+      if (subject && paket) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    }
 
-            document.getElementById('step-login').classList.add('hidden');
-            document.getElementById('step-select').classList.remove('hidden');
+    function startQuiz() {
+      currentSubject = document.getElementById('select-subject').value;
+      currentPaket = document.getElementById('select-paket').value;
+
+      activeQuestions = allQuestions.filter(q => q.subject === currentSubject && q.paket === currentPaket);
+      if (activeQuestions.length === 0) {
+        alert("Soal untuk pilihan ini tidak ditemukan.");
+        return;
+      }
+
+      currentIndex = 0;
+      userAnswers = {};
+      userRagu = {};
+      timeLeft = 45 * 60;
+
+      document.getElementById('step-select').classList.add('hidden');
+      document.getElementById('step-quiz').classList.remove('hidden');
+      document.getElementById('quiz-title').innerText = currentSubject + " - " + currentPaket;
+      document.getElementById('quiz-student').innerText = "Siswa: " + studentName;
+
+      startTimer();
+      renderQuestion();
+      renderNavGrid();
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        const m = Math.floor(timeLeft / 60);
+        const s = timeLeft % 60;
+        document.getElementById('timer').innerText = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert("Waktu ujian telah habis!");
+          finishQuiz();
         }
+      }, 1000);
+    }
 
-        function loadQuiz() {
-            const subject = document.getElementById('select-subject').value;
-            const paket = document.getElementById('select-paket').value;
+    function renderNavGrid() {
+      const grid = document.getElementById('nav-grid');
+      grid.innerHTML = '';
+      let answeredCount = 0;
 
-            currentQuizQuestions = allQuestions.filter(q => q.subject === subject && q.paket === paket);
-            if (currentQuizQuestions.length === 0) {
-                alert('Soal untuk kategori ini belum tersedia.');
-                return;
-            }
+      activeQuestions.forEach((_, idx) => {
+        const isAns = userAnswers[idx] !== undefined && userAnswers[idx] !== "" && (Array.isArray(userAnswers[idx]) ? userAnswers[idx].length > 0 : true);
+        const isRagu = userRagu[idx];
+        const isCurrent = idx === currentIndex;
 
-            currentIndex = 0;
-            userAnswers = {};
-            userRagu = {};
-            totalTimeLeft = 60 * 60;
+        if (isAns) answeredCount++;
 
-            document.getElementById('step-select').classList.add('hidden');
-            document.getElementById('step-quiz').classList.remove('hidden');
-            document.getElementById('quiz-info').innerText = `${subject} - ${paket}`;
+        let btnClass = "bg-white border text-slate-700";
+        if (isRagu) btnClass = "bg-amber-400 text-amber-950 font-bold border-amber-500";
+        else if (isAns) btnClass = "bg-indigo-600 text-white font-bold";
 
-            startGlobalTimer();
-            renderQuestion();
-        }
+        if (isCurrent) btnClass += " ring-2 ring-indigo-900 scale-105";
 
-        function startGlobalTimer() {
-            clearInterval(globalTimerInterval);
-            globalTimerInterval = setInterval(() => {
-                totalTimeLeft--;
-                const minutes = Math.floor(totalTimeLeft / 60);
-                const seconds = totalTimeLeft % 60;
-                document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-                if (totalTimeLeft <= 0) {
-                    clearInterval(globalTimerInterval);
-                    alert('Waktu ujian telah habis!');
-                    finishQuiz();
-                }
-            }, 1000);
-        }
+        const btn = document.createElement('button');
+        btn.type = "button";
+        btn.className = "nav-btn text-sm rounded-lg flex items-center justify-center transition " + btnClass;
+        btn.innerText = idx + 1;
+        btn.onclick = () => { currentIndex = idx; renderQuestion(); renderNavGrid(); };
+        grid.appendChild(btn);
+      });
 
-        function hasAnswered(idx) {
-            const ans = userAnswers[idx];
-            if (ans === undefined || ans === null) return false;
-            if (typeof ans === 'string') return ans.trim() !== '';
-            if (Array.isArray(ans)) return ans.length > 0;
-            if (typeof ans === 'object') return Object.keys(ans).length > 0;
-            return false;
-        }
+      document.getElementById('nav-counter').innerText = answeredCount + '/' + activeQuestions.length + ' Terisi';
+    }
 
-        function renderNavGrid() {
-            const gridContainer = document.getElementById('cbt-grid-nav');
-            gridContainer.innerHTML = '';
-            let filledCount = 0;
+    function toggleRagu() {
+      userRagu[currentIndex] = document.getElementById('chk-ragu').checked;
+      renderNavGrid();
+    }
 
-            currentQuizQuestions.forEach((_, idx) => {
-                const isAnswered = hasAnswered(idx);
-                const isRagu = userRagu[idx] === true;
-                const isCurrent = idx === currentIndex;
-                if (isAnswered) filledCount++;
+    function renderQuestion() {
+      const q = activeQuestions[currentIndex];
+      document.getElementById('question-number').innerText = "Soal No. " + (currentIndex + 1) + " dari " + activeQuestions.length;
+      document.getElementById('chk-ragu').checked = !!userRagu[currentIndex];
 
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.innerText = idx + 1;
-                let btnClass = 'h-11 w-full rounded-xl font-bold text-sm transition flex items-center justify-center ';
-                if (isRagu) btnClass += 'bg-amber-400 text-amber-950 ';
-                else if (isAnswered) btnClass += 'bg-indigo-600 text-white ';
-                else btnClass += 'bg-white text-slate-700 border border-slate-300 ';
-                if (isCurrent) btnClass += 'ring-2 ring-offset-2 ring-slate-900 scale-105 ';
-                btn.className = btnClass;
-                btn.onclick = () => { currentIndex = idx; renderQuestion(); };
-                gridContainer.appendChild(btn);
+      const container = document.getElementById('question-container');
+      let html = '';
+
+      if (q.wacana && q.wacana.trim()) {
+        html += '<div class="wacana-box"><div class="wacana-title">Wacana / Bacaan:</div>' + q.wacana + '</div>';
+      }
+
+      html += '<div class="text-slate-900 font-medium text-lg mb-6 leading-relaxed">' + q.question + '</div>';
+
+      const tipe = q.tipe || 'PG';
+      if (tipe === 'MCMA') {
+        html += '<p class="text-xs text-indigo-600 font-bold mb-3">ℹ️ Pilih lebih dari satu jawaban yang benar (Centang).</p>';
+        const currentArr = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
+        q.options.forEach((opt, i) => {
+          const letter = String.fromCharCode(65 + i);
+          const checked = currentArr.includes(letter) ? 'checked' : '';
+          html += '<label class="cbt-opsi-wrapper flex items-start p-4 mb-3">' +
+            '<input type="checkbox" value="' + letter + '" ' + checked + ' onchange="handleMCMA('' + letter + '')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3">' +
+            '<span class="font-bold text-indigo-900 mr-2">' + letter + '.</span>' +
+            '<span class="text-slate-800">' + opt + '</span>' +
+          '</label>';
+        });
+      } else if (tipe === 'Kategori') {
+        const currentObj = typeof userAnswers[currentIndex] === 'object' && userAnswers[currentIndex] !== null ? userAnswers[currentIndex] : {};
+        html += '<div class="overflow-x-auto"><table class="w-full border-collapse border border-slate-300 mb-4">' +
+          '<tr class="bg-slate-100 text-slate-700 text-sm"><th class="p-3 border">Pernyataan</th><th class="p-3 border w-24">Benar</th><th class="p-3 border w-24">Salah</th></tr>';
+        q.options.forEach((opt, i) => {
+          const letter = String.fromCharCode(65 + i);
+          const val = currentObj[letter] || '';
+          html += '<tr>' +
+            '<td class="p-3 border text-slate-800">' + opt + '</td>' +
+            '<td class="p-3 border text-center bg-emerald-50"><input type="radio" name="kat_' + letter + '" value="Benar" ' + (val==='Benar'?'checked':'') + ' onchange="handleKategori('' + letter + '', 'Benar')" class="w-4 h-4 text-emerald-600"></td>' +
+            '<td class="p-3 border text-center bg-rose-50"><input type="radio" name="kat_' + letter + '" value="Salah" ' + (val==='Salah'?'checked':'') + ' onchange="handleKategori('' + letter + '', 'Salah')" class="w-4 h-4 text-rose-600"></td>' +
+          '</tr>';
+        });
+        html += '</table></div>';
+      } else {
+        // PG Tunggal
+        q.options.forEach((opt, i) => {
+          const letter = String.fromCharCode(65 + i);
+          const checked = userAnswers[currentIndex] === letter ? 'checked' : '';
+          html += '<label class="cbt-opsi-wrapper flex items-center p-4 mb-3">' +
+            '<input type="radio" name="pg_ans" value="' + letter + '" ' + checked + ' onchange="handlePG('' + letter + '')" class="w-5 h-5 text-indigo-600 mr-3">' +
+            '<span class="font-bold text-indigo-900 mr-2">' + letter + '.</span>' +
+            '<span class="text-slate-800">' + opt + '</span>' +
+          '</label>';
+        });
+      }
+
+      container.innerHTML = html;
+
+      document.getElementById('btn-prev').style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+      document.getElementById('btn-next').innerText = currentIndex === activeQuestions.length - 1 ? 'Selesai / Kumpulkan' : 'Selanjutnya';
+    }
+
+    function handlePG(letter) {
+      userAnswers[currentIndex] = letter;
+      renderNavGrid();
+    }
+
+    function handleMCMA(letter) {
+      let arr = Array.isArray(userAnswers[currentIndex]) ? [...userAnswers[currentIndex]] : [];
+      if (arr.includes(letter)) arr = arr.filter(x => x !== letter);
+      else arr.push(letter);
+      userAnswers[currentIndex] = arr;
+      renderNavGrid();
+    }
+
+    function handleKategori(letter, val) {
+      if (typeof userAnswers[currentIndex] !== 'object' || userAnswers[currentIndex] === null) userAnswers[currentIndex] = {};
+      userAnswers[currentIndex][letter] = val;
+      renderNavGrid();
+    }
+
+    function nextQuestion() {
+      if (currentIndex < activeQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderNavGrid();
+      } else {
+        confirmFinish();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderNavGrid();
+      }
+    }
+
+    function confirmFinish() {
+      if (confirm("Apakah Anda yakin ingin mengumpulkan jawaban ujian ini?")) {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      clearInterval(timerInterval);
+      document.getElementById('step-quiz').classList.add('hidden');
+      document.getElementById('step-result').classList.remove('hidden');
+
+      let correct = 0;
+      activeQuestions.forEach((q, idx) => {
+        const ans = userAnswers[idx];
+        const key = String(q.correct).trim();
+
+        if (q.tipe === 'MCMA') {
+          const userStr = Array.isArray(ans) ? ans.sort().join('') : '';
+          const keyStr = key.replace(/[^A-D]/g, '').split('').sort().join('');
+          if (userStr === keyStr && userStr !== '') correct++;
+        } else if (q.tipe === 'Kategori') {
+          try {
+            const keyObj = JSON.parse(key || '{}');
+            const ansObj = typeof ans === 'object' && ans !== null ? ans : {};
+            let match = true;
+            Object.keys(keyObj).forEach(k => {
+              if (ansObj[k] !== keyObj[k]) match = false;
             });
-            document.getElementById('nav-counter').innerText = `${filledCount}/${currentQuizQuestions.length} Terisi`;
+            if (match && Object.keys(ansObj).length > 0) correct++;
+          } catch(e) {}
+        } else {
+          if (String(ans || '').trim().toUpperCase() === key.toUpperCase()) correct++;
+        }
+      });
+
+      const score = Math.round((correct / activeQuestions.length) * 100);
+      document.getElementById('score-circle').innerText = score;
+      document.getElementById('result-text').innerText = "Siswa: " + studentName + " | Mata Pelajaran: " + currentSubject + " (" + currentPaket + ")\nBenar " + correct + " dari " + activeQuestions.length + " soal (" + score + " Poin)";
+    }
+
+    function reviewAnswers() {
+      document.getElementById('step-result').classList.add('hidden');
+      document.getElementById('step-review').classList.remove('hidden');
+
+      const container = document.getElementById('review-container');
+      let html = '';
+
+      activeQuestions.forEach((q, idx) => {
+        const ans = userAnswers[idx];
+        const key = String(q.correct).trim();
+        let isCorrect = false;
+
+        if (q.tipe === 'MCMA') {
+          const userStr = Array.isArray(ans) ? ans.sort().join('') : '';
+          const keyStr = key.replace(/[^A-D]/g, '').split('').sort().join('');
+          isCorrect = (userStr === keyStr && userStr !== '');
+        } else if (q.tipe === 'Kategori') {
+          try {
+            const keyObj = JSON.parse(key || '{}');
+            const ansObj = typeof ans === 'object' && ans !== null ? ans : {};
+            let match = true;
+            Object.keys(keyObj).forEach(k => { if (ansObj[k] !== keyObj[k]) match = false; });
+            isCorrect = match && Object.keys(ansObj).length > 0;
+          } catch(e) {}
+        } else {
+          isCorrect = (String(ans || '').trim().toUpperCase() === key.toUpperCase());
         }
 
-        function toggleRagu() {
-            userRagu[currentIndex] = document.getElementById('chk-ragu').checked;
-            renderNavGrid();
-        }
+        let ansDisp = ans;
+        if (Array.isArray(ans)) ansDisp = ans.join(', ');
+        else if (typeof ans === 'object' && ans !== null) ansDisp = JSON.stringify(ans);
+        if (!ansDisp) ansDisp = "Tidak dijawab";
 
-        function renderQuestion() {
-            const q = currentQuizQuestions[currentIndex];
-            document.getElementById('question-number').innerText = `Soal ${currentIndex + 1} dari ${currentQuizQuestions.length}`;
-            document.getElementById('question-text').innerText = q.question;
-            document.getElementById('chk-ragu').checked = userRagu[currentIndex] === true;
+        html += '<div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">' +
+          '<div class="flex justify-between items-center mb-3 font-bold">' +
+            '<span class="text-indigo-900">Soal No. ' + (idx + 1) + ' (' + (q.tipe || 'PG') + ')</span>' +
+            '<span class="px-3 py-1 rounded-full text-xs ' + (isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800') + '">' + (isCorrect ? 'Benar' : 'Salah') + '</span>' +
+          '</div>' +
+          (q.wacana ? '<div class="bg-white p-3 rounded-lg border mb-3 text-xs text-slate-600 italic"><b>Wacana:</b> ' + q.wacana + '</div>' : '') +
+          '<div class="text-slate-900 font-medium mb-3">' + q.question + '</div>' +
+          '<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm bg-white p-4 rounded-xl border">' +
+            '<div><span class="font-bold text-slate-500">Jawaban Anda:</span> <span class="font-bold ' + (isCorrect?'text-emerald-600':'text-rose-600') + '">' + ansDisp + '</span></div>' +
+            '<div><span class="font-bold text-slate-500">Kunci Jawaban:</span> <span class="font-bold text-emerald-600">' + key + '</span></div>' +
+          '</div>' +
+          (q.explanation ? '<div class="mt-3 p-3 bg-indigo-50/50 rounded-xl border border-indigo-100 text-xs text-slate-700"><b>Pembahasan:</b> ' + q.explanation + '</div>' : '') +
+        '</div>';
+      });
 
-            const badgeTipe = document.getElementById('badge-tipe');
-            const container = document.getElementById('options-container');
-            container.innerHTML = '';
-
-            const tipe = q.tipe || q.type || 'Pilihan Ganda';
-            if (tipe === 'MCMA' || tipe.includes('Kompleks')) {
-                badgeTipe.innerText = 'Pilihan Ganda Kompleks (Bisa Pilih > 1)';
-                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800';
-                const currentSelected = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
-
-                q.options.forEach((opt, idx) => {
-                    const optLetter = String.fromCharCode(65 + idx);
-                    const isChecked = currentSelected.includes(optLetter);
-                    const div = document.createElement('label');
-                    div.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium cursor-pointer ${isChecked ? 'border-indigo-600 bg-indigo-50 text-indigo-900' : 'border-slate-200 hover:bg-slate-50 text-slate-700'}`;
-                    div.innerHTML = `<input type="checkbox" value="${optLetter}" ${isChecked ? 'checked' : ''} class="w-5 h-5 text-indigo-600 rounded border-slate-300"><span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isChecked ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span><span class="text-sm sm:text-base">${opt}</span>`;
-                    div.querySelector('input').onchange = (e) => {
-                        let arr = Array.isArray(userAnswers[currentIndex]) ? [...userAnswers[currentIndex]] : [];
-                        if (e.target.checked) { if (!arr.includes(optLetter)) arr.push(optLetter); }
-                        else { arr = arr.filter(x => x !== optLetter); }
-                        userAnswers[currentIndex] = arr;
-                        renderQuestion();
-                    };
-                    container.appendChild(div);
-                });
-            } else {
-                badgeTipe.innerText = 'Pilihan Ganda (Pilih Satu)';
-                badgeTipe.className = 'inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
-                q.options.forEach((opt, idx) => {
-                    const optLetter = String.fromCharCode(65 + idx);
-                    const isSelected = userAnswers[currentIndex] === optLetter;
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = `w-full text-left px-5 py-3.5 rounded-xl border transition flex items-center space-x-3 font-medium ${isSelected ? 'border-indigo-600 bg-indigo-50 text-indigo-900' : 'border-slate-200 hover:bg-slate-50 text-slate-700'}`;
-                    btn.innerHTML = `<span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'}">${optLetter}</span><span class="text-sm sm:text-base">${opt}</span>`;
-                    btn.onclick = () => { userAnswers[currentIndex] = optLetter; renderQuestion(); };
-                    container.appendChild(btn);
-                });
-            }
-
-            const isLast = currentIndex === currentQuizQuestions.length - 1;
-            document.getElementById('btn-prev').style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
-            document.getElementById('btn-next-text').innerText = isLast ? 'Selesai' : 'Selanjutnya';
-            renderNavGrid();
-        }
-
-        function nextQuestion() {
-            if (currentIndex < currentQuizQuestions.length - 1) { currentIndex++; renderQuestion(); }
-            else { confirmFinishQuiz(); }
-        }
-
-        function prevQuestion() {
-            if (currentIndex > 0) { currentIndex--; renderQuestion(); }
-        }
-
-        function confirmFinishQuiz() {
-            if (confirm("Apakah Anda yakin ingin mengumpulkan ujian?")) finishQuiz();
-        }
-
-        function finishQuiz() {
-            clearInterval(globalTimerInterval);
-            document.getElementById('step-quiz').classList.add('hidden');
-            document.getElementById('step-result').classList.remove('hidden');
-
-            let correctCount = 0;
-            currentQuizQuestions.forEach((q, idx) => {
-                const userAns = userAnswers[idx];
-                const correctLetter = String(q.correct).trim().toUpperCase();
-                if (userAns === correctLetter) correctCount++;
-            });
-
-            const score = Math.round((correctCount / currentQuizQuestions.length) * 100);
-            document.getElementById('score-display').innerText = score;
-            document.getElementById('score-detail').innerText = `Benar ${correctCount} dari ${currentQuizQuestions.length} soal (${score} Poin)`;
-        }
-
-        function reviewAnswers() {
-            document.getElementById('step-result').classList.add('hidden');
-            document.getElementById('step-review').classList.remove('hidden');
-            const container = document.getElementById('review-container');
-            container.innerHTML = '';
-
-            currentQuizQuestions.forEach((q, idx) => {
-                const userAns = userAnswers[idx] || 'Tidak dijawab';
-                const correctLetter = String(q.correct).trim().toUpperCase();
-                const isCorrect = userAns === correctLetter;
-
-                const div = document.createElement('div');
-                div.className = `p-5 rounded-2xl border ${isCorrect ? 'border-emerald-200 bg-emerald-50/50' : 'border-rose-200 bg-rose-50/50'}`;
-                div.innerHTML = `
-                    <p class="font-semibold text-slate-800 mb-2">Soal ${idx + 1}: ${q.question}</p>
-                    <p class="text-sm text-slate-600">Jawaban Anda: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userAns}</strong> | Kunci: <strong class="text-indigo-600">${correctLetter}</strong></p>
-                    <p class="text-xs text-slate-700 mt-2"><strong>Pembahasan:</strong> ${q.explanation || '-'}</p>
-                `;
-                container.appendChild(div);
-            });
-        }
-    </script>
+      container.innerHTML = html;
+    }
+  </script>
 </body>
 </html>
