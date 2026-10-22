@@ -42,7 +42,7 @@
               </div>
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">Token / PIN Akses (Disamarkan)</label>
-                <input type="password" id="input-token" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition font-medium" placeholder="Masukkan token">
+                <input type="password" id="input-token" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition font-medium" placeholder="Masukkan token (optional)">
                 <p class="text-xs text-slate-400 mt-1.5">Gunakan token: <code class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded font-bold">SMART2026</code> atau <code class="bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded font-bold">TKA2026</code></p>
               </div>
               <button type="submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl shadow-lg mt-4 text-base">Lanjutkan ke Pemilihan Ujian</button>
@@ -179,12 +179,8 @@
         alert("Silakan masukkan Nama Lengkap Siswa.");
         return;
       }
-      if (!validTokens.includes(token)) {
-        alert("Token / PIN akses salah! Gunakan: SMART2026 atau TKA2026");
-        return;
-      }
 
-      studentName = name + " (" + token + ")";
+      studentName = name + (token ? " (" + token + ")" : "");
       document.getElementById('display-student-name').innerText = studentName;
       document.getElementById('step-login').classList.add('hidden');
       document.getElementById('step-select').classList.remove('hidden');
