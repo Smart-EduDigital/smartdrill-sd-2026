@@ -321,7 +321,7 @@
           const letter = String.fromCharCode(65 + i);
           const checked = currentArr.includes(letter) ? 'checked' : '';
           html += '<label class="cbt-opsi-wrapper flex items-start p-4 mb-3">' +
-            '<input type="checkbox" value="' + letter + '" ' + checked + ' onchange="handleMCMA('\"' + letter + '\"')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3">' +
+            '<input type="checkbox" value="' + letter + '" ' + checked + ' onchange="handleMCMA(''+letter+'')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3">' +
             '<span class="font-bold text-indigo-900 mr-2">' + letter + '.</span>' +
             '<span class="text-slate-800">' + opt + '</span>' +
           '</label>';
