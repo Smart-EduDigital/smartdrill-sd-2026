@@ -12,11 +12,10 @@
       "Peluang terambilnya kupon bernomor bilangan genap adalah 1/2",
       "Jumlah kupon yang bernomor bilangan prima antara 1 sampai 50 adalah 20 lembar"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Bilangan kelipatan 10 dari 1 sampai 50: {10, 20, 30, 40, 50} ada 5 buah. Peluang = 5/50 = 1/10. (Pernyataan A: BENAR).\n2. Bilangan genap dari 1 sampai 50 ada 25 buah. Peluang = 25/50 = 1/2. (Pernyataan B: BENAR).\n3. Bilangan prima dari 1 sampai 50 adalah {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47} berjumlah tepat 15 buah, bukan 20 buah. (Pernyataan C: SALAH).",
     "tipe": "Kategori"
@@ -53,11 +52,10 @@
       "Kapasitas volume total tabung jika terisi penuh adalah 2.310 liter",
       "Volume minyak yang ada di dalam tangki saat ini adalah 1.255 liter"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Luas alas tabung = π × r² = 22/7 × 70 × 70 = 22 × 10 × 70 = 15.400 cm². (Pernyataan A: BENAR).\n2. Volume total tabung = Luas alas × t = 15.400 cm² × 150 cm = 2.310.000 cm³ = 2.310 liter (karena 1 liter = 1.000 cm³). (Pernyataan B: BENAR).\n3. Volume minyak separuh = 1/2 × 2.310 liter = 1.155 liter. (Pernyataan C: SALAH, karena tertulis 1.255 liter).",
     "tipe": "Kategori"
@@ -174,11 +172,10 @@
       "Harga yang harus dibayarkan pembeli untuk satu tas sekolah pada Paket A setelah diskon adalah Rp120.000",
       "Jika membeli 1 Paket B dan 1 Paket C, total uang yang harus dibayarkan adalah Rp225.000"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Diskon Paket B = 15% × Rp200.000 = Rp30.000. (Pernyataan A: BENAR).\n2. Bayar Paket A = Rp150.000 - (20% × Rp150.000) = Rp150.000 - Rp30.000 = Rp120.000. (Pernyataan B: BENAR).\n3. Bayar Paket B = Rp200.000 - Rp30.000 = Rp170.000.\n   Bayar Paket C = Rp50.000 - (10% × Rp50.000) = Rp50.000 - Rp5.000 = Rp45.000.\n   Total B + C = Rp170.000 + Rp45.000 = Rp215.000. (Pernyataan C: SALAH, tertulis Rp225.000).",
     "tipe": "Kategori"
@@ -413,11 +410,10 @@
       "Kapasitas volume total tabung jika terisi penuh adalah 2.310 liter",
       "Volume minyak yang ada di dalam tangki saat ini adalah 1.255 liter"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Luas alas tabung = π × r² = 22/7 × 70 × 70 = 22 × 10 × 70 = 15.400 cm². (Pernyataan A: BENAR).\n2. Volume total tabung = Luas alas × t = 15.400 cm² × 150 cm = 2.310.000 cm³ = 2.310 liter (karena 1 liter = 1.000 cm³). (Pernyataan B: BENAR).\n3. Volume minyak separuh = 1/2 × 2.310 liter = 1.155 liter. (Pernyataan C: SALAH, karena tertulis 1.255 liter).",
     "tipe": "Kategori"
@@ -652,11 +648,10 @@
       "Kapasitas volume total tabung jika terisi penuh adalah 2.310 liter",
       "Volume minyak yang ada di dalam tangki saat ini adalah 1.255 liter"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Luas alas tabung = π × r² = 22/7 × 70 × 70 = 22 × 10 × 70 = 15.400 cm². (Pernyataan A: BENAR).\n2. Volume total tabung = Luas alas × t = 15.400 cm² × 150 cm = 2.310.000 cm³ = 2.310 liter (karena 1 liter = 1.000 cm³). (Pernyataan B: BENAR).\n3. Volume minyak separuh = 1/2 × 2.310 liter = 1.155 liter. (Pernyataan C: SALAH, karena tertulis 1.255 liter).",
     "tipe": "Kategori"
@@ -754,11 +749,10 @@
       "Peluang terambilnya kupon bernomor bilangan genap adalah 1/2",
       "Jumlah kupon yang bernomor bilangan prima antara 1 sampai 50 adalah 20 lembar"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Bilangan kelipatan 10 dari 1 sampai 50: {10, 20, 30, 40, 50} ada 5 buah. Peluang = 5/50 = 1/10. (Pernyataan A: BENAR).\n2. Bilangan genap dari 1 sampai 50 ada 25 buah. Peluang = 25/50 = 1/2. (Pernyataan B: BENAR).\n3. Bilangan prima dari 1 sampai 50 adalah {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47} berjumlah tepat 15 buah, bukan 20 buah. (Pernyataan C: SALAH).",
     "tipe": "Kategori"
@@ -970,11 +964,10 @@
       "Harga yang harus dibayarkan pembeli untuk satu tas sekolah pada Paket A setelah diskon adalah Rp120.000",
       "Jika membeli 1 Paket B dan 1 Paket C, total uang yang harus dibayarkan adalah Rp225.000"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Diskon Paket B = 15% × Rp200.000 = Rp30.000. (Pernyataan A: BENAR).\n2. Bayar Paket A = Rp150.000 - (20% × Rp150.000) = Rp150.000 - Rp30.000 = Rp120.000. (Pernyataan B: BENAR).\n3. Bayar Paket B = Rp200.000 - Rp30.000 = Rp170.000.\n   Bayar Paket C = Rp50.000 - (10% × Rp50.000) = Rp50.000 - Rp5.000 = Rp45.000.\n   Total B + C = Rp170.000 + Rp45.000 = Rp215.000. (Pernyataan C: SALAH, tertulis Rp225.000).",
     "tipe": "Kategori"
@@ -1106,11 +1099,10 @@
       "Harga yang harus dibayarkan pembeli untuk satu tas sekolah pada Paket A setelah diskon adalah Rp120.000",
       "Jika membeli 1 Paket B dan 1 Paket C, total uang yang harus dibayarkan adalah Rp225.000"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Benar",
-      "C": "Salah"
-    },
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Diskon Paket B = 15% × Rp200.000 = Rp30.000. (Pernyataan A: BENAR).\n2. Bayar Paket A = Rp150.000 - (20% × Rp150.000) = Rp150.000 - Rp30.000 = Rp120.000. (Pernyataan B: BENAR).\n3. Bayar Paket B = Rp200.000 - Rp30.000 = Rp170.000.\n   Bayar Paket C = Rp50.000 - (10% × Rp50.000) = Rp50.000 - Rp5.000 = Rp45.000.\n   Total B + C = Rp170.000 + Rp45.000 = Rp215.000. (Pernyataan C: SALAH, tertulis Rp225.000).",
     "tipe": "Kategori"
@@ -1303,11 +1295,10 @@
       "Belalang sukses dan bahagia karena rajin bernyanyi sepanjang musim",
       "Pesan moral cerita adalah pentingnya bersikap rajin dan mempersiapkan masa depan"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "A benar, B salah (belalang kelaparan), C benar.",
     "tipe": "Kategori"
@@ -1367,11 +1358,10 @@
       "Habitat asli harimau sumatera adalah di daerah salju kutub utara",
       "Perburuan liar dan pembukaan lahan mengancam kelestarian harimau sumatera"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "Pernyataan A benar, B salah (hutan tropis Sumatra, bukan salju), C benar.",
     "tipe": "Kategori"
@@ -1389,11 +1379,10 @@
       "Semut tidak peduli saat merpati berada dalam bahaya tembakan pemburu",
       "Pesan moral cerita ini adalah kebaikan yang kita lakukan akan dibalas dengan kebaikan pula"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Merpati menolong semut dengan sehelai daun. (A BENAR).\n2. Semut menggigit kaki pemburu untuk menyelamatkan merpati (Pernyataan B menyatakan semut tidak peduli). (B SALAH).\n3. Pesan moral tentang balas budi kebaikan. (C BENAR).",
     "tipe": "Kategori"
@@ -1411,11 +1400,10 @@
       "Habitat asli harimau sumatera adalah di daerah salju kutub utara",
       "Perburuan liar dan pembukaan lahan mengancam kelestarian harimau sumatera"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "Pernyataan A benar, B salah (hutan tropis Sumatra, bukan salju), C benar.",
     "tipe": "Kategori"
@@ -1551,11 +1539,10 @@
       "Kekurangan vitamin C di dalam tubuh tidak menimbulkan dampak kesehatan apa pun",
       "Vitamin C berfungsi untuk membantu menjaga dan memperkuat daya tahan tubuh"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "Analisis pernyataan:\n1. Jeruk dan jambu biji sumber vitamin C (Teks menyatakan demikian). (A BENAR).\n2. Kekurangan vitamin C memicu sariawan dan kelelahan (Pernyataan B menyatakan tidak berdampak apa pun). (B SALAH).\n3. Vitamin C penting untuk menjaga daya tahan tubuh. (C BENAR).",
     "tipe": "Kategori"
@@ -1923,11 +1910,10 @@
       "Belalang sukses dan bahagia karena rajin bernyanyi sepanjang musim",
       "Pesan moral cerita adalah pentingnya bersikap rajin dan mempersiapkan masa depan"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "A benar, B salah (belalang kelaparan), C benar.",
     "tipe": "Kategori"
@@ -1964,11 +1950,10 @@
       "Habitat asli harimau sumatera adalah di daerah salju kutub utara",
       "Perburuan liar dan pembukaan lahan mengancam kelestarian harimau sumatera"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "Pernyataan A benar, B salah (hutan tropis Sumatra, bukan salju), C benar.",
     "tipe": "Kategori"
@@ -2005,11 +1990,10 @@
       "Kura-kura kalah telak dalam lomba lari karena berjalan sangat lambat",
       "Pesan moral cerita adalah jangan pernah meremehkan kemampuan orang lain"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "A benar (sombong), B salah (kura-kura menang), C benar (pesan moral).",
     "tipe": "Kategori"
@@ -2027,11 +2011,10 @@
       "Kura-kura kalah telak dalam lomba lari karena berjalan sangat lambat",
       "Pesan moral cerita adalah jangan pernah meremehkan kemampuan orang lain"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "A benar (sombong), B salah (kura-kura menang), C benar (pesan moral).",
     "tipe": "Kategori"
@@ -2125,11 +2108,10 @@
       "Kura-kura kalah telak dalam lomba lari karena berjalan sangat lambat",
       "Pesan moral cerita adalah jangan pernah meremehkan kemampuan orang lain"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "A benar (sombong), B salah (kura-kura menang), C benar (pesan moral).",
     "tipe": "Kategori"
@@ -2204,11 +2186,10 @@
       "Belalang sukses dan bahagia karena rajin bernyanyi sepanjang musim",
       "Pesan moral cerita adalah pentingnya bersikap rajin dan mempersiapkan masa depan"
     ],
-    "correct": {
-      "A": "Benar",
-      "B": "Salah",
-      "C": "Benar"
-    },
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
     "explanation": "A benar, B salah (belalang kelaparan), C benar.",
     "tipe": "Kategori"
