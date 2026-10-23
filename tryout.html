@@ -202,7 +202,7 @@
   
   <main>
     <!-- Step 1: Login -->
-    <section class="step active" id="step1" data-step="1">
+    <section class="step active" id="step1" data-step="1" style="display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 120px);">
       <div class="card" style="max-width: 440px; width: 100%;">
         <div class="login-header">
           <h1>Mulai Tryout</h1>
@@ -406,24 +406,19 @@
     });
     
     async function loadQuestions() {
+      // If allQuestions is already populated via embedded json, great!
+      if (allQuestions && allQuestions.length > 0) {
+        updatePaketOptions();
+        return;
+      }
       try {
-        // Try to load from questions.json file first
         const response = await fetch('questions.json');
         if (response.ok) {
           allQuestions = await response.json();
-        } else {
-          // Fallback to embedded data
-          console.log('Using embedded questions data');
         }
       } catch (e) {
-        console.log('Using embedded questions data');
+        console.error('Failed to load questions.json', e);
       }
-      
-      // If no questions loaded, use embedded (will be injected at build)
-      if (!allQuestions.length) {
-        console.warn('No questions loaded, using embedded fallback');
-      }
-      
       updatePaketOptions();
     }
     
