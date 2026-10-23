@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartDrill 2026 - Tryout Interaktif TKA SD</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1115;
+      --card: #16191f;
+      --card-hover: #1d2129;
+      --fg: #e8eaed;
+      --muted: #8b919a;
+      --accent: #00d4aa;
+      --accent-dim: rgba(0,212,170,0.15);
+      --accent-strong: #00e8bb;
+      --border: #2a2f3a;
+      --danger: #ff4757;
+      --warning: #ffa502;
+      --success: #2ed573;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --card-hover: #f1f5f9;
+        --fg: #1e293b;
+        --muted: #64748b;
+        --accent: #059669;
+        --accent-dim: rgba(5,150,105,0.1);
+        --accent-strong: #10b981;
+        --border: #e2e8f0;
+        --shadow: 0 8px 32px rgba(0,0,0,0.08);
+      }
+    }
+    html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    
+    /* Background ambience */
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-dim) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 100% 100%, rgba(0,212,170,0.08) 0%, transparent 60%);
+    }
+    
+    /* Header */
+    header { position: relative; z-index: 10; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: rgba(22,25,31,0.8); backdrop-filter: blur(12px); }
+    .logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; color: var(--fg); text-decoration: none; }
+    .logo svg { width: 36px; height: 36px; color: var(--accent); }
+    .timer-display { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 1.125rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 0.5rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border); min-width: 120px; text-align: center; }
+    .timer-display.warning { color: var(--warning); background: rgba(255,165,2,0.15); border-color: var(--warning); animation: pulse 1s infinite; }
+    .timer-display.danger { color: var(--danger); background: rgba(255,71,87,0.15); border-color: var(--danger); animation: pulse 0.5s infinite; }
+    @keyframes pulse { 50% { opacity: 0.6; } }
+    
+    /* Main */
+    main { flex: 1; position: relative; z-index: 10; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+    
+    /* Step containers */
+    .step { display: none; width: 100%; max-width: 880px; animation: fadeIn 0.35s var(--transition); }
+    .step.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    
+    /* Cards */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); transition: var(--transition); }
+    .card:hover { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent-dim); }
+    
+    /* Step 1: Login */
+    .login-header { text-align: center; margin-bottom: 2rem; }
+    .login-header h1 { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+    .login-header p { color: var(--muted); font-size: 1.05rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-group input, .form-group select { width: 100%; padding: 0.875rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--fg); font-size: 1rem; transition: var(--transition); }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+    .form-group input::placeholder { color: var(--muted); opacity: 0.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 600; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: var(--transition); text-decoration: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%); color: #0a1a14; width: 100%; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-dim); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--card-hover); border-color: var(--accent); }
+    .token-hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; text-align: center; }
+    
+    /* Step 2: Selection */
+    .selection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .selection-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; cursor: pointer; transition: var(--transition); text-align: center; position: relative; overflow: hidden; }
+    .selection-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-strong)); transform: scaleX(0); transform-origin: left; transition: var(--transition); }
+    .selection-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow), 0 0 0 1px var(--accent-dim); }
+    .selection-card:hover::before { transform: scaleX(1); }
+    .selection-card.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-dim); }
+    .selection-icon { width: 56px; height: 56px; margin: 0 auto 1rem; color: var(--accent); }
+    .selection-title { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .selection-meta { font-size: 0.875rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.25rem; }
+    .selection-badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.25rem 0.75rem; background: var(--accent-dim); color: var(--accent); border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-top: 0.75rem; }
+    
+    /* Step 3: Quiz */
+    .quiz-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .quiz-info { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .quiz-subject { background: var(--accent-dim); color: var(--accent); padding: 0.375rem 0.875rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .quiz-paket { font-size: 0.95rem; color: var(--muted); }
+    .quiz-progress { display: flex; align-items: center; gap: 0.5rem; }
+    .progress-text { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent); }
+    
+    .question-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1.5rem; }
+    .question-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap; }
+    .question-number { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); }
+    .question-type { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.5rem; border-radius: 4px; background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+    .question-type.mcma { background: rgba(255,165,2,0.15); color: var(--warning); border-color: var(--warning); }
+    .question-type.kategori { background: rgba(0,212,170,0.15); color: var(--accent); border-color: var(--accent); }
+    
+    .question-text { font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; color: var(--fg); }
+    .wacana-block { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.7; color: var(--muted); border-left: 3px solid var(--accent); }
+    .wacana-block strong { color: var(--fg); }
+    
+    .options { display: flex; flex-direction: column; gap: 0.75rem; }
+    .option { display: flex; align-items: center; gap: 0.875rem; padding: 1rem 1.25rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); position: relative; }
+    .option:hover { border-color: var(--accent); background: var(--accent-dim); }
+    .option.selected { border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 0 0 2px var(--accent-dim); }
+    .option input { accent-color: var(--accent); width: 20px; height: 20px; cursor: pointer; flex-shrink: 0; }
+    .option-label { flex: 1; font-size: 1rem; }
+    .option-letter { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--border); color: var(--muted); font-weight: 700; font-size: 0.8rem; flex-shrink: 0; margin-right: 0.5rem; }
+    .option.selected .option-letter { background: var(--accent); color: #0a1a14; }
+    .option input[type="checkbox"] { width: 20px; height: 20px; }
+    
+    .kategori-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .kategori-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .kategori-item label { display: flex; align-items: center; gap: 0.75rem; width: 100%; cursor: pointer; font-size: 0.95rem; }
+    .kategori-statement { flex: 1; }
+    .kategori-controls { display: flex; gap: 0.5rem; }
+    .kategori-btn { flex: 1; padding: 0.5rem; font-size: 0.75rem; font-weight: 700; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; transition: var(--transition); }
+    .kategori-btn.benar { background: rgba(46,213,115,0.15); border-color: var(--success); color: var(--success); }
+    .kategori-btn.salah { background: rgba(255,71,87,0.15); border-color: var(--danger); color: var(--danger); }
+    
+    .quiz-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .nav-grid { display: flex; flex-wrap: wrap; gap: 0.375rem; max-width: 100%; }
+    .nav-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition); font-family: 'JetBrains Mono', monospace; }
+    .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-btn.answered { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+    .nav-btn.current { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-dim); }
+    .nav-btn.answered.current { background: var(--accent); color: #0a1a14; }
+    
+    .quiz-actions { display: flex; gap: 0.75rem; }
+    
+    /* Step 4: Result */
+    .result-header { text-align: center; margin-bottom: 2rem; }
+    .result-score { font-size: 4rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem; }
+    .result-detail { color: var(--muted); font-size: 1.1rem; }
+    .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
+    .stat.correct .stat-value { color: var(--success); }
+    .stat.incorrect .stat-value { color: var(--danger); }
+    .stat.unanswered .stat-value { color: var(--warning); }
+    .result-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    
+    /* Footer */
+    footer { position: relative; z-index: 10; padding: 1.5rem; text-align: center; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); }
+    
+    /* Modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; max-width: 420px; width: 100%; text-align: center; box-shadow: var(--shadow); animation: fadeIn 0.25s var(--transition); }
+    .modal-icon { width: 56px; height: 56px; color: var(--accent); margin: 0 auto 1rem; }
+    .modal h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .modal p { color: var(--muted); margin-bottom: 1.5rem; }
+    .modal-actions { display: flex; gap: 0.75rem; justify-content: center; }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a href="#" class="logo" onclick="return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+        <line x1="12" y1="22" x2="12" y2="15.5"></line>
+        <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+      </svg>
+      SmartDrill 2026
+    </a>
+    <div class="timer-display" id="timerDisplay">30:00</div>
+  </header>
+  
+  <main>
+    <!-- Step 1: Login -->
+    <section class="step active" id="step1" data-step="1">
+      <div class="card" style="max-width: 440px; width: 100%;">
+        <div class="login-header">
+          <h1>Mulai Tryout</h1>
+          <p>Masukkan nama dan pilih paket soal untuk memulai</p>
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="studentName">Nama Siswa</label>
+            <input type="text" id="studentName" name="studentName" placeholder="Masukkan nama lengkap" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="subjectSelect">Mata Pelajaran</label>
+              <select id="subjectSelect" name="subject" required>
+                <option value="">-- Pilih --</option>
+                <option value="Matematika">Matematika (Numerasi)</option>
+                <option value="Bahasa Indonesia">Bahasa Indonesia (Literasi)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paketSelect">Paket Soal</label>
+              <select id="paketSelect" name="paket" required disabled>
+                <option value="">-- Pilih Mapel --</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tokenInput">Token Akses (Opsional)</label>
+            <input type="password" id="tokenInput" name="token" placeholder="Masukkan token jika diperlukan" autocomplete="off">
+            <p class="token-hint">Token hanya diperlukan untuk tryout resmi. Kosongkan untuk latihan bebas.</p>
+          </div>
+          <button type="submit" class="btn btn-primary" id="loginBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+            Mulai Tryout
+          </button>
+        </form>
+      </div>
+    </section>
+    
+    <!-- Step 2: Confirmation -->
+    <section class="step" id="step2" data-step="2">
+      <div class="card" style="max-width: 520px; width: 100%;">
+        <div class="login-header">
+          <h1>Konfirmasi</h1>
+          <p>Periksa data sebelum memulai</p>
+        </div>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 0.75rem 1.5rem; font-size: 0.95rem;">
+            <span style="color: var(--muted);">Nama:</span>
+            <span id="confirmName" style="font-weight: 600;"></span>
+            <span style="color: var(--muted);">Mata Pelajaran:</span>
+            <span id="confirmSubject" style="font-weight: 600;"></span>
+            <span style="color: var(--muted);">Paket:</span>
+            <span id="confirmPaket" style="font-weight: 600;"></span>
+            <span style="color: var(--muted);">Jumlah Soal:</span>
+            <span style="font-weight: 600;">30</span>
+            <span style="color: var(--muted);">Waktu:</span>
+            <span style="font-weight: 600; color: var(--accent);">30 Menit</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="goToStep(1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> Kembali</button>
+          <button type="button" class="btn btn-primary" style="flex: 1;" onclick="startQuiz()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg> Mulai Sekarang
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Step 3: Quiz -->
+    <section class="step" id="step3" data-step="3">
+      <div class="quiz-header">
+        <div class="quiz-info">
+          <span class="quiz-subject" id="quizSubject">Matematika</span>
+          <span class="quiz-paket" id="quizPaket">Tryout 1</span>
+        </div>
+        <div class="quiz-progress">
+          <span class="progress-text" id="progressText">1 / 30</span>
+        </div>
+      </div>
+      
+      <div class="question-card" id="questionCard">
+        <div class="question-header">
+          <span class="question-number" id="questionNumber">Soal 1</span>
+          <span class="question-type" id="questionType">PG</span>
+        </div>
+        <div class="wacana-block" id="wacanaBlock" style="display: none;"></div>
+        <div class="question-text" id="questionText"></div>
+        <div class="options" id="optionsContainer"></div>
+      </div>
+      
+      <div class="quiz-footer">
+        <div class="nav-grid" id="navGrid" role="navigation" aria-label="Navigasi soal"></div>
+        <div class="quiz-actions">
+          <button type="button" class="btn btn-secondary" id="btnPrev" onclick="navQuestion(-1)" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"></path></svg>
+            Sebelumnya
+          </button>
+          <button type="button" class="btn btn-primary" id="btnNext" onclick="navQuestion(1)">
+            Selanjutnya
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Step 4: Result -->
+    <section class="step" id="step4" data-step="4">
+      <div class="card" style="max-width: 640px; width: 100%;">
+        <div class="result-header">
+          <div class="result-score" id="resultScore">0</div>
+          <div class="result-detail">Dari 30 Soal</div>
+          <div style="margin-top: 1rem; color: var(--muted);" id="resultName"></div>
+        </div>
+        <div class="result-stats">
+          <div class="stat correct">
+            <div class="stat-value" id="statCorrect">0</div>
+            <div class="stat-label">Benar</div>
+          </div>
+          <div class="stat incorrect">
+            <div class="stat-value" id="statIncorrect">0</div>
+            <div class="stat-label">Salah</div>
+          </div>
+          <div class="stat unanswered">
+            <div class="stat-value" id="statUnanswered">0</div>
+            <div class="stat-label">Tidak Dijawab</div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn btn-secondary" onclick="goToStep(1)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+            Tryout Lain
+          </button>
+          <button type="button" class="btn btn-primary" onclick="reviewAnswers()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            Tinjau Jawaban
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    SmartDrill 2026 &copy; 2026 &mdash; Platform Tryout TKA SD Interaktif
+  </footer>
+  
+  <!-- Exit Confirmation Modal -->
+  <div class="modal-overlay" id="exitModal" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+      <svg class="modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <h3>Keluar Tryout?</h3>
+      <p>Progres Anda akan hilang. Yakin ingin keluar?</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+        <button class="btn btn-primary" style="background: var(--danger);" onclick="confirmExit()">Ya, Keluar</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Embedded questions data (will be replaced by build script)
+    let allQuestions = [{"paket": "Tryout 1", "subject": "Matematika", "number": 1, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Siti memiliki 4.250 kelereng. Ia memberikan 1.150 kelereng kepada adiknya, lalu membeli lagi 850 kelereng. Jumlah kelereng Siti sekarang adalah...", "options": ["3.950 butir", "3.100 butir", "4.100 butir", "3.750 butir"], "correct": "A", "explanation": "Langkah 1: Siti mula-mula memiliki 4.250 kelereng.\nLangkah 2: Diberikan kepada adiknya 1.150 kelereng, maka sisa = 4.250 - 1.150 = 3.100 kelereng.\nLangkah 3: Membeli lagi 850 kelereng, maka total akhir = 3.100 + 850 = 3.950 kelereng."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 2, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Hasil dari 325 + 45 × 12 - 150 adalah...", "options": ["715", "815", "685", "745"], "correct": "A", "explanation": "Langkah 1: Sesuai urutan operasi hitung (kabataku), perkalian dikerjakan terlebih dahulu.\nLangkah 2: 45 × 12 = 540.\nLangkah 3: Operasi penjumlahan dan pengurangan dikerjakan dari kiri: 325 + 540 = 865.\nLangkah 4: 865 - 150 = 715."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 3, "type": "MCMA", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah pasangan bilangan di bawah ini yang KPK-nya sama dengan 60? (Pilih >1)", "options": ["12 dan 15", "10 dan 30", "20 dan 30", "15 dan 20"], "correct": "A,C,D", "explanation": "Langkah 1: Faktorisasi prima:\n- 12 = 2² × 3\n- 15 = 3 × 5\n- 10 = 2 × 5\n- 30 = 2 × 3 × 5\n- 20 = 2² × 5\nLangkah 2: KPK dicari dari perkalian faktor prima dengan pangkat terbesar: 2² × 3 × 5 = 4 × 3 × 5 = 60.\nPasangan yang KPK-nya 60 adalah 12 & 15, 20 & 30, serta 15 & 20."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 4, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "FPB dan KPK dari bilangan 48 dan 72 berturut-turut adalah...", "options": ["24 dan 144", "12 dan 96", "24 dan 96", "12 dan 144"], "correct": "A", "explanation": "Langkah 1: Faktorisasi prima 48 = 2⁴ × 3 dan 72 = 2³ × 3².\nLangkah 2: FPB = perkalian faktor prima sekutu dengan pangkat terkecil = 2³ × 3 = 8 × 3 = 24.\nLangkah 3: KPK = perkalian semua faktor prima dengan pangkat terbesar = 2⁴ × 3² = 16 × 9 = 144."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 5, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Ibu membeli 3 1/2 kg tepung terigu. Digunakan untuk membuat kue 1 3/4 kg, kemudian ibu membeli lagi 0,5 kg. Total tepung terigu ibu sekarang adalah...", "options": ["1 3/4 kg", "2 3/4 kg", "2 1/4 kg", "2 1/2 kg"], "correct": "C", "explanation": "Langkah 1: Ubah pecahan campuran ke pecahan biasa atau desimal: 3 1/2 = 3,5; 1 3/4 = 1,75; 0,5 = 0,5.\nLangkah 2: Hitung total: 3,5 - 1,75 + 0,5 = 1,75 + 0,5 = 2,25 kg atau 2 1/4 kg."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 6, "type": "Kategori", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Tentukan Benar (B) atau Salah (S) untuk operasi hitung pecahan berikut:", "options": ["2/3 + 1/4 = 11/12", "3/5 × 5/6 = 1/2", "1 1/2 : 0,5 = 2"], "correct": "B,B,S", "explanation": "Analisis Kategori:\n1. 2/3 + 1/4 = 8/12 + 3/12 = 11/12 (BENAR).\n2. 3/5 × 5/6 = 3/6 = 1/2 (BENAR).\n3. 1 1/2 : 0,5 = 1,5 : 0,5 = 3, bukan 2 (SALAH)."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 7, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Hasil dari operasi hitung (-24) + 72 : (-8) - (-15) adalah...", "options": ["-18", "-48", "-33", "6"], "correct": "A", "explanation": "Langkah 1: Pembagian dikerjakan dahulu: 72 : (-8) = -9.\nLangkah 2: Penjumlahan & pengurangan dari kiri: (-24) + (-9) = -33.\nLangkah 3: -33 - (-15) = -33 + 15 = -18."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 8, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Sebuah bus memuat 45 penumpang. Di halte A turun 12 penumpang dan naik 8 penumpang. Di halte B turun 15 penumpang dan naik 20 penumpang. Jumlah penumpang bus sekarang adalah...", "options": ["44 penumpang", "46 penumpang", "48 penumpang", "42 penumpang"], "correct": "B", "explanation": "Langkah 1: Penumpang awal = 45.\nLangkah 2: Di halte A turun 12, naik 8 → 45 - 12 + 8 = 41.\nLangkah 3: Di halte B turun 15, naik 20 → 41 - 15 + 20 = 46."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 9, "type": "MCMA", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah pecahan yang nilainya lebih besar dari 0,6? (Pilih >1)", "options": ["3/4", "1/2", "65%", "0,8"], "correct": "A,C,D", "explanation": "Bandingkan dengan 0,6: 3/4 = 0,75 (lebih besar), 1/2 = 0,5 (lebih kecil), 65% = 0,65 (lebih besar), 0,8 (lebih besar). Jawaban: A, C, D."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 10, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Urutan pecahan berikut dari yang terbesar ke terkecil: 0,78 ; 4/5 ; 75% ; 0,82 adalah...", "options": ["75% ; 0,78 ; 4/5 ; 0,82", "0,82 ; 4/5 ; 0,78 ; 75%", "4/5 ; 0,82 ; 0,78 ; 75%", "0,82 ; 0,78 ; 4/5 ; 75%"], "correct": "B", "explanation": "Langkah 1: Urutkan pecahan dari yang terbesar:\n- 4/5 = 0,80\n- 0,82 = 0,82\n- 75% = 0,75\n- 0,78 = 0,78\nUrutan dari terbesar: 0,82; 4/5; 0,78; 75%."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 11, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Sebuah kebun berbentuk persegi panjang dengan panjang 36 m dan lebar 24 m. Di sekeliling kebun dipasang pagar kawat 3 putaran. Panjang kawat minimal yang dibutuhkan adalah...", "options": ["180 meter", "360 meter", "240 meter", "480 meter"], "correct": "B", "explanation": "Keliling = 2 × (36 + 24) = 120 m. Pagar 3 putaran = 3 × 120 = 360 meter."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 12, "type": "MCMA", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah bangun datar yang memiliki 4 sisi sama panjang? (Pilih >1)", "options": ["Persegi", "Jajar genjang", "Belah ketupat", "Trapesium"], "correct": "A,C", "explanation": "Persegi dan belah ketupat memiliki semua sisi sama panjang. Jajar genjang dan trapesium tidak memiliki 4 sisi sama panjang."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 13, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Sebuah akuarium berbentuk balok memiliki ukuran panjang 80 cm, lebar 50 cm, dan tinggi 60 cm. Volume air jika terisi 3/4 bagian adalah...", "options": ["120 liter", "240 liter", "200 liter", "180 liter"], "correct": "D", "explanation": "Volume balok = 80 × 50 × 60 = 240.000 cm³ = 240 liter. Terisi 3/4 bagian = 3/4 × 240 = 180 liter."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 14, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Keliling sebuah lingkaran adalah 132 cm. Jika π = 22/7, jari-jari lingkaran tersebut adalah...", "options": ["14 cm", "42 cm", "21 cm", "28 cm"], "correct": "C", "explanation": "Keliling = 2 × π × r → 132 = 2 × 22/7 × r → r = 132 × 7 : 44 = 21 cm."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 15, "type": "Kategori", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Tentang sifat bangun ruang, tentukan Benar (B) atau Salah (S):", "options": ["Bangun ruang memiliki sisi sejajar", "Setiap bangun ruang memiliki 6 sisi", "Kubus memiliki 8 titik sudut"], "correct": "S,S,B", "explanation": "A salah – tidak semua bangun ruang memiliki sisi sejajar. B salah – hanya beberapa bangun ruang yang memiliki 6 sisi (kubus). C benar – kubus memang memiliki 8 titik sudut."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 16, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Sebuah lapangan berbentuk lingkaran berdiameter 28 meter. Ditanami pohon di sekelilingnya dengan jarak antar pohon 4 meter. Banyak pohon yang dibutuhkan adalah...", "options": ["44 pohon", "28 pohon", "14 pohon", "22 pohon"], "correct": "D", "explanation": "Keliling lapangan = π × d = 22/7 × 28 = 88 m. Banyak pohon = 88 : 4 = 22 pohon."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 17, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Sebuah tabung memiliki jari-jari 14 cm dan tinggi 25 cm (π = 22/7). Luas selimut tabung tersebut adalah...", "options": ["2.200 cm²", "1.100 cm²", "4.400 cm²", "1.232 cm²"], "correct": "A", "explanation": "Luas selimut tabung = 2 × π × r × t = 2 × 22/7 × 14 × 25 = 2.200 cm²."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 18, "type": "MCMA", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah satuan volume di bawah ini yang setara dengan 1 liter? (Pilih >1)", "options": ["1 dm³", "1000 cm³", "1 mL", "0.001 m³"], "correct": "A,B,D", "explanation": "1 liter = 1 dm³ = 1.000 cm³ = 0,001 m³. Satuan 1 mL hanya 1/1000 liter, jadi tidak setara. Jawaban: A, B, D."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 19, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Jarak kota A ke kota B adalah 180 km. Mobil berangkat pukul 07.00 dengan kecepatan rata-rata 60 km/jam. Tiba di kota B pada pukul...", "options": ["10.30", "10.00", "11.00", "09.30"], "correct": "B", "explanation": "Waktu tempuh = 180 : 60 = 3 jam. Berangkat 07.00, tiba pukul 10.00."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 20, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Debit air dari sebuah selang adalah 15 liter/detik. Volume air yang mengalir selama 20 menit adalah...", "options": ["9.000 liter", "18.000 liter", "3.000 liter", "36.000 liter"], "correct": "B", "explanation": "20 menit = 1.200 detik. Volume = debit × waktu = 15 × 1.200 = 18.000 liter."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 21, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": "diagram_batang.png", "question": "Perhatikan diagram batang berikut!\nJika total siswa 40 orang dan nilai 80 ada 12 orang, persentase siswa bernilai 80 adalah...", "options": ["20%", "25%", "35%", "30%"], "correct": "D", "explanation": "Persentase = 12/40 × 100% = 30%."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 22, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Nilai rata-rata 25 siswa adalah 76. Masuk 5 siswa susulan, rata-rata jadi 77. Rata-rata 5 siswa susulan adalah...", "options": ["78", "82", "84", "80"], "correct": "B", "explanation": "Total nilai awal = 25 × 76 = 1.900. Total nilai akhir = 30 × 77 = 2.310. Selisih = 410. Rata-rata 5 siswa susulan = 410 : 5 = 82."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 23, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Data berat badan 10 anak: 34, 38, 35, 40, 36, 38, 42, 38, 35, 39. Modus data tersebut adalah...", "options": ["38 kg", "40 kg", "35 kg", "36 kg"], "correct": "A", "explanation": "Nilai 38 muncul 3 kali (paling sering), 35 muncul 2 kali. Modus = 38 kg."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 24, "type": "MCMA", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah ukuran pemusatan data yang umum dipelajari di SD? (Pilih >1)", "options": ["Mean", "Median", "Modus", "Varians"], "correct": "A,B,C", "explanation": "Mean, Median, dan Modus merupakan ukuran pemusatan data yang di ajarkan di SD. Varians biasanya diajarkan di jenjang lebih tinggi."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 25, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Data nilai ulangan: 65, 70, 75, 80, 85, 90, 95. Median dari data tersebut adalah...", "options": ["75", "85", "80", "77,5"], "correct": "C", "explanation": "Data sudah terurut dan berjumlah 7. Median adalah data ke-4 = 80."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 26, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Diagram lingkaran total 300 siswa hobi: Pramuka 30%, Olahraga 40%, Seni 20%, sisanya Musik. Banyak siswa hobi Musik adalah...", "options": ["30 siswa", "45 siswa", "60 siswa", "15 siswa"], "correct": "A", "explanation": "Hobi Musik = 100% - (30% + 40% + 20%) = 10%. 10% × 300 = 30 siswa."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 27, "type": "Kategori", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Tentang data statistik, tentukan Benar (B) atau Salah (S):", "options": ["Mean selalu merupakan nilai yang paling sering muncul dalam data", "Median dapat dihitung dengan mengurutkan data dan mengambil nilai tengah", "Modus dapat memiliki lebih dari satu nilai"], "correct": "S,B,B", "explanation": "A salah – mean adalah rata‑rata, bukan nilai yang paling sering. B benar – median memang nilai tengah setelah data diurutkan. C benar – modus dapat multimodal."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 28, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Selisih nilai tertinggi dan terendah dari data: 45, 60, 75, 50, 90, 85, 65 adalah...", "options": ["50", "35", "45", "40"], "correct": "C", "explanation": "Nilai tertinggi 90 dan terendah 45. Selisih = 90 - 45 = 45."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 29, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Penjualan buku 5 hari: Senin 20, Selasa 35, Rabu 25, Kamis 40, Jumat 30. Rata-rata penjualan per hari adalah...", "options": ["32 buku", "28 buku", "30 buku", "35 buku"], "correct": "C", "explanation": "Total penjualan = 20 + 35 + 25 + 40 + 30 = 150. Rata-rata = 150 : 5 = 30 buku."}, {"paket": "Tryout 1", "subject": "Matematika", "number": 30, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Dari data nilai: 70, 80, 80, 90, 60. Nilai rata‑rata data tersebut mendekati ...", "options": ["70", "75", "76", "80"], "correct": "C", "explanation": "Mean = (70+80+80+90+60)/5 = 380/5 = 76, sehingga jawaban yang tepat adalah 76."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 1, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Gudang beras memiliki persediaan 9,5 ton. Terjual 2 3/4 ton pada hari senin dan 1,5 ton pada hari selasa. Sisa beras di gudang adalah...", "options": ["6 ton", "4 ton", "5 ton", "5,25 ton"], "correct": "D", "explanation": "Langkah 1: Ubah bilangan campuran ke desimal. Persediaan = 9,5 ton. Terjual Senin = 2 3/4 = 2,75 ton. Terjual Selasa = 1,5 ton.\nLangkah 2: Total terjual = 2,75 + 1,5 = 4,25 ton.\nLangkah 3: Sisa = 9,5 - 4,25 = 5,25 ton.\nJawaban: 5,25 ton (Opsi D)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 2, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Hasil dari 1.250 - 25 × 16 + 200 adalah...", "options": ["1.050", "930", "1.120", "1.220"], "correct": "A", "explanation": "Langkah 1: Perkalian dikerjakan terlebih dahulu: 25 × 16 = 400.\nLangkah 2: 1.250 - 400 + 200.\nLangkah 3: 1.250 - 400 = 850; 850 + 200 = 1.050.\nJawaban: 1.050 (Opsi A)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 3, "type": "MCMA", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah pernyataan bilangan berikut yang bernilai benar? (Pilih >1)", "options": ["-12 > -15", "0,625 = 5/8", "-7 + (-8) = 15", "25% dari 400 adalah 100"], "correct": "A,B,D", "explanation": "1. -12 > -15 (benar).\n2. 0,625 = 5/8 (benar).\n3. -7 + (-8) = -15 (salah).\n4. 25% dari 400 = 100 (benar).\nPernyataan benar: A, B, dan D."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 4, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Lampu A menyala setiap 6 menit, lampu B setiap 8 menit, lampu C setiap 12 menit. Ketiga lampu menyala bersamaan pukul 08.00. Kapan mereka menyala bersamaan kembali?", "options": ["08.12", "08.24", "08.36", "08.48"], "correct": "B", "explanation": "Langkah 1: KPK dari 6, 8, dan 12 adalah 24 menit.\nLangkah 2: 08.00 + 24 menit = 08.24.\nJawaban: 08.24 (Opsi B)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 5, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Hasil dari 75% : 0,25 × 1 2/5 adalah...", "options": ["2 4/5", "4 1/5", "3 1/2", "3 4/5"], "correct": "B", "explanation": "Langkah 1: 75% = 0,75; 0,25 = 0,25; 1 2/5 = 1,4.\nLangkah 2: 0,75 ÷ 0,25 = 3.\nLangkah 3: 3 × 1,4 = 4,2 = 4 1/5.\nJawaban: 4 1/5 (Opsi B)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 6, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Sebuah toko menjual 3,5 kg apel dengan harga Rp 28.000 per kg. Total harga yang harus dibayar adalah...", "options": ["Rp 84.000", "Rp 98.000", "Rp 70.000", "Rp 92.000"], "correct": "B", "explanation": "Langkah 1: Total = Harga per kg × Jumlah kg.\nLangkah 2: 28.000 × 3,5 = 98.000.\nJawaban: Rp 98.000 (Opsi B)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 7, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Suhu daging di freezer mula-mula -14°C. Suhu naik 3°C setiap 4 menit. Suhu setelah 20 menit?", "options": ["-2°C", "1°C", "-5°C", "-8°C"], "correct": "B", "explanation": "Langkah 1: 20 menit ÷ 4 menit = 5 interval.\nLangkah 2: Kenaikan = 5 × 3 = 15°C.\nLangkah 3: -14 + 15 = 1°C.\nJawaban: 1°C (Opsi B)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 8, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Pak Ahmad membagikan 72 buku dan 96 pensil kepada anak yatim dengan jumlah dan jenis sama banyak. Jumlah anak terbanyak?", "options": ["12", "24", "6", "8"], "correct": "B", "explanation": "Langkah 1: FPB dari 72 dan 96 adalah 24.\nLangkah 2: Masing-masing anak mendapat 3 buku dan 4 pensil.\nJawaban: 24 anak (Opsi B)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 9, "type": "MCMA", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Manakah pecahan yang senilai dengan 0,75? (Pilih >1)", "options": ["3/4", "75/100", "5/8", "6/8"], "correct": "A,B,D", "explanation": "0,75 = 3/4 = 75/100 = 6/8. Pilihan benar: A, B, D."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 10, "type": "PG", "materi": "Bilangan", "id_wacana": null, "wacana": null, "gambar": null, "question": "Bentuk desimal dari 3/8 adalah...", "options": ["0,375", "0,325", "0,425", "0,275"], "correct": "A", "explanation": "Langkah 1: 3 ÷ 8 = 0,375.\nJawaban: 0,375 (Opsi A)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 11, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Taman lingkaran jari-jari 20 m, kolam persegi sisi 14 m. Luas di luar kolam (π=3,14)...", "options": ["956 m²", "1.060 m²", "1.156 m²", "856 m²"], "correct": "B", "explanation": "Luas lingkaran = 3,14 × 20² = 1.256 m². Luas persegi = 14² = 196 m². Luas taman di luar kolam = 1.256 - 196 = 1.060 m²."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 12, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Persegi panjang panjang 12 cm lebar 7 cm. Luasnya?", "options": ["84 cm²", "70 cm²", "91 cm²", "56 cm²"], "correct": "A", "explanation": "Langkah 1: Luas = p × l = 12 × 7 = 84 cm².\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 13, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Prisma segitiga luas alas 45 cm² tinggi 16 cm. Volumenya?", "options": ["720 cm³", "540 cm³", "640 cm³", "800 cm³"], "correct": "A", "explanation": "Langkah 1: Volume = Luas alas × Tinggi = 45 × 16 = 720 cm³.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 14, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Roda sepeda jari-jari 35 cm berputar 20 kali. Jarak tempuh (π=22/7)...", "options": ["4.400 cm", "4.200 cm", "4.600 cm", "4.000 cm"], "correct": "A", "explanation": "Langkah 1: Keliling = 2 × (22/7) × 35 = 220 cm.\nLangkah 2: Jarak = 220 × 20 = 4.400 cm.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 15, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Volume silinder jari-jari 5 cm tinggi 10 cm (π=3,14)...", "options": ["785 cm³", "250 cm³", "500 cm³", "1.000 cm³"], "correct": "A", "explanation": "Langkah 1: Volume = π × r² × t = 3,14 × 5² × 10 = 785 cm³.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 16, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Kerucut jari-jari 7 cm garis pelukis 25 cm (π=22/7). Luas selimut?", "options": ["550 cm²", "500 cm²", "600 cm²", "450 cm²"], "correct": "A", "explanation": "Langkah 1: Luas selimut = π × r × s = (22/7) × 7 × 25 = 550 cm².\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 17, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Volume bola jari-jari 21 cm (π=22/7)...", "options": ["38.808 cm³", "19.404 cm³", "9.702 cm³", "77.616 cm³"], "correct": "A", "explanation": "Langkah 1: Volume = 4/3 × π × r³ = 4/3 × (22/7) × 21³ = 38.808 cm³.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 18, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Luas permukaan bola jari-jari 7 cm?", "options": ["616 cm²", "154 cm²", "308 cm²", "462 cm²"], "correct": "A", "explanation": "Langkah 1: Luas = 4 × π × r² = 4 × (22/7) × 7² = 616 cm².\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 19, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Pesawat menempuh 2.400 km dalam 3 jam 20 menit. Kecepatan rata-rata?", "options": ["720 km/jam", "700 km/jam", "750 km/jam", "680 km/jam"], "correct": "A", "explanation": "Langkah 1: Waktu = 3 1/3 jam = 10/3 jam.\nLangkah 2: Kecepatan = 2.400 ÷ (10/3) = 720 km/jam.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 20, "type": "PG", "materi": "Geometri & Pengukuran", "id_wacana": null, "wacana": null, "gambar": null, "question": "Kolam 180 m³ diisi debit 25 L/detik. Waktu mengisi?", "options": ["2 jam", "2,5 jam", "3 jam", "1,5 jam"], "correct": "A", "explanation": "Langkah 1: 180 m³ = 180.000 liter.\nLangkah 2: Waktu = 180.000 ÷ 25 = 7.200 detik = 2 jam.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 21, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Data nilai: 78, 85, 92, 76, 88. Rata-rata (mean)...", "options": ["84", "82", "86", "80"], "correct": "A", "explanation": "Langkah 1: Jumlah = 419. Mean = 419 ÷ 5 = 83,8 ≈ 84.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 22, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Rata-rata 18 siswa = 80. Tambah 2 siswa susulan, rata-rata 20 siswa = 79. Rata-rata susulan?", "options": ["72", "70", "68", "74"], "correct": "B", "explanation": "Langkah 1: Total 18 = 1.440; Total 20 = 1.580.\nLangkah 2: Total 2 siswa = 1.580 - 1.440 = 140.\nLangkah 3: Rata-rata = 140 ÷ 2 = 70.\nJawaban: Opsi B."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 23, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Data: 70, 75, 80, 85, 70, 90, 75, 70, 95, 85. Modus?", "options": ["70", "75", "80", "85"], "correct": "A", "explanation": "Langkah 1: Angka yang paling sering muncul adalah 70 (3 kali).\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 24, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "30% dari 40 siswa mendapat nilai A. Berapa siswa?", "options": ["12", "10", "14", "8"], "correct": "A", "explanation": "Langkah 1: 0,3 × 40 = 12 siswa.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 25, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Tinggi 9 anak: 135, 140, 138, 142, 145, 139, 141, 144, 137. Median?", "options": ["138", "139", "140", "141"], "correct": "C", "explanation": "Langkah 1: Urutkan data: 135, 137, 138, 139, 140, 141, 142, 144, 145.\nLangkah 2: Nilai tengah (data ke-5) adalah 140.\nJawaban: Opsi C."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 26, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Diagram lingkaran 500 siswa: Musik 30%, Olahraga 35%, Seni 25%, sisanya Membaca. Jumlah siswa Membaca?", "options": ["50", "40", "60", "30"], "correct": "A", "explanation": "Langkah 1: Persen Membaca = 100% - (30%+35%+25%) = 10%.\nLangkah 2: 10% × 500 = 50 siswa.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 27, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Tentukan Benar (B) atau Salah (S):\n1. Mean selalu salah satu nilai data\n2. Median data genap = rata-rata 2 data tengah\n3. Modus bisa lebih dari satu", "options": ["1B,2B,3B", "1S,2B,3B", "1S,2S,3B", "1B,2S,3S"], "correct": "B", "explanation": "Langkah 1: Pernyataan 1 salah (mean pecahan). Pernyataan 2 benar. Pernyataan 3 benar (multimodal).\nJawaban: 1S, 2B, 3B (Opsi B)."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 28, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Jangkauan data berat: 42, 50, 38, 65, 48, 55, 60.", "options": ["27", "25", "23", "29"], "correct": "A", "explanation": "Langkah 1: Maksimum = 65, Minimum = 38.\nLangkah 2: Jangkauan = 65 - 38 = 27.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 29, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Rata-rata 4 anak = 45 kg. Masuk 1 anak, rata-rata 5 anak = 46 kg. Berat anak baru?", "options": ["50 kg", "48 kg", "46 kg", "52 kg"], "correct": "A", "explanation": "Langkah 1: Total 4 anak = 4 × 45 = 180 kg.\nLangkah 2: Total 5 anak = 5 × 46 = 230 kg.\nLangkah 3: Berat anak baru = 230 - 180 = 50 kg.\nJawaban: Opsi A."}, {"paket": "Tryout 2", "subject": "Matematika", "number": 30, "type": "PG", "materi": "Data & Statistika", "id_wacana": null, "wacana": null, "gambar": null, "question": "Frekuensi: 5, 8, 12, 7, 8. Rata-rata frekuensi tiap kelompok?", "options": ["7", "8", "9", "6"], "correct": "B", "explanation": "Langkah 1: Jumlah frekuensi = 5 + 8 + 12 + 7 + 8 = 40.\nLangkah 2: Rata-rata = 40 ÷ 5 = 8.\nJawaban: Opsi B."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 1, "type": "PG", "materi": null, "id_wacana": "BIN-T1-1", "wacana": "Tryout 1", "gambar": null, "question": "Apa masalah utama sampah plastik menurut wacana?", "options": ["Harga mahal", "Sulit terurai secara alami", "Tidak bernilai ekonomis", "Sulit didaur ulang"], "correct": "B", "explanation": "Kalimat pertama wacana menyatakan \"Sampah plastik menjadi salah satu masalah lingkungan terbesar di Indonesia karena sulit terurai secara alami.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 2, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-1", "wacana": "Tryout 1", "gambar": null, "question": "Manakah yang termasuk proses daur ulang plastik? (Pilih >1)", "options": ["Pengumpulan", "Penyortiran", "Pembakaran", "Pencucian"], "correct": "A,B,D", "explanation": "Kalimat ke-4 menyebut \"Proses daur ulang meliputi pengumpulan, penyortiran, pencucian, pemotongan, dan peleburan.\" Pembakaran bukan proses daur ulang."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 3, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-1", "wacana": "Tryout 1", "gambar": null, "question": "Tentukan Benar (B) atau Salah (S):", "options": ["Daur ulang plastik menghemat energi hingga 80% dibanding produksi baru.", "Semua sampah plastik di Indonesia sudah terdaur ulang 100%.", "Memisahkan sampah organik dan anorganik di rumah menunjang daur ulang."], "correct": "B,S,B", "explanation": "(1) Sesuai kalimat ke-6. (2) Wacana menyebut \"hanya sekitar 10-15% sampah yang berhasil terdaur ulang.\" (3) Sesuai kalimat terakhir."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 4, "type": "PG", "materi": null, "id_wacana": "BIN-T1-2", "wacana": "Tryout 1", "gambar": null, "question": "Apa hasil akhir dari proses pengkomposan?", "options": ["Bahan bakar", "Energi listrik", "Gas metana", "Pupuk alami (kompos)"], "correct": "D", "explanation": "Kalimat ke-3: \"Hasil kompos berupa pupuk alami yang kaya nutrisi...\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 5, "type": "PG", "materi": null, "id_wacana": "BIN-T1-2", "wacana": "Tryout 1", "gambar": null, "question": "Mikroorganisme dalam pengkomposan berfungsi sebagai…", "options": ["Pengurai bahan organik", "Penghancar plastik", "Pencemar tanah", "Penghasil gas metana"], "correct": "A", "explanation": "Kalimat ke-2: \"pengolahan sampah organik secara biologis dengan bantuan mikroorganisme pengurai.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 6, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-2", "wacana": "Tryout 1", "gambar": null, "question": "Manfaat pengkomposan bagi lingkungan meliputi… (Pilih >1)", "options": ["Mengurangi volume sampah ke TPA", "Menghasilkan pupuk kimia", "Mengurangi emisi gas metana", "Menciptakan pupuk alami"], "correct": "A,C,D", "explanation": "Kalimat ke-4 dan 5 menyebut mengurangi volume sampah ke TPA, mengurangi emisi metana, dan menciptakan pupuk alami."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 7, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-2", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["Pengkomposan hanya bisa dilakukan di skala industri besar.", "Ember atau biopori bisa digunakan untuk kompos di rumah.", "Gas metana dari pengkomposan berbahaya bagi ozone."], "correct": "S,B,B", "explanation": "(1) Wacana menyebut \"masyarakat dapat membuat kompos sederhana di halaman rumah.\" (2) Sesuai kalimat ke-5. (3) Kalimat ke-4 menyebut \"mengurangi emisi gas metana berbahaya.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 8, "type": "PG", "materi": null, "id_wacana": "BIN-T1-3", "wacana": "Tryout 1", "gambar": null, "question": "Apa yang disetor nasabah ke bank sampah?", "options": ["Sampah anorganik bernilai ekonomis", "Sampah berbahaya (B3)", "Sampah organik", "Sampah medis"], "correct": "A", "explanation": "Kalimat ke-2: \"Nasabah bank sampah menyetor sampah terpisah seperti plastik, kertas, logam, dan kaca…\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 9, "type": "PG", "materi": null, "id_wacana": "BIN-T1-3", "wacana": "Tryout 1", "gambar": null, "question": "Peraturan apa yang mendukung bank sampah di Indonesia?", "options": ["Permen LHK No. 14 Tahun 2021", "PP No. 81 Tahun 2012", "Perpres No. 97 Tahun 2017", "UU No. 18 Tahun 2008"], "correct": "A", "explanation": "Kalimat ke-5 menyebut \"didukung kebijakan pemerintah melalui Permen LHK No. 14 Tahun 2021.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 10, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-3", "wacana": "Tryout 1", "gambar": null, "question": "Manfaat bank sampah bagi masyarakat: (Pilih >1)", "options": ["Menghasilkan tabungan uang dari sampah", "Menciptakan lapangan kerja", "Menambah volume sampah di TPA", "Meningkatkan kesadaran 3R"], "correct": "A,B,D", "explanation": "Kalimat ke-4, 6, 7 menyebut tabungan, lapangan kerja, dan edukasi 3R."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 11, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-3", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["Bank sampah hanya menerima sampah plastik.", "Kemitraan dengan sekolah memperluas edukasi 3R.", "Sampah disetor dalam kondisi tercampur (tidak dipisah)."], "correct": "S,B,S", "explanation": "(1) Kalimat ke-2 menyebut plastik, kertas, logam, kaca. (2) Kalimat terakhir. (3) Kalimat ke-2 \"sampah terpisah.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 12, "type": "PG", "materi": null, "id_wacana": "BIN-T1-4", "wacana": "Tryout 1", "gambar": null, "question": "Manakah yang termasuk tindakan Reduce?", "options": ["Mencetak kertas dua sisi", "Membuat kerajinan dari botol bekas", "Memperbaiki sepeda rusak", "Menggunakan tas kain belanja"], "correct": "A", "explanation": "Kalimat ke-3: \"Reduce berarti mengurangi pembuatan sampah sejak sumber dengan konsumsi bijak… kurangi penggunaan kertas di kantor dengan melakukan print preview sebelum mencetak.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 13, "type": "PG", "materi": null, "id_wacana": "BIN-T1-4", "wacana": "Tryout 1", "gambar": null, "question": "Perbedaan Reuse dan Recycle terletak pada…", "options": ["Keduanya sama mengubah bentuk", "Reuse tidak mengubah bentuk, Recycle mengubah bentuk", "Reuse mengubah bentuk, Recycle tidak", "Keduanya tidak mengubah bentuk"], "correct": "B", "explanation": "Kalimat ke-4 \"Reuse adalah menggunakan kembali barang yang masih layak pakai tanpa mengubah bentuknya.\" Kalimat ke-5 \"Recycle melibatkan proses daur ulang sampah menjadi bahan baku atau produk baru.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 14, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-4", "wacana": "Tryout 1", "gambar": null, "question": "Contoh tindakan Replace: (Pilih >1)", "options": ["Menggunakan botol minum stainless steel", "Membawa tas kain sendiri belanja", "Mencetak dokumen hanya saat diperlukan", "Menggunakan sedotan bambu menggantikan plastik"], "correct": "A,B,D", "explanation": "Kalimat ke-6: \"Replace mendorong penggantian barang sekali pakai dengan alternatif tahan lama seperti tas kain.\" C adalah Reduce."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 15, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-4", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["Repair berarti membeli barang baru menggantikan yang rusak.", "5R lebih komprehensif dari 3R.", "Penerapan 5R kolektif mengurangi jejak karbon."], "correct": "S,B,B", "explanation": "(1) Kalimat ke-7: \"Repair berarti memperbaiki barang rusak agar tetap berfungsi.\" (2) Kalimat ke-2. (3) Kalimat terakhir."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 16, "type": "PG", "materi": null, "id_wacana": "BIN-T1-5", "wacana": "Tryout 1", "gambar": null, "question": "Berapa persen penghematan energi daur ulang aluminium vs ekstraksi baru?", "options": ["85%", "100%", "75%", "95%"], "correct": "D", "explanation": "Kalimat ke-2: \"Daur ulang aluminium menghemat 95% energi dibanding ekstraksi dari bijih bauksit.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 17, "type": "PG", "materi": null, "id_wacana": "BIN-T1-5", "wacana": "Tryout 1", "gambar": null, "question": "Mengapa besi mudah dipisahkan dari sampah campuran?", "options": ["Ringan", "Tidak berkarat", "Bersifat magnetik", "Harga murah"], "correct": "C", "explanation": "Kalimat ke-3: \"pemilahan magnetik\" — besi bersifat ferromagnetik."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 18, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-5", "wacana": "Tryout 1", "gambar": null, "question": "Produk dari logam daur ulang: (Pilih >1)", "options": ["Konstruksi bangunan", "Otomotif (bodi mobil, komponen mesin)", "Peralatan berat", "Botol minuman sekali pakai"], "correct": "A,B,C", "explanation": "Kalimat ke-5: \"Besi dan baja daur ulang banyak digunakan untuk konstruksi, otomotif, dan peralatan berat.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 19, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-5", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["Logam hanya bisa didaur ulang sekali sebelum kualitas turun.", "Kaleng aluminium daur ulang kembali ke rak toko dalam 60 hari.", "Daur ulang logam mengurangi aktivitas penambangan baru."], "correct": "S,B,B", "explanation": "(1) Kalimat ke-1: \"dapat didaur ulang tanpa batas tanpa mengurangi kualitas.\" (2) Kalimat ke-4. (3) Kalimat terakhir."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 20, "type": "PG", "materi": null, "id_wacana": "BIN-T1-6", "wacana": "Tryout 1", "gambar": null, "question": "Bahan berbahaya yang terkandung dalam e-waste:", "options": ["Tembaga dan aluminium", "Silikon dan plastik", "Emas dan perak", "Merkuri, timbal, kadmium"], "correct": "D", "explanation": "Kalimat ke-2: \"bahan berbahaya (merkuri, timbal, kadmium, brominated flame retardants).\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 21, "type": "PG", "materi": null, "id_wacana": "BIN-T1-6", "wacana": "Tryout 1", "gambar": null, "question": "Dampak pembuangan e-waste sembarangan:", "options": ["Menghasilkan energi listrik", "Mencemar tanah, air, udara, bahayakan kesehatan", "Membantu daur ulang otomatis", "Meningkatkan kesuburan tanah"], "correct": "B", "explanation": "Kalimat ke-4."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 22, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-6", "wacana": "Tryout 1", "gambar": null, "question": "Komponen berharga yang bisa diekstrak dari e-waste: (Pilih >1)", "options": ["Emas", "Perak", "Merkuri", "Tembaga"], "correct": "A,B,D", "explanation": "Kalimat ke-2: \"logam berharga (emas, perak, tembaga, paladium)\". Merkuri adalah bahan berbahaya."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 23, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-6", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["Semua e-waste bisa dibuang ke sampah biasa aman saja.", "Program take-back produsen membantu pengelolaan e-waste resmi.", "Indonesia sudah memiliki peraturan khusus e-waste."], "correct": "S,B,B", "explanation": "(1) Kalimat ke-4: membahayakan. (2) Kalimat ke-6. (3) Kalimat ke-5: Permen LHK No. 6 Tahun 2021."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 24, "type": "PG", "materi": null, "id_wacana": "BIN-T1-7", "wacana": "Tryout 1", "gambar": null, "question": "Fungsi utama akar mangrove yang menonjol ke atas (pneumatofor):", "options": ["Menyimpan cadangan makanan", "Menangkap ikan", "Bernapas (pertukaran gas)", "Menyerap air"], "correct": "C", "explanation": "Pengetahuan umum ilmiah: akar napas (pneumatofor) berfungsi pertukaran gas di lingkungan anaerobik. (Wacana implisit \"sistem akar khas\")."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 25, "type": "PG", "materi": null, "id_wacana": "BIN-T1-7", "wacana": "Tryout 1", "gambar": null, "question": "Kemampuan penyerapan karbon mangrove dibanding hutan darat:", "options": ["Sama saja", "3x lebih efektif", "2x lebih efektif", "4x lebih efektif"], "correct": "D", "explanation": "Kalimat ke-2: \"penyerap karbon 4x lebih efektif dari hutan darat.\""}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 26, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-7", "wacana": "Tryout 1", "gambar": null, "question": "Penyebab kerusakan mangrove: (Pilih >1)", "options": ["Konversi lahan jadi tambak", "Pembangunan pesisir (pelabuhan, jalan)", "Penanaman bibit massal", "Tebangan liar"], "correct": "A,B,D", "explanation": "Kalimat ke-3. C justru adalah solusi restorasi."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 27, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-7", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["Mangrove hanya tumbuh di air tawar.", "Restorasi mangrove melibatkan komunitas nelayan.", "UU No. 27/2007 mengatur pelestarian mangrove."], "correct": "S,B,B", "explanation": "(1) Mangrove tumbuh di air payau/pesisir (zona pasang surut). (2) Kalimat ke-5. (3) Kalimat ke-6."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 28, "type": "PG", "materi": null, "id_wacana": "BIN-T1-8", "wacana": "Tryout 1", "gambar": null, "question": "Prinsip kerja panel surya mengubah sinar matahari jadi listrik:", "options": ["Efek magnetik", "Efek kimia", "Efek fotovoltaik", "Efek termal"], "correct": "C", "explanation": "Kalimat ke-2: \"melalui efek fotovoltaik\"."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 29, "type": "MCMA", "materi": null, "id_wacana": "BIN-T1-8", "wacana": "Tryout 1", "gambar": null, "question": "Keuntungan PLTS off-grid bagi pedesaan 3T: (Pilih >1)", "options": ["Listrik 24 jam dengan baterai", "Bebas biaya bulanan listrik PLN", "Mengurangi genset diesel", "Membutuhkan jaringan PLN terlebih dahulu"], "correct": "A,B,C", "explanation": "Kalimat ke-3, 5, 6. D salah karena off-grid artinya tanpa jaringan PLN."}, {"paket": "Tryout 1", "subject": "Bahasa Indonesia", "number": 30, "type": "Kategori", "materi": null, "id_wacana": "BIN-T1-8", "wacana": "Tryout 1", "gambar": null, "question": "Benar/Salah:", "options": ["PLTS menghasilkan emisi karbon saat mengoperasikan.", "Program Indonesia Terang sasaran rumah tangga miskin 3T.", "PLTS mendukung SDG 7 dan SDG 13."], "correct": "S,B,B", "explanation": "(1) Kalimat ke-2: \"tanpa emisi karbon saat operasi.\" (2) Kalimat ke-4. (3) Kalimat terakhir."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 1, "type": "PG", "materi": null, "id_wacana": "BIN-T2-1", "wacana": "Tryout 2", "gambar": null, "question": "Ciri utama hoaks menurut wacana:", "options": ["Judul netral dan objektif", "Judul sensasional (clickbait)", "URL standar gouvernement", "Sumber dari media resmi"], "correct": "B", "explanation": "Kalimat ke-3: \"Ciri hoaks meliputi judul sensasional (clickbait)…\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 2, "type": "PG", "materi": null, "id_wacana": "BIN-T2-1", "wacana": "Tryout 2", "gambar": null, "question": "Situs fact-checking resmi di Indonesia:", "options": ["Kominfo.go.id saja", "HoaxBuster.id", "Detik.com / Kompas.com", "CekFakta.com / TurnBackHoax.id"], "correct": "D", "explanation": "Kalimat ke-4: \"gunakan fact-checking site (CekFakta, TurnBackHoax)\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 3, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-1", "wacana": "Tryout 2", "gambar": null, "question": "Langkah verifikasi berita sebelum share: (Pilih >1)", "options": ["Cek domain situs resmi", "Cek tanggal & konteks foto/video", "Langsung share jika judul menarik", "Bandingkan dengan liputan media utama"], "correct": "A,B,D", "explanation": "Kalimat ke-4 menjelaskan langkah verifikasi. C berlawanan."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 4, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-1", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["UU ITE tidak mengatur pidana penyebar hoaks.", "Gerakan #SabarSebelumShare mendorong verifikasi dulu.", "Literasi digital hanya dibutuhkan pelajar, bukan dewasa."], "correct": "S,B,S", "explanation": "(1) Kalimat ke-5: UU ITE mengancam pidana. (2) Kalimat ke-6. (3) Kalimat ke-7: \"Setiap warga digital bertanggung jawab...\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 5, "type": "PG", "materi": null, "id_wacana": "BIN-T2-2", "wacana": "Tryout 2", "gambar": null, "question": "Definisi ketahanan pangan mencakup aspek:", "options": ["Hanya cukup dan murah", "Impor bebas pajak", "Hanya produksi beras nasional", "Cukup, aman, bergizi, merata, terjangkau"], "correct": "D", "explanation": "Kalimat ke-1."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 6, "type": "PG", "materi": null, "id_wacana": "BIN-T2-2", "wacana": "Tryout 2", "gambar": null, "question": "Dampak negatif pupuk kimia berlebihan: (Pilih satu yang TIDAK termasuk)", "options": ["Mencemar air tanah", "Merusak mikroba pengurai", "Mengasamkan tanah", "Meningkatkan mikroba tanah"], "correct": "D", "explanation": "Kalimat ke-3: \"merusak mikroba tanah pengurai\" — berarti menurunkan, bukan meningkatkan."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 7, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-2", "wacana": "Tryout 2", "gambar": null, "question": "Komponen pertanian berkelanjutan: (Pilih >1)", "options": ["Pola tanam rotasi", "Pupuk organik", "Pengendalian hama terpadu (PHT)", "Monokultura terus-menerus"], "correct": "A,B,C", "explanation": "Kalimat ke-2. D berlawanan dengan berkelanjutan."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 8, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-2", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["Varietas unggul toleran kekeringan membantu adaptasi iklim.", "Food Estate hanya fokus komoditas kelapa sawit.", "Precision farming menggunakan sensor IoT dan drone."], "correct": "B,S,B", "explanation": "(1) Kalimat ke-4. (2) Kalimat ke-5: \"meningkatkan produksi beras nasional.\" (3) Kalimat terakhir."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 9, "type": "PG", "materi": null, "id_wacana": "BIN-T2-3", "wacana": "Tryout 2", "gambar": null, "question": "Manfaat e-commerce bagi UMKM:", "options": ["Membatasi pasar lokal saja", "Membutuhkan banyak perantara", "Menambah biaya sewa toko fisik", "Memperluas jangkauan pasar hingga ekspor"], "correct": "D", "explanation": "Kalimat ke-2: \"memperluas jangkauan pasar hingga ekspor tanpa perantara.\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 10, "type": "PG", "materi": null, "id_wacana": "BIN-T2-3", "wacana": "Tryout 2", "gambar": null, "question": "Program pemerintah bunga rendah untuk UMKM:", "options": ["KUR (Kredit Usaha Rakyat)", "KPR Subsidi", "BLT Dana Desa", "Bantuan Pangan Non Tunai"], "correct": "A", "explanation": "Kalimat ke-5: \"Kredit Usaha Rakyat (KUR) bunga rendah.\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 11, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-3", "wacana": "Tryout 2", "gambar": null, "question": "Jenis HKI relevan bagi pelaku ekonomi kreatif: (Pilih >1)", "options": ["Merek (brand)", "Hak cipta (karya seni, desain)", "Desain industri", "Paten tanaman"], "correct": "A,B,C", "explanation": "Kalimat ke-6: \"HKI seperti merek, hak cipta, dan desain industri.\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 12, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-3", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["UMKM digital tidak memerlukan branding karena jual online saja.", "Digital marketing dan fotografi produk naikkan daya saing.", "Kolaborasi dengan influencer menciptakan storytelling autentik."], "correct": "S,B,B", "explanation": "(1) Kalimat ke-4 menyebut pelatihan branding meningkatkan daya saing. (2) **&** (3) Kalimat ke-4 dan 7."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 13, "type": "PG", "materi": null, "id_wacana": "BIN-T2-4", "wacana": "Tryout 2", "gambar": null, "question": "FOMO kepanjangan dari:", "options": ["Fear of Missing Out", "Focus on Mobile Only", "Find Other Media Online", "Feel of Missing Opportunity"], "correct": "A", "explanation": "Kalimat ke-1: \"fear of missing out (FOMO)\"."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 14, "type": "PG", "materi": null, "id_wacana": "BIN-T2-4", "wacana": "Tryout 2", "gambar": null, "question": "Program sekolah yang terbukti menurunkan risiko depresi remaja:", "options": ["Peer counseling & social-emotional learning (SEL)", "Program full day school tanpa istirahat", "Ujian nasional berbasis komputer", "Ekstrakulikuler pramuka wajib"], "correct": "A", "explanation": "Kalimat ke-3."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 15, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-4", "wacana": "Tryout 2", "gambar": null, "question": "Peran orang tua dalam digital parenting: (Pilih >1)", "options": ["Menetapkan batas waktu layar", "Komunikasi terbuka soal dunia digital", "Memberi gadget tanpa aturan agar bebas", "Menjadi teladan perilaku sehat gadget"], "correct": "A,B,D", "explanation": "Kalimat ke-4. C berlawanan."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 16, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-4", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["Hotline kesehatan mental Kemenkes: 119 ext 8.", "Stigma \"sakit jiwa = lemah\" mendorong remaja cari bantuan.", "Cyberbullying tidak memengaruhi kesehatan mental."], "correct": "B,S,S", "explanation": "(1) Kalimat ke-5. (2) Stigma menghambat, bukan mendorong. (3) Kalimat ke-1: cyberbullying ancam kesehatan mental."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 17, "type": "PG", "materi": null, "id_wacana": "BIN-T2-5", "wacana": "Tryout 2", "gambar": null, "question": "Tanda alami tsunami yang akan datang:", "options": ["Gempa kuat >30 detik, air laut surut drastis, suara gemuruh", "Ikan banyak meloncat di permukaan", "Cuaca cerah dan angin sepoi", "Gempa lemah <10 detik"], "correct": "A", "explanation": "Kalimat ke-3."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 18, "type": "PG", "materi": null, "id_wacana": "BIN-T2-5", "wacana": "Tryout 2", "gambar": null, "question": "Waktu emas evakuasi tsunami untuk masyarakat pesisir:", "options": ["30-45 menit", "1 jam", "5-10 menit", "15-20 menit"], "correct": "D", "explanation": "Kalimat ke-4: \"dalam 15-20 menit.\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 19, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-5", "wacana": "Tryout 2", "gambar": null, "question": "Isi Disaster Preparedness Kit (tas siaga): (Pilih >1)", "options": ["Air minum & makanan kering", "Obat-obatan pribadi", "Radio HT & lampu senter", "Perlengkapan mandi lengkap"], "correct": "A,B,C", "explanation": "Kalimat ke-5. D tidak prioritas."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 20, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-5", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["Indonesia berada di Pacific Ring of Fire rawan gempa & tsunami.", "Bangunan tahan gempa diatur SNI 1726-2019.", "Evakuasi tsunami ke tempat rendah (dekat pantai) lebih aman."], "correct": "B,B,S", "explanation": "(1) **&** (2) Kalimat ke-1 **&** 2. (3) Kalimat ke-4: \"tempat tinggi (**>**10 meter).\""}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 21, "type": "PG", "materi": null, "id_wacana": "BIN-T2-6", "wacana": "Tryout 2", "gambar": null, "question": "Kriteria bahasa terancam punah menurut wacana:", "options": ["Tidak memiliki kamus", "Penutur >1 juta", "Penutur <10.000 & tidak diturunkan", "Hanya digunakan upacara adat"], "correct": "C", "explanation": "Kalimat ke-2."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 22, "type": "PG", "materi": null, "id_wacana": "BIN-T2-6", "wacana": "Tryout 2", "gambar": null, "question": "Peran Badan Bahasa dalam pelestarian:", "options": ["Inventarisasi, dokumentasi, revitalisasi (kamus, tata bahasa, buku bacaan)", "Hanya mengarsipkan tanpa aksi", "Melarang penggunaan bahasa daerah", "Mengganti bahasa daerah dengan Bahasa Indonesia"], "correct": "A", "explanation": "Kalimat ke-3."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 23, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-6", "wacana": "Tryout 2", "gambar": null, "question": "Sarana promosi bahasa daerah untuk generasi Z: (Pilih >1)", "options": ["Festival budaya", "Podcast bahasa daerah", "Media sosial (TikTok, Instagram, YouTube)", "Larangan bicara bahasa daerah di sekolah"], "correct": "A,B,C", "explanation": "Kalimat ke-5. D berlawanan."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 24, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-6", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["Indonesia memiliki 718 bahasa daerah.", "Pendidikan Muatan Lokal menghapus bahasa daerah dari kurikulum.", "UU No. 28/2014 melindungi hak pengetahuan tradisional."], "correct": "B,S,B", "explanation": "(1) Kalimat ke-1. (2) Kalimat ke-4: \"menanamkan bahasa daerah.\" (3) Kalimat ke-6."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 25, "type": "PG", "materi": null, "id_wacana": "BIN-T2-7", "wacana": "Tryout 2", "gambar": null, "question": "Contoh transportasi massal ramah lingkungan di Jakarta:", "options": ["Sepeda motor bebensin", "Mobil pribadi carpool", "MRT, LRT, KRL, BRT (Transjakarta)", "Ojol (ojek online bensin)"], "correct": "C", "explanation": "Kalimat ke-2."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 26, "type": "PG", "materi": null, "id_wacana": "BIN-T2-7", "wacana": "Tryout 2", "gambar": null, "question": "Konsep Transit-Oriented Development (TOD):", "options": ["Mengintegrasikan hunian, kantor, fasilitas publik di sekitar stasiun", "Menghentikan operasional angkutan umum", "Membangun jalan tol lingkar kota", "Memperlebar jalan untuk mobil pribadi"], "correct": "A", "explanation": "Kalimat ke-4."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 27, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-7", "wacana": "Tryout 2", "gambar": null, "question": "Keuntungan shift mode ke transportasi publik: (Pilih >1)", "options": ["Mengurangi emisi CO2", "Mengurangi biaya kemacetan nasional", "Meningkatkan kesehatan (jika kombinasikan sepeda/jalan kaki)", "Menambah kemacetan di jam sibuk"], "correct": "A,B,C", "explanation": "Kalimat ke-5, 6, 7. D berlawanan."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 28, "type": "Kategori", "materi": null, "id_wacana": "BIN-T2-7", "wacana": "Tryout 2", "gambar": null, "question": "Benar/Salah:", "options": ["Kendaraan listrik (EV) dipromosikan dengan insentif pajak & charging station.", "Biaya kemacetan nasional hanya Rp 10 triliun/tahun.", "Jalur pejalan kaki aman termasuk transportasi ramah lingkungan."], "correct": "B,S,B", "explanation": "(1) Kalimat ke-3. (2) Kalimat ke-6: \"Rp 100 triliun/tahun.\" (3) Kalimat ke-2."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 29, "type": "PG", "materi": null, "id_wacana": "BIN-T2-8", "wacana": "Tryout 2", "gambar": null, "question": "Prinsip utama wisata berkelanjutan:", "options": ["Batasi akses warga lokal ke destinasi", "Pelestarian lingkungan, pemberdayaan lokal, keberlanjutan ekonomi", "Maksimalkan keuntungan investor asing", "Bangun hotel bintang 5 di hutan lindung"], "correct": "B", "explanation": "Kalimat ke-1."}, {"paket": "Tryout 2", "subject": "Bahasa Indonesia", "number": 30, "type": "MCMA", "materi": null, "id_wacana": "BIN-T2-8", "wacana": "Tryout 2", "gambar": null, "question": "Aktivitas wisatawan di Desa Wisata berbasis komunitas: (Pilih >1)", "options": ["Belajar pertanian tradisional", "Mengikuti upacara adat", "Membuat batik/tenun bersama pengrajin", "Berlibur mewah di resort tanpa kontak lokal"], "correct": "A,B,C", "explanation": "Kalimat ke-3. D berlawanan konsep Community-Based Tourism."}];
+    
+    // State
+    let currentStep = 1;
+    let studentName = '';
+    let selectedSubject = '';
+    let selectedPaket = '';
+    let filteredQuestions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+    let timerInterval = null;
+    let timeRemaining = 30 * 60; // 30 minutes in seconds
+    let quizStarted = false;
+    
+    // DOM Elements
+    const timerDisplay = document.getElementById('timerDisplay');
+    const subjectSelect = document.getElementById('subjectSelect');
+    const paketSelect = document.getElementById('paketSelect');
+    const loginForm = document.getElementById('loginForm');
+    const navGrid = document.getElementById('navGrid');
+    const questionCard = document.getElementById('questionCard');
+    const questionNumber = document.getElementById('questionNumber');
+    const questionType = document.getElementById('questionType');
+    const wacanaBlock = document.getElementById('wacanaBlock');
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const progressText = document.getElementById('progressText');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    const quizSubject = document.getElementById('quizSubject');
+    const quizPaket = document.getElementById('quizPaket');
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuestions();
+      setupEventListeners();
+      updatePaketOptions();
+    });
+    
+    async function loadQuestions() {
+      try {
+        // Try to load from questions.json file first
+        const response = await fetch('questions.json');
+        if (response.ok) {
+          allQuestions = await response.json();
+        } else {
+          // Fallback to embedded data
+          console.log('Using embedded questions data');
+        }
+      } catch (e) {
+        console.log('Using embedded questions data');
+      }
+      
+      // If no questions loaded, use embedded (will be injected at build)
+      if (!allQuestions.length) {
+        console.warn('No questions loaded, using embedded fallback');
+      }
+      
+      updatePaketOptions();
+    }
+    
+    function setupEventListeners() {
+      loginForm.addEventListener('submit', handleLogin);
+      subjectSelect.addEventListener('change', updatePaketOptions);
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (currentStep !== 3) return;
+        if (e.key === 'ArrowLeft') navQuestion(-1);
+        if (e.key === 'ArrowRight') navQuestion(1);
+        if (e.key >= '1' && e.key <= '4') selectOptionByKey(e.key);
+      });
+      
+      // Prevent accidental page unload during quiz
+      window.addEventListener('beforeunload', (e) => {
+        if (quizStarted && currentStep === 3) {
+          e.preventDefault();
+          e.returnValue = '';
+          return '';
+        }
+      });
+    }
+    
+    function updatePaketOptions() {
+      const subject = subjectSelect.value;
+      paketSelect.innerHTML = '<option value="">-- Pilih Paket --</option>';
+      paketSelect.disabled = !subject;
+      
+      if (!subject) return;
+      
+      const pakets = [...new Set(allQuestions
+        .filter(q => q.subject === subject)
+        .map(q => q.paket)
+      )].sort();
+      
+      pakets.forEach(paket => {
+        const opt = document.createElement('option');
+        opt.value = paket;
+        opt.textContent = paket;
+        paketSelect.appendChild(opt);
+      });
+    }
+    
+    function handleLogin(e) {
+      e.preventDefault();
+      studentName = document.getElementById('studentName').value.trim();
+      selectedSubject = subjectSelect.value;
+      selectedPaket = paketSelect.value;
+      
+      if (!studentName || !selectedSubject || !selectedPaket) {
+        alert('Lengkapi semua field yang wajib diisi');
+        return;
+      }
+      
+      // Validate token if provided (optional)
+      const token = document.getElementById('tokenInput').value.trim();
+      if (token && !validateToken(token)) {
+        if (!confirm('Token tidak valid. Lanjutkan sebagai latihan bebas?')) return;
+      }
+      
+      // Show confirmation
+      document.getElementById('confirmName').textContent = studentName;
+      document.getElementById('confirmSubject').textContent = selectedSubject === 'Matematika' ? 'Matematika (Numerasi)' : 'Bahasa Indonesia (Literasi)';
+      document.getElementById('confirmPaket').textContent = selectedPaket;
+      
+      goToStep(2);
+    }
+    
+    function validateToken(token) {
+      // Valid tokens for official tryout
+      const validTokens = ['SMARTDRILL2026', 'TKA2026SD', 'SMARTDRILL-SD', 'TRYOUT2026'];
+      return validTokens.includes(token.toUpperCase().replace(/[^A-Z0-9]/g, ''));
+    }
+    
+    function startQuiz() {
+      filteredQuestions = allQuestions
+        .filter(q => q.subject === selectedSubject && q.paket === selectedPaket)
+        .sort((a, b) => a.number - b.number);
+      
+      if (filteredQuestions.length === 0) {
+        alert('Tidak ada soal untuk paket ini');
+        return;
+      }
+      
+      userAnswers = {};
+      currentQuestionIndex = 0;
+      timeRemaining = 30 * 60;
+      quizStarted = true;
+      
+      goToStep(3);
+      renderQuestion();
+      renderNavGrid();
+      startTimer();
+    }
+    
+    function goToStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
+      currentStep = step;
+    }
+    
+    function startTimer() {
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          finishQuiz();
+        }
+      }, 1000);
+    }
+    
+    function updateTimerDisplay() {
+      const m = Math.floor(timeRemaining / 60);
+      const s = timeRemaining % 60;
+      timerDisplay.textContent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+      
+      timerDisplay.classList.remove('warning', 'danger');
+      if (timeRemaining <= 60) timerDisplay.classList.add('danger');
+      else if (timeRemaining <= 300) timerDisplay.classList.add('warning');
+    }
+    
+    function renderQuestion() {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+      
+      questionNumber.textContent = `Soal ${q.number}`;
+      questionType.textContent = q.type || 'PG';
+      questionType.className = 'question-type ' + (q.type || 'PG').toLowerCase();
+      questionText.innerHTML = q.question.replace(/\n/g, '<br>');
+      
+      // Wacana
+      if (q.wacana) {
+        wacanaBlock.style.display = 'block';
+        wacanaBlock.innerHTML = q.wacana.replace(/\n/g, '<br>');
+      } else {
+        wacanaBlock.style.display = 'none';
+      }
+      
+      // Options
+      optionsContainer.innerHTML = '';
+      const opts = q.options || [];
+      const userAns = userAnswers[q.number];
+      
+      if (q.type === 'Kategori' || q.type === 'Benar/Salah') {
+        // Kategori: Benar/Salah per statement
+        opts.forEach((stmt, i) => {
+          const letter = String.fromCharCode(65 + i);
+          const div = document.createElement('div');
+          div.className = 'kategori-item';
+          div.innerHTML = `
+            <span style="font-weight: 600; min-width: 30px;">${letter}.</span>
+            <span class="kategori-statement">${stmt}</span>
+            <div class="kategori-controls">
+              <button class="kategori-btn" data-value="B" onclick="selectKategori(${q.number}, ${i}, 'B')">Benar</button>
+              <button class="kategori-btn" data-value="S" onclick="selectKategori(${q.number}, ${i}, 'S')">Salah</button>
+            </div>
+          `;
+          optionsContainer.appendChild(div);
+        });
+        // Restore user answer
+        if (userAns && Array.isArray(userAns)) {
+          userAns.forEach((val, i) => {
+            if (val) {
+              const btns = optionsContainer.querySelectorAll(`.kategori-item:nth-child(${i+1}) .kategori-btn`);
+              btns.forEach(b => b.classList.toggle('active', b.dataset.value === val));
+            }
+          });
+        }
+      } else if (q.type === 'MCMA') {
+        // Multiple choice multiple answer
+        opts.forEach((opt, i) => {
+          const letter = String.fromCharCode(65 + i);
+          const div = document.createElement('label');
+          div.className = 'option';
+          const checked = userAns && userAns.includes(letter) ? 'checked' : '';
+          div.innerHTML = `
+            <input type="checkbox" name="q${q.number}" value="${letter}" ${checked} onchange="toggleMCMA(${q.number}, '${letter}', this)">
+            <span class="option-letter">${letter}</span>
+            <span class="option-label">${opt}</span>
+          `;
+          if (checked) div.classList.add('selected');
+          optionsContainer.appendChild(div);
+        });
+      } else {
+        // Single choice PG
+        opts.forEach((opt, i) => {
+          const letter = String.fromCharCode(65 + i);
+          const div = document.createElement('label');
+          div.className = 'option';
+          const checked = userAns === letter ? 'checked' : '';
+          div.innerHTML = `
+            <input type="radio" name="q${q.number}" value="${letter}" ${checked} onchange="selectPG(${q.number}, '${letter}', this)">
+            <span class="option-letter">${letter}</span>
+            <span class="option-label">${opt}</span>
+          `;
+          if (checked) div.classList.add('selected');
+          optionsContainer.appendChild(div);
+        });
+      }
+      
+      // Update progress
+      progressText.textContent = `${currentQuestionIndex + 1} / ${filteredQuestions.length}`;
+      btnPrev.disabled = currentQuestionIndex === 0;
+      btnNext.textContent = currentQuestionIndex === filteredQuestions.length - 1 ? 'Selesai' : 'Selanjutnya';
+      btnNext.onclick = currentQuestionIndex === filteredQuestions.length - 1 ? finishQuiz : () => navQuestion(1);
+      
+      updateNavGrid();
+    }
+    
+    function selectPG(qNum, letter, input) {
+      userAnswers[qNum] = letter;
+      // Update UI
+      document.querySelectorAll(`input[name="q${qNum}"]`).forEach(inp => {
+        inp.closest('.option').classList.toggle('selected', inp.checked);
+      });
+      updateNavGrid();
+    }
+    
+    function toggleMCMA(qNum, letter, input) {
+      if (!userAnswers[qNum]) userAnswers[qNum] = [];
+      const idx = userAnswers[qNum].indexOf(letter);
+      if (input.checked) {
+        if (idx === -1) userAnswers[qNum].push(letter);
+      } else {
+        if (idx > -1) userAnswers[qNum].splice(idx, 1);
+      }
+      input.closest('.option').classList.toggle('selected', input.checked);
+      updateNavGrid();
+    }
+    
+    function selectKategori(qNum, stmtIndex, value) {
+      if (!userAnswers[qNum]) userAnswers[qNum] = new Array(3).fill(null);
+      userAnswers[qNum][stmtIndex] = value;
+      // Update UI
+      const item = optionsContainer.querySelector(`.kategori-item:nth-child(${stmtIndex+1})`);
+      item.querySelectorAll('.kategori-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.value === value);
+      });
+      updateNavGrid();
+    }
+    
+    function updateNavGrid() {
+      navGrid.innerHTML = '';
+      filteredQuestions.forEach((q, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'nav-btn';
+        btn.textContent = q.number;
+        btn.onclick = () => goToQuestion(i);
+        
+        const answered = isAnswered(q.number);
+        if (answered) btn.classList.add('answered');
+        if (i === currentQuestionIndex) btn.classList.add('current');
+        
+        navGrid.appendChild(btn);
+      });
+    }
+    
+    function isAnswered(qNum) {
+      const ans = userAnswers[qNum];
+      if (ans === undefined || ans === null) return false;
+      if (Array.isArray(ans)) return ans.some(v => v);
+      return ans !== '';
+    }
+    
+    function goToQuestion(index) {
+      if (index >= 0 && index < filteredQuestions.length) {
+        currentQuestionIndex = index;
+        renderQuestion();
+      }
+    }
+    
+    function navQuestion(dir) {
+      const newIndex = currentQuestionIndex + dir;
+      if (newIndex >= 0 && newIndex < filteredQuestions.length) {
+        goToQuestion(newIndex);
+      }
+    }
+    
+    function selectOptionByKey(key) {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+      const opts = q.options || [];
+      const idx = parseInt(key) - 1;
+      if (idx >= 0 && idx < opts.length) {
+        const letter = String.fromCharCode(65 + idx);
+        if (q.type === 'MCMA') {
+          const input = document.querySelector(`input[name="q${q.number}"][value="${letter}"]`);
+          if (input) input.click();
+        } else {
+          const input = document.querySelector(`input[name="q${q.number}"][value="${letter}"]`);
+          if (input) input.click();
+        }
+      }
+    }
+    
+    function finishQuiz() {
+      clearInterval(timerInterval);
+      quizStarted = false;
+      calculateResults();
+      goToStep(4);
+    }
+    
+    function calculateResults() {
+      let correct = 0, incorrect = 0, unanswered = 0;
+      
+      filteredQuestions.forEach(q => {
+        const userAns = userAnswers[q.number];
+        const correctAns = q.correct;
+        
+        if (!userAns || (Array.isArray(userAns) && !userAns.some(v => v))) {
+          unanswered++;
+          return;
+        }
+        
+        let isCorrect = false;
+        if (Array.isArray(userAns)) {
+          // MCMA or Kategori
+          const correctArr = String(correctAns).split(',').map(s => s.trim());
+          const userArr = userAns.filter(v => v).sort();
+          const correctSorted = correctArr.sort();
+          isCorrect = JSON.stringify(userArr) === JSON.stringify(correctSorted);
+        } else {
+          // PG
+          isCorrect = String(userAns).trim() === String(correctAns).trim();
+        }
+        
+        if (isCorrect) correct++;
+        else incorrect++;
+      });
+      
+      document.getElementById('resultScore').textContent = correct;
+      document.getElementById('statCorrect').textContent = correct;
+      document.getElementById('statIncorrect').textContent = incorrect;
+      document.getElementById('statUnanswered').textContent = unanswered;
+      document.getElementById('resultName').textContent = `${studentName} • ${selectedSubject} • ${selectedPaket}`;
+    }
+    
+    function reviewAnswers() {
+      // Future enhancement: show detailed review
+      alert('Fitur tinjau jawaban akan segera hadir. Saat ini hanya menampilkan skor.');
+    }
+    
+    function closeModal() {
+      document.getElementById('exitModal').classList.remove('active');
+    }
+    
+    function confirmExit() {
+      clearInterval(timerInterval);
+      quizStarted = false;
+      closeModal();
+      goToStep(1);
+      loginForm.reset();
+      subjectSelect.value = '';
+      updatePaketOptions();
+    }
+    
+    // Handle window close during quiz
+    window.addEventListener('beforeunload', (e) => {
+      if (quizStarted && currentStep === 3) {
+        e.preventDefault();
+        return 'Progres tryout akan hilang. Yakin ingin keluar?';
+      }
+    });
+  </script>
+</body>
+</html>
