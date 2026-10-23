@@ -297,13 +297,13 @@
 
 function renderQuestion() {
   const q = activeQuestions[currentIndex];
-  const qBox = document.getElementById('question-box');
+  const qBox = document.getElementById('question-container');
 
   let html = `<div class="mb-4 flex justify-between items-center"><span class="text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">Soal ${currentIndex + 1} dari ${activeQuestions.length} (${q.subject} - ${q.paket})</span><span class="text-xs font-bold text-slate-500">Tipe: ${q.type}</span></div>`;
   html += `<h3 class="text-lg font-bold text-slate-800 mb-6 leading-relaxed">${q.question}</h3>`;
 
-  const tipe = q.type;
-  if (tipe === 'PG') {
+  const tipe = q.tipe || q.type;
+  if (tipe === 'PG' || tipe === 'Pilihan Ganda') {
     const currentAns = userAnswers[currentIndex] || '';
     q.options.forEach((opt, i) => {
       const letter = String.fromCharCode(65 + i);
@@ -330,10 +330,9 @@ function renderQuestion() {
   }
 
   qBox.innerHTML = html;
-  updateNavGrid();
-  document.getElementById('prev-btn').style.display = currentIndex === 0 ? 'none' : 'inline-block';
-  document.getElementById('next-btn').style.display = currentIndex === activeQuestions.length - 1 ? 'none' : 'inline-block';
-  document.getElementById('submit-quiz-btn').style.display = currentIndex === activeQuestions.length - 1 ? 'inline-block' : 'none';
+  renderNavGrid();
+  document.getElementById('btn-prev').style.display = currentIndex === 0 ? 'none' : 'inline-block';
+  document.getElementById('btn-next').style.display = currentIndex === activeQuestions.length - 1 ? 'none' : 'inline-block';
 }
 function handlePG(letter) {
       userAnswers[currentIndex] = letter;
