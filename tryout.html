@@ -190,6 +190,7 @@ function goStep(n) {
 }
 
 function updatePaketOptions() {
+  // Reset selected index after populating options
   const subject = $('subjectSelect').value;
   chosenSubject = subject;
   const paketSelect = $('paketSelect');
@@ -198,7 +199,7 @@ function updatePaketOptions() {
     paketSelect.disabled = true;
     return;
   }
-  const pakets = [...new Set(allQuestions.filter(q => q.mapel === subject).map(q => q.paket))];
+  const pakets = [...new Set(allQuestions.filter(q => String(q.mapel).trim().toLowerCase() === String(subject).trim().toLowerCase()).map(q => q.paket))];
   pakets.forEach(p => {
     const opt = document.createElement('option');
     opt.value = p;
@@ -544,7 +545,7 @@ function handleViolation() {
 }
 
 $('loginForm').addEventListener('submit', handleLogin);
-$('subjectSelect').addEventListener('change', updatePaketOptions);
+$('subjectSelect').onchange = updatePaketOptions;
 
 </script>
 </body>
