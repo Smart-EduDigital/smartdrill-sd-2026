@@ -79,18 +79,33 @@
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline></svg>
     SmartDrill 2026
   </a>
-  <div class="timer" id="timerDisplay">60:00</div>
+  <div class="timer" id="timerDisplay" style="display:none">60:00</div>
 </header>
 <main>
   <!-- Step 1: Login -->
   <section class="step active" id="step1">
     <div class="card" style="max-width:440px;margin:auto">
-      <h1 style="font-size:2rem;font-weight:800;margin-bottom:1.5rem">Mulai Tryout</h1>
+      <h1 style="font-size:2rem;font-weight:800;margin-bottom:1.5rem">Masuk SmartDrill</h1>
       <form id="loginForm">
         <div class="form-group">
           <label for="studentName">Nama Siswa</label>
           <input type="text" id="studentName" required autocomplete="name" placeholder="Nama lengkap siswa">
         </div>
+        <div class="form-group">
+          <label for="studentToken">Token Akses</label>
+          <input type="text" id="studentToken" required autocomplete="off" placeholder="Masukkan token tryout">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:1rem">Lanjut</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Step 2: Pilih Mapel & Paket -->
+  <section class="step" id="step2">
+    <div class="card" style="max-width:520px;margin:auto">
+      <h1 style="font-size:2rem;font-weight:800;margin-bottom:1.5rem">Pilih Paket Ujian</h1>
+      <p style="color:var(--muted);margin-bottom:1.5rem" id="welcomeText"></p>
+      <form id="paketForm" onsubmit="startQuiz(event)">
         <div class="form-group">
           <label for="subjectSelect">Mata Pelajaran</label>
           <select id="subjectSelect" required>
@@ -105,31 +120,11 @@
             <option value="">-- Pilih Mapel Dulu --</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-top:1rem">Mulai Tryout</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Step 2: Confirmation -->
-  <section class="step" id="step2">
-    <div class="card" style="max-width:520px;margin:auto">
-      <h1 style="font-size:2rem;font-weight:800;margin-bottom:1.5rem">Konfirmasi Ujian</h1>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.5rem;margin-bottom:1.5rem">
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:.75rem 1.5rem;font-size:.95rem">
-          <span style="color:var(--muted)">Nama:</span><span id="confirmName" style="font-weight:600"></span>
-          <span style="color:var(--muted)">Mata Pelajaran:</span><span id="confirmSubject" style="font-weight:600"></span>
-          <span style="color:var(--muted)">Paket Soal:</span><span id="confirmPaket" style="font-weight:600"></span>
-          <span style="color:var(--muted)">Jumlah Soal:</span><span style="font-weight:600">30 Soal</span>
-          <span style="color:var(--muted)">Durasi Waktu:</span><span style="color:var(--accent);font-weight:600">60 Menit</span>
+        <div style="display:flex;gap:1rem;margin-top:1.5rem">
+          <button type="button" class="btn btn-secondary" style="flex:1" onclick="goStep(1)">Kembali</button>
+          <button type="submit" class="btn btn-primary" style="flex:1">Mulai Kerjakan Soal</button>
         </div>
-      </div>
-      <div style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:1rem;margin-bottom:1.5rem;font-size:0.875rem;color:var(--accent)">
-        <strong>Perhatian:</strong> Timer 60 menit akan berjalan otomatis begitu Anda menekan tombol "Mulai Sekarang". Pindah tab atau keluar halaman lebih dari 3 kali akan mendiskualifikasi ujian (Nilai NULL).
-      </div>
-      <div style="display:flex;gap:1rem">
-        <button class="btn btn-secondary" style="flex:1" onclick="goStep(1)">Kembali</button>
-        <button class="btn btn-primary" style="flex:1" onclick="startQuiz()">Mulai Sekarang</button>
-      </div>
+      </form>
     </div>
   </section>
 
@@ -186,6 +181,9 @@ const $ = id => document.getElementById(id);
 function goStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   $('step' + n).classList.add('active');
+  // hide timer on non‑quiz steps
+  const timerEl = $('timerDisplay');
+  if (n === 3) timerEl.style.display = 'block'; else timerEl.style.display = 'none';
   if (n === 3) renderQuestion();
 }
 
@@ -212,19 +210,23 @@ function updatePaketOptions() {
 function handleLogin(e) {
   e.preventDefault();
   studentName = $('studentName').value.trim();
-  chosenSubject = $('subjectSelect').value;
-  chosenPaket = $('paketSelect').value;
-  if (!studentName || !chosenSubject || !chosenPaket) {
-    alert('Mohon lengkapi Nama, Mata Pelajaran, dan Paket Soal.');
+  studentToken = $('studentToken').value.trim();
+  if (!studentName || !studentToken) {
+    alert('Mohon lengkapi Nama dan Token Akses.');
     return;
   }
-  $('confirmName').textContent = studentName;
-  $('confirmSubject').textContent = chosenSubject + (chosenSubject === 'Matematika' ? ' (Numerasi)' : ' (Literasi)');
-  $('confirmPaket').textContent = chosenPaket;
+  $('welcomeText').textContent = `Selamat datang, ${studentName}. Silakan pilih paket ujian.`;
   goStep(2);
 }
 
-function startQuiz() {
+function startQuiz(e) {
+  if (e) e.preventDefault();
+  chosenSubject = $('subjectSelect').value;
+  chosenPaket = $('paketSelect').value;
+  if (!chosenSubject || !chosenPaket) {
+    alert('Mohon pilih Mata Pelajaran dan Paket Soal.');
+    return;
+  }
   quizStarted = true;
   startTime = Date.now();
   updateTimer();
