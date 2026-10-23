@@ -219,28 +219,33 @@
     }
 
     function startQuiz() {
-      currentSubject = document.getElementById('select-subject').value;
-      currentPaket = document.getElementById('select-paket').value;
+      try {
+        currentSubject = document.getElementById('select-subject').value;
+        currentPaket = document.getElementById('select-paket').value;
 
-      activeQuestions = allQuestions.filter(q => q.subject === currentSubject && q.paket === currentPaket);
-      if (activeQuestions.length === 0) {
-        alert("Soal untuk pilihan ini tidak ditemukan.");
-        return;
+        activeQuestions = allQuestions.filter(q => q.subject === currentSubject && q.paket === currentPaket);
+        if (activeQuestions.length === 0) {
+          alert("Soal untuk pilihan ini tidak ditemukan. Subject: " + currentSubject + ", Paket: " + currentPaket);
+          return;
+        }
+
+        currentIndex = 0;
+        userAnswers = {};
+        userRagu = {};
+        timeLeft = 45 * 60;
+
+        document.getElementById('step-select').classList.add('hidden');
+        document.getElementById('step-quiz').classList.remove('hidden');
+        document.getElementById('quiz-title').innerText = currentSubject + " - " + currentPaket;
+        document.getElementById('quiz-student').innerText = "Siswa: " + studentName;
+
+        startTimer();
+        renderQuestion();
+        renderNavGrid();
+      } catch (err) {
+        alert("Error in startQuiz: " + err.message);
+        console.error(err);
       }
-
-      currentIndex = 0;
-      userAnswers = {};
-      userRagu = {};
-      timeLeft = 45 * 60;
-
-      document.getElementById('step-select').classList.add('hidden');
-      document.getElementById('step-quiz').classList.remove('hidden');
-      document.getElementById('quiz-title').innerText = currentSubject + " - " + currentPaket;
-      document.getElementById('quiz-student').innerText = "Siswa: " + studentName;
-
-      startTimer();
-      renderQuestion();
-      renderNavGrid();
     }
 
     function startTimer() {
@@ -296,43 +301,52 @@
 
 
 function renderQuestion() {
-  const q = activeQuestions[currentIndex];
-  const qBox = document.getElementById('question-container');
+  try {
+    const q = activeQuestions[currentIndex];
+    const qBox = document.getElementById('question-container');
+    if (!qBox) {
+      alert("Error: question-container element not found!");
+      return;
+    }
 
-  let html = `<div class="mb-4 flex justify-between items-center"><span class="text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">Soal ${currentIndex + 1} dari ${activeQuestions.length} (${q.subject} - ${q.paket})</span><span class="text-xs font-bold text-slate-500">Tipe: ${q.type}</span></div>`;
-  html += `<h3 class="text-lg font-bold text-slate-800 mb-6 leading-relaxed">${q.question}</h3>`;
+    let html = `<div class="mb-4 flex justify-between items-center"><span class="text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">Soal ${currentIndex + 1} dari ${activeQuestions.length} (${q.subject} - ${q.paket})</span><span class="text-xs font-bold text-slate-500">Tipe: ${q.type}</span></div>`;
+    html += `<h3 class="text-lg font-bold text-slate-800 mb-6 leading-relaxed">${q.question}</h3>`;
 
-  const tipe = q.tipe || q.type;
-  if (tipe === 'PG' || tipe === 'Pilihan Ganda') {
-    const currentAns = userAnswers[currentIndex] || '';
-    q.options.forEach((opt, i) => {
-      const letter = String.fromCharCode(65 + i);
-      const checked = currentAns === letter ? 'checked' : '';
-      html += `<label class="cbt-opsi-wrapper flex items-start p-4 mb-3 cursor-pointer"><input type="radio" name="pg_ans" value="${letter}" ${checked} onclick="handlePG('${letter}')" class="w-5 h-5 text-indigo-600 mt-0.5 mr-3"><span class="font-bold text-indigo-900 mr-2">${letter}.</span><span class="text-slate-800">${opt}</span></label>`;
-    });
-  } else if (tipe === 'MCMA') {
-    html += `<p class="text-xs text-indigo-600 font-bold mb-3">ℹ️ Pilih lebih dari satu jawaban yang benar (Centang).</p>`;
-    const currentArr = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
-    q.options.forEach((opt, i) => {
-      const letter = String.fromCharCode(65 + i);
-      const checked = currentArr.includes(letter) ? 'checked' : '';
-      html += `<label class="cbt-opsi-wrapper flex items-start p-4 mb-3 cursor-pointer"><input type="checkbox" value="${letter}" ${checked} onchange="handleMCMA('${letter}')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3"><span class="font-bold text-indigo-900 mr-2">${letter}.</span><span class="text-slate-800">${opt}</span></label>`;
-    });
-  } else if (tipe === 'Kategori') {
-    const currentObj = typeof userAnswers[currentIndex] === 'object' && userAnswers[currentIndex] !== null ? userAnswers[currentIndex] : {};
-    html += `<div class="overflow-x-auto"><table class="w-full border-collapse border border-slate-300 mb-4"><tr class="bg-slate-100 text-slate-700 text-sm"><th class="p-3 border">Pernyataan</th><th class="p-3 border w-24">Benar</th><th class="p-3 border w-24">Salah</th></tr>`;
-    q.options.forEach((opt, i) => {
-      const letter = String.fromCharCode(65 + i);
-      const val = currentObj[letter] || '';
-      html += `<tr><td class="p-3 border text-slate-800">${opt}</td><td class="p-3 border text-center bg-emerald-50"><input type="radio" name="kat_${i}" value="Benar" ${val==='Benar'?'checked':''} onchange="handleKategori('${letter}', 'Benar')" class="w-4 h-4 text-emerald-600"></td><td class="p-3 border text-center bg-rose-50"><input type="radio" name="kat_${i}" value="Salah" ${val==='Salah'?'checked':''} onchange="handleKategori('${letter}', 'Salah')" class="w-4 h-4 text-rose-600"></td></tr>`;
-    });
-    html += `</table></div>`;
+    const tipe = q.tipe || q.type;
+    if (tipe === 'PG' || tipe === 'Pilihan Ganda') {
+      const currentAns = userAnswers[currentIndex] || '';
+      q.options.forEach((opt, i) => {
+        const letter = String.fromCharCode(65 + i);
+        const checked = currentAns === letter ? 'checked' : '';
+        html += `<label class="cbt-opsi-wrapper flex items-start p-4 mb-3 cursor-pointer"><input type="radio" name="pg_ans" value="${letter}" ${checked} onclick="handlePG('${letter}')" class="w-5 h-5 text-indigo-600 mt-0.5 mr-3"><span class="font-bold text-indigo-900 mr-2">${letter}.</span><span class="text-slate-800">${opt}</span></label>`;
+      });
+    } else if (tipe === 'MCMA') {
+      html += `<p class="text-xs text-indigo-600 font-bold mb-3">ℹ️ Pilih lebih dari satu jawaban yang benar (Centang).</p>`;
+      const currentArr = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
+      q.options.forEach((opt, i) => {
+        const letter = String.fromCharCode(65 + i);
+        const checked = currentArr.includes(letter) ? 'checked' : '';
+        html += `<label class="cbt-opsi-wrapper flex items-start p-4 mb-3 cursor-pointer"><input type="checkbox" value="${letter}" ${checked} onchange="handleMCMA('${letter}')" class="w-5 h-5 text-indigo-600 rounded mt-0.5 mr-3"><span class="font-bold text-indigo-900 mr-2">${letter}.</span><span class="text-slate-800">${opt}</span></label>`;
+      });
+    } else if (tipe === 'Kategori') {
+      const currentObj = typeof userAnswers[currentIndex] === 'object' && userAnswers[currentIndex] !== null ? userAnswers[currentIndex] : {};
+      html += `<div class="overflow-x-auto"><table class="w-full border-collapse border border-slate-300 mb-4"><tr class="bg-slate-100 text-slate-700 text-sm"><th class="p-3 border">Pernyataan</th><th class="p-3 border w-24">Benar</th><th class="p-3 border w-24">Salah</th></tr>`;
+      q.options.forEach((opt, i) => {
+        const letter = String.fromCharCode(65 + i);
+        const val = currentObj[letter] || '';
+        html += `<tr><td class="p-3 border text-slate-800">${opt}</td><td class="p-3 border text-center bg-emerald-50"><input type="radio" name="kat_${i}" value="Benar" ${val==='Benar'?'checked':''} onchange="handleKategori('${letter}', 'Benar')" class="w-4 h-4 text-emerald-600"></td><td class="p-3 border text-center bg-rose-50"><input type="radio" name="kat_${i}" value="Salah" ${val==='Salah'?'checked':''} onchange="handleKategori('${letter}', 'Salah')" class="w-4 h-4 text-rose-600"></td></tr>`;
+      });
+      html += `</table></div>`;
+    }
+
+    qBox.innerHTML = html;
+    renderNavGrid();
+    document.getElementById('btn-prev').style.display = currentIndex === 0 ? 'none' : 'inline-block';
+    document.getElementById('btn-next').style.display = currentIndex === activeQuestions.length - 1 ? 'none' : 'inline-block';
+  } catch (err) {
+    alert("Error in renderQuestion: " + err.message);
+    console.error(err);
   }
-
-  qBox.innerHTML = html;
-  renderNavGrid();
-  document.getElementById('btn-prev').style.display = currentIndex === 0 ? 'none' : 'inline-block';
-  document.getElementById('btn-next').style.display = currentIndex === activeQuestions.length - 1 ? 'none' : 'inline-block';
 }
 function handlePG(letter) {
       userAnswers[currentIndex] = letter;
