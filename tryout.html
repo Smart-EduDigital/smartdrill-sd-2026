@@ -215,8 +215,8 @@ function handleLogin(e) {
     alert('Mohon lengkapi Nama dan Token Akses.');
     return;
   }
-  $('welcomeText').textContent = `Selamat datang, ${studentName}. Silakan pilih paket ujian.`;
   goStep(2);
+  $('welcomeText').textContent = `Selamat datang, ${studentName}. Silakan pilih paket ujian.`;
 }
 
 function startQuiz(e) {
