@@ -262,7 +262,7 @@
             <span style="color: var(--muted);">Jumlah Soal:</span>
             <span style="font-weight: 600;">30</span>
             <span style="color: var(--muted);">Waktu:</span>
-            <span style="font-weight: 600; color: var(--accent);">30 Menit</span>
+            <span style="font-weight: 600; color: var(--accent);">60 Menit</span>
           </div>
         </div>
         <div style="display: flex; gap: 1rem;">
@@ -377,7 +377,7 @@
     let currentQuestionIndex = 0;
     let userAnswers = {};
     let timerInterval = null;
-    let timeRemaining = 30 * 60; // 30 minutes in seconds
+    let timeRemaining = 60 * 60; // 30 minutes in seconds
     let quizStarted = false;
     
     // DOM Elements
@@ -427,6 +427,40 @@
       updatePaketOptions();
     }
     
+    
+    let violationCount = 0;
+    
+    // Anti-cheat: Tab switch / focus loss detection
+    document.addEventListener('visibilitychange', () => {
+      if (quizStarted && currentStep === 3 && document.hidden) {
+        handleViolation();
+      }
+    });
+    
+    window.addEventListener('blur', () => {
+      if (quizStarted && currentStep === 3) {
+        handleViolation();
+      }
+    });
+    
+    function handleViolation() {
+      violationCount++;
+      if (violationCount >= 3) {
+        clearInterval(timerInterval);
+        quizStarted = false;
+        alert('PERINGATAN: Anda telah 3 kali meninggalkan halaman/tab tryout! Sesuai aturan, hasil tryout Anda dinyatakan NULL (Gugur/Nol).');
+        // Set all scores to 0 / Null result
+        document.getElementById('resultScore').textContent = 'NULL (Gugur)';
+        document.getElementById('statCorrect').textContent = '0';
+        document.getElementById('statIncorrect').textContent = '0';
+        document.getElementById('statUnanswered').textContent = '30';
+        document.getElementById('resultName').textContent = ;
+        goToStep(4);
+      } else {
+        alert();
+      }
+    }
+
     function setupEventListeners() {
       loginForm.addEventListener('submit', handleLogin);
       subjectSelect.addEventListener('change', updatePaketOptions);
