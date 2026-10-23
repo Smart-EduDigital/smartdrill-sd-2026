@@ -450,11 +450,11 @@
         document.getElementById('statCorrect').textContent = '0';
         document.getElementById('statIncorrect').textContent = '0';
         document.getElementById('statUnanswered').textContent = '30';
-        document.getElementById('resultName').textContent = ;
+        document.getElementById('resultName').textContent = `${studentName} • ${selectedSubject} • ${selectedPaket} (Diskualifikasi)`;
         goToStep(4);
       } else {
-        alert();
-      }
+              alert(`PERINGATAN PELANGGARAN (${violationCount}/3)!\\nAnda terdeteksi meninggalkan halaman tryout. Jika mencapai 3 kali, nilai Anda akan menjadi NULL.`);
+            }
     }
 
     function setupEventListeners() {
@@ -543,7 +543,7 @@
       
       userAnswers = {};
       currentQuestionIndex = 0;
-      timeRemaining = 30 * 60;
+      timeRemaining = 60 * 60;
       quizStarted = true;
       
       goToStep(3);
