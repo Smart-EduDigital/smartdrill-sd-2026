@@ -406,18 +406,19 @@
     });
     
     async function loadQuestions() {
-      // If allQuestions is already populated via embedded json, great!
-      if (allQuestions && allQuestions.length > 0) {
-        updatePaketOptions();
-        return;
-      }
       try {
         const response = await fetch('questions.json');
         if (response.ok) {
-          allQuestions = await response.json();
+          const data = await response.json();
+          if (data && data.length > 0) {
+            allQuestions = data;
+          }
         }
       } catch (e) {
-        console.error('Failed to load questions.json', e);
+        console.log('Using embedded questions', e);
+      }
+      if (!allQuestions || allQuestions.length === 0) {
+        // Fallback embedded if any
       }
       updatePaketOptions();
     }
@@ -489,13 +490,14 @@
         .filter(q => q.subject === subject)
         .map(q => q.paket)
       )].sort();
-      
+    
       pakets.forEach(paket => {
         const opt = document.createElement('option');
         opt.value = paket;
         opt.textContent = paket;
         paketSelect.appendChild(opt);
       });
+      paketSelect.disabled = false;
     }
     
     function handleLogin(e) {
