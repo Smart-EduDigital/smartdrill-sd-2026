@@ -231,15 +231,18 @@
     "question": "Sebuah bak penampungan air berkapasitas 1.800 liter dalam keadaan kosong dialiri air melalui dua pipa kran sekaligus. Pipa kran A memiliki debit 25 liter/menit, sedangkan pipa kran B memiliki debit 20 liter/menit. Berapa menit waktu yang diperlukan agar bak penampungan tersebut terisi penuh?",
     "type": "Multiple Choice",
     "options": [
-      "35 menit",
-      "40 menit",
-      "45 menit",
-      "50 menit"
+      "Persegi",
+      "Jajar genjang",
+      "Belah ketupat",
+      "Trapesium"
     ],
-    "correct": "B",
+    "correct": [
+      "A",
+      "C"
+    ],
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Total debit kedua kran bersamaan = 25 liter/menit + 20 liter/menit = 45 liter/menit.\n2. Waktu pengisian hingga penuh = Volume : Debit = 1.800 : 45 = 40 menit.\nJadi, waktu yang dibutuhkan adalah 40 menit (B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "Bangun datar yang memiliki 4 sisi sama panjang adalah persegi dan belah ketupat. Jajar genjang dan trapesium tidak memiliki semua sisi sama panjang.",
+    "tipe": "Kategori"
   },
   {
     "subject": "Matematika",
@@ -292,15 +295,17 @@
     "question": "Pak Danu memiliki kebun seluas 4 1/2 hektare. Sebanyak 1 3/4 hektare ditanami kelapa sawit, 1 1/2 hektare ditanami jagung hibrida, dan sisanya ditanami aneka sayuran hortikultura. Berapa hektare luas lahan kebun yang ditanami sayuran?",
     "type": "Multiple Choice",
     "options": [
-      "1 1/4 hektare",
-      "1 1/2 hektare",
-      "1 3/8 hektare",
-      "1 3/4 hektare"
+      "Bangun ruang memiliki sisi sejajar",
+      "Setiap bangun ruang memiliki 6 sisi",
+      "Kubus memiliki 8 titik sudut"
     ],
-    "correct": "A",
+    "correct": [
+      "B",
+      "C"
+    ],
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Total lahan sawit dan jagung = 1 3/4 + 1 1/2 = 7/4 + 3/2 = 7/4 + 6/4 = 13/4 = 3 1/4 hektare.\n2. Luas lahan sayuran = 4 1/2 - 3 1/4 = 9/2 - 13/4 = 18/4 - 13/4 = 5/4 = 1 1/4 hektare.\nJadi, luas lahan yang ditanami sayuran adalah 1 1/4 hektare (A).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "1. Tidak semua bangun ruang memiliki sisi sejajar (salah). 2. Kubus memiliki 6 sisi, bukan semua bangun ruang. 3. Kubus memang memiliki 8 titik sudut (benar).",
+    "tipe": "MCMA"
   },
   {
     "subject": "Matematika",
@@ -349,15 +354,18 @@
     "question": "Pak Rahmat mengendarai mobil dari kota X ke kota Y yang berjarak 180 km dengan kecepatan rata-rata 60 km/jam. Di tengah perjalanan, beliau beristirahat di rest area selama 30 menit. Jika Pak Rahmat berangkat dari kota X pada pukul 07.45 WIB, pada pukul berapakah beliau tiba di kota Y?",
     "type": "Multiple Choice",
     "options": [
-      "10.45 WIB",
-      "11.15 WIB",
-      "11.30 WIB",
-      "11.45 WIB"
+      "1 dm³",
+      "1000 cm³",
+      "1 mL",
+      "0.001 m³"
     ],
-    "correct": "B",
+    "correct": [
+      "A",
+      "B"
+    ],
     "time": 60,
-    "explanation": "Langkah penyelesaian:\n1. Waktu tempuh murni berkendara = 180 km : 60 km/jam = 3 jam.\n2. Waktu istirahat = 30 menit.\n3. Total durasi perjalanan = 3 jam 30 menit.\n4. Waktu tiba = 07.45 + 03.30 = 11.15 WIB.\nJadi, Pak Rahmat tiba pukul 11.15 WIB (B).",
-    "tipe": "Pilihan Ganda"
+    "explanation": "1 liter setara dengan 1 dm³ dan 1000 cm³. 1 mL = 0.001 liter, 0.001 m³ = 1 liter, tetapi satuan ini biasanya tidak dipakai dalam konteks SD.",
+    "tipe": "Kategori"
   },
   {
     "subject": "Matematika",
