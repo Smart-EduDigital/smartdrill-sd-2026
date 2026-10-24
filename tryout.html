@@ -146,7 +146,7 @@
       <div class="quiz-actions">
         <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Sebelumnya</button>
         <button class="btn btn-warning" id="doubtBtn" style="width:auto;padding:.875rem 1.75rem;margin-right:.75rem" title="Tandai Ragu-ragu" onclick="toggleDoubt()">🚩 Ragu-ragu</button>
-        <button class="btn btn-primary" id="nextBtn" style="width:auto;padding:.875rem 1.75rem;" onclick="nextQuestion()">Berikutnya →</button>
+        <button class="btn btn-primary" id="collectBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
         <button class="btn btn-primary" id="submitBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;display:none;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
       </div>
     </div>
@@ -154,18 +154,20 @@
 
   <!-- Step 4: Result -->
   <section class="step" id="step4">
-    <div class="card" style="max-width:520px;margin:auto;text-align:center">
-      <h1 class="result-header" style="font-size:2rem;font-weight:800;margin-bottom:.5rem">Hasil Ujian</h1>
-      <p style="color:var(--muted);margin-bottom:1.5rem" id="resultStudentInfo"></p>
-      <div class="result-score" id="resultScore">0/30</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem">
-        <div class="stat correct"><div class="stat-value" id="statCorrect">0</div><div class="stat-label">Benar</div></div>
-        <div class="stat incorrect"><div class="stat-value" id="statIncorrect">0</div><div class="stat-label">Salah</div></div>
-        <div class="stat unanswered"><div class="stat-value" id="statUnanswered">0</div><div class="stat-label">Kosong</div></div>
+      <div class="card" style="max-width:520px;margin:auto;text-align:center">
+        <h1 class="result-header" style="font-size:2rem;font-weight:800;margin-bottom:.5rem">Hasil Ujian</h1>
+        <p style="color:var(--muted);margin-bottom:1.5rem" id="resultStudentInfo"></p>
+        <div class="result-score" id="resultScore">0/30</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem">
+          <div class="stat correct"><div class="stat-value" id="statCorrect">0</div><div class="stat-label">Benar</div></div>
+          <div class="stat incorrect"><div class="stat-value" id="statIncorrect">0</div><div class="stat-label">Salah</div></div>
+          <div class="stat unanswered"><div class="stat-value" id="statUnanswered">0</div><div class="stat-label">Kosong</div></div>
+        </div>
+        <button class="btn btn-secondary" id="showKeyBtn" onclick="toggleKey()" style="margin-top:1rem;width:auto;padding:.75rem 1.5rem;">Lihat Kunci & Pembahasan</button>
+        <div id="answerKey" style="display:none;margin-top:2rem;text-align:left;max-height:500px;overflow:auto;"></div>
+        <button class="btn btn-primary" onclick="goStep(1)" style="margin-top:1.5rem;width:auto;padding:.875rem 1.75rem;">Keluar / Uji Lagi</button>
       </div>
-      <button class="btn btn-primary" onclick="goStep(1)">Keluar / Uji Lagi</button>
-    </div>
-  </section>
+    </section>
 </main>
 <footer>© 2026 SmartDrill. Platform Tryout TKA Sekolah Dasar.</footer>
 
@@ -524,8 +526,25 @@ function toggleDoubt() {
   renderQuestion();
 }
 
+function toggleKey() {
+  const keyDiv = $('#answerKey');
+  if (keyDiv.style.display === 'none' || !keyDiv.innerHTML) {
+    const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
+    let html = '<h3>Kunci Jawaban & Pembahasan</h3><ol style="text-align:left;">';
+    qList.forEach((q, idx) => {
+      const kunci = q.kunci ? (Array.isArray(q.kunci) ? q.kunci.join(', ') : q.kunci) : 'Tidak ada';
+      const pembahasan = q.pembahasan ? q.pembahasan : '';
+      html += `<li><strong>No ${q.no}:</strong> ${kunci}<br/>${pembahasan}</li>`;
+    });
+    html += '</ol>';
+    keyDiv.innerHTML = html;
+    keyDiv.style.display = 'block';
+  } else {
+    keyDiv.style.display = 'none';
+  }
+}
+  
 function calculateResult() {
-  const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
   let correct = 0;
   let incorrect = 0;
   let unanswered = 0;
