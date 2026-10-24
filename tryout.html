@@ -319,8 +319,18 @@ function renderQuestion() {
   if (q.tipe === 'Kategori') typeBadge.style.color = 'var(--accent)';
 
   header.appendChild(num);
-  header.appendChild(typeBadge);
-  card.appendChild(header);
+    header.appendChild(typeBadge);
+
+    // Header submit button per question (top-right)
+    const hdrBtn = document.createElement('button');
+    hdrBtn.className = 'btn btn-primary';
+    hdrBtn.textContent = 'Kumpulkan Jawaban';
+    hdrBtn.style.cssText = 'margin-left:auto;padding:.5rem 1rem;font-size:.875rem;background:var(--success);color:#fff;display:none;';
+    hdrBtn.onclick = finishQuiz;
+    hdrBtn.id = 'hdrSubmitBtn';
+    header.appendChild(hdrBtn);
+
+    card.appendChild(header);
 
   if (q.id_wacana && q.wacana_teks) {
     const wacanaBlock = document.createElement('div');
