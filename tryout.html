@@ -447,8 +447,7 @@ function updateNav(current, total) {
     btn.textContent = i + 1;
     if (i === current) btn.classList.add('current');
     
-    const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-') && answers[k]) || 
-                        Object.keys(answers).some(k => k.startsWith('cat-' + i + '-'));
+    const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-'));
     const isDoubt = !!answers[`doubt_${i}`];
 
     if (isDoubt) {
