@@ -156,20 +156,32 @@
 
   <!-- Step 4: Result -->
   <section class="step" id="step4">
-      <div class="card" style="max-width:520px;margin:auto;text-align:center">
-        <h1 class="result-header" style="font-size:2rem;font-weight:800;margin-bottom:.5rem">Hasil Ujian</h1>
-        <p style="color:var(--muted);margin-bottom:1.5rem" id="resultStudentInfo"></p>
-        <div class="result-score" id="resultScore">0/30</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem">
+    <div class="card" style="max-width:860px;margin:auto;">
+      <div style="text-align:center;margin-bottom:2rem;">
+        <h1 class="result-header" style="font-size:2.2rem;font-weight:800;margin-bottom:.5rem">Hasil Ujian & Pembahasan</h1>
+        <p style="color:var(--muted);font-size:1.05rem;margin-bottom:1.5rem" id="resultStudentInfo"></p>
+        <div class="result-score" id="resultScore" style="font-size:4.5rem;line-height:1;margin-bottom:.5rem;">0</div>
+        <div style="font-weight:600;font-size:1.15rem;color:var(--accent);margin-bottom:1.5rem" id="resultSummaryText">0 / 30 Soal Benar</div>
+        
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:480px;margin:0 auto 2rem;">
           <div class="stat correct"><div class="stat-value" id="statCorrect">0</div><div class="stat-label">Benar</div></div>
           <div class="stat incorrect"><div class="stat-value" id="statIncorrect">0</div><div class="stat-label">Salah</div></div>
           <div class="stat unanswered"><div class="stat-value" id="statUnanswered">0</div><div class="stat-label">Kosong</div></div>
         </div>
-        <button class="btn btn-secondary" id="showKeyBtn" onclick="toggleKey()" style="margin-top:1rem;width:auto;padding:.75rem 1.5rem;">Lihat Kunci & Pembahasan</button>
-        <div id="answerKey" style="display:none;margin-top:2rem;text-align:left;max-height:500px;overflow:auto;"></div>
-        <button class="btn btn-primary" onclick="goStep(1)" style="margin-top:1.5rem;width:auto;padding:.875rem 1.75rem;">Keluar / Uji Lagi</button>
+
+        <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="resetAndRestart()" style="width:auto;padding:.875rem 2rem;">🔄 Uji Lagi / Pilih Paket</button>
+          <button class="btn btn-secondary" onclick="window.print()" style="width:auto;padding:.875rem 2rem;">🖨️ Cetak Hasil</button>
+        </div>
       </div>
-    </section>
+
+      <div id="answerKey" style="display:block;margin-top:2rem;"></div>
+
+      <div style="text-align:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+        <button class="btn btn-primary" onclick="resetAndRestart()" style="width:auto;padding:.875rem 2.5rem;">🔄 Kembali ke Menu Utama</button>
+      </div>
+    </div>
+  </section>
 </main>
 <footer>© 2026 SmartDrill. Platform Tryout TKA Sekolah Dasar.</footer>
 
@@ -244,30 +256,6 @@ function startQuiz(e) {
   answers.currentIndex = 0;
   goStep(3);
   renderQuestion();
-  // ensure next/prev button handlers active after first render
-  $('#prevBtn').onclick = () => {
-    if (answers.currentIndex > 0) {
-      answers.currentIndex--;
-      renderQuestion();
-    }
-  };
-  $('#doubtBtn').onclick = () => {
-    const qIdx = answers.currentIndex;
-    const key = `doubt_${qIdx}`;
-    answers[key] = !answers[key];
-    renderQuestion();
-  };
-  $('#nextBtn').onclick = () => {
-    const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
-    if (answers.currentIndex < qList.length - 1) {
-      answers.currentIndex++;
-      renderQuestion();
-    } else {
-      if (confirm('Apakah Anda yakin ingin mengumpulkan ujian sekarang?')) {
-        finishQuiz();
-      }
-    }
-  };
 }
 
 function updateTimer() {
@@ -325,13 +313,11 @@ function renderQuestion() {
     leftDiv.appendChild(typeBadge);
     header.appendChild(leftDiv);
 
-    // Kumpulkan Test button on the top-right of the question header, same style as typeBadge / active throughout
+    // Kumpulkan Test button on the top-right of the question header, same size feel as typeBadge, active throughout
     const testBtn = document.createElement('button');
     testBtn.id = 'collectTestBtn';
-    testBtn.className = 'btn btn-primary';
     testBtn.textContent = 'Kumpulkan Test';
-    // compact size, right-aligned, always visible
-    testBtn.style.cssText = 'margin-left:auto;padding:.6rem .10rem;font-size:.80rem;background:var(--success);color:#fff;border-radius:4px;cursor:pointer;border:none;white-space:nowrap;';
+    testBtn.style.cssText = 'font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.25rem .65rem;border-radius:4px;background:var(--success);color:#fff;border:1px solid var(--success);cursor:pointer;white-space:nowrap;margin-left:auto;';
     testBtn.onclick = finishQuiz;
     header.appendChild(testBtn);
 
@@ -369,23 +355,23 @@ function renderQuestion() {
       btns.className = 'kategori-btns';
 
       const btnB = document.createElement('button');
-            btnB.textContent = 'Benar';
-            const keyB = `cat-${idx}-${sIdx}`;
-            if (answers[keyB] === true) btnB.classList.add('active');
-            btnB.onclick = () => {
-              answers[keyB] = true;
-              answers[`locked_${idx}`] = true;
-              renderQuestion();
-            };
+      btnB.textContent = 'Benar';
+      const keyB = `cat-${idx}-${sIdx}`;
+      if (answers[keyB] === true) btnB.classList.add('active');
+      btnB.onclick = () => {
+        answers[keyB] = true;
+        delete answers[`doubt_${idx}`];
+        renderQuestion();
+      };
 
-            const btnS = document.createElement('button');
-            btnS.textContent = 'Salah';
-            if (answers[keyB] === false) btnS.classList.add('active');
-            btnS.onclick = () => {
-              answers[keyB] = false;
-              answers[`locked_${idx}`] = true;
-              renderQuestion();
-            };
+      const btnS = document.createElement('button');
+      btnS.textContent = 'Salah';
+      if (answers[keyB] === false) btnS.classList.add('active');
+      btnS.onclick = () => {
+        answers[keyB] = false;
+        delete answers[`doubt_${idx}`];
+        renderQuestion();
+      };
 
       btns.appendChild(btnB);
       btns.appendChild(btnS);
@@ -433,33 +419,25 @@ function renderQuestion() {
   $('#progressText').textContent = `Soal ${idx + 1} dari ${qList.length}`;
   $('#prevBtn').disabled = idx === 0;
   
-    const nextBtn = $('#nextBtn'); // keep for compatibility but hide
-      const submitBtn = $('#submitBtn');
-      const lanBtn = $('#lanjutBtn');
-      const finBtn = $('#finishBtn');
-      const headerBtn = $('#headerSubmitBtn');
-      if (idx === qList.length - 1) {
-        // last question: show finish, hide next/lanjut
-        lanBtn.style.display = 'none';
-        finBtn.style.display = 'inline-block';
-        nextBtn.style.display = 'none';
-        submitBtn.style.display = 'none';
-        headerBtn.style.display = 'inline-block';
-      } else {
-        // not last: show lanjut, hide finish
-        lanBtn.style.display = 'inline-block';
-        finBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-        submitBtn.style.display = 'none';
-        headerBtn.style.display = 'none';
-      }
+  const lanBtn = $('#lanjutBtn');
+  const finBtn = $('#finishBtn');
+  if (lanBtn && finBtn) {
+    if (idx === qList.length - 1) {
+      lanBtn.style.display = 'none';
+      finBtn.style.display = 'inline-block';
+    } else {
+      lanBtn.style.display = 'inline-block';
+      finBtn.style.display = 'none';
+    }
   }
+}
 
 function isOptionSelected(qIdx, optIdx) {
   return !!answers[`${qIdx}-${optIdx}`];
 }
 
 function toggleOption(qIdx, optIdx, multi) {
+  delete answers[`doubt_${qIdx}`];
   if (multi) {
     const key = `${qIdx}-${optIdx}`;
     answers[key] = !answers[key];
@@ -498,30 +476,14 @@ function updateNav(current, total) {
   }
 }
 
-$('#prevBtn').onclick = () => {
-  if (answers.currentIndex > 0) {
-    answers.currentIndex--;
-    renderQuestion();
-  }
-};
-
-$('#nextBtn').onclick = () => {
-  const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
-  if (answers.currentIndex < qList.length - 1) {
-    answers.currentIndex++;
-    renderQuestion();
-  } else {
-    if (confirm('Apakah Anda yakin ingin mengumpulkan ujian sekarang?')) {
-      finishQuiz();
-    }
-  }
-};
-
-function finishQuiz() {
-  quizStarted = false;
-  if (timerId) clearInterval(timerId);
-  calculateResult();
-  goStep(4);
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function prevQuestion() {
@@ -537,7 +499,7 @@ function nextQuestion() {
     answers.currentIndex++;
     renderQuestion();
   } else {
-    if (confirm('Apakah Anda yakin ingin mengumpulkan ujian sekarang?')) {
+    if (confirm('Apakah Anda yakin ingin mengumpulkan ujian dan melihat hasil serta pembahasan sekarang?')) {
       finishQuiz();
     }
   }
@@ -550,56 +512,102 @@ function toggleDoubt() {
   renderQuestion();
 }
 
-function toggleKey() {
-  const keyDiv = $('#answerKey');
-  if (keyDiv.style.display === 'none' || !keyDiv.innerHTML) {
-    const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
-    let html = '<h3>Kunci Jawaban & Pembahasan</h3><ol style="text-align:left;">';
-    qList.forEach((q, idx) => {
-      const kunci = q.kunci ? (Array.isArray(q.kunci) ? q.kunci.join(', ') : q.kunci) : 'Tidak ada';
-      const pembahasan = q.pembahasan ? q.pembahasan : '';
-      html += `<li><strong>No ${q.no}:</strong> ${kunci}<br/>${pembahasan}</li>`;
-    });
-    html += '</ol>';
-    keyDiv.innerHTML = html;
-    keyDiv.style.display = 'block';
-  } else {
-    keyDiv.style.display = 'none';
-  }
+function finishQuiz() {
+  quizStarted = false;
+  if (timerId) clearInterval(timerId);
+  calculateResult();
+  goStep(4);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-  
+
 function calculateResult() {
+  const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
   let correct = 0;
   let incorrect = 0;
   let unanswered = 0;
 
+  const reviewList = [];
+
   qList.forEach((q, idx) => {
+    let status = 'unanswered';
+    let userAnsText = '-';
+    let kunciText = '';
+
     if (q.tipe === 'Kategori') {
-      const stList = q.opsi_A ? [q.opsi_A, q.opsi_B, q.opsi_C, q.opsi_D].filter(Boolean) : [];
-      const statements = q.statements || stList.map(s => [s, true]);
-      let answeredAll = true;
-      let allCorrect = true;
+      const stList = [q.opsi_A, q.opsi_B, q.opsi_C, q.opsi_D].filter(Boolean);
+      const kunciParts = (q.kunci || '').split(',').map(s => s.trim().toUpperCase());
+      kunciText = kunciParts.map((k, i) => `${i + 1}. ${k === 'B' || k === 'BENAR' ? 'Benar' : 'Salah'}`).join('; ');
+
+      let userParts = [];
       let anyAnswered = false;
+      let allAnswered = true;
+      let allCorrect = true;
 
-      statements.forEach((st, sIdx) => {
+      stList.forEach((st, sIdx) => {
         const key = `cat-${idx}-${sIdx}`;
-        const userAns = answers[key];
-        if (userAns !== undefined) anyAnswered = true;
-        else answeredAll = false;
+        const u = answers[key];
+        const correctBool = (kunciParts[sIdx] === 'B' || kunciParts[sIdx] === 'BENAR');
 
-        const correctAns = Array.isArray(st) ? st[1] : true;
-        if (userAns !== correctAns) allCorrect = false;
+        if (u === true) {
+          anyAnswered = true;
+          userParts.push(`${sIdx + 1}. Benar`);
+          if (!correctBool) allCorrect = false;
+        } else if (u === false) {
+          anyAnswered = true;
+          userParts.push(`${sIdx + 1}. Salah`);
+          if (correctBool) allCorrect = false;
+        } else {
+          allAnswered = false;
+          userParts.push(`${sIdx + 1}. Kosong`);
+          allCorrect = false;
+        }
       });
 
+      userAnsText = userParts.join('; ');
+
       if (!anyAnswered) {
+        status = 'unanswered';
         unanswered++;
-      } else if (allCorrect) {
+      } else if (allAnswered && allCorrect) {
+        status = 'correct';
         correct++;
       } else {
+        status = 'incorrect';
         incorrect++;
       }
+
+    } else if (q.tipe === 'MCMA') {
+      const selectedOpts = [];
+      for (let i = 0; i < 4; i++) {
+        if (answers[`${idx}-${i}`]) {
+          selectedOpts.push(String.fromCharCode(65 + i));
+        }
+      }
+      selectedOpts.sort();
+
+      const kunciArr = Array.isArray(q.kunci) 
+        ? q.kunci.map(s => String(s).trim().toUpperCase()).sort()
+        : String(q.kunci || '').split(',').map(s => s.trim().toUpperCase()).filter(Boolean).sort();
+
+      userAnsText = selectedOpts.length > 0 ? selectedOpts.join(', ') : 'Tidak dijawab';
+      kunciText = kunciArr.join(', ');
+
+      if (selectedOpts.length === 0) {
+        status = 'unanswered';
+        unanswered++;
+      } else {
+        const isMatch = selectedOpts.length === kunciArr.length && selectedOpts.every((v, i) => v === kunciArr[i]);
+        if (isMatch) {
+          status = 'correct';
+          correct++;
+        } else {
+          status = 'incorrect';
+          incorrect++;
+        }
+      }
+
     } else {
-      const keyPrefix = `${idx}-`;
+      // PG
       const selectedOpts = [];
       for (let i = 0; i < 4; i++) {
         if (answers[`${idx}-${i}`]) {
@@ -607,24 +615,166 @@ function calculateResult() {
         }
       }
 
+      const kunciStr = String(q.kunci || '').trim().toUpperCase();
+      kunciText = kunciStr;
+
       if (selectedOpts.length === 0) {
+        userAnsText = 'Tidak dijawab';
+        status = 'unanswered';
         unanswered++;
       } else {
-        const kunciArr = Array.isArray(q.kunci) ? q.kunci : q.kunci.split(',').map(s => s.trim());
-        selectedOpts.sort();
-        kunciArr.sort();
-        const isMatch = selectedOpts.length === kunciArr.length && selectedOpts.every((val, i) => val === kunciArr[i]);
-        if (isMatch) correct++;
-        else incorrect++;
+        const userChoice = selectedOpts[0];
+        userAnsText = userChoice;
+        if (userChoice === kunciStr) {
+          status = 'correct';
+          correct++;
+        } else {
+          status = 'incorrect';
+          incorrect++;
+        }
       }
     }
+
+    reviewList.push({
+      no: q.no,
+      tipe: q.tipe,
+      materi: q.materi,
+      pertanyaan: q.pertanyaan,
+      bacaan: q.bacaan || q.wacana_teks,
+      wacana_judul: q.wacana_judul,
+      gambar: q.gambar,
+      opsi_A: q.opsi_A,
+      opsi_B: q.opsi_B,
+      opsi_C: q.opsi_C,
+      opsi_D: q.opsi_D,
+      userAnsText,
+      kunciText,
+      status,
+      pembahasan: q.pembahasan || 'Tidak ada pembahasan.'
+    });
   });
 
-  $('resultStudentInfo').textContent = `${studentName} — ${chosenSubject} (${chosenPaket})`;
-  $('resultScore').textContent = `${correct}/${qList.length}`;
+  const total = qList.length;
+  const score100 = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+  $('resultStudentInfo').textContent = `${studentName || 'Siswa'} • ${chosenSubject} • ${chosenPaket}`;
+  $('resultScore').textContent = `${score100}`;
+  $('resultSummaryText').textContent = `Benar ${correct} dari ${total} Soal (Nilai Akhir: ${score100} / 100)`;
   $('statCorrect').textContent = correct;
   $('statIncorrect').textContent = incorrect;
   $('statUnanswered').textContent = unanswered;
+
+  renderDiscussionList(reviewList);
+}
+
+function renderDiscussionList(list) {
+  const container = $('answerKey');
+  if (!container) return;
+  container.style.display = 'block';
+
+  let html = `
+    <div style="margin-top:2rem;text-align:left;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;border-bottom:2px solid var(--border);padding-bottom:1rem;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--fg);margin:0;">📝 Pembahasan & Kunci Jawaban Lengkap</h2>
+        <button class="btn btn-secondary" onclick="window.print()" style="padding:.5rem 1rem;font-size:.85rem;width:auto;">🖨️ Cetak / Simpan PDF</button>
+      </div>
+  `;
+
+  list.forEach((item) => {
+    let badgeColor = 'var(--muted)';
+    let badgeBg = 'rgba(255,255,255,0.05)';
+    let badgeText = '⚠️ Tidak Dijawab';
+    let borderColor = 'var(--border)';
+
+    if (item.status === 'correct') {
+      badgeColor = '#10b981';
+      badgeBg = 'rgba(16,185,129,0.12)';
+      badgeText = '✅ Benar';
+      borderColor = 'rgba(16,185,129,0.3)';
+    } else if (item.status === 'incorrect') {
+      badgeColor = '#ef4444';
+      badgeBg = 'rgba(239,68,68,0.12)';
+      badgeText = '❌ Salah';
+      borderColor = 'rgba(239,68,68,0.3)';
+    }
+
+    const tipeName = item.tipe === 'MCMA' 
+      ? 'Pilihan Ganda Kompleks' 
+      : (item.tipe === 'Kategori' ? 'Pernyataan Benar / Salah' : 'Pilihan Ganda');
+
+    html += `
+      <div class="review-card" style="margin-bottom:1.5rem;padding:1.25rem;background:rgba(255,255,255,0.02);border:1px solid ${borderColor};border-radius:var(--radius-md);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem;">
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            <strong style="color:var(--accent);font-size:1.05rem;">Soal No. ${item.no}</strong>
+            <span style="font-size:.75rem;padding:.2rem .5rem;border-radius:4px;background:var(--bg);color:var(--muted);border:1px solid var(--border);">${tipeName}</span>
+          </div>
+          <span style="font-size:.8rem;font-weight:700;padding:.25rem .75rem;border-radius:20px;color:${badgeColor};background:${badgeBg};border:1px solid ${badgeColor};">${badgeText}</span>
+        </div>
+    `;
+
+    if (item.bacaan) {
+      html += `
+        <div style="margin-bottom:1rem;padding:1rem;background:rgba(255,255,255,0.03);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.9rem;line-height:1.6;color:var(--fg);">
+          <strong style="color:var(--accent);display:block;margin-bottom:.35rem;">📖 ${item.wacana_judul || 'Wacana'}</strong>
+          <div style="white-space:pre-wrap;max-height:220px;overflow-y:auto;">${escapeHtml(item.bacaan)}</div>
+        </div>
+      `;
+    }
+
+    html += `
+        <div style="font-size:1rem;font-weight:500;line-height:1.5;margin-bottom:1rem;color:var(--fg);">${escapeHtml(item.pertanyaan)}</div>
+    `;
+
+    // Options
+    if (item.tipe === 'Kategori') {
+      const opts = [item.opsi_A, item.opsi_B, item.opsi_C, item.opsi_D].filter(Boolean);
+      html += `<div style="margin-bottom:1rem;font-size:.9rem;background:rgba(0,0,0,0.15);padding:.75rem;border-radius:var(--radius-sm);">
+        <strong style="color:var(--muted);display:block;margin-bottom:.35rem;">Pernyataan:</strong>
+        <ol style="margin:0;padding-left:1.25rem;line-height:1.6;">
+          ${opts.map(o => `<li>${escapeHtml(o)}</li>`).join('')}
+        </ol>
+      </div>`;
+    } else {
+      const opts = [
+        item.opsi_A ? `A. ${item.opsi_A}` : null,
+        item.opsi_B ? `B. ${item.opsi_B}` : null,
+        item.opsi_C ? `C. ${item.opsi_C}` : null,
+        item.opsi_D ? `D. ${item.opsi_D}` : null
+      ].filter(Boolean);
+      html += `<div style="margin-bottom:1rem;font-size:.9rem;display:grid;gap:.35rem;">
+        ${opts.map(o => `<div style="padding:.4rem .6rem;background:rgba(255,255,255,0.02);border-radius:4px;color:var(--fg);">${escapeHtml(o)}</div>`).join('')}
+      </div>`;
+    }
+
+    // User answer vs Key
+    html += `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem;font-size:.9rem;background:rgba(0,0,0,0.25);padding:.75rem 1rem;border-radius:var(--radius-sm);">
+          <div><span style="color:var(--muted);">Jawaban Anda:</span> <strong style="color:${badgeColor};margin-left:.25rem;">${escapeHtml(item.userAnsText)}</strong></div>
+          <div><span style="color:var(--muted);">Kunci Jawaban:</span> <strong style="color:#10b981;margin-left:.25rem;">${escapeHtml(item.kunciText)}</strong></div>
+        </div>
+    `;
+
+    // Pembahasan block
+    html += `
+        <div style="background:rgba(212,168,67,0.08);border-left:3px solid var(--accent);padding:1rem;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.9rem;line-height:1.6;">
+          <strong style="color:var(--accent);display:block;margin-bottom:.35rem;">💡 Pembahasan Lengkap:</strong>
+          <div style="white-space:pre-wrap;color:var(--fg);">${escapeHtml(item.pembahasan)}</div>
+        </div>
+      </div>
+    `;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function resetAndRestart() {
+  answers = {};
+  quizStarted = false;
+  if (timerId) clearInterval(timerId);
+  violationCount = 0;
+  goStep(2);
 }
 
 document.addEventListener('visibilitychange', () => {
