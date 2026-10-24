@@ -54,8 +54,9 @@
     .nav-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:var(--transition);font-family:'JetBrains Mono',monospace}
     .nav-btn:hover{border-color:var(--accent);color:var(--accent)}
     .nav-btn.answered{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+    .nav-btn.doubt{background:rgba(212,168,67,0.2);border-color:var(--warning);color:var(--warning)}
     .nav-btn.current{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-dim)}
-    .nav-btn.answered.current{background:var(--accent);color:#0a1a14}
+    .nav-btn.answered.current{background:var(--accent);color:#0b1220}
     .quiz-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:1rem;border-top:1px solid var(--border);width:100%}
     .quiz-actions{display:flex;gap:1rem}
     .result-header{text-align:center;margin-bottom:1.5rem}
@@ -141,8 +142,9 @@
     <div class="quiz-footer">
       <div class="nav-grid" id="navGrid"></div>
       <div class="quiz-actions">
-        <button class="btn btn-secondary" id="prevBtn">← Sebelumnya</button>
-        <button class="btn btn-primary" id="nextBtn" style="width:auto;padding:.875rem 1.75rem;">Berikutnya →</button>
+        <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Sebelumnya</button>
+        <button class="btn btn-warning" id="doubtBtn" style="width:auto;padding:.875rem 1.75rem;margin-right:.75rem" title="Tandai Ragu-ragu" onclick="toggleDoubt()">🚩 Ragu-ragu</button>
+        <button class="btn btn-primary" id="nextBtn" style="width:auto;padding:.875rem 1.75rem;" onclick="nextQuestion()">Berikutnya →</button>
       </div>
     </div>
   </section>
@@ -241,6 +243,12 @@ function startQuiz(e) {
       answers.currentIndex--;
       renderQuestion();
     }
+  };
+  $('#doubtBtn').onclick = () => {
+    const qIdx = answers.currentIndex;
+    const key = `doubt_${qIdx}`;
+    answers[key] = !answers[key];
+    renderQuestion();
   };
   $('#nextBtn').onclick = () => {
     const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
@@ -439,7 +447,13 @@ function updateNav(current, total) {
     
     const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-') && answers[k]) || 
                         Object.keys(answers).some(k => k.startsWith('cat-' + i + '-'));
-    if (hasAnswered) btn.classList.add('answered');
+    const isDoubt = !!answers[`doubt_${i}`];
+
+    if (isDoubt) {
+      btn.classList.add('doubt');
+    } else if (hasAnswered) {
+      btn.classList.add('answered');
+    }
 
     btn.onclick = () => {
       answers.currentIndex = i;
@@ -473,6 +487,32 @@ function finishQuiz() {
   if (timerId) clearInterval(timerId);
   calculateResult();
   goStep(4);
+}
+
+function prevQuestion() {
+  if (answers.currentIndex > 0) {
+    answers.currentIndex--;
+    renderQuestion();
+  }
+}
+
+function nextQuestion() {
+  const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
+  if (answers.currentIndex < qList.length - 1) {
+    answers.currentIndex++;
+    renderQuestion();
+  } else {
+    if (confirm('Apakah Anda yakin ingin mengumpulkan ujian sekarang?')) {
+      finishQuiz();
+    }
+  }
+}
+
+function toggleDoubt() {
+  const idx = answers.currentIndex;
+  const key = `doubt_${idx}`;
+  answers[key] = !answers[key];
+  renderQuestion();
 }
 
 function calculateResult() {
