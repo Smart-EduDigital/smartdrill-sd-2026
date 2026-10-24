@@ -82,7 +82,10 @@
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline></svg>
     SmartDrill 2026
   </a>
-  <div class="timer" id="timerDisplay" style="display:none">60:00</div>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="btn btn-primary" id="headerSubmitBtn" style="display:none;padding:.5rem 1rem;font-size:.875rem;background:var(--success);color:#fff;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
+    <div class="timer" id="timerDisplay" style="display:none">60:00</div>
+  </div>
 </header>
 <main>
   <!-- Step 1: Login -->
@@ -418,18 +421,21 @@ function renderQuestion() {
       const submitBtn = $('#submitBtn');
       const lanBtn = $('#lanjutBtn');
       const finBtn = $('#finishBtn');
+      const headerBtn = $('#headerSubmitBtn');
       if (idx === qList.length - 1) {
         // last question: show finish, hide next/lanjut
         lanBtn.style.display = 'none';
         finBtn.style.display = 'inline-block';
         nextBtn.style.display = 'none';
         submitBtn.style.display = 'none';
+        headerBtn.style.display = 'inline-block';
       } else {
         // not last: show lanjut, hide finish
         lanBtn.style.display = 'inline-block';
         finBtn.style.display = 'none';
         nextBtn.style.display = 'none';
         submitBtn.style.display = 'none';
+        headerBtn.style.display = 'none';
       }
   }
 
