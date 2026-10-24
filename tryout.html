@@ -235,6 +235,24 @@ function startQuiz(e) {
   answers.currentIndex = 0;
   goStep(3);
   renderQuestion();
+  // ensure next/prev button handlers active after first render
+  $('#prevBtn').onclick = () => {
+    if (answers.currentIndex > 0) {
+      answers.currentIndex--;
+      renderQuestion();
+    }
+  };
+  $('#nextBtn').onclick = () => {
+    const qList = allQuestions.filter(q => q.mapel === chosenSubject && q.paket === chosenPaket);
+    if (answers.currentIndex < qList.length - 1) {
+      answers.currentIndex++;
+      renderQuestion();
+    } else {
+      if (confirm('Apakah Anda yakin ingin mengumpulkan ujian sekarang?')) {
+        finishQuiz();
+      }
+    }
+  };
 }
 
 function updateTimer() {
