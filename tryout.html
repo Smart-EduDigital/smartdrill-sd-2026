@@ -83,7 +83,6 @@
     SmartDrill 2026
   </a>
   <div style="display:flex;align-items:center;gap:1rem;">
-    <button class="btn btn-primary" id="headerSubmitBtn" style="display:none;padding:.5rem 1rem;font-size:.875rem;background:var(--success);color:#fff;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
     <div class="timer" id="timerDisplay" style="display:none">60:00</div>
   </div>
 </header>
@@ -307,28 +306,34 @@ function renderQuestion() {
   card.innerHTML = '';
 
   const header = document.createElement('div');
-  header.className = 'question-header';
-  const num = document.createElement('span');
-  num.className = 'question-number';
-  num.textContent = `Soal No. ${idx + 1} dari ${qList.length}`;
+    header.className = 'question-header';
+    header.style.display = 'flex';
+    header.style.justifyContent = 'space-between';
+    header.style.alignItems = 'center';
   
-  const typeBadge = document.createElement('span');
-  typeBadge.className = 'question-type';
-  typeBadge.textContent = q.tipe === 'MCMA' ? 'Pilihan Ganda Kompleks (Pilih >1)' : (q.tipe === 'Kategori' ? 'Pernyataan Benar / Salah' : 'Pilihan Ganda');
-  if (q.tipe === 'MCMA') typeBadge.style.color = 'var(--warning)';
-  if (q.tipe === 'Kategori') typeBadge.style.color = 'var(--accent)';
+    const leftDiv = document.createElement('div');
+    const num = document.createElement('span');
+    num.className = 'question-number';
+    num.textContent = `Soal No. ${idx + 1} dari ${qList.length}`;
+  
+    const typeBadge = document.createElement('span');
+    typeBadge.className = 'question-type';
+    typeBadge.style.marginLeft = '1rem';
+    typeBadge.textContent = q.tipe === 'MCMA' ? 'Pilihan Ganda Kompleks (Pilih >1)' : (q.tipe === 'Kategori' ? 'Pernyataan Benar / Salah' : 'Pilihan Ganda');
+    if (q.tipe === 'MCMA') typeBadge.style.color = 'var(--warning)';
+    if (q.tipe === 'Kategori') typeBadge.style.color = 'var(--accent)';
 
-  header.appendChild(num);
-    header.appendChild(typeBadge);
+    leftDiv.appendChild(num);
+    leftDiv.appendChild(typeBadge);
+    header.appendChild(leftDiv);
 
-    // Header submit button per question (top-right)
-    const hdrBtn = document.createElement('button');
-    hdrBtn.className = 'btn btn-primary';
-    hdrBtn.textContent = 'Kumpulkan Jawaban';
-    hdrBtn.style.cssText = 'margin-left:auto;padding:.5rem 1rem;font-size:.875rem;background:var(--success);color:#fff;display:none;';
-    hdrBtn.onclick = finishQuiz;
-    hdrBtn.id = 'hdrSubmitBtn';
-    header.appendChild(hdrBtn);
+    // Kumpulkan Test button on the top-right of the question header, same style as typeBadge / active throughout
+    const testBtn = document.createElement('button');
+    testBtn.className = 'btn btn-primary';
+    testBtn.textContent = 'Kumpulkan Test';
+    testBtn.style.cssText = 'padding:.5rem 1rem;font-size:.85rem;background:var(--success);color:#fff;border-radius:6px;cursor:pointer;border:none;';
+    testBtn.onclick = finishQuiz;
+    header.appendChild(testBtn);
 
     card.appendChild(header);
 
