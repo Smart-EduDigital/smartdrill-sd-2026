@@ -148,8 +148,8 @@
         <button class="btn btn-warning" id="doubtBtn" style="width:auto;padding:.875rem 1.75rem;margin-right:.75rem" title="Tandai Ragu-ragu" onclick="toggleDoubt()">🚩 Ragu-ragu</button>
         <br>
         <button class="btn btn-primary" id="submitAllBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="finishQuiz()">Kumpulkan Semua Jawaban</button>
-        <button class="btn btn-primary" id="collectBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
-        <button class="btn btn-primary" id="submitBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;display:none;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
+        <button class="btn btn-primary" id="lanjutBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="nextQuestion()">Lanjutkan</button>
+        <button class="btn btn-primary" id="finishBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;display:none;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
       </div>
     </div>
   </section>
@@ -414,23 +414,23 @@ function renderQuestion() {
   $('#progressText').textContent = `Soal ${idx + 1} dari ${qList.length}`;
   $('#prevBtn').disabled = idx === 0;
   
-  const nextBtn = $('#nextBtn');
-    const submitBtn = $('#submitBtn');
-    if (idx === qList.length - 1) {
-      nextBtn.textContent = 'Kumpulkan Ujian';
-      nextBtn.className = 'btn btn-primary';
-      nextBtn.style.background = 'var(--success)';
-      nextBtn.style.color = '#fff';
-      submitBtn.style.display = 'none';
-    } else {
-      nextBtn.textContent = 'Berikutnya →';
-      nextBtn.className = 'btn btn-primary';
-      nextBtn.style.background = '';
-      nextBtn.style.color = '';
-      submitBtn.style.display = 'inline-block';
-      submitBtn.style.background = 'var(--success)';
-      submitBtn.style.color = '#fff';
-    }
+    const nextBtn = $('#nextBtn'); // keep for compatibility but hide
+      const submitBtn = $('#submitBtn');
+      const lanBtn = $('#lanjutBtn');
+      const finBtn = $('#finishBtn');
+      if (idx === qList.length - 1) {
+        // last question: show finish, hide next/lanjut
+        lanBtn.style.display = 'none';
+        finBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'none';
+      } else {
+        // not last: show lanjut, hide finish
+        lanBtn.style.display = 'inline-block';
+        finBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'none';
+      }
   }
 
 function isOptionSelected(qIdx, optIdx) {
