@@ -345,21 +345,23 @@ function renderQuestion() {
       btns.className = 'kategori-btns';
 
       const btnB = document.createElement('button');
-      btnB.textContent = 'Benar';
-      const keyB = `cat-${idx}-${sIdx}`;
-      if (answers[keyB] === true) btnB.classList.add('active');
-      btnB.onclick = () => {
-        answers[keyB] = true;
-        renderQuestion();
-      };
+            btnB.textContent = 'Benar';
+            const keyB = `cat-${idx}-${sIdx}`;
+            if (answers[keyB] === true) btnB.classList.add('active');
+            btnB.onclick = () => {
+              answers[keyB] = true;
+              answers[`locked_${idx}`] = true;
+              renderQuestion();
+            };
 
-      const btnS = document.createElement('button');
-      btnS.textContent = 'Salah';
-      if (answers[keyB] === false) btnS.classList.add('active');
-      btnS.onclick = () => {
-        answers[keyB] = false;
-        renderQuestion();
-      };
+            const btnS = document.createElement('button');
+            btnS.textContent = 'Salah';
+            if (answers[keyB] === false) btnS.classList.add('active');
+            btnS.onclick = () => {
+              answers[keyB] = false;
+              answers[`locked_${idx}`] = true;
+              renderQuestion();
+            };
 
       btns.appendChild(btnB);
       btns.appendChild(btnS);
@@ -426,6 +428,8 @@ function isOptionSelected(qIdx, optIdx) {
 }
 
 function toggleOption(qIdx, optIdx, multi) {
+  // Prevent changes after answer locked
+  if (answers[`locked_${qIdx}`]) return;
   if (multi) {
     const key = `${qIdx}-${optIdx}`;
     answers[key] = !answers[key];
@@ -435,6 +439,8 @@ function toggleOption(qIdx, optIdx, multi) {
     }
     answers[`${qIdx}-${optIdx}`] = true;
   }
+  // lock answer after selection
+  answers[`locked_${qIdx}`] = true;
   renderQuestion();
 }
 
@@ -447,7 +453,7 @@ function updateNav(current, total) {
     btn.textContent = i + 1;
     if (i === current) btn.classList.add('current');
     
-    const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-'));
+    const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-') || k === `locked_${i}`) || Object.keys(answers).some(k => k.startsWith('cat-' + i + '-'));
     const isDoubt = !!answers[`doubt_${i}`];
 
     if (isDoubt) {
