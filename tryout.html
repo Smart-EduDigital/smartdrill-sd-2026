@@ -95,7 +95,7 @@
           <label for="studentToken">Token Akses</label>
           <input type="text" id="studentToken" required autocomplete="off" placeholder="Masukkan token tryout">
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-top:1rem">Lanjut</button>
+        <button type="button" class="btn btn-primary" style="margin-top:1rem" onclick="handleLogin()">Lanjut</button>
       </form>
     </div>
   </section>
@@ -207,8 +207,7 @@ function updatePaketOptions() {
   paketSelect.disabled = false;
 }
 
-function handleLogin(e) {
-  e.preventDefault();
+function handleLogin() {
   studentName = $('studentName').value.trim();
   studentToken = $('studentToken').value.trim();
   if (!studentName || !studentToken) {
