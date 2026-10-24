@@ -146,12 +146,10 @@
     <div class="quiz-footer">
       <div class="nav-grid" id="navGrid"></div>
       <div class="quiz-actions">
-        <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Sebelumnya</button>
-        <button class="btn btn-warning" id="doubtBtn" style="width:auto;padding:.875rem 1.75rem;margin-right:.75rem" title="Tandai Ragu-ragu" onclick="toggleDoubt()">🚩 Ragu-ragu</button>
-        <br>
-        <button class="btn btn-primary" id="submitAllBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="finishQuiz()">Kumpulkan Semua Jawaban</button>
-        <button class="btn btn-primary" id="lanjutBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="nextQuestion()">Lanjutkan</button>
-        <button class="btn btn-primary" id="finishBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;display:none;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
+          <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Sebelumnya</button>
+          <button class="btn btn-warning" id="doubtBtn" style="width:auto;padding:.875rem 1.75rem;margin-right:.75rem" title="Tandai Ragu-ragu" onclick="toggleDoubt()">🚩 Ragu-ragu</button>
+          <button class="btn btn-primary" id="lanjutBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;" onclick="nextQuestion()">Lanjutkan</button>
+          <button class="btn btn-primary" id="finishBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;display:none;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
       </div>
     </div>
   </section>
@@ -329,11 +327,14 @@ function renderQuestion() {
 
     // Kumpulkan Test button on the top-right of the question header, same style as typeBadge / active throughout
     const testBtn = document.createElement('button');
+    testBtn.id = 'collectTestBtn';
     testBtn.className = 'btn btn-primary';
     testBtn.textContent = 'Kumpulkan Test';
-    testBtn.style.cssText = 'padding:.5rem 1rem;font-size:.85rem;background:var(--success);color:#fff;border-radius:6px;cursor:pointer;border:none;';
+    // compact size, right-aligned, always visible
+    testBtn.style.cssText = 'margin-left:auto;padding:.4rem .8rem;font-size:.85rem;background:var(--success);color:#fff;border-radius:4px;cursor:pointer;border:none;white-space:nowrap;';
     testBtn.onclick = finishQuiz;
     header.appendChild(testBtn);
+
 
     card.appendChild(header);
 
