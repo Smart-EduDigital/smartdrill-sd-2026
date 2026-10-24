@@ -108,7 +108,7 @@
       <form id="paketForm" onsubmit="startQuiz(event)">
         <div class="form-group">
           <label for="subjectSelect">Mata Pelajaran</label>
-          <select id="subjectSelect" required>
+          <select id="subjectSelect" required onchange="updatePaketOptions()">
             <option value="">-- Pilih Mata Pelajaran --</option>
             <option value="Matematika">Matematika (Numerasi)</option>
             <option value="Bahasa Indonesia">Bahasa Indonesia (Literasi)</option>
