@@ -147,6 +147,7 @@
         <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Sebelumnya</button>
         <button class="btn btn-warning" id="doubtBtn" style="width:auto;padding:.875rem 1.75rem;margin-right:.75rem" title="Tandai Ragu-ragu" onclick="toggleDoubt()">🚩 Ragu-ragu</button>
         <button class="btn btn-primary" id="nextBtn" style="width:auto;padding:.875rem 1.75rem;" onclick="nextQuestion()">Berikutnya →</button>
+        <button class="btn btn-primary" id="submitBtn" style="width:auto;padding:.875rem 1.75rem;margin-left:.5rem;display:none;" onclick="finishQuiz()">Kumpulkan Jawaban</button>
       </div>
     </div>
   </section>
@@ -410,18 +411,23 @@ function renderQuestion() {
   $('#prevBtn').disabled = idx === 0;
   
   const nextBtn = $('#nextBtn');
-  if (idx === qList.length - 1) {
-    nextBtn.textContent = 'Kumpulkan Ujian';
-    nextBtn.className = 'btn btn-primary';
-    nextBtn.style.background = 'var(--success)';
-    nextBtn.style.color = '#fff';
-  } else {
-    nextBtn.textContent = 'Berikutnya →';
-    nextBtn.className = 'btn btn-primary';
-    nextBtn.style.background = '';
-    nextBtn.style.color = '';
+    const submitBtn = $('#submitBtn');
+    if (idx === qList.length - 1) {
+      nextBtn.textContent = 'Kumpulkan Ujian';
+      nextBtn.className = 'btn btn-primary';
+      nextBtn.style.background = 'var(--success)';
+      nextBtn.style.color = '#fff';
+      submitBtn.style.display = 'none';
+    } else {
+      nextBtn.textContent = 'Berikutnya →';
+      nextBtn.className = 'btn btn-primary';
+      nextBtn.style.background = '';
+      nextBtn.style.color = '';
+      submitBtn.style.display = 'inline-block';
+      submitBtn.style.background = 'var(--success)';
+      submitBtn.style.color = '#fff';
+    }
   }
-}
 
 function isOptionSelected(qIdx, optIdx) {
   return !!answers[`${qIdx}-${optIdx}`];
