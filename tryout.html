@@ -428,8 +428,6 @@ function isOptionSelected(qIdx, optIdx) {
 }
 
 function toggleOption(qIdx, optIdx, multi) {
-  // Prevent changes after answer locked
-  if (answers[`locked_${qIdx}`]) return;
   if (multi) {
     const key = `${qIdx}-${optIdx}`;
     answers[key] = !answers[key];
@@ -439,8 +437,6 @@ function toggleOption(qIdx, optIdx, multi) {
     }
     answers[`${qIdx}-${optIdx}`] = true;
   }
-  // lock answer after selection
-  answers[`locked_${qIdx}`] = true;
   renderQuestion();
 }
 
@@ -453,7 +449,7 @@ function updateNav(current, total) {
     btn.textContent = i + 1;
     if (i === current) btn.classList.add('current');
     
-    const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-') || k === `locked_${i}`) || Object.keys(answers).some(k => k.startsWith('cat-' + i + '-'));
+    const hasAnswered = Object.keys(answers).some(k => k.startsWith(i + '-')) || Object.keys(answers).some(k => k.startsWith('cat-' + i + '-'));
     const isDoubt = !!answers[`doubt_${i}`];
 
     if (isDoubt) {
